@@ -1,0 +1,11 @@
+2024-12-22 21:57:09,526 - root - INFO - Loaded cached camera devices:
+2024-12-22 21:57:09,526 - root - INFO - Name: C3461325908060, IP: 172.20.160.51
+2024-12-22 21:57:09,526 - root - INFO - Name: C3461326043977, IP: 172.29.177.51
+2024-12-22 21:57:09,527 - root - INFO - Formatting SD cards on all cameras...
+2024-12-22 21:57:09,534 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:80
+2024-12-22 21:57:09,535 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-22 21:57:09,659 - urllib3.connectionpool - DEBUG - http://172.20.160.51:80 "GET /gp/gpControl/command/storage/delete/all HTTP/11" 200 3
+2024-12-22 21:57:09,665 - root - INFO - SD card formatted successfully for camera 172.20.160.51
+2024-12-22 21:57:09,933 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /gp/gpControl/command/storage/delete/all HTTP/11" 200 3
+2024-12-22 21:57:09,934 - root - INFO - SD card formatted successfully for camera 172.29.177.51
+2024-12-22 21:57:09,935 - root - INFO - All SD cards formatted successfully

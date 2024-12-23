@@ -1,0 +1,3 @@
+2024-12-23 01:27:58,041 - app_init - INFO - Application initialized successfully
+2024-12-23 01:27:58,041 - app_init - INFO - Application initialized successfully
+2024-12-23 01:27:58,120 - copy_manager - ERROR - Error loading config: 'charmap' codec can't decode byte 0x81 in position 91: character maps to <undefined>

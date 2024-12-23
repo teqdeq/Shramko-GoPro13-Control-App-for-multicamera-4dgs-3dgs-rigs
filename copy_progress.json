@@ -1,0 +1,115 @@
+{
+  "session_path": "C:\\tmp",
+  "total_files": 9,
+  "copied_files": 8,
+  "failed_files": 0,
+  "total_size": 463962098,
+  "copied_size": 463962098,
+  "scenes": [
+    {
+      "id": "scene_000",
+      "name": "Scene_20241222_002220",
+      "files": [
+        {
+          "name": "GX010069.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010069.MP4",
+          "size": 22062033,
+          "created_at": 1734823340.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 94.42582195394232
+        },
+        {
+          "name": "GX010070.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010070.MP4",
+          "size": 20944019,
+          "created_at": 1734823345.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 90.78311092059265
+        },
+        {
+          "name": "GX010071.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010071.MP4",
+          "size": 22139708,
+          "created_at": 1734823380.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 91.80045193007965
+        },
+        {
+          "name": "GX010072.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010072.MP4",
+          "size": 34370302,
+          "created_at": 1734823388.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 89.64166797254211
+        },
+        {
+          "name": "GX010073.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010073.MP4",
+          "size": 34384973,
+          "created_at": 1734823393.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 99.13316494388407
+        },
+        {
+          "name": "GX010074.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010074.MP4",
+          "size": 34381970,
+          "created_at": 1734823399.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 97.23570813423432
+        }
+      ]
+    },
+    {
+      "id": "scene_001",
+      "name": "Scene_20241222_004002",
+      "files": [
+        {
+          "name": "GX010075.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010075.MP4",
+          "size": 37876991,
+          "created_at": 1734824402.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 96.91464667824327
+        }
+      ]
+    },
+    {
+      "id": "scene_002",
+      "name": "Scene_20241222_020110",
+      "files": [
+        {
+          "name": "GX010076.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010076.MP4",
+          "size": 211783077,
+          "created_at": 1734829270.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 98.71800663279625
+        }
+      ]
+    },
+    {
+      "id": "scene_003",
+      "name": "Scene_20241222_031118",
+      "files": [
+        {
+          "name": "GX010077.MP4",
+          "path": "http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010077.MP4",
+          "size": 46019025,
+          "created_at": 1734833478.0,
+          "camera_id": "C3461325908060",
+          "status": "completed",
+          "progress": 94.00884090873286
+        }
+      ]
+    }
+  ]
+}

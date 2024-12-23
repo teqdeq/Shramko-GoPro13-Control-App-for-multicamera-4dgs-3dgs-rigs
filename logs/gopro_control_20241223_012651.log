@@ -1,0 +1,5 @@
+2024-12-23 01:26:57,430 - __main__ - INFO - Found 2 GoPro devices
+2024-12-23 01:26:57,597 - __main__ - INFO - Saved last mode: photo
+2024-12-23 01:26:58,382 - __main__ - ERROR - Failed to verify photo mode for camera C3461325908060._gopro-web._tcp.local.. Current mode: None
+2024-12-23 01:26:58,394 - __main__ - ERROR - Failed to verify photo mode for camera C3461326043977._gopro-web._tcp.local.. Current mode: None
+2024-12-23 01:26:58,397 - __main__ - ERROR - Failed to set photo mode for some cameras

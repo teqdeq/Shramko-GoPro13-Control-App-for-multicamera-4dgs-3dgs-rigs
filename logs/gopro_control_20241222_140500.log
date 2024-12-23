@@ -1,0 +1,10 @@
+2024-12-22 14:05:00,874 - app_init - INFO - Application initialized successfully
+2024-12-22 14:05:00,946 - gui - ERROR - Failed to start application: 'GoProControlApp' object has no attribute 'toolbar'
+Traceback (most recent call last):
+  File "c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\Gopro_Gui_interfase_Pyqt5.py", line 616, in main
+    window = GoProControlApp()
+             ^^^^^^^^^^^^^^^^^
+  File "c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\Gopro_Gui_interfase_Pyqt5.py", line 160, in __init__
+    self.toolbar.addWidget(self.preset_manager_btn)
+    ^^^^^^^^^^^^
+AttributeError: 'GoProControlApp' object has no attribute 'toolbar'

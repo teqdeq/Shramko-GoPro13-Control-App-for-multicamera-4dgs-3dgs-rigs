@@ -1,0 +1,6 @@
+2024-12-17 15:49:04,771 - root - INFO - Loaded cached camera devices:
+2024-12-17 15:49:04,771 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 15:49:04,771 - root - INFO - Stopping recording on all cameras...
+2024-12-17 15:49:04,775 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 15:49:07,009 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 15:49:07,010 - root - INFO - Recording stopped successfully on camera 172.28.185.51.

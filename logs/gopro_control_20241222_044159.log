@@ -1,0 +1,42 @@
+2024-12-22 04:41:59,353 - goprolist_usb_activate_time_sync_record - INFO - Searching for GoPro cameras...
+2024-12-22 04:41:59,557 - goprolist_usb_activate_time_sync_record - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 04:42:04,361 - goprolist_usb_activate_time_sync_record - INFO - Found the following GoPro devices:
+2024-12-22 04:42:04,362 - goprolist_usb_activate_time_sync_record - INFO - Name: C3461325908060, IP: 172.20.160.51
+2024-12-22 04:42:04,367 - goprolist_usb_activate_time_sync_record - INFO - Successfully saved 1 devices to cache
+2024-12-22 04:42:04,372 - goprolist_usb_activate_time_sync_record - INFO - Created backup cache file
+2024-12-22 04:42:04,373 - goprolist_usb_activate_time_sync_record - INFO - Enabling USB control on all cameras...
+2024-12-22 04:42:04,376 - goprolist_usb_activate_time_sync_record - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-22 04:42:04,450 - goprolist_usb_activate_time_sync_record - INFO - USB control disabled on camera 172.20.160.51.
+2024-12-22 04:42:06,507 - goprolist_usb_activate_time_sync_record - INFO - USB control enabled on camera 172.20.160.51.
+2024-12-22 04:42:06,509 - goprolist_usb_activate_time_sync_record - INFO - Synchronizing time on all cameras...
+2024-12-22 04:42:11,627 - goprolist_usb_activate_time_sync_record - INFO - Time synchronization completed successfully
+2024-12-22 04:42:12,630 - goprolist_usb_activate_time_sync_record - INFO - Starting recording on all cameras...
+2024-12-22 04:42:12,954 - goprolist_usb_activate_time_sync_record - INFO - Recording started successfully on camera 172.20.160.51.
+2024-12-22 04:43:51,577 - goprolist_usb_activate_time_sync_record - INFO - Searching for GoPro cameras...
+2024-12-22 04:43:51,723 - goprolist_usb_activate_time_sync_record - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 04:43:56,584 - goprolist_usb_activate_time_sync_record - INFO - Found the following GoPro devices:
+2024-12-22 04:43:56,585 - goprolist_usb_activate_time_sync_record - INFO - Name: C3461325908060, IP: 172.20.160.51
+2024-12-22 04:43:56,591 - goprolist_usb_activate_time_sync_record - INFO - Successfully saved 1 devices to cache
+2024-12-22 04:43:56,595 - goprolist_usb_activate_time_sync_record - INFO - Created backup cache file
+2024-12-22 04:43:56,596 - goprolist_usb_activate_time_sync_record - INFO - Enabling USB control on all cameras...
+2024-12-22 04:43:56,599 - goprolist_usb_activate_time_sync_record - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-22 04:43:56,671 - goprolist_usb_activate_time_sync_record - INFO - USB control disabled on camera 172.20.160.51.
+2024-12-22 04:43:58,731 - goprolist_usb_activate_time_sync_record - INFO - USB control enabled on camera 172.20.160.51.
+2024-12-22 04:43:58,732 - goprolist_usb_activate_time_sync_record - INFO - Synchronizing time on all cameras...
+2024-12-22 04:44:03,837 - goprolist_usb_activate_time_sync_record - INFO - Time synchronization completed successfully
+2024-12-22 04:44:04,838 - goprolist_usb_activate_time_sync_record - INFO - Starting recording on all cameras...
+2024-12-22 04:44:05,185 - goprolist_usb_activate_time_sync_record - INFO - Recording started successfully on camera 172.20.160.51.
+2024-12-22 04:44:18,116 - goprolist_usb_activate_time_sync_record - INFO - Searching for GoPro cameras...
+2024-12-22 04:44:18,269 - goprolist_usb_activate_time_sync_record - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 04:44:23,124 - goprolist_usb_activate_time_sync_record - INFO - Found the following GoPro devices:
+2024-12-22 04:44:23,126 - goprolist_usb_activate_time_sync_record - INFO - Name: C3461325908060, IP: 172.20.160.51
+2024-12-22 04:44:23,132 - goprolist_usb_activate_time_sync_record - INFO - Successfully saved 1 devices to cache
+2024-12-22 04:44:23,136 - goprolist_usb_activate_time_sync_record - INFO - Created backup cache file
+2024-12-22 04:44:23,138 - goprolist_usb_activate_time_sync_record - INFO - Enabling USB control on all cameras...
+2024-12-22 04:44:23,141 - goprolist_usb_activate_time_sync_record - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-22 04:44:23,205 - goprolist_usb_activate_time_sync_record - INFO - USB control disabled on camera 172.20.160.51.
+2024-12-22 04:44:25,273 - goprolist_usb_activate_time_sync_record - INFO - USB control enabled on camera 172.20.160.51.
+2024-12-22 04:44:25,274 - goprolist_usb_activate_time_sync_record - INFO - Synchronizing time on all cameras...
+2024-12-22 04:44:30,379 - goprolist_usb_activate_time_sync_record - INFO - Time synchronization completed successfully
+2024-12-22 04:44:31,381 - goprolist_usb_activate_time_sync_record - INFO - Starting recording on all cameras...
+2024-12-22 04:44:31,709 - goprolist_usb_activate_time_sync_record - INFO - Recording started successfully on camera 172.20.160.51.

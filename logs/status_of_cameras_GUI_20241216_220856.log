@@ -1,0 +1,20 @@
+2024-12-16 22:08:56,371 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-16 22:08:56,373 - root - INFO - Searching for GoPro cameras...
+2024-12-16 22:08:56,486 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-16 22:09:01,377 - root - INFO - Found the following GoPro devices:
+2024-12-16 22:09:01,386 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-16 22:09:01,390 - root - INFO - Successfully saved 1 devices to cache
+2024-12-16 22:09:01,390 - root - INFO - Resetting and enabling USB control on all cameras...
+2024-12-16 22:09:01,393 - root - INFO - Resetting USB control on camera 172.28.185.51.
+2024-12-16 22:09:01,403 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 22:09:01,460 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-16 22:09:01,462 - root - INFO - USB control disabled on camera 172.28.185.51.
+2024-12-16 22:09:03,465 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 22:09:03,520 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-16 22:09:03,521 - root - INFO - USB control enabled on camera 172.28.185.51.
+2024-12-16 22:09:03,521 - root - INFO - Synchronizing time on all cameras...
+2024-12-16 22:09:03,522 - root - INFO - Synchronizing time on all cameras...
+2024-12-16 22:09:04,523 - root - INFO - Starting recording on all cameras...
+2024-12-16 22:09:04,526 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 22:09:04,840 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-16 22:09:04,842 - root - INFO - Recording started successfully on camera 172.28.185.51.

@@ -1,0 +1,18 @@
+2024-12-21 20:12:17,338 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-21 20:12:17,341 - root - INFO - Searching for GoPro cameras...
+2024-12-21 20:12:17,528 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-21 20:12:17,570 - root - INFO - Discovered GoPro: C3461326029723._gopro-web._tcp.local. at 172.27.123.51
+2024-12-21 20:12:22,347 - root - INFO - Found the following GoPro devices:
+2024-12-21 20:12:22,347 - root - INFO - Name: C3461326043977._gopro-web._tcp.local., IP: 172.29.177.51
+2024-12-21 20:12:22,350 - root - INFO - Name: C3461326029723._gopro-web._tcp.local., IP: 172.27.123.51
+2024-12-21 20:12:22,351 - root - INFO - Using data directory: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data
+2024-12-21 20:12:22,352 - root - INFO - Camera devices cached successfully.
+2024-12-21 20:12:22,352 - root - INFO - Starting synchronized recording on all cameras...
+2024-12-21 20:12:22,353 - root - INFO - Camera 172.29.177.51 waiting for synchronized start
+2024-12-21 20:12:22,353 - root - INFO - Camera 172.27.123.51 waiting for synchronized start
+2024-12-21 20:12:22,358 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 20:12:22,359 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 20:12:22,695 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 20:12:22,695 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 20:12:22,696 - root - INFO - Camera 172.29.177.51 started at 1734808342.354146, response at 1734808342.696588
+2024-12-21 20:12:22,697 - root - INFO - Camera 172.27.123.51 started at 1734808342.353133, response at 1734808342.697595

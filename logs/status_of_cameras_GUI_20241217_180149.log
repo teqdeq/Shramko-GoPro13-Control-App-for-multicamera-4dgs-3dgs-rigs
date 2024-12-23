@@ -1,0 +1,76 @@
+2024-12-17 18:01:49,651 - root - DEBUG - Starting GoPro Control Interface
+2024-12-17 18:02:08,410 - copy_to_pc_and_scene_sorting - INFO - ==================================================
+2024-12-17 18:02:08,414 - copy_to_pc_and_scene_sorting - INFO - Starting new copy operation
+2024-12-17 18:02:08,417 - copy_to_pc_and_scene_sorting - INFO - ==================================================
+2024-12-17 18:02:08,420 - copy_to_pc_and_scene_sorting - INFO - Destination directory is writable: C:\tmp
+2024-12-17 18:02:08,421 - copy_to_pc_and_scene_sorting - INFO - Starting discovery of connected cameras...
+2024-12-17 18:02:08,438 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 18:02:08,445 - root - INFO - Searching for GoPro cameras...
+2024-12-17 18:02:08,568 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 18:02:08,591 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 18:02:13,456 - copy_to_pc_and_scene_sorting - INFO - Discovered devices: ['C3461326143885._gopro-web._tcp.local.', 'C3461350386740._gopro-web._tcp.local.']
+2024-12-17 18:02:13,465 - copy_to_pc_and_scene_sorting - INFO - Destination root folder: C:\tmp
+2024-12-17 18:02:13,467 - copy_to_pc_and_scene_sorting - INFO - Requesting media list from camera C3461326143885 (172.28.185.51)
+2024-12-17 18:02:13,485 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 18:02:13,557 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/media/list HTTP/11" 200 466
+2024-12-17 18:02:13,558 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010565.MP4 from camera C3461326143885
+2024-12-17 18:02:13,559 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010566.MP4 from camera C3461326143885
+2024-12-17 18:02:13,560 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010567.MP4 from camera C3461326143885
+2024-12-17 18:02:13,560 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010568.MP4 from camera C3461326143885
+2024-12-17 18:02:13,560 - copy_to_pc_and_scene_sorting - INFO - Requesting media list from camera C3461350386740 (172.27.140.51)
+2024-12-17 18:02:13,562 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 18:02:13,648 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/media/list HTTP/11" 200 400
+2024-12-17 18:02:13,650 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010222.MP4 from camera C3461350386740
+2024-12-17 18:02:13,653 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010223.MP4 from camera C3461350386740
+2024-12-17 18:02:13,655 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010224.MP4 from camera C3461350386740
+2024-12-17 18:02:13,657 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010225.MP4 from camera C3461350386740
+2024-12-17 18:02:13,658 - copy_to_pc_and_scene_sorting - INFO - Sorted files into 4 scenes
+2024-12-17 18:02:13,662 - copy_to_pc_and_scene_sorting - INFO - Scene 1 contains 2 files:
+2024-12-17 18:02:13,663 - copy_to_pc_and_scene_sorting - INFO -   - C3461326143885: GX010565.MP4 (2024-12-17 18:54:14)
+2024-12-17 18:02:13,664 - copy_to_pc_and_scene_sorting - INFO -   - C3461350386740: GX010222.MP4 (2024-12-17 18:54:14)
+2024-12-17 18:02:13,665 - copy_to_pc_and_scene_sorting - INFO - Scene 2 contains 2 files:
+2024-12-17 18:02:13,669 - copy_to_pc_and_scene_sorting - INFO -   - C3461326143885: GX010566.MP4 (2024-12-17 18:54:29)
+2024-12-17 18:02:13,671 - copy_to_pc_and_scene_sorting - INFO -   - C3461350386740: GX010223.MP4 (2024-12-17 18:54:29)
+2024-12-17 18:02:13,672 - copy_to_pc_and_scene_sorting - INFO - Scene 3 contains 2 files:
+2024-12-17 18:02:13,674 - copy_to_pc_and_scene_sorting - INFO -   - C3461326143885: GX010567.MP4 (2024-12-17 18:55:15)
+2024-12-17 18:02:13,675 - copy_to_pc_and_scene_sorting - INFO -   - C3461350386740: GX010224.MP4 (2024-12-17 18:55:15)
+2024-12-17 18:02:13,687 - copy_to_pc_and_scene_sorting - INFO - Scene 4 contains 2 files:
+2024-12-17 18:02:13,688 - copy_to_pc_and_scene_sorting - INFO -   - C3461326143885: GX010568.MP4 (2024-12-17 18:56:02)
+2024-12-17 18:02:13,689 - copy_to_pc_and_scene_sorting - INFO -   - C3461350386740: GX010225.MP4 (2024-12-17 18:56:02)
+2024-12-17 18:02:13,690 - copy_to_pc_and_scene_sorting - INFO - Processing scene 1: scene01_2024_12_17_18_54_14
+2024-12-17 18:02:13,692 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326143885_GX010565.MP4 from camera C3461326143885
+2024-12-17 18:02:13,694 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 18:02:13,721 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /videos/DCIM/100GOPRO/GX010565.MP4 HTTP/11" 200 66397146
+2024-12-17 18:02:15,665 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461326143885_GX010565.MP4
+2024-12-17 18:02:15,667 - copy_to_pc_and_scene_sorting - INFO - Copying C3461350386740_GX010222.MP4 from camera C3461350386740
+2024-12-17 18:02:15,673 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 18:02:15,699 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /videos/DCIM/100GOPRO/GX010222.MP4 HTTP/11" 200 84187282
+2024-12-17 18:02:18,031 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461350386740_GX010222.MP4
+2024-12-17 18:02:18,032 - copy_to_pc_and_scene_sorting - INFO - Processing scene 2: scene02_2024_12_17_18_54_29
+2024-12-17 18:02:18,033 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326143885_GX010566.MP4 from camera C3461326143885
+2024-12-17 18:02:18,035 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 18:02:18,060 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /videos/DCIM/100GOPRO/GX010566.MP4 HTTP/11" 200 85124719
+2024-12-17 18:02:20,738 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461326143885_GX010566.MP4
+2024-12-17 18:02:20,741 - copy_to_pc_and_scene_sorting - INFO - Copying C3461350386740_GX010223.MP4 from camera C3461350386740
+2024-12-17 18:02:20,745 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 18:02:20,767 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /videos/DCIM/100GOPRO/GX010223.MP4 HTTP/11" 200 115151563
+2024-12-17 18:02:23,987 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461350386740_GX010223.MP4
+2024-12-17 18:02:23,991 - copy_to_pc_and_scene_sorting - INFO - Processing scene 3: scene03_2024_12_17_18_55_15
+2024-12-17 18:02:23,993 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326143885_GX010567.MP4 from camera C3461326143885
+2024-12-17 18:02:23,998 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 18:02:24,020 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /videos/DCIM/100GOPRO/GX010567.MP4 HTTP/11" 200 75208725
+2024-12-17 18:02:26,335 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461326143885_GX010567.MP4
+2024-12-17 18:02:26,338 - copy_to_pc_and_scene_sorting - INFO - Copying C3461350386740_GX010224.MP4 from camera C3461350386740
+2024-12-17 18:02:26,341 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 18:02:26,366 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /videos/DCIM/100GOPRO/GX010224.MP4 HTTP/11" 200 102282774
+2024-12-17 18:02:29,116 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461350386740_GX010224.MP4
+2024-12-17 18:02:29,125 - copy_to_pc_and_scene_sorting - INFO - Processing scene 4: scene04_2024_12_17_18_56_02
+2024-12-17 18:02:29,129 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326143885_GX010568.MP4 from camera C3461326143885
+2024-12-17 18:02:29,132 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 18:02:29,177 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /videos/DCIM/100GOPRO/GX010568.MP4 HTTP/11" 200 25953759
+2024-12-17 18:02:30,086 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461326143885_GX010568.MP4
+2024-12-17 18:02:30,088 - copy_to_pc_and_scene_sorting - INFO - Copying C3461350386740_GX010225.MP4 from camera C3461350386740
+2024-12-17 18:02:30,095 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 18:02:30,121 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /videos/DCIM/100GOPRO/GX010225.MP4 HTTP/11" 200 25570461
+2024-12-17 18:02:30,825 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461350386740_GX010225.MP4
+2024-12-17 18:02:30,828 - copy_to_pc_and_scene_sorting - INFO - Copy and sort operation completed successfully

@@ -1,0 +1,6 @@
+2024-12-23 00:54:28,265 - __main__ - INFO - resolution set successfully for camera 172.29.177.51
+2024-12-23 00:54:28,391 - __main__ - ERROR - Failed to set fps for camera 172.29.177.51. Status: 403
+2024-12-23 00:54:28,407 - __main__ - ERROR - Failed to apply video settings for C3461326043977._gopro-web._tcp.local.
+2024-12-23 00:54:28,565 - __main__ - INFO - resolution set successfully for camera 172.20.160.51
+2024-12-23 00:54:28,678 - __main__ - ERROR - Failed to set fps for camera 172.20.160.51. Status: 403
+2024-12-23 00:54:28,680 - __main__ - ERROR - Failed to apply video settings for C3461325908060._gopro-web._tcp.local.

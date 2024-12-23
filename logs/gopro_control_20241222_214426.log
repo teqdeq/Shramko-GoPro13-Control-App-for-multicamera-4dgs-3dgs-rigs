@@ -1,0 +1,1226 @@
+2024-12-22 21:44:26,562 - app_init - INFO - Application initialized successfully
+2024-12-22 21:44:26,562 - app_init - INFO - Application initialized successfully
+2024-12-22 21:44:26,746 - copy_manager - ERROR - Error loading config: 'charmap' codec can't decode byte 0x81 in position 91: character maps to <undefined>
+2024-12-22 21:44:38,217 - copy_manager - INFO - Preparing copy session to: C:\tmp
+2024-12-22 21:44:38,220 - copy_manager - DEBUG - Looking for camera cache at: C:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\camera_cache.json
+2024-12-22 21:44:38,221 - copy_manager - DEBUG - Loaded camera cache: [{'name': 'C3461325908060', 'ip': '172.20.160.51'}, {'name': 'C3461326043977', 'ip': '172.29.177.51'}]
+2024-12-22 21:44:38,221 - copy_manager - INFO - Getting media list from camera 172.20.160.51
+2024-12-22 21:44:38,222 - copy_manager - DEBUG - Sending request to http://172.20.160.51:8080/gopro/media/list
+2024-12-22 21:44:38,229 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:38,348 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/media/list HTTP/11" 200 968
+2024-12-22 21:44:38,349 - copy_manager - DEBUG - Response status code: 200
+2024-12-22 21:44:38,349 - copy_manager - DEBUG - Response data: {'id': '46673526589681488', 'media': [{'d': '100GOPRO', 'fs': [{'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782'}, {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138'}, {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932'}, {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257'}, {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282'}, {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413'}, {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329'}, {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820'}, {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673'}]}]}
+2024-12-22 21:44:38,349 - copy_manager - DEBUG - Processing directory: 100GOPRO, files count: 9
+2024-12-22 21:44:38,349 - copy_manager - INFO - Found 9 media files on camera 172.20.160.51
+2024-12-22 21:44:38,350 - copy_manager - DEBUG - Media list: [{'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782', 'd': '100GOPRO'}, {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138', 'd': '100GOPRO'}, {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932', 'd': '100GOPRO'}, {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257', 'd': '100GOPRO'}, {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282', 'd': '100GOPRO'}, {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413', 'd': '100GOPRO'}, {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329', 'd': '100GOPRO'}, {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820', 'd': '100GOPRO'}, {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673', 'd': '100GOPRO'}]
+2024-12-22 21:44:38,350 - copy_manager - INFO - Getting media list from camera 172.29.177.51
+2024-12-22 21:44:38,350 - copy_manager - DEBUG - Sending request to http://172.29.177.51:8080/gopro/media/list
+2024-12-22 21:44:38,352 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,506 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/media/list HTTP/11" 200 1241
+2024-12-22 21:44:38,507 - copy_manager - DEBUG - Response status code: 200
+2024-12-22 21:44:38,507 - copy_manager - DEBUG - Response data: {'id': '1408660479980901224', 'media': [{'d': '100GOPRO', 'fs': [{'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555'}, {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383'}, {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775'}, {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074'}, {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332'}, {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049'}, {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531'}, {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976'}, {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481'}, {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999'}, {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956'}, {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157'}, {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154'}, {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593'}]}]}
+2024-12-22 21:44:38,507 - copy_manager - DEBUG - Processing directory: 100GOPRO, files count: 14
+2024-12-22 21:44:38,508 - copy_manager - INFO - Found 14 media files on camera 172.29.177.51
+2024-12-22 21:44:38,508 - copy_manager - DEBUG - Media list: [{'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555', 'd': '100GOPRO'}, {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383', 'd': '100GOPRO'}, {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775', 'd': '100GOPRO'}, {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074', 'd': '100GOPRO'}, {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332', 'd': '100GOPRO'}, {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049', 'd': '100GOPRO'}, {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531', 'd': '100GOPRO'}, {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976', 'd': '100GOPRO'}, {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481', 'd': '100GOPRO'}, {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999', 'd': '100GOPRO'}, {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956', 'd': '100GOPRO'}, {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157', 'd': '100GOPRO'}, {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154', 'd': '100GOPRO'}, {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593', 'd': '100GOPRO'}]
+2024-12-22 21:44:38,509 - copy_manager - INFO - Found 2 cameras in cache
+2024-12-22 21:44:38,510 - copy_manager - DEBUG - Processing camera: C3461325908060 (172.20.160.51)
+2024-12-22 21:44:38,510 - copy_manager - DEBUG - Found 9 media files for camera C3461325908060
+2024-12-22 21:44:38,510 - copy_manager - DEBUG - Processing media: {'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782', 'd': '100GOPRO'}
+2024-12-22 21:44:38,510 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010092.MP4
+2024-12-22 21:44:38,511 - copy_manager - DEBUG - File: GX010092.MP4, Raw timestamp: 1734842642
+2024-12-22 21:44:38,511 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 05:44:02
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010092.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010092.MP4', size=23985782, created_at=datetime.datetime(2024, 12, 22, 5, 44, 2), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 05:44:02
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Processing media: {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138', 'd': '100GOPRO'}
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010093.MP4
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - File: GX010093.MP4, Raw timestamp: 1734842655
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 05:44:15
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010093.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010093.MP4', size=46088138, created_at=datetime.datetime(2024, 12, 22, 5, 44, 15), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 05:44:15
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Processing media: {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932', 'd': '100GOPRO'}
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010094.MP4
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - File: GX010094.MP4, Raw timestamp: 1734873629
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 14:20:29
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010094.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010094.MP4', size=17522932, created_at=datetime.datetime(2024, 12, 22, 14, 20, 29), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 14:20:29
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Processing media: {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257', 'd': '100GOPRO'}
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010095.MP4
+2024-12-22 21:44:38,512 - copy_manager - DEBUG - File: GX010095.MP4, Raw timestamp: 1734884663
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:24:23
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010095.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010095.MP4', size=16032257, created_at=datetime.datetime(2024, 12, 22, 17, 24, 23), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:24:23
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Processing media: {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282', 'd': '100GOPRO'}
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010096.MP4
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - File: GX010096.MP4, Raw timestamp: 1734885384
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:36:24
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010096.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010096.MP4', size=22239282, created_at=datetime.datetime(2024, 12, 22, 17, 36, 24), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:36:24
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Processing media: {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413', 'd': '100GOPRO'}
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010097.MP4
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - File: GX010097.MP4, Raw timestamp: 1734885973
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:46:13
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010097.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010097.MP4', size=19375413, created_at=datetime.datetime(2024, 12, 22, 17, 46, 13), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:46:13
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Processing media: {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329', 'd': '100GOPRO'}
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010098.MP4
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - File: GX010098.MP4, Raw timestamp: 1734886394
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:53:14
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010098.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010098.MP4', size=62055329, created_at=datetime.datetime(2024, 12, 22, 17, 53, 14), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:53:14
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Processing media: {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820', 'd': '100GOPRO'}
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010099.MP4
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - File: GX010099.MP4, Raw timestamp: 1734889818
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:50:18
+2024-12-22 21:44:38,513 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010099.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010099.MP4', size=14246820, created_at=datetime.datetime(2024, 12, 22, 18, 50, 18), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:50:18
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Processing media: {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673', 'd': '100GOPRO'}
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010100.MP4
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - File: GX010100.MP4, Raw timestamp: 1734889876
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:51:16
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010100.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010100.MP4', size=20559673, created_at=datetime.datetime(2024, 12, 22, 18, 51, 16), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:51:16
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Processing camera: C3461326043977 (172.29.177.51)
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Found 14 media files for camera C3461326043977
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Processing media: {'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555', 'd': '100GOPRO'}
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010255.MP4
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - File: GX010255.MP4, Raw timestamp: 1734823340
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:22:20
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010255.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010255.MP4', size=22867555, created_at=datetime.datetime(2024, 12, 22, 0, 22, 20), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:22:20
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Processing media: {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383', 'd': '100GOPRO'}
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010256.MP4
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - File: GX010256.MP4, Raw timestamp: 1734823345
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:22:25
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010256.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010256.MP4', size=22864383, created_at=datetime.datetime(2024, 12, 22, 0, 22, 25), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:22:25
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Processing media: {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775', 'd': '100GOPRO'}
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010257.MP4
+2024-12-22 21:44:38,514 - copy_manager - DEBUG - File: GX010257.MP4, Raw timestamp: 1734823380
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:00
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010257.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010257.MP4', size=24152775, created_at=datetime.datetime(2024, 12, 22, 0, 23), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:00
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Processing media: {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074', 'd': '100GOPRO'}
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010258.MP4
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - File: GX010258.MP4, Raw timestamp: 1734823388
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:08
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010258.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010258.MP4', size=41634074, created_at=datetime.datetime(2024, 12, 22, 0, 23, 8), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:08
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Processing media: {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332', 'd': '100GOPRO'}
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010259.MP4
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - File: GX010259.MP4, Raw timestamp: 1734823393
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:13
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010259.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010259.MP4', size=41406332, created_at=datetime.datetime(2024, 12, 22, 0, 23, 13), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:13
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Processing media: {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049', 'd': '100GOPRO'}
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010260.MP4
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - File: GX010260.MP4, Raw timestamp: 1734823399
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:19
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010260.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010260.MP4', size=41962049, created_at=datetime.datetime(2024, 12, 22, 0, 23, 19), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:19
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Processing media: {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531', 'd': '100GOPRO'}
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010261.MP4
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - File: GX010261.MP4, Raw timestamp: 1734824402
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:40:02
+2024-12-22 21:44:38,515 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010261.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010261.MP4', size=46256531, created_at=datetime.datetime(2024, 12, 22, 0, 40, 2), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:40:02
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Processing media: {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976', 'd': '100GOPRO'}
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010262.MP4
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - File: GX010262.MP4, Raw timestamp: 1734829270
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 02:01:10
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010262.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010262.MP4', size=390546976, created_at=datetime.datetime(2024, 12, 22, 2, 1, 10), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 02:01:10
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Processing media: {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481', 'd': '100GOPRO'}
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010263.MP4
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - File: GX010263.MP4, Raw timestamp: 1734884663
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:24:23
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010263.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010263.MP4', size=12086481, created_at=datetime.datetime(2024, 12, 22, 17, 24, 23), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:24:23
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Processing media: {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999', 'd': '100GOPRO'}
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010264.MP4
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - File: GX010264.MP4, Raw timestamp: 1734885384
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:36:24
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010264.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010264.MP4', size=39966999, created_at=datetime.datetime(2024, 12, 22, 17, 36, 24), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:36:24
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Processing media: {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956', 'd': '100GOPRO'}
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010265.MP4
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - File: GX010265.MP4, Raw timestamp: 1734885973
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:46:13
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010265.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010265.MP4', size=33489956, created_at=datetime.datetime(2024, 12, 22, 17, 46, 13), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:46:13
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Processing media: {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157', 'd': '100GOPRO'}
+2024-12-22 21:44:38,516 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010266.MP4
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - File: GX010266.MP4, Raw timestamp: 1734886394
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:53:14
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010266.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010266.MP4', size=135302157, created_at=datetime.datetime(2024, 12, 22, 17, 53, 14), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:53:14
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Processing media: {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154', 'd': '100GOPRO'}
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010267.MP4
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - File: GX010267.MP4, Raw timestamp: 1734889818
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:50:18
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010267.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010267.MP4', size=26027154, created_at=datetime.datetime(2024, 12, 22, 18, 50, 18), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:50:18
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Processing media: {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593', 'd': '100GOPRO'}
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010268.MP4
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - File: GX010268.MP4, Raw timestamp: 1734889876
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:51:16
+2024-12-22 21:44:38,517 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010268.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010268.MP4', size=36377593, created_at=datetime.datetime(2024, 12, 22, 18, 51, 16), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:51:16
+2024-12-22 21:44:38,517 - copy_manager - INFO - Found 23 files to copy
+2024-12-22 21:44:38,518 - copy_manager - INFO - Using scene interval: 5 seconds
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - Sorted files timestamps:
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010255.MP4, Created: 2024-12-22 00:22:20
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010256.MP4, Created: 2024-12-22 00:22:25
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010257.MP4, Created: 2024-12-22 00:23:00
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010258.MP4, Created: 2024-12-22 00:23:08
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010259.MP4, Created: 2024-12-22 00:23:13
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010260.MP4, Created: 2024-12-22 00:23:19
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010261.MP4, Created: 2024-12-22 00:40:02
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010262.MP4, Created: 2024-12-22 02:01:10
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010092.MP4, Created: 2024-12-22 05:44:02
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010093.MP4, Created: 2024-12-22 05:44:15
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010094.MP4, Created: 2024-12-22 14:20:29
+2024-12-22 21:44:38,519 - copy_manager - DEBUG - File: GX010095.MP4, Created: 2024-12-22 17:24:23
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010263.MP4, Created: 2024-12-22 17:24:23
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010096.MP4, Created: 2024-12-22 17:36:24
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010264.MP4, Created: 2024-12-22 17:36:24
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010097.MP4, Created: 2024-12-22 17:46:13
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010265.MP4, Created: 2024-12-22 17:46:13
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010098.MP4, Created: 2024-12-22 17:53:14
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010266.MP4, Created: 2024-12-22 17:53:14
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010099.MP4, Created: 2024-12-22 18:50:18
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010267.MP4, Created: 2024-12-22 18:50:18
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010100.MP4, Created: 2024-12-22 18:51:16
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - File: GX010268.MP4, Created: 2024-12-22 18:51:16
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - Starting new scene with file: GX010255.MP4 at 2024-12-22 00:22:20
+2024-12-22 21:44:38,520 - copy_manager - DEBUG - Checking file: GX010256.MP4
+2024-12-22 21:44:38,521 - copy_manager - DEBUG - Time diff from last file: 5.0 seconds
+2024-12-22 21:44:38,521 - copy_manager - DEBUG - Current file time: 2024-12-22 00:22:25
+2024-12-22 21:44:38,521 - copy_manager - DEBUG - Last file time: 2024-12-22 00:22:20
+2024-12-22 21:44:38,521 - copy_manager - DEBUG - Adding file GX010256.MP4 to current scene
+2024-12-22 21:44:38,521 - copy_manager - DEBUG - Checking file: GX010257.MP4
+2024-12-22 21:44:38,521 - copy_manager - DEBUG - Time diff from last file: 35.0 seconds
+2024-12-22 21:44:38,521 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:00
+2024-12-22 21:44:38,521 - copy_manager - DEBUG - Last file time: 2024-12-22 00:22:25
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002220 with 2 files
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Starting new scene with file: GX010257.MP4 at 2024-12-22 00:23:00
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Checking file: GX010258.MP4
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Time diff from last file: 8.0 seconds
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:08
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:00
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002300 with 1 files
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Starting new scene with file: GX010258.MP4 at 2024-12-22 00:23:08
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Checking file: GX010259.MP4
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Time diff from last file: 5.0 seconds
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:13
+2024-12-22 21:44:38,522 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:08
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Adding file GX010259.MP4 to current scene
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Checking file: GX010260.MP4
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Time diff from last file: 6.0 seconds
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:19
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:13
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002308 with 2 files
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Starting new scene with file: GX010260.MP4 at 2024-12-22 00:23:19
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Checking file: GX010261.MP4
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Time diff from last file: 1003.0 seconds
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Current file time: 2024-12-22 00:40:02
+2024-12-22 21:44:38,523 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:19
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002319 with 1 files
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Starting new scene with file: GX010261.MP4 at 2024-12-22 00:40:02
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Checking file: GX010262.MP4
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Time diff from last file: 4868.0 seconds
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Current file time: 2024-12-22 02:01:10
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Last file time: 2024-12-22 00:40:02
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Creating new scene: Scene_20241222_004002 with 1 files
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Starting new scene with file: GX010262.MP4 at 2024-12-22 02:01:10
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Checking file: GX010092.MP4
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Time diff from last file: 13372.0 seconds
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Current file time: 2024-12-22 05:44:02
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Last file time: 2024-12-22 02:01:10
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Creating new scene: Scene_20241222_020110 with 1 files
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Starting new scene with file: GX010092.MP4 at 2024-12-22 05:44:02
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Checking file: GX010093.MP4
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Time diff from last file: 13.0 seconds
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Current file time: 2024-12-22 05:44:15
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Last file time: 2024-12-22 05:44:02
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Creating new scene: Scene_20241222_054402 with 1 files
+2024-12-22 21:44:38,524 - copy_manager - DEBUG - Starting new scene with file: GX010093.MP4 at 2024-12-22 05:44:15
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Checking file: GX010094.MP4
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Time diff from last file: 30974.0 seconds
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Current file time: 2024-12-22 14:20:29
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Last file time: 2024-12-22 05:44:15
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Creating new scene: Scene_20241222_054415 with 1 files
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Starting new scene with file: GX010094.MP4 at 2024-12-22 14:20:29
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Checking file: GX010095.MP4
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Time diff from last file: 11034.0 seconds
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Current file time: 2024-12-22 17:24:23
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Last file time: 2024-12-22 14:20:29
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Creating new scene: Scene_20241222_142029 with 1 files
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Starting new scene with file: GX010095.MP4 at 2024-12-22 17:24:23
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Checking file: GX010263.MP4
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Current file time: 2024-12-22 17:24:23
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Last file time: 2024-12-22 17:24:23
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Adding file GX010263.MP4 to current scene
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Checking file: GX010096.MP4
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Time diff from last file: 721.0 seconds
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Current file time: 2024-12-22 17:36:24
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Last file time: 2024-12-22 17:24:23
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Creating new scene: Scene_20241222_172423 with 2 files
+2024-12-22 21:44:38,525 - copy_manager - DEBUG - Starting new scene with file: GX010096.MP4 at 2024-12-22 17:36:24
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Checking file: GX010264.MP4
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Current file time: 2024-12-22 17:36:24
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Last file time: 2024-12-22 17:36:24
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Adding file GX010264.MP4 to current scene
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Checking file: GX010097.MP4
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Time diff from last file: 589.0 seconds
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Current file time: 2024-12-22 17:46:13
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Last file time: 2024-12-22 17:36:24
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Creating new scene: Scene_20241222_173624 with 2 files
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Starting new scene with file: GX010097.MP4 at 2024-12-22 17:46:13
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Checking file: GX010265.MP4
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Current file time: 2024-12-22 17:46:13
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Last file time: 2024-12-22 17:46:13
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Adding file GX010265.MP4 to current scene
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Checking file: GX010098.MP4
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Time diff from last file: 421.0 seconds
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Current file time: 2024-12-22 17:53:14
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Last file time: 2024-12-22 17:46:13
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Creating new scene: Scene_20241222_174613 with 2 files
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Starting new scene with file: GX010098.MP4 at 2024-12-22 17:53:14
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Checking file: GX010266.MP4
+2024-12-22 21:44:38,526 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Current file time: 2024-12-22 17:53:14
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Last file time: 2024-12-22 17:53:14
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Adding file GX010266.MP4 to current scene
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Checking file: GX010099.MP4
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Time diff from last file: 3424.0 seconds
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Current file time: 2024-12-22 18:50:18
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Last file time: 2024-12-22 17:53:14
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Creating new scene: Scene_20241222_175314 with 2 files
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Starting new scene with file: GX010099.MP4 at 2024-12-22 18:50:18
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Checking file: GX010267.MP4
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Current file time: 2024-12-22 18:50:18
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Last file time: 2024-12-22 18:50:18
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Adding file GX010267.MP4 to current scene
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Checking file: GX010100.MP4
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Time diff from last file: 58.0 seconds
+2024-12-22 21:44:38,527 - copy_manager - DEBUG - Current file time: 2024-12-22 18:51:16
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Last file time: 2024-12-22 18:50:18
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Creating new scene: Scene_20241222_185018 with 2 files
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Starting new scene with file: GX010100.MP4 at 2024-12-22 18:51:16
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Checking file: GX010268.MP4
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Current file time: 2024-12-22 18:51:16
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Last file time: 2024-12-22 18:51:16
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Adding file GX010268.MP4 to current scene
+2024-12-22 21:44:38,528 - copy_manager - DEBUG - Creating final scene: Scene_20241222_185116 with 2 files
+2024-12-22 21:44:38,528 - copy_manager - INFO - Grouped 23 files into 15 scenes using 5s interval
+2024-12-22 21:44:38,529 - copy_manager - DEBUG - Scene Scene_20241222_002220:
+2024-12-22 21:44:38,529 - copy_manager - DEBUG -   - GX010255.MP4 (2024-12-22 00:22:20)
+2024-12-22 21:44:38,529 - copy_manager - DEBUG -   - GX010256.MP4 (2024-12-22 00:22:25)
+2024-12-22 21:44:38,529 - copy_manager - DEBUG - Scene Scene_20241222_002300:
+2024-12-22 21:44:38,529 - copy_manager - DEBUG -   - GX010257.MP4 (2024-12-22 00:23:00)
+2024-12-22 21:44:38,529 - copy_manager - DEBUG - Scene Scene_20241222_002308:
+2024-12-22 21:44:38,529 - copy_manager - DEBUG -   - GX010258.MP4 (2024-12-22 00:23:08)
+2024-12-22 21:44:38,529 - copy_manager - DEBUG -   - GX010259.MP4 (2024-12-22 00:23:13)
+2024-12-22 21:44:38,529 - copy_manager - DEBUG - Scene Scene_20241222_002319:
+2024-12-22 21:44:38,529 - copy_manager - DEBUG -   - GX010260.MP4 (2024-12-22 00:23:19)
+2024-12-22 21:44:38,529 - copy_manager - DEBUG - Scene Scene_20241222_004002:
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010261.MP4 (2024-12-22 00:40:02)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG - Scene Scene_20241222_020110:
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010262.MP4 (2024-12-22 02:01:10)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG - Scene Scene_20241222_054402:
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010092.MP4 (2024-12-22 05:44:02)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG - Scene Scene_20241222_054415:
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010093.MP4 (2024-12-22 05:44:15)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG - Scene Scene_20241222_142029:
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010094.MP4 (2024-12-22 14:20:29)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG - Scene Scene_20241222_172423:
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010095.MP4 (2024-12-22 17:24:23)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010263.MP4 (2024-12-22 17:24:23)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG - Scene Scene_20241222_173624:
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010096.MP4 (2024-12-22 17:36:24)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010264.MP4 (2024-12-22 17:36:24)
+2024-12-22 21:44:38,530 - copy_manager - DEBUG - Scene Scene_20241222_174613:
+2024-12-22 21:44:38,530 - copy_manager - DEBUG -   - GX010097.MP4 (2024-12-22 17:46:13)
+2024-12-22 21:44:38,531 - copy_manager - DEBUG -   - GX010265.MP4 (2024-12-22 17:46:13)
+2024-12-22 21:44:38,531 - copy_manager - DEBUG - Scene Scene_20241222_175314:
+2024-12-22 21:44:38,531 - copy_manager - DEBUG -   - GX010098.MP4 (2024-12-22 17:53:14)
+2024-12-22 21:44:38,531 - copy_manager - DEBUG -   - GX010266.MP4 (2024-12-22 17:53:14)
+2024-12-22 21:44:38,531 - copy_manager - DEBUG - Scene Scene_20241222_185018:
+2024-12-22 21:44:38,531 - copy_manager - DEBUG -   - GX010099.MP4 (2024-12-22 18:50:18)
+2024-12-22 21:44:38,531 - copy_manager - DEBUG -   - GX010267.MP4 (2024-12-22 18:50:18)
+2024-12-22 21:44:38,531 - copy_manager - DEBUG - Scene Scene_20241222_185116:
+2024-12-22 21:44:38,531 - copy_manager - DEBUG -   - GX010100.MP4 (2024-12-22 18:51:16)
+2024-12-22 21:44:38,531 - copy_manager - DEBUG -   - GX010268.MP4 (2024-12-22 18:51:16)
+2024-12-22 21:44:38,531 - copy_manager - INFO - Grouped files into 15 scenes
+2024-12-22 21:44:38,532 - copy_manager - INFO - Total files: 23
+2024-12-22 21:44:38,532 - copy_manager - INFO - Total size: 1157046641 bytes
+2024-12-22 21:44:38,550 - copy_manager - INFO - Starting copy of file: GX010255.MP4
+2024-12-22 21:44:38,551 - copy_manager - INFO - Starting copy of file: GX010256.MP4
+2024-12-22 21:44:38,551 - copy_manager - INFO - Starting copy of file: GX010257.MP4
+2024-12-22 21:44:38,552 - copy_manager - INFO - Starting copy of file: GX010258.MP4
+2024-12-22 21:44:38,554 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,556 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,559 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,561 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,616 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010258.MP4 HTTP/11" 200 0
+2024-12-22 21:44:38,616 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010256.MP4 HTTP/11" 200 0
+2024-12-22 21:44:38,617 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010255.MP4 HTTP/11" 200 0
+2024-12-22 21:44:38,621 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,622 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,623 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,630 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010257.MP4 HTTP/11" 200 0
+2024-12-22 21:44:38,631 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:38,642 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010258.MP4 HTTP/11" 200 41634074
+2024-12-22 21:44:40,083 - copy_manager - INFO - Successfully copied file: GX010258_C3461326043977.MP4
+2024-12-22 21:44:40,104 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010255.MP4 HTTP/11" 200 22867555
+2024-12-22 21:44:40,114 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010256.MP4 HTTP/11" 200 22864383
+2024-12-22 21:44:40,592 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010257.MP4 HTTP/11" 200 24152775
+2024-12-22 21:44:41,669 - copy_manager - INFO - Successfully copied file: GX010256_C3461326043977.MP4
+2024-12-22 21:44:41,716 - copy_manager - INFO - Successfully copied file: GX010255_C3461326043977.MP4
+2024-12-22 21:44:42,220 - copy_manager - INFO - Successfully copied file: GX010257_C3461326043977.MP4
+2024-12-22 21:44:42,221 - copy_manager - INFO - Starting copy of file: GX010259.MP4
+2024-12-22 21:44:42,221 - copy_manager - INFO - Starting copy of file: GX010260.MP4
+2024-12-22 21:44:42,221 - copy_manager - INFO - Starting copy of file: GX010261.MP4
+2024-12-22 21:44:42,222 - copy_manager - INFO - Starting copy of file: GX010262.MP4
+2024-12-22 21:44:42,225 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:42,226 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:42,228 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:42,229 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:42,296 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010260.MP4 HTTP/11" 200 0
+2024-12-22 21:44:42,298 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:42,311 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010259.MP4 HTTP/11" 200 0
+2024-12-22 21:44:42,312 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010261.MP4 HTTP/11" 200 0
+2024-12-22 21:44:42,313 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010262.MP4 HTTP/11" 200 0
+2024-12-22 21:44:42,314 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:42,315 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:42,317 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:44:42,327 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010260.MP4 HTTP/11" 200 41962049
+2024-12-22 21:44:43,509 - copy_manager - INFO - Successfully copied file: GX010260_C3461326043977.MP4
+2024-12-22 21:44:43,530 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010259.MP4 HTTP/11" 200 41406332
+2024-12-22 21:44:43,550 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010261.MP4 HTTP/11" 200 46256531
+2024-12-22 21:44:44,309 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010262.MP4 HTTP/11" 200 390546976
+2024-12-22 21:44:45,523 - copy_manager - INFO - Successfully copied file: GX010259_C3461326043977.MP4
+2024-12-22 21:44:45,811 - copy_manager - INFO - Successfully copied file: GX010261_C3461326043977.MP4
+2024-12-22 21:44:46,057 - copy_manager - INFO - Copy session paused
+2024-12-22 21:44:54,740 - copy_manager - INFO - Copy session resumed
+2024-12-22 21:44:55,845 - copy_manager - INFO - Successfully copied file: GX010262_C3461326043977.MP4
+2024-12-22 21:44:55,846 - copy_manager - INFO - Starting copy of file: GX010092.MP4
+2024-12-22 21:44:55,847 - copy_manager - INFO - Starting copy of file: GX010093.MP4
+2024-12-22 21:44:55,847 - copy_manager - INFO - Starting copy of file: GX010094.MP4
+2024-12-22 21:44:55,847 - copy_manager - INFO - Starting copy of file: GX010095.MP4
+2024-12-22 21:44:55,850 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:55,853 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:55,855 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:55,859 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:55,909 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010092.MP4 HTTP/11" 200 0
+2024-12-22 21:44:55,911 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:55,925 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010094.MP4 HTTP/11" 200 0
+2024-12-22 21:44:55,926 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010095.MP4 HTTP/11" 200 0
+2024-12-22 21:44:55,928 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010093.MP4 HTTP/11" 200 0
+2024-12-22 21:44:55,930 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:55,932 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:55,933 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:44:55,942 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010092.MP4 HTTP/11" 200 23985782
+2024-12-22 21:44:56,133 - copy_manager - INFO - Copy session paused
+2024-12-22 21:44:56,631 - copy_manager - INFO - Successfully copied file: GX010092_C3461325908060.MP4
+2024-12-22 21:44:56,650 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010095.MP4 HTTP/11" 200 16032257
+2024-12-22 21:44:56,660 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010094.MP4 HTTP/11" 200 17522932
+2024-12-22 21:44:56,819 - copy_manager - INFO - Copy session resumed
+2024-12-22 21:44:57,559 - copy_manager - INFO - Successfully copied file: GX010095_C3461325908060.MP4
+2024-12-22 21:44:57,577 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010093.MP4 HTTP/11" 200 46088138
+2024-12-22 21:44:57,754 - copy_manager - INFO - Successfully copied file: GX010094_C3461325908060.MP4
+2024-12-22 21:44:57,791 - copy_manager - INFO - Copy session cancelled
+2024-12-22 21:44:59,585 - copy_manager - INFO - Successfully copied file: GX010093_C3461325908060.MP4
+2024-12-22 21:44:59,622 - copy_manager - INFO - Copy session finished
+2024-12-22 21:45:07,872 - copy_manager - INFO - Preparing copy session to: C:\tmp
+2024-12-22 21:45:07,873 - copy_manager - DEBUG - Looking for camera cache at: C:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\camera_cache.json
+2024-12-22 21:45:07,873 - copy_manager - DEBUG - Loaded camera cache: [{'name': 'C3461325908060', 'ip': '172.20.160.51'}, {'name': 'C3461326043977', 'ip': '172.29.177.51'}]
+2024-12-22 21:45:07,873 - copy_manager - INFO - Getting media list from camera 172.20.160.51
+2024-12-22 21:45:07,879 - copy_manager - DEBUG - Sending request to http://172.20.160.51:8080/gopro/media/list
+2024-12-22 21:45:07,880 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:07,980 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/media/list HTTP/11" 200 968
+2024-12-22 21:45:07,980 - copy_manager - DEBUG - Response status code: 200
+2024-12-22 21:45:07,982 - copy_manager - DEBUG - Response data: {'id': '46673526589681488', 'media': [{'d': '100GOPRO', 'fs': [{'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782'}, {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138'}, {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932'}, {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257'}, {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282'}, {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413'}, {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329'}, {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820'}, {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673'}]}]}
+2024-12-22 21:45:07,982 - copy_manager - DEBUG - Processing directory: 100GOPRO, files count: 9
+2024-12-22 21:45:07,982 - copy_manager - INFO - Found 9 media files on camera 172.20.160.51
+2024-12-22 21:45:07,982 - copy_manager - DEBUG - Media list: [{'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782', 'd': '100GOPRO'}, {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138', 'd': '100GOPRO'}, {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932', 'd': '100GOPRO'}, {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257', 'd': '100GOPRO'}, {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282', 'd': '100GOPRO'}, {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413', 'd': '100GOPRO'}, {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329', 'd': '100GOPRO'}, {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820', 'd': '100GOPRO'}, {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673', 'd': '100GOPRO'}]
+2024-12-22 21:45:07,983 - copy_manager - INFO - Getting media list from camera 172.29.177.51
+2024-12-22 21:45:07,983 - copy_manager - DEBUG - Sending request to http://172.29.177.51:8080/gopro/media/list
+2024-12-22 21:45:07,985 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:08,154 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/media/list HTTP/11" 200 1241
+2024-12-22 21:45:08,154 - copy_manager - DEBUG - Response status code: 200
+2024-12-22 21:45:08,155 - copy_manager - DEBUG - Response data: {'id': '1408660479980901224', 'media': [{'d': '100GOPRO', 'fs': [{'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555'}, {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383'}, {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775'}, {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074'}, {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332'}, {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049'}, {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531'}, {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976'}, {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481'}, {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999'}, {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956'}, {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157'}, {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154'}, {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593'}]}]}
+2024-12-22 21:45:08,155 - copy_manager - DEBUG - Processing directory: 100GOPRO, files count: 14
+2024-12-22 21:45:08,155 - copy_manager - INFO - Found 14 media files on camera 172.29.177.51
+2024-12-22 21:45:08,156 - copy_manager - DEBUG - Media list: [{'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555', 'd': '100GOPRO'}, {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383', 'd': '100GOPRO'}, {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775', 'd': '100GOPRO'}, {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074', 'd': '100GOPRO'}, {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332', 'd': '100GOPRO'}, {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049', 'd': '100GOPRO'}, {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531', 'd': '100GOPRO'}, {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976', 'd': '100GOPRO'}, {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481', 'd': '100GOPRO'}, {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999', 'd': '100GOPRO'}, {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956', 'd': '100GOPRO'}, {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157', 'd': '100GOPRO'}, {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154', 'd': '100GOPRO'}, {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593', 'd': '100GOPRO'}]
+2024-12-22 21:45:08,157 - copy_manager - INFO - Found 2 cameras in cache
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - Processing camera: C3461325908060 (172.20.160.51)
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - Found 9 media files for camera C3461325908060
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - Processing media: {'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782', 'd': '100GOPRO'}
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010092.MP4
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - File: GX010092.MP4, Raw timestamp: 1734842642
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 05:44:02
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010092.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010092.MP4', size=23985782, created_at=datetime.datetime(2024, 12, 22, 5, 44, 2), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 05:44:02
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - Processing media: {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138', 'd': '100GOPRO'}
+2024-12-22 21:45:08,158 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010093.MP4
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - File: GX010093.MP4, Raw timestamp: 1734842655
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 05:44:15
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010093.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010093.MP4', size=46088138, created_at=datetime.datetime(2024, 12, 22, 5, 44, 15), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 05:44:15
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Processing media: {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932', 'd': '100GOPRO'}
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010094.MP4
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - File: GX010094.MP4, Raw timestamp: 1734873629
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 14:20:29
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010094.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010094.MP4', size=17522932, created_at=datetime.datetime(2024, 12, 22, 14, 20, 29), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 14:20:29
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Processing media: {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257', 'd': '100GOPRO'}
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010095.MP4
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - File: GX010095.MP4, Raw timestamp: 1734884663
+2024-12-22 21:45:08,159 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:24:23
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010095.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010095.MP4', size=16032257, created_at=datetime.datetime(2024, 12, 22, 17, 24, 23), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:24:23
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - Processing media: {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282', 'd': '100GOPRO'}
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010096.MP4
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - File: GX010096.MP4, Raw timestamp: 1734885384
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:36:24
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010096.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010096.MP4', size=22239282, created_at=datetime.datetime(2024, 12, 22, 17, 36, 24), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:36:24
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - Processing media: {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413', 'd': '100GOPRO'}
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010097.MP4
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - File: GX010097.MP4, Raw timestamp: 1734885973
+2024-12-22 21:45:08,160 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:46:13
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010097.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010097.MP4', size=19375413, created_at=datetime.datetime(2024, 12, 22, 17, 46, 13), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:46:13
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Processing media: {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329', 'd': '100GOPRO'}
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010098.MP4
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - File: GX010098.MP4, Raw timestamp: 1734886394
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:53:14
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010098.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010098.MP4', size=62055329, created_at=datetime.datetime(2024, 12, 22, 17, 53, 14), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:53:14
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Processing media: {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820', 'd': '100GOPRO'}
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010099.MP4
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - File: GX010099.MP4, Raw timestamp: 1734889818
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:50:18
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010099.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010099.MP4', size=14246820, created_at=datetime.datetime(2024, 12, 22, 18, 50, 18), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:50:18
+2024-12-22 21:45:08,161 - copy_manager - DEBUG - Processing media: {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673', 'd': '100GOPRO'}
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010100.MP4
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - File: GX010100.MP4, Raw timestamp: 1734889876
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:51:16
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010100.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010100.MP4', size=20559673, created_at=datetime.datetime(2024, 12, 22, 18, 51, 16), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:51:16
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Processing camera: C3461326043977 (172.29.177.51)
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Found 14 media files for camera C3461326043977
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Processing media: {'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555', 'd': '100GOPRO'}
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010255.MP4
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - File: GX010255.MP4, Raw timestamp: 1734823340
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:22:20
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010255.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010255.MP4', size=22867555, created_at=datetime.datetime(2024, 12, 22, 0, 22, 20), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:22:20
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Processing media: {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383', 'd': '100GOPRO'}
+2024-12-22 21:45:08,162 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010256.MP4
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - File: GX010256.MP4, Raw timestamp: 1734823345
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:22:25
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010256.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010256.MP4', size=22864383, created_at=datetime.datetime(2024, 12, 22, 0, 22, 25), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:22:25
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Processing media: {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775', 'd': '100GOPRO'}
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010257.MP4
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - File: GX010257.MP4, Raw timestamp: 1734823380
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:00
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010257.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010257.MP4', size=24152775, created_at=datetime.datetime(2024, 12, 22, 0, 23), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:00
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Processing media: {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074', 'd': '100GOPRO'}
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010258.MP4
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - File: GX010258.MP4, Raw timestamp: 1734823388
+2024-12-22 21:45:08,163 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:08
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010258.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010258.MP4', size=41634074, created_at=datetime.datetime(2024, 12, 22, 0, 23, 8), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:08
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Processing media: {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332', 'd': '100GOPRO'}
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010259.MP4
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - File: GX010259.MP4, Raw timestamp: 1734823393
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:13
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010259.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010259.MP4', size=41406332, created_at=datetime.datetime(2024, 12, 22, 0, 23, 13), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:13
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Processing media: {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049', 'd': '100GOPRO'}
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010260.MP4
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - File: GX010260.MP4, Raw timestamp: 1734823399
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:19
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010260.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010260.MP4', size=41962049, created_at=datetime.datetime(2024, 12, 22, 0, 23, 19), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:19
+2024-12-22 21:45:08,164 - copy_manager - DEBUG - Processing media: {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531', 'd': '100GOPRO'}
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010261.MP4
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - File: GX010261.MP4, Raw timestamp: 1734824402
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:40:02
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010261.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010261.MP4', size=46256531, created_at=datetime.datetime(2024, 12, 22, 0, 40, 2), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:40:02
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Processing media: {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976', 'd': '100GOPRO'}
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010262.MP4
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - File: GX010262.MP4, Raw timestamp: 1734829270
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 02:01:10
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010262.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010262.MP4', size=390546976, created_at=datetime.datetime(2024, 12, 22, 2, 1, 10), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 02:01:10
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Processing media: {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481', 'd': '100GOPRO'}
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010263.MP4
+2024-12-22 21:45:08,165 - copy_manager - DEBUG - File: GX010263.MP4, Raw timestamp: 1734884663
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:24:23
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010263.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010263.MP4', size=12086481, created_at=datetime.datetime(2024, 12, 22, 17, 24, 23), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:24:23
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Processing media: {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999', 'd': '100GOPRO'}
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010264.MP4
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - File: GX010264.MP4, Raw timestamp: 1734885384
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:36:24
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010264.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010264.MP4', size=39966999, created_at=datetime.datetime(2024, 12, 22, 17, 36, 24), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:36:24
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Processing media: {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956', 'd': '100GOPRO'}
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010265.MP4
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - File: GX010265.MP4, Raw timestamp: 1734885973
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:46:13
+2024-12-22 21:45:08,166 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010265.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010265.MP4', size=33489956, created_at=datetime.datetime(2024, 12, 22, 17, 46, 13), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:46:13
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Processing media: {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157', 'd': '100GOPRO'}
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010266.MP4
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - File: GX010266.MP4, Raw timestamp: 1734886394
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:53:14
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010266.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010266.MP4', size=135302157, created_at=datetime.datetime(2024, 12, 22, 17, 53, 14), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:53:14
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Processing media: {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154', 'd': '100GOPRO'}
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010267.MP4
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - File: GX010267.MP4, Raw timestamp: 1734889818
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:50:18
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010267.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010267.MP4', size=26027154, created_at=datetime.datetime(2024, 12, 22, 18, 50, 18), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:50:18
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Processing media: {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593', 'd': '100GOPRO'}
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010268.MP4
+2024-12-22 21:45:08,167 - copy_manager - DEBUG - File: GX010268.MP4, Raw timestamp: 1734889876
+2024-12-22 21:45:08,168 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:51:16
+2024-12-22 21:45:08,168 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010268.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010268.MP4', size=36377593, created_at=datetime.datetime(2024, 12, 22, 18, 51, 16), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:51:16
+2024-12-22 21:45:08,168 - copy_manager - INFO - Found 23 files to copy
+2024-12-22 21:45:08,169 - copy_manager - INFO - Using scene interval: 5 seconds
+2024-12-22 21:45:08,169 - copy_manager - DEBUG - Sorted files timestamps:
+2024-12-22 21:45:08,170 - copy_manager - DEBUG - File: GX010255.MP4, Created: 2024-12-22 00:22:20
+2024-12-22 21:45:08,170 - copy_manager - DEBUG - File: GX010256.MP4, Created: 2024-12-22 00:22:25
+2024-12-22 21:45:08,170 - copy_manager - DEBUG - File: GX010257.MP4, Created: 2024-12-22 00:23:00
+2024-12-22 21:45:08,170 - copy_manager - DEBUG - File: GX010258.MP4, Created: 2024-12-22 00:23:08
+2024-12-22 21:45:08,170 - copy_manager - DEBUG - File: GX010259.MP4, Created: 2024-12-22 00:23:13
+2024-12-22 21:45:08,170 - copy_manager - DEBUG - File: GX010260.MP4, Created: 2024-12-22 00:23:19
+2024-12-22 21:45:08,170 - copy_manager - DEBUG - File: GX010261.MP4, Created: 2024-12-22 00:40:02
+2024-12-22 21:45:08,171 - copy_manager - DEBUG - File: GX010262.MP4, Created: 2024-12-22 02:01:10
+2024-12-22 21:45:08,171 - copy_manager - DEBUG - File: GX010092.MP4, Created: 2024-12-22 05:44:02
+2024-12-22 21:45:08,171 - copy_manager - DEBUG - File: GX010093.MP4, Created: 2024-12-22 05:44:15
+2024-12-22 21:45:08,171 - copy_manager - DEBUG - File: GX010094.MP4, Created: 2024-12-22 14:20:29
+2024-12-22 21:45:08,171 - copy_manager - DEBUG - File: GX010095.MP4, Created: 2024-12-22 17:24:23
+2024-12-22 21:45:08,171 - copy_manager - DEBUG - File: GX010263.MP4, Created: 2024-12-22 17:24:23
+2024-12-22 21:45:08,171 - copy_manager - DEBUG - File: GX010096.MP4, Created: 2024-12-22 17:36:24
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010264.MP4, Created: 2024-12-22 17:36:24
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010097.MP4, Created: 2024-12-22 17:46:13
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010265.MP4, Created: 2024-12-22 17:46:13
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010098.MP4, Created: 2024-12-22 17:53:14
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010266.MP4, Created: 2024-12-22 17:53:14
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010099.MP4, Created: 2024-12-22 18:50:18
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010267.MP4, Created: 2024-12-22 18:50:18
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010100.MP4, Created: 2024-12-22 18:51:16
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - File: GX010268.MP4, Created: 2024-12-22 18:51:16
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - Starting new scene with file: GX010255.MP4 at 2024-12-22 00:22:20
+2024-12-22 21:45:08,172 - copy_manager - DEBUG - Checking file: GX010256.MP4
+2024-12-22 21:45:08,173 - copy_manager - DEBUG - Time diff from last file: 5.0 seconds
+2024-12-22 21:45:08,173 - copy_manager - DEBUG - Current file time: 2024-12-22 00:22:25
+2024-12-22 21:45:08,173 - copy_manager - DEBUG - Last file time: 2024-12-22 00:22:20
+2024-12-22 21:45:08,173 - copy_manager - DEBUG - Adding file GX010256.MP4 to current scene
+2024-12-22 21:45:08,173 - copy_manager - DEBUG - Checking file: GX010257.MP4
+2024-12-22 21:45:08,173 - copy_manager - DEBUG - Time diff from last file: 35.0 seconds
+2024-12-22 21:45:08,173 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:00
+2024-12-22 21:45:08,173 - copy_manager - DEBUG - Last file time: 2024-12-22 00:22:25
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002220 with 2 files
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Starting new scene with file: GX010257.MP4 at 2024-12-22 00:23:00
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Checking file: GX010258.MP4
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Time diff from last file: 8.0 seconds
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:08
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:00
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002300 with 1 files
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Starting new scene with file: GX010258.MP4 at 2024-12-22 00:23:08
+2024-12-22 21:45:08,174 - copy_manager - DEBUG - Checking file: GX010259.MP4
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Time diff from last file: 5.0 seconds
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:13
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:08
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Adding file GX010259.MP4 to current scene
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Checking file: GX010260.MP4
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Time diff from last file: 6.0 seconds
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:19
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:13
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002308 with 2 files
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Starting new scene with file: GX010260.MP4 at 2024-12-22 00:23:19
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Checking file: GX010261.MP4
+2024-12-22 21:45:08,175 - copy_manager - DEBUG - Time diff from last file: 1003.0 seconds
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Current file time: 2024-12-22 00:40:02
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:19
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002319 with 1 files
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Starting new scene with file: GX010261.MP4 at 2024-12-22 00:40:02
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Checking file: GX010262.MP4
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Time diff from last file: 4868.0 seconds
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Current file time: 2024-12-22 02:01:10
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Last file time: 2024-12-22 00:40:02
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Creating new scene: Scene_20241222_004002 with 1 files
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Starting new scene with file: GX010262.MP4 at 2024-12-22 02:01:10
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Checking file: GX010092.MP4
+2024-12-22 21:45:08,176 - copy_manager - DEBUG - Time diff from last file: 13372.0 seconds
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Current file time: 2024-12-22 05:44:02
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Last file time: 2024-12-22 02:01:10
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Creating new scene: Scene_20241222_020110 with 1 files
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Starting new scene with file: GX010092.MP4 at 2024-12-22 05:44:02
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Checking file: GX010093.MP4
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Time diff from last file: 13.0 seconds
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Current file time: 2024-12-22 05:44:15
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Last file time: 2024-12-22 05:44:02
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Creating new scene: Scene_20241222_054402 with 1 files
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Starting new scene with file: GX010093.MP4 at 2024-12-22 05:44:15
+2024-12-22 21:45:08,177 - copy_manager - DEBUG - Checking file: GX010094.MP4
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Time diff from last file: 30974.0 seconds
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Current file time: 2024-12-22 14:20:29
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Last file time: 2024-12-22 05:44:15
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Creating new scene: Scene_20241222_054415 with 1 files
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Starting new scene with file: GX010094.MP4 at 2024-12-22 14:20:29
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Checking file: GX010095.MP4
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Time diff from last file: 11034.0 seconds
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Current file time: 2024-12-22 17:24:23
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Last file time: 2024-12-22 14:20:29
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Creating new scene: Scene_20241222_142029 with 1 files
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Starting new scene with file: GX010095.MP4 at 2024-12-22 17:24:23
+2024-12-22 21:45:08,178 - copy_manager - DEBUG - Checking file: GX010263.MP4
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Current file time: 2024-12-22 17:24:23
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Last file time: 2024-12-22 17:24:23
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Adding file GX010263.MP4 to current scene
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Checking file: GX010096.MP4
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Time diff from last file: 721.0 seconds
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Current file time: 2024-12-22 17:36:24
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Last file time: 2024-12-22 17:24:23
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Creating new scene: Scene_20241222_172423 with 2 files
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Starting new scene with file: GX010096.MP4 at 2024-12-22 17:36:24
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Checking file: GX010264.MP4
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Current file time: 2024-12-22 17:36:24
+2024-12-22 21:45:08,179 - copy_manager - DEBUG - Last file time: 2024-12-22 17:36:24
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Adding file GX010264.MP4 to current scene
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Checking file: GX010097.MP4
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Time diff from last file: 589.0 seconds
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Current file time: 2024-12-22 17:46:13
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Last file time: 2024-12-22 17:36:24
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Creating new scene: Scene_20241222_173624 with 2 files
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Starting new scene with file: GX010097.MP4 at 2024-12-22 17:46:13
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Checking file: GX010265.MP4
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Current file time: 2024-12-22 17:46:13
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Last file time: 2024-12-22 17:46:13
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Adding file GX010265.MP4 to current scene
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Checking file: GX010098.MP4
+2024-12-22 21:45:08,180 - copy_manager - DEBUG - Time diff from last file: 421.0 seconds
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Current file time: 2024-12-22 17:53:14
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Last file time: 2024-12-22 17:46:13
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Creating new scene: Scene_20241222_174613 with 2 files
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Starting new scene with file: GX010098.MP4 at 2024-12-22 17:53:14
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Checking file: GX010266.MP4
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Current file time: 2024-12-22 17:53:14
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Last file time: 2024-12-22 17:53:14
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Adding file GX010266.MP4 to current scene
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Checking file: GX010099.MP4
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Time diff from last file: 3424.0 seconds
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Current file time: 2024-12-22 18:50:18
+2024-12-22 21:45:08,181 - copy_manager - DEBUG - Last file time: 2024-12-22 17:53:14
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Creating new scene: Scene_20241222_175314 with 2 files
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Starting new scene with file: GX010099.MP4 at 2024-12-22 18:50:18
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Checking file: GX010267.MP4
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Current file time: 2024-12-22 18:50:18
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Last file time: 2024-12-22 18:50:18
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Adding file GX010267.MP4 to current scene
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Checking file: GX010100.MP4
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Time diff from last file: 58.0 seconds
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Current file time: 2024-12-22 18:51:16
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Last file time: 2024-12-22 18:50:18
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Creating new scene: Scene_20241222_185018 with 2 files
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Starting new scene with file: GX010100.MP4 at 2024-12-22 18:51:16
+2024-12-22 21:45:08,182 - copy_manager - DEBUG - Checking file: GX010268.MP4
+2024-12-22 21:45:08,183 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:08,183 - copy_manager - DEBUG - Current file time: 2024-12-22 18:51:16
+2024-12-22 21:45:08,183 - copy_manager - DEBUG - Last file time: 2024-12-22 18:51:16
+2024-12-22 21:45:08,183 - copy_manager - DEBUG - Adding file GX010268.MP4 to current scene
+2024-12-22 21:45:08,183 - copy_manager - DEBUG - Creating final scene: Scene_20241222_185116 with 2 files
+2024-12-22 21:45:08,183 - copy_manager - INFO - Grouped 23 files into 15 scenes using 5s interval
+2024-12-22 21:45:08,184 - copy_manager - DEBUG - Scene Scene_20241222_002220:
+2024-12-22 21:45:08,184 - copy_manager - DEBUG -   - GX010255.MP4 (2024-12-22 00:22:20)
+2024-12-22 21:45:08,184 - copy_manager - DEBUG -   - GX010256.MP4 (2024-12-22 00:22:25)
+2024-12-22 21:45:08,185 - copy_manager - DEBUG - Scene Scene_20241222_002300:
+2024-12-22 21:45:08,185 - copy_manager - DEBUG -   - GX010257.MP4 (2024-12-22 00:23:00)
+2024-12-22 21:45:08,185 - copy_manager - DEBUG - Scene Scene_20241222_002308:
+2024-12-22 21:45:08,185 - copy_manager - DEBUG -   - GX010258.MP4 (2024-12-22 00:23:08)
+2024-12-22 21:45:08,185 - copy_manager - DEBUG -   - GX010259.MP4 (2024-12-22 00:23:13)
+2024-12-22 21:45:08,185 - copy_manager - DEBUG - Scene Scene_20241222_002319:
+2024-12-22 21:45:08,185 - copy_manager - DEBUG -   - GX010260.MP4 (2024-12-22 00:23:19)
+2024-12-22 21:45:08,186 - copy_manager - DEBUG - Scene Scene_20241222_004002:
+2024-12-22 21:45:08,186 - copy_manager - DEBUG -   - GX010261.MP4 (2024-12-22 00:40:02)
+2024-12-22 21:45:08,186 - copy_manager - DEBUG - Scene Scene_20241222_020110:
+2024-12-22 21:45:08,186 - copy_manager - DEBUG -   - GX010262.MP4 (2024-12-22 02:01:10)
+2024-12-22 21:45:08,186 - copy_manager - DEBUG - Scene Scene_20241222_054402:
+2024-12-22 21:45:08,186 - copy_manager - DEBUG -   - GX010092.MP4 (2024-12-22 05:44:02)
+2024-12-22 21:45:08,186 - copy_manager - DEBUG - Scene Scene_20241222_054415:
+2024-12-22 21:45:08,187 - copy_manager - DEBUG -   - GX010093.MP4 (2024-12-22 05:44:15)
+2024-12-22 21:45:08,187 - copy_manager - DEBUG - Scene Scene_20241222_142029:
+2024-12-22 21:45:08,187 - copy_manager - DEBUG -   - GX010094.MP4 (2024-12-22 14:20:29)
+2024-12-22 21:45:08,187 - copy_manager - DEBUG - Scene Scene_20241222_172423:
+2024-12-22 21:45:08,187 - copy_manager - DEBUG -   - GX010095.MP4 (2024-12-22 17:24:23)
+2024-12-22 21:45:08,187 - copy_manager - DEBUG -   - GX010263.MP4 (2024-12-22 17:24:23)
+2024-12-22 21:45:08,187 - copy_manager - DEBUG - Scene Scene_20241222_173624:
+2024-12-22 21:45:08,187 - copy_manager - DEBUG -   - GX010096.MP4 (2024-12-22 17:36:24)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010264.MP4 (2024-12-22 17:36:24)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG - Scene Scene_20241222_174613:
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010097.MP4 (2024-12-22 17:46:13)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010265.MP4 (2024-12-22 17:46:13)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG - Scene Scene_20241222_175314:
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010098.MP4 (2024-12-22 17:53:14)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010266.MP4 (2024-12-22 17:53:14)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG - Scene Scene_20241222_185018:
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010099.MP4 (2024-12-22 18:50:18)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010267.MP4 (2024-12-22 18:50:18)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG - Scene Scene_20241222_185116:
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010100.MP4 (2024-12-22 18:51:16)
+2024-12-22 21:45:08,188 - copy_manager - DEBUG -   - GX010268.MP4 (2024-12-22 18:51:16)
+2024-12-22 21:45:08,189 - copy_manager - INFO - Grouped files into 15 scenes
+2024-12-22 21:45:08,190 - copy_manager - INFO - Total files: 23
+2024-12-22 21:45:08,190 - copy_manager - INFO - Total size: 1157046641 bytes
+2024-12-22 21:45:08,195 - copy_manager - INFO - Starting copy of file: GX010255.MP4
+2024-12-22 21:45:08,196 - copy_manager - INFO - Starting copy of file: GX010256.MP4
+2024-12-22 21:45:08,197 - copy_manager - INFO - Starting copy of file: GX010257.MP4
+2024-12-22 21:45:08,198 - copy_manager - INFO - Found existing file: GX010255_C3461326043977.MP4 with matching size
+2024-12-22 21:45:08,198 - copy_manager - INFO - Starting copy of file: GX010258.MP4
+2024-12-22 21:45:08,199 - copy_manager - INFO - Found existing file: GX010256_C3461326043977.MP4 with matching size
+2024-12-22 21:45:08,200 - copy_manager - INFO - Found existing file: GX010257_C3461326043977.MP4 with matching size
+2024-12-22 21:45:08,200 - copy_manager - INFO - Found existing file: GX010258_C3461326043977.MP4 with matching size
+2024-12-22 21:45:08,201 - copy_manager - INFO - Starting copy of file: GX010259.MP4
+2024-12-22 21:45:08,202 - copy_manager - INFO - Starting copy of file: GX010260.MP4
+2024-12-22 21:45:08,202 - copy_manager - INFO - Starting copy of file: GX010261.MP4
+2024-12-22 21:45:08,202 - copy_manager - INFO - Starting copy of file: GX010262.MP4
+2024-12-22 21:45:08,202 - copy_manager - INFO - Found existing file: GX010259_C3461326043977.MP4 with matching size
+2024-12-22 21:45:08,203 - copy_manager - INFO - Found existing file: GX010260_C3461326043977.MP4 with matching size
+2024-12-22 21:45:08,203 - copy_manager - INFO - Found existing file: GX010262_C3461326043977.MP4 with matching size
+2024-12-22 21:45:08,204 - copy_manager - INFO - Found existing file: GX010261_C3461326043977.MP4 with matching size
+2024-12-22 21:45:08,205 - copy_manager - INFO - Starting copy of file: GX010092.MP4
+2024-12-22 21:45:08,205 - copy_manager - INFO - Starting copy of file: GX010093.MP4
+2024-12-22 21:45:08,205 - copy_manager - INFO - Starting copy of file: GX010094.MP4
+2024-12-22 21:45:08,205 - copy_manager - INFO - Starting copy of file: GX010095.MP4
+2024-12-22 21:45:08,206 - copy_manager - INFO - Found existing file: GX010092_C3461325908060.MP4 with matching size
+2024-12-22 21:45:08,206 - copy_manager - INFO - Found existing file: GX010093_C3461325908060.MP4 with matching size
+2024-12-22 21:45:08,206 - copy_manager - INFO - Found existing file: GX010094_C3461325908060.MP4 with matching size
+2024-12-22 21:45:08,207 - copy_manager - INFO - Found existing file: GX010095_C3461325908060.MP4 with matching size
+2024-12-22 21:45:08,208 - copy_manager - INFO - Starting copy of file: GX010263.MP4
+2024-12-22 21:45:08,208 - copy_manager - INFO - Starting copy of file: GX010096.MP4
+2024-12-22 21:45:08,208 - copy_manager - INFO - Starting copy of file: GX010264.MP4
+2024-12-22 21:45:08,208 - copy_manager - INFO - Starting copy of file: GX010097.MP4
+2024-12-22 21:45:08,211 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:08,212 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:08,213 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:08,214 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:08,280 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010264.MP4 HTTP/11" 200 0
+2024-12-22 21:45:08,281 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:08,281 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010263.MP4 HTTP/11" 200 0
+2024-12-22 21:45:08,282 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010097.MP4 HTTP/11" 200 0
+2024-12-22 21:45:08,282 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010096.MP4 HTTP/11" 200 0
+2024-12-22 21:45:08,283 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:08,283 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:08,284 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:08,302 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010264.MP4 HTTP/11" 200 39966999
+2024-12-22 21:45:08,316 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010097.MP4 HTTP/11" 200 19375413
+2024-12-22 21:45:08,329 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010263.MP4 HTTP/11" 200 12086481
+2024-12-22 21:45:08,337 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010096.MP4 HTTP/11" 200 22239282
+2024-12-22 21:45:08,808 - copy_manager - INFO - Successfully copied file: GX010263_C3461326043977.MP4
+2024-12-22 21:45:09,055 - copy_manager - INFO - Successfully copied file: GX010097_C3461325908060.MP4
+2024-12-22 21:45:09,178 - copy_manager - INFO - Successfully copied file: GX010096_C3461325908060.MP4
+2024-12-22 21:45:10,035 - copy_manager - INFO - Copy session paused
+2024-12-22 21:45:10,146 - copy_manager - INFO - Successfully copied file: GX010264_C3461326043977.MP4
+2024-12-22 21:45:10,149 - copy_manager - INFO - Starting copy of file: GX010265.MP4
+2024-12-22 21:45:10,149 - copy_manager - INFO - Starting copy of file: GX010098.MP4
+2024-12-22 21:45:10,150 - copy_manager - INFO - Starting copy of file: GX010266.MP4
+2024-12-22 21:45:10,150 - copy_manager - INFO - Starting copy of file: GX010099.MP4
+2024-12-22 21:45:10,157 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:10,161 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:10,163 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:10,176 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:10,222 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010265.MP4 HTTP/11" 200 0
+2024-12-22 21:45:10,225 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:10,238 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010266.MP4 HTTP/11" 200 0
+2024-12-22 21:45:10,239 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010098.MP4 HTTP/11" 200 0
+2024-12-22 21:45:10,241 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:10,244 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:10,254 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010099.MP4 HTTP/11" 200 0
+2024-12-22 21:45:10,256 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010265.MP4 HTTP/11" 200 33489956
+2024-12-22 21:45:10,257 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:10,280 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010098.MP4 HTTP/11" 200 62055329
+2024-12-22 21:45:10,282 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010266.MP4 HTTP/11" 200 135302157
+2024-12-22 21:45:10,294 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010099.MP4 HTTP/11" 200 14246820
+2024-12-22 21:45:10,883 - copy_manager - INFO - Successfully copied file: GX010099_C3461325908060.MP4
+2024-12-22 21:45:12,177 - copy_manager - INFO - Successfully copied file: GX010265_C3461326043977.MP4
+2024-12-22 21:45:12,793 - copy_manager - INFO - Successfully copied file: GX010098_C3461325908060.MP4
+2024-12-22 21:45:14,467 - copy_manager - INFO - Successfully copied file: GX010266_C3461326043977.MP4
+2024-12-22 21:45:14,468 - copy_manager - INFO - Starting copy of file: GX010267.MP4
+2024-12-22 21:45:14,468 - copy_manager - INFO - Starting copy of file: GX010100.MP4
+2024-12-22 21:45:14,468 - copy_manager - INFO - Starting copy of file: GX010268.MP4
+2024-12-22 21:45:14,476 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:14,478 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:14,480 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:14,539 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010267.MP4 HTTP/11" 200 0
+2024-12-22 21:45:14,539 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010100.MP4 HTTP/11" 200 0
+2024-12-22 21:45:14,543 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:14,544 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:14,554 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "HEAD /videos/DCIM/100GOPRO/GX010268.MP4 HTTP/11" 200 0
+2024-12-22 21:45:14,555 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:14,565 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /videos/DCIM/100GOPRO/GX010100.MP4 HTTP/11" 200 20559673
+2024-12-22 21:45:14,566 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010267.MP4 HTTP/11" 200 26027154
+2024-12-22 21:45:14,593 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /videos/DCIM/100GOPRO/GX010268.MP4 HTTP/11" 200 36377593
+2024-12-22 21:45:15,558 - copy_manager - INFO - Successfully copied file: GX010100_C3461325908060.MP4
+2024-12-22 21:45:15,701 - copy_manager - INFO - Successfully copied file: GX010267_C3461326043977.MP4
+2024-12-22 21:45:15,859 - copy_manager - INFO - Copy session cancelled
+2024-12-22 21:45:16,479 - copy_manager - INFO - Successfully copied file: GX010268_C3461326043977.MP4
+2024-12-22 21:45:16,495 - copy_manager - INFO - Copy session finished
+2024-12-22 21:45:22,581 - copy_manager - INFO - Preparing copy session to: C:\tmp
+2024-12-22 21:45:22,582 - copy_manager - DEBUG - Looking for camera cache at: C:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\camera_cache.json
+2024-12-22 21:45:22,582 - copy_manager - DEBUG - Loaded camera cache: [{'name': 'C3461325908060', 'ip': '172.20.160.51'}, {'name': 'C3461326043977', 'ip': '172.29.177.51'}]
+2024-12-22 21:45:22,582 - copy_manager - INFO - Getting media list from camera 172.20.160.51
+2024-12-22 21:45:22,586 - copy_manager - DEBUG - Sending request to http://172.20.160.51:8080/gopro/media/list
+2024-12-22 21:45:22,588 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 21:45:22,646 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/media/list HTTP/11" 200 968
+2024-12-22 21:45:22,647 - copy_manager - DEBUG - Response status code: 200
+2024-12-22 21:45:22,647 - copy_manager - DEBUG - Response data: {'id': '46673526589681488', 'media': [{'d': '100GOPRO', 'fs': [{'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782'}, {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138'}, {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932'}, {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257'}, {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282'}, {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413'}, {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329'}, {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820'}, {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673'}]}]}
+2024-12-22 21:45:22,647 - copy_manager - DEBUG - Processing directory: 100GOPRO, files count: 9
+2024-12-22 21:45:22,647 - copy_manager - INFO - Found 9 media files on camera 172.20.160.51
+2024-12-22 21:45:22,648 - copy_manager - DEBUG - Media list: [{'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782', 'd': '100GOPRO'}, {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138', 'd': '100GOPRO'}, {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932', 'd': '100GOPRO'}, {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257', 'd': '100GOPRO'}, {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282', 'd': '100GOPRO'}, {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413', 'd': '100GOPRO'}, {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329', 'd': '100GOPRO'}, {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820', 'd': '100GOPRO'}, {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673', 'd': '100GOPRO'}]
+2024-12-22 21:45:22,648 - copy_manager - INFO - Getting media list from camera 172.29.177.51
+2024-12-22 21:45:22,649 - copy_manager - DEBUG - Sending request to http://172.29.177.51:8080/gopro/media/list
+2024-12-22 21:45:22,650 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 21:45:22,853 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/media/list HTTP/11" 200 1241
+2024-12-22 21:45:22,853 - copy_manager - DEBUG - Response status code: 200
+2024-12-22 21:45:22,853 - copy_manager - DEBUG - Response data: {'id': '1408660479980901224', 'media': [{'d': '100GOPRO', 'fs': [{'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555'}, {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383'}, {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775'}, {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074'}, {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332'}, {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049'}, {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531'}, {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976'}, {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481'}, {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999'}, {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956'}, {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157'}, {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154'}, {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593'}]}]}
+2024-12-22 21:45:22,854 - copy_manager - DEBUG - Processing directory: 100GOPRO, files count: 14
+2024-12-22 21:45:22,854 - copy_manager - INFO - Found 14 media files on camera 172.29.177.51
+2024-12-22 21:45:22,855 - copy_manager - DEBUG - Media list: [{'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555', 'd': '100GOPRO'}, {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383', 'd': '100GOPRO'}, {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775', 'd': '100GOPRO'}, {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074', 'd': '100GOPRO'}, {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332', 'd': '100GOPRO'}, {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049', 'd': '100GOPRO'}, {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531', 'd': '100GOPRO'}, {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976', 'd': '100GOPRO'}, {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481', 'd': '100GOPRO'}, {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999', 'd': '100GOPRO'}, {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956', 'd': '100GOPRO'}, {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157', 'd': '100GOPRO'}, {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154', 'd': '100GOPRO'}, {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593', 'd': '100GOPRO'}]
+2024-12-22 21:45:22,855 - copy_manager - INFO - Found 2 cameras in cache
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Processing camera: C3461325908060 (172.20.160.51)
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Found 9 media files for camera C3461325908060
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Processing media: {'n': 'GX010092.MP4', 'cre': '1734842642', 'mod': '1734842642', 'glrv': '926174', 'ls': '-1', 's': '23985782', 'd': '100GOPRO'}
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010092.MP4
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - File: GX010092.MP4, Raw timestamp: 1734842642
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 05:44:02
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010092.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010092.MP4', size=23985782, created_at=datetime.datetime(2024, 12, 22, 5, 44, 2), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 05:44:02
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Processing media: {'n': 'GX010093.MP4', 'cre': '1734842655', 'mod': '1734842655', 'glrv': '1655091', 'ls': '-1', 's': '46088138', 'd': '100GOPRO'}
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010093.MP4
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - File: GX010093.MP4, Raw timestamp: 1734842655
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 05:44:15
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010093.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010093.MP4', size=46088138, created_at=datetime.datetime(2024, 12, 22, 5, 44, 15), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 05:44:15
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Processing media: {'n': 'GX010094.MP4', 'cre': '1734873629', 'mod': '1734873629', 'glrv': '606986', 'ls': '-1', 's': '17522932', 'd': '100GOPRO'}
+2024-12-22 21:45:22,856 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010094.MP4
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - File: GX010094.MP4, Raw timestamp: 1734873629
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 14:20:29
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010094.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010094.MP4', size=17522932, created_at=datetime.datetime(2024, 12, 22, 14, 20, 29), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 14:20:29
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Processing media: {'n': 'GX010095.MP4', 'cre': '1734884663', 'mod': '1734884663', 'glrv': '1205099', 'ls': '-1', 's': '16032257', 'd': '100GOPRO'}
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010095.MP4
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - File: GX010095.MP4, Raw timestamp: 1734884663
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:24:23
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010095.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010095.MP4', size=16032257, created_at=datetime.datetime(2024, 12, 22, 17, 24, 23), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:24:23
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Processing media: {'n': 'GX010096.MP4', 'cre': '1734885384', 'mod': '1734885384', 'glrv': '1541602', 'ls': '-1', 's': '22239282', 'd': '100GOPRO'}
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010096.MP4
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - File: GX010096.MP4, Raw timestamp: 1734885384
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:36:24
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010096.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010096.MP4', size=22239282, created_at=datetime.datetime(2024, 12, 22, 17, 36, 24), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:36:24
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Processing media: {'n': 'GX010097.MP4', 'cre': '1734885973', 'mod': '1734885973', 'glrv': '1319575', 'ls': '-1', 's': '19375413', 'd': '100GOPRO'}
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010097.MP4
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - File: GX010097.MP4, Raw timestamp: 1734885973
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:46:13
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010097.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010097.MP4', size=19375413, created_at=datetime.datetime(2024, 12, 22, 17, 46, 13), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:46:13
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Processing media: {'n': 'GX010098.MP4', 'cre': '1734886394', 'mod': '1734886394', 'glrv': '4641624', 'ls': '-1', 's': '62055329', 'd': '100GOPRO'}
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010098.MP4
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - File: GX010098.MP4, Raw timestamp: 1734886394
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:53:14
+2024-12-22 21:45:22,857 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010098.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010098.MP4', size=62055329, created_at=datetime.datetime(2024, 12, 22, 17, 53, 14), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:53:14
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Processing media: {'n': 'GX010099.MP4', 'cre': '1734889818', 'mod': '1734889818', 'glrv': '1018615', 'ls': '-1', 's': '14246820', 'd': '100GOPRO'}
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010099.MP4
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - File: GX010099.MP4, Raw timestamp: 1734889818
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:50:18
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010099.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010099.MP4', size=14246820, created_at=datetime.datetime(2024, 12, 22, 18, 50, 18), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:50:18
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Processing media: {'n': 'GX010100.MP4', 'cre': '1734889876', 'mod': '1734889876', 'glrv': '1420200', 'ls': '-1', 's': '20559673', 'd': '100GOPRO'}
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Media URL: http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010100.MP4
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - File: GX010100.MP4, Raw timestamp: 1734889876
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:51:16
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010100.MP4', path='http://172.20.160.51:8080/videos/DCIM/100GOPRO/GX010100.MP4', size=20559673, created_at=datetime.datetime(2024, 12, 22, 18, 51, 16), camera_id='C3461325908060', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:51:16
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Processing camera: C3461326043977 (172.29.177.51)
+2024-12-22 21:45:22,858 - copy_manager - DEBUG - Found 14 media files for camera C3461326043977
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Processing media: {'n': 'GX010255.MP4', 'cre': '1734823340', 'mod': '1734823340', 'ls': '-1', 's': '22867555', 'd': '100GOPRO'}
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010255.MP4
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - File: GX010255.MP4, Raw timestamp: 1734823340
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:22:20
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010255.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010255.MP4', size=22867555, created_at=datetime.datetime(2024, 12, 22, 0, 22, 20), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:22:20
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Processing media: {'n': 'GX010256.MP4', 'cre': '1734823345', 'mod': '1734823345', 'ls': '-1', 's': '22864383', 'd': '100GOPRO'}
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010256.MP4
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - File: GX010256.MP4, Raw timestamp: 1734823345
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:22:25
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010256.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010256.MP4', size=22864383, created_at=datetime.datetime(2024, 12, 22, 0, 22, 25), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:22:25
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Processing media: {'n': 'GX010257.MP4', 'cre': '1734823380', 'mod': '1734823380', 'ls': '-1', 's': '24152775', 'd': '100GOPRO'}
+2024-12-22 21:45:22,859 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010257.MP4
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - File: GX010257.MP4, Raw timestamp: 1734823380
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:00
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010257.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010257.MP4', size=24152775, created_at=datetime.datetime(2024, 12, 22, 0, 23), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:00
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Processing media: {'n': 'GX010258.MP4', 'cre': '1734823388', 'mod': '1734823388', 'ls': '-1', 's': '41634074', 'd': '100GOPRO'}
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010258.MP4
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - File: GX010258.MP4, Raw timestamp: 1734823388
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:08
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010258.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010258.MP4', size=41634074, created_at=datetime.datetime(2024, 12, 22, 0, 23, 8), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:08
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Processing media: {'n': 'GX010259.MP4', 'cre': '1734823393', 'mod': '1734823393', 'ls': '-1', 's': '41406332', 'd': '100GOPRO'}
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010259.MP4
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - File: GX010259.MP4, Raw timestamp: 1734823393
+2024-12-22 21:45:22,860 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:13
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010259.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010259.MP4', size=41406332, created_at=datetime.datetime(2024, 12, 22, 0, 23, 13), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:13
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Processing media: {'n': 'GX010260.MP4', 'cre': '1734823399', 'mod': '1734823399', 'ls': '-1', 's': '41962049', 'd': '100GOPRO'}
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010260.MP4
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - File: GX010260.MP4, Raw timestamp: 1734823399
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:23:19
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010260.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010260.MP4', size=41962049, created_at=datetime.datetime(2024, 12, 22, 0, 23, 19), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:23:19
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Processing media: {'n': 'GX010261.MP4', 'cre': '1734824402', 'mod': '1734824402', 'ls': '-1', 's': '46256531', 'd': '100GOPRO'}
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010261.MP4
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - File: GX010261.MP4, Raw timestamp: 1734824402
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 00:40:02
+2024-12-22 21:45:22,861 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010261.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010261.MP4', size=46256531, created_at=datetime.datetime(2024, 12, 22, 0, 40, 2), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 00:40:02
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - Processing media: {'n': 'GX010262.MP4', 'cre': '1734829270', 'mod': '1734829270', 'ls': '-1', 's': '390546976', 'd': '100GOPRO'}
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010262.MP4
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - File: GX010262.MP4, Raw timestamp: 1734829270
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 02:01:10
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010262.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010262.MP4', size=390546976, created_at=datetime.datetime(2024, 12, 22, 2, 1, 10), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 02:01:10
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - Processing media: {'n': 'GX010263.MP4', 'cre': '1734884663', 'mod': '1734884663', 'ls': '-1', 's': '12086481', 'd': '100GOPRO'}
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010263.MP4
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - File: GX010263.MP4, Raw timestamp: 1734884663
+2024-12-22 21:45:22,862 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:24:23
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010263.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010263.MP4', size=12086481, created_at=datetime.datetime(2024, 12, 22, 17, 24, 23), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:24:23
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Processing media: {'n': 'GX010264.MP4', 'cre': '1734885384', 'mod': '1734885384', 'ls': '-1', 's': '39966999', 'd': '100GOPRO'}
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010264.MP4
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - File: GX010264.MP4, Raw timestamp: 1734885384
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:36:24
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010264.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010264.MP4', size=39966999, created_at=datetime.datetime(2024, 12, 22, 17, 36, 24), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:36:24
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Processing media: {'n': 'GX010265.MP4', 'cre': '1734885973', 'mod': '1734885973', 'ls': '-1', 's': '33489956', 'd': '100GOPRO'}
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010265.MP4
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - File: GX010265.MP4, Raw timestamp: 1734885973
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:46:13
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010265.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010265.MP4', size=33489956, created_at=datetime.datetime(2024, 12, 22, 17, 46, 13), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:46:13
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Processing media: {'n': 'GX010266.MP4', 'cre': '1734886394', 'mod': '1734886394', 'ls': '-1', 's': '135302157', 'd': '100GOPRO'}
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010266.MP4
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - File: GX010266.MP4, Raw timestamp: 1734886394
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 17:53:14
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010266.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010266.MP4', size=135302157, created_at=datetime.datetime(2024, 12, 22, 17, 53, 14), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 17:53:14
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Processing media: {'n': 'GX010267.MP4', 'cre': '1734889818', 'mod': '1734889818', 'ls': '-1', 's': '26027154', 'd': '100GOPRO'}
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010267.MP4
+2024-12-22 21:45:22,863 - copy_manager - DEBUG - File: GX010267.MP4, Raw timestamp: 1734889818
+2024-12-22 21:45:22,864 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:50:18
+2024-12-22 21:45:22,864 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010267.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010267.MP4', size=26027154, created_at=datetime.datetime(2024, 12, 22, 18, 50, 18), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:50:18
+2024-12-22 21:45:22,864 - copy_manager - DEBUG - Processing media: {'n': 'GX010268.MP4', 'cre': '1734889876', 'mod': '1734889876', 'ls': '-1', 's': '36377593', 'd': '100GOPRO'}
+2024-12-22 21:45:22,864 - copy_manager - DEBUG - Media URL: http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010268.MP4
+2024-12-22 21:45:22,864 - copy_manager - DEBUG - File: GX010268.MP4, Raw timestamp: 1734889876
+2024-12-22 21:45:22,864 - copy_manager - DEBUG - Converted timestamp to: 2024-12-22 18:51:16
+2024-12-22 21:45:22,864 - copy_manager - DEBUG - Added file to copy list: FileInfo(name='GX010268.MP4', path='http://172.29.177.51:8080/videos/DCIM/100GOPRO/GX010268.MP4', size=36377593, created_at=datetime.datetime(2024, 12, 22, 18, 51, 16), camera_id='C3461326043977', scene_id=None, status='pending', progress=0.0, error_message=None), Created at: 2024-12-22 18:51:16
+2024-12-22 21:45:22,864 - copy_manager - INFO - Found 23 files to copy
+2024-12-22 21:45:22,864 - copy_manager - INFO - Using scene interval: 5 seconds
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - Sorted files timestamps:
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010255.MP4, Created: 2024-12-22 00:22:20
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010256.MP4, Created: 2024-12-22 00:22:25
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010257.MP4, Created: 2024-12-22 00:23:00
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010258.MP4, Created: 2024-12-22 00:23:08
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010259.MP4, Created: 2024-12-22 00:23:13
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010260.MP4, Created: 2024-12-22 00:23:19
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010261.MP4, Created: 2024-12-22 00:40:02
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010262.MP4, Created: 2024-12-22 02:01:10
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010092.MP4, Created: 2024-12-22 05:44:02
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010093.MP4, Created: 2024-12-22 05:44:15
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010094.MP4, Created: 2024-12-22 14:20:29
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010095.MP4, Created: 2024-12-22 17:24:23
+2024-12-22 21:45:22,866 - copy_manager - DEBUG - File: GX010263.MP4, Created: 2024-12-22 17:24:23
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010096.MP4, Created: 2024-12-22 17:36:24
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010264.MP4, Created: 2024-12-22 17:36:24
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010097.MP4, Created: 2024-12-22 17:46:13
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010265.MP4, Created: 2024-12-22 17:46:13
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010098.MP4, Created: 2024-12-22 17:53:14
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010266.MP4, Created: 2024-12-22 17:53:14
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010099.MP4, Created: 2024-12-22 18:50:18
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010267.MP4, Created: 2024-12-22 18:50:18
+2024-12-22 21:45:22,867 - copy_manager - DEBUG - File: GX010100.MP4, Created: 2024-12-22 18:51:16
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - File: GX010268.MP4, Created: 2024-12-22 18:51:16
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Starting new scene with file: GX010255.MP4 at 2024-12-22 00:22:20
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Checking file: GX010256.MP4
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Time diff from last file: 5.0 seconds
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Current file time: 2024-12-22 00:22:25
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Last file time: 2024-12-22 00:22:20
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Adding file GX010256.MP4 to current scene
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Checking file: GX010257.MP4
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Time diff from last file: 35.0 seconds
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:00
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Last file time: 2024-12-22 00:22:25
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002220 with 2 files
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Starting new scene with file: GX010257.MP4 at 2024-12-22 00:23:00
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Checking file: GX010258.MP4
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Time diff from last file: 8.0 seconds
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:08
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:00
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002300 with 1 files
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Starting new scene with file: GX010258.MP4 at 2024-12-22 00:23:08
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Checking file: GX010259.MP4
+2024-12-22 21:45:22,868 - copy_manager - DEBUG - Time diff from last file: 5.0 seconds
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:13
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:08
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Adding file GX010259.MP4 to current scene
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Checking file: GX010260.MP4
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Time diff from last file: 6.0 seconds
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Current file time: 2024-12-22 00:23:19
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:13
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002308 with 2 files
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Starting new scene with file: GX010260.MP4 at 2024-12-22 00:23:19
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Checking file: GX010261.MP4
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Time diff from last file: 1003.0 seconds
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Current file time: 2024-12-22 00:40:02
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Last file time: 2024-12-22 00:23:19
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Creating new scene: Scene_20241222_002319 with 1 files
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Starting new scene with file: GX010261.MP4 at 2024-12-22 00:40:02
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Checking file: GX010262.MP4
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Time diff from last file: 4868.0 seconds
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Current file time: 2024-12-22 02:01:10
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Last file time: 2024-12-22 00:40:02
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Creating new scene: Scene_20241222_004002 with 1 files
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Starting new scene with file: GX010262.MP4 at 2024-12-22 02:01:10
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Checking file: GX010092.MP4
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Time diff from last file: 13372.0 seconds
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Current file time: 2024-12-22 05:44:02
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Last file time: 2024-12-22 02:01:10
+2024-12-22 21:45:22,869 - copy_manager - DEBUG - Creating new scene: Scene_20241222_020110 with 1 files
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Starting new scene with file: GX010092.MP4 at 2024-12-22 05:44:02
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Checking file: GX010093.MP4
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Time diff from last file: 13.0 seconds
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Current file time: 2024-12-22 05:44:15
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Last file time: 2024-12-22 05:44:02
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Creating new scene: Scene_20241222_054402 with 1 files
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Starting new scene with file: GX010093.MP4 at 2024-12-22 05:44:15
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Checking file: GX010094.MP4
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Time diff from last file: 30974.0 seconds
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Current file time: 2024-12-22 14:20:29
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Last file time: 2024-12-22 05:44:15
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Creating new scene: Scene_20241222_054415 with 1 files
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Starting new scene with file: GX010094.MP4 at 2024-12-22 14:20:29
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Checking file: GX010095.MP4
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Time diff from last file: 11034.0 seconds
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Current file time: 2024-12-22 17:24:23
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Last file time: 2024-12-22 14:20:29
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Creating new scene: Scene_20241222_142029 with 1 files
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Starting new scene with file: GX010095.MP4 at 2024-12-22 17:24:23
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Checking file: GX010263.MP4
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:22,870 - copy_manager - DEBUG - Current file time: 2024-12-22 17:24:23
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Last file time: 2024-12-22 17:24:23
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Adding file GX010263.MP4 to current scene
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Checking file: GX010096.MP4
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Time diff from last file: 721.0 seconds
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Current file time: 2024-12-22 17:36:24
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Last file time: 2024-12-22 17:24:23
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Creating new scene: Scene_20241222_172423 with 2 files
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Starting new scene with file: GX010096.MP4 at 2024-12-22 17:36:24
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Checking file: GX010264.MP4
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Current file time: 2024-12-22 17:36:24
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Last file time: 2024-12-22 17:36:24
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Adding file GX010264.MP4 to current scene
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Checking file: GX010097.MP4
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Time diff from last file: 589.0 seconds
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Current file time: 2024-12-22 17:46:13
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Last file time: 2024-12-22 17:36:24
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Creating new scene: Scene_20241222_173624 with 2 files
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Starting new scene with file: GX010097.MP4 at 2024-12-22 17:46:13
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Checking file: GX010265.MP4
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Current file time: 2024-12-22 17:46:13
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Last file time: 2024-12-22 17:46:13
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Adding file GX010265.MP4 to current scene
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Checking file: GX010098.MP4
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Time diff from last file: 421.0 seconds
+2024-12-22 21:45:22,871 - copy_manager - DEBUG - Current file time: 2024-12-22 17:53:14
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Last file time: 2024-12-22 17:46:13
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Creating new scene: Scene_20241222_174613 with 2 files
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Starting new scene with file: GX010098.MP4 at 2024-12-22 17:53:14
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Checking file: GX010266.MP4
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Current file time: 2024-12-22 17:53:14
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Last file time: 2024-12-22 17:53:14
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Adding file GX010266.MP4 to current scene
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Checking file: GX010099.MP4
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Time diff from last file: 3424.0 seconds
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Current file time: 2024-12-22 18:50:18
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Last file time: 2024-12-22 17:53:14
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Creating new scene: Scene_20241222_175314 with 2 files
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Starting new scene with file: GX010099.MP4 at 2024-12-22 18:50:18
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Checking file: GX010267.MP4
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Current file time: 2024-12-22 18:50:18
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Last file time: 2024-12-22 18:50:18
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Adding file GX010267.MP4 to current scene
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Checking file: GX010100.MP4
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Time diff from last file: 58.0 seconds
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Current file time: 2024-12-22 18:51:16
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Last file time: 2024-12-22 18:50:18
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Creating new scene: Scene_20241222_185018 with 2 files
+2024-12-22 21:45:22,872 - copy_manager - DEBUG - Starting new scene with file: GX010100.MP4 at 2024-12-22 18:51:16
+2024-12-22 21:45:22,873 - copy_manager - DEBUG - Checking file: GX010268.MP4
+2024-12-22 21:45:22,873 - copy_manager - DEBUG - Time diff from last file: 0.0 seconds
+2024-12-22 21:45:22,873 - copy_manager - DEBUG - Current file time: 2024-12-22 18:51:16
+2024-12-22 21:45:22,873 - copy_manager - DEBUG - Last file time: 2024-12-22 18:51:16
+2024-12-22 21:45:22,873 - copy_manager - DEBUG - Adding file GX010268.MP4 to current scene
+2024-12-22 21:45:22,873 - copy_manager - DEBUG - Creating final scene: Scene_20241222_185116 with 2 files
+2024-12-22 21:45:22,873 - copy_manager - INFO - Grouped 23 files into 15 scenes using 5s interval
+2024-12-22 21:45:22,874 - copy_manager - DEBUG - Scene Scene_20241222_002220:
+2024-12-22 21:45:22,874 - copy_manager - DEBUG -   - GX010255.MP4 (2024-12-22 00:22:20)
+2024-12-22 21:45:22,874 - copy_manager - DEBUG -   - GX010256.MP4 (2024-12-22 00:22:25)
+2024-12-22 21:45:22,874 - copy_manager - DEBUG - Scene Scene_20241222_002300:
+2024-12-22 21:45:22,874 - copy_manager - DEBUG -   - GX010257.MP4 (2024-12-22 00:23:00)
+2024-12-22 21:45:22,874 - copy_manager - DEBUG - Scene Scene_20241222_002308:
+2024-12-22 21:45:22,874 - copy_manager - DEBUG -   - GX010258.MP4 (2024-12-22 00:23:08)
+2024-12-22 21:45:22,874 - copy_manager - DEBUG -   - GX010259.MP4 (2024-12-22 00:23:13)
+2024-12-22 21:45:22,874 - copy_manager - DEBUG - Scene Scene_20241222_002319:
+2024-12-22 21:45:22,874 - copy_manager - DEBUG -   - GX010260.MP4 (2024-12-22 00:23:19)
+2024-12-22 21:45:22,874 - copy_manager - DEBUG - Scene Scene_20241222_004002:
+2024-12-22 21:45:22,874 - copy_manager - DEBUG -   - GX010261.MP4 (2024-12-22 00:40:02)
+2024-12-22 21:45:22,874 - copy_manager - DEBUG - Scene Scene_20241222_020110:
+2024-12-22 21:45:22,874 - copy_manager - DEBUG -   - GX010262.MP4 (2024-12-22 02:01:10)
+2024-12-22 21:45:22,874 - copy_manager - DEBUG - Scene Scene_20241222_054402:
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010092.MP4 (2024-12-22 05:44:02)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG - Scene Scene_20241222_054415:
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010093.MP4 (2024-12-22 05:44:15)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG - Scene Scene_20241222_142029:
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010094.MP4 (2024-12-22 14:20:29)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG - Scene Scene_20241222_172423:
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010095.MP4 (2024-12-22 17:24:23)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010263.MP4 (2024-12-22 17:24:23)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG - Scene Scene_20241222_173624:
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010096.MP4 (2024-12-22 17:36:24)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010264.MP4 (2024-12-22 17:36:24)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG - Scene Scene_20241222_174613:
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010097.MP4 (2024-12-22 17:46:13)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010265.MP4 (2024-12-22 17:46:13)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG - Scene Scene_20241222_175314:
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010098.MP4 (2024-12-22 17:53:14)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010266.MP4 (2024-12-22 17:53:14)
+2024-12-22 21:45:22,875 - copy_manager - DEBUG - Scene Scene_20241222_185018:
+2024-12-22 21:45:22,875 - copy_manager - DEBUG -   - GX010099.MP4 (2024-12-22 18:50:18)
+2024-12-22 21:45:22,876 - copy_manager - DEBUG -   - GX010267.MP4 (2024-12-22 18:50:18)
+2024-12-22 21:45:22,876 - copy_manager - DEBUG - Scene Scene_20241222_185116:
+2024-12-22 21:45:22,876 - copy_manager - DEBUG -   - GX010100.MP4 (2024-12-22 18:51:16)
+2024-12-22 21:45:22,876 - copy_manager - DEBUG -   - GX010268.MP4 (2024-12-22 18:51:16)
+2024-12-22 21:45:22,876 - copy_manager - INFO - Grouped files into 15 scenes
+2024-12-22 21:45:22,876 - copy_manager - INFO - Total files: 23
+2024-12-22 21:45:22,877 - copy_manager - INFO - Total size: 1157046641 bytes
+2024-12-22 21:45:22,879 - copy_manager - INFO - Starting copy of file: GX010255.MP4
+2024-12-22 21:45:22,880 - copy_manager - INFO - Starting copy of file: GX010256.MP4
+2024-12-22 21:45:22,880 - copy_manager - INFO - Starting copy of file: GX010257.MP4
+2024-12-22 21:45:22,881 - copy_manager - INFO - Starting copy of file: GX010258.MP4
+2024-12-22 21:45:22,881 - copy_manager - INFO - Found existing file: GX010255_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,882 - copy_manager - INFO - Found existing file: GX010256_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,882 - copy_manager - INFO - Found existing file: GX010257_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,883 - copy_manager - INFO - Found existing file: GX010258_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,884 - copy_manager - INFO - Starting copy of file: GX010259.MP4
+2024-12-22 21:45:22,884 - copy_manager - INFO - Starting copy of file: GX010260.MP4
+2024-12-22 21:45:22,884 - copy_manager - INFO - Starting copy of file: GX010261.MP4
+2024-12-22 21:45:22,884 - copy_manager - INFO - Starting copy of file: GX010262.MP4
+2024-12-22 21:45:22,884 - copy_manager - INFO - Found existing file: GX010259_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,885 - copy_manager - INFO - Found existing file: GX010260_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,885 - copy_manager - INFO - Found existing file: GX010261_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,885 - copy_manager - INFO - Found existing file: GX010262_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,887 - copy_manager - INFO - Starting copy of file: GX010092.MP4
+2024-12-22 21:45:22,887 - copy_manager - INFO - Starting copy of file: GX010093.MP4
+2024-12-22 21:45:22,887 - copy_manager - INFO - Starting copy of file: GX010094.MP4
+2024-12-22 21:45:22,887 - copy_manager - INFO - Starting copy of file: GX010095.MP4
+2024-12-22 21:45:22,888 - copy_manager - INFO - Found existing file: GX010092_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,888 - copy_manager - INFO - Found existing file: GX010093_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,889 - copy_manager - INFO - Found existing file: GX010094_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,889 - copy_manager - INFO - Found existing file: GX010095_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,890 - copy_manager - INFO - Starting copy of file: GX010263.MP4
+2024-12-22 21:45:22,890 - copy_manager - INFO - Starting copy of file: GX010096.MP4
+2024-12-22 21:45:22,890 - copy_manager - INFO - Starting copy of file: GX010264.MP4
+2024-12-22 21:45:22,890 - copy_manager - INFO - Starting copy of file: GX010097.MP4
+2024-12-22 21:45:22,891 - copy_manager - INFO - Found existing file: GX010263_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,891 - copy_manager - INFO - Found existing file: GX010096_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,892 - copy_manager - INFO - Found existing file: GX010264_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,893 - copy_manager - INFO - Found existing file: GX010097_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,894 - copy_manager - INFO - Starting copy of file: GX010265.MP4
+2024-12-22 21:45:22,894 - copy_manager - INFO - Starting copy of file: GX010098.MP4
+2024-12-22 21:45:22,894 - copy_manager - INFO - Starting copy of file: GX010266.MP4
+2024-12-22 21:45:22,894 - copy_manager - INFO - Starting copy of file: GX010099.MP4
+2024-12-22 21:45:22,895 - copy_manager - INFO - Found existing file: GX010265_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,895 - copy_manager - INFO - Found existing file: GX010098_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,896 - copy_manager - INFO - Found existing file: GX010266_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,896 - copy_manager - INFO - Found existing file: GX010099_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,897 - copy_manager - INFO - Starting copy of file: GX010267.MP4
+2024-12-22 21:45:22,897 - copy_manager - INFO - Starting copy of file: GX010100.MP4
+2024-12-22 21:45:22,897 - copy_manager - INFO - Starting copy of file: GX010268.MP4
+2024-12-22 21:45:22,899 - copy_manager - INFO - Found existing file: GX010267_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,899 - copy_manager - INFO - Found existing file: GX010268_C3461326043977.MP4 with matching size
+2024-12-22 21:45:22,900 - copy_manager - INFO - Found existing file: GX010100_C3461325908060.MP4 with matching size
+2024-12-22 21:45:22,962 - copy_manager - INFO - Copy session finished

@@ -1,0 +1,49 @@
+2024-12-16 21:19:22,526 - INFO - Starting script: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\goprolist_and_start_usb.py
+2024-12-16 21:19:28,436 - ERROR - 2024-12-16 21:19:23,383 - DEBUG - Using proactor: IocpProactor
+2024-12-16 21:19:28,437 - ERROR - 2024-12-16 21:19:23,387 - INFO - Searching for GoPro cameras...
+2024-12-16 21:19:28,437 - ERROR - 2024-12-16 21:19:23,585 - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-16 21:19:28,438 - ERROR - 2024-12-16 21:19:28,393 - INFO - Found 1 GoPro devices:
+2024-12-16 21:19:28,439 - ERROR - 2024-12-16 21:19:28,394 - INFO - Name: C3461326143885._gopro-web._tcp.local., IP: 172.28.185.51
+2024-12-16 21:19:28,440 - INFO - Successfully completed script: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\goprolist_and_start_usb.py
+2024-12-16 21:19:28,441 - INFO - Starting script: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\read_and_write_all_settings_from_prime_to_other.py
+2024-12-16 21:19:34,138 - ERROR - 2024-12-16 21:19:29,054 - DEBUG - Using proactor: IocpProactor
+2024-12-16 21:19:34,139 - ERROR - 2024-12-16 21:19:29,056 - INFO - Searching for GoPro cameras...
+2024-12-16 21:19:34,140 - ERROR - 2024-12-16 21:19:29,256 - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-16 21:19:34,140 - ERROR - Traceback (most recent call last):
+2024-12-16 21:19:34,141 - ERROR - File "c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\read_and_write_all_settings_from_prime_to_other.py", line 20, in get_primary_camera_serial
+2024-12-16 21:19:34,141 - ERROR - with open(config_file, 'r') as f:
+2024-12-16 21:19:34,142 - ERROR - ^^^^^^^^^^^^^^^^^^^^^^
+2024-12-16 21:19:34,142 - ERROR - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\!AndriiShramko\\inventions\\SDKGOPROShramko\\GoProControl\\api\\v2\\v38\\data/prime_camera.json'
+2024-12-16 21:19:34,143 - ERROR - 
+2024-12-16 21:19:34,143 - ERROR - During handling of the above exception, another exception occurred:
+2024-12-16 21:19:34,144 - ERROR - 
+2024-12-16 21:19:34,144 - ERROR - Traceback (most recent call last):
+2024-12-16 21:19:34,144 - ERROR - File "c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\read_and_write_all_settings_from_prime_to_other.py", line 95, in <module>
+2024-12-16 21:19:34,145 - ERROR - copy_camera_settings()
+2024-12-16 21:19:34,145 - ERROR - File "c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\read_and_write_all_settings_from_prime_to_other.py", line 44, in copy_camera_settings
+2024-12-16 21:19:34,145 - ERROR - primary_serial = get_primary_camera_serial()
+2024-12-16 21:19:34,146 - ERROR - ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-16 21:19:34,147 - ERROR - File "c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\read_and_write_all_settings_from_prime_to_other.py", line 24, in get_primary_camera_serial
+2024-12-16 21:19:34,147 - ERROR - logging.error(f"Error reading primary camera config: {e}")
+2024-12-16 21:19:34,148 - ERROR - ^^^^^^^
+2024-12-16 21:19:34,148 - ERROR - NameError: name 'logging' is not defined
+2024-12-16 21:19:34,149 - INFO - Successfully completed script: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\read_and_write_all_settings_from_prime_to_other.py
+2024-12-16 21:19:34,150 - INFO - Discovered 1 cameras.
+2024-12-16 21:19:34,150 - INFO - Starting script: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\date_time_sync.py
+2024-12-16 21:19:40,136 - INFO - Time synchronization successful on camera 172.28.185.51.
+2024-12-16 21:19:40,187 - ERROR - 2024-12-16 21:19:35,046 - DEBUG - Using proactor: IocpProactor
+2024-12-16 21:19:40,188 - ERROR - 2024-12-16 21:19:35,048 - INFO - Searching for GoPro cameras...
+2024-12-16 21:19:40,188 - ERROR - 2024-12-16 21:19:35,180 - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-16 21:19:40,189 - ERROR - 2024-12-16 21:19:40,057 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:19:40,198 - ERROR - 2024-12-16 21:19:40,134 - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_16&time=21_19_40&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-16 21:19:40,198 - INFO - Successfully completed script: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\date_time_sync.py
+2024-12-16 21:19:40,200 - INFO - All scripts executed successfully. Total cameras discovered: 1.
+2024-12-16 21:19:40,201 - INFO - Starting script: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\set_preset_0.py
+2024-12-16 21:19:46,023 - INFO - Preset successfully loaded on camera 172.28.185.51.
+2024-12-16 21:19:46,069 - ERROR - 2024-12-16 21:19:40,938 - DEBUG - Using proactor: IocpProactor
+2024-12-16 21:19:46,069 - ERROR - 2024-12-16 21:19:40,940 - INFO - Searching for GoPro cameras...
+2024-12-16 21:19:46,070 - ERROR - 2024-12-16 21:19:41,090 - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-16 21:19:46,070 - ERROR - 2024-12-16 21:19:45,955 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:19:46,071 - ERROR - 2024-12-16 21:19:46,022 - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/presets/load?id=0 HTTP/11" 200 2
+2024-12-16 21:19:46,073 - INFO - Successfully completed script: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38\set_preset_0.py
+2024-12-16 21:19:46,074 - INFO - Preset 0 set on all cameras.

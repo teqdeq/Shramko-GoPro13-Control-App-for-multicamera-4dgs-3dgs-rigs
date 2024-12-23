@@ -1,0 +1,22 @@
+2024-12-22 17:51:19,840 - __main__ - INFO - Searching for GoPro cameras...
+2024-12-22 17:51:19,983 - __main__ - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 17:51:19,992 - __main__ - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-22 17:51:24,847 - __main__ - INFO - Found the following GoPro devices:
+2024-12-22 17:51:24,848 - __main__ - INFO - Name: C3461325908060, IP: 172.20.160.51
+2024-12-22 17:51:24,849 - __main__ - INFO - Name: C3461326043977, IP: 172.29.177.51
+2024-12-22 17:51:24,854 - __main__ - INFO - Successfully saved 2 devices to cache
+2024-12-22 17:51:24,857 - __main__ - INFO - Created backup cache file
+2024-12-22 17:51:24,858 - __main__ - INFO - Enabling USB control on all cameras...
+2024-12-22 17:51:24,860 - __main__ - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-22 17:51:24,862 - __main__ - INFO - Resetting USB control on camera 172.29.177.51.
+2024-12-22 17:51:24,939 - __main__ - ERROR - Failed to disable USB control on camera 172.29.177.51. Status Code: 500. Response: {}
+
+2024-12-22 17:51:24,940 - __main__ - INFO - USB control disabled on camera 172.20.160.51.
+2024-12-22 17:51:26,997 - __main__ - ERROR - Failed to enable USB control on camera 172.29.177.51. Status Code: 500. Response: {}
+
+2024-12-22 17:51:27,013 - __main__ - INFO - USB control enabled on camera 172.20.160.51.
+2024-12-22 17:51:27,014 - __main__ - INFO - Synchronizing time on all cameras...
+2024-12-22 17:51:32,103 - __main__ - INFO - Time synchronization completed successfully
+2024-12-22 17:51:33,106 - __main__ - INFO - Starting recording on all cameras...
+2024-12-22 17:51:33,542 - __main__ - INFO - Recording started successfully on camera 172.20.160.51.
+2024-12-22 17:51:33,558 - __main__ - INFO - Recording started successfully on camera 172.29.177.51.

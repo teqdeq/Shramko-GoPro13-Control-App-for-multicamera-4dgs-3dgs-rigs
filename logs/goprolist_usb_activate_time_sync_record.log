@@ -1,0 +1,85 @@
+2024-12-16 20:36:00,411 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:36:00,471 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:36:00,472 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:36:08,339 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:36:08,396 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:36:08,397 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:36:32,224 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:36:32,282 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:36:32,283 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:36:43,197 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:36:43,246 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:36:43,248 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:37:14,472 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:37:14,532 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:37:14,534 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:37:23,013 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:37:23,069 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:37:23,070 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:37:28,061 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:37:28,126 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:37:28,127 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:37:42,144 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:37:42,201 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:37:42,203 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:37:49,198 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:37:49,255 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:37:49,257 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 20:39:59,261 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:39:59,369 - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-16 20:40:00,374 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:40:00,470 - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/setting/mode?p=0 HTTP/11" 400 3
+2024-12-16 20:40:00,472 - ERROR - Failed to set video mode on camera 172.28.185.51
+2024-12-16 20:41:38,620 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:41:38,686 - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 500 3
+2024-12-16 20:41:38,687 - ERROR - Failed to enable USB control on camera 172.28.185.51
+2024-12-16 20:42:35,042 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 20:42:35,107 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 20:42:35,108 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 21:16:27,590 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:16:27,653 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 21:16:27,654 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 21:16:53,208 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:16:53,269 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 21:16:53,269 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 21:17:05,472 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:17:05,523 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 21:17:05,524 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 21:17:13,584 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:17:13,640 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 21:17:13,640 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 21:17:47,135 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:17:47,231 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 21:17:47,232 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 21:17:56,350 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:17:56,406 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 21:17:56,406 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-16 21:20:07,091 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-16 21:20:07,150 - DEBUG - http://172.28.185.51:8080 "POST /gopro/camera/time/set HTTP/11" 404 3
+2024-12-16 21:20:07,151 - ERROR - Failed to sync time on camera 172.28.185.51
+2024-12-22 01:01:08,310 - goprolist_usb_activate_time_sync_record - INFO - Searching for GoPro cameras...
+2024-12-22 01:01:08,424 - goprolist_usb_activate_time_sync_record - INFO - Discovered GoPro: C3461326029723._gopro-web._tcp.local. at 172.27.123.51
+2024-12-22 01:01:08,488 - goprolist_usb_activate_time_sync_record - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-22 01:01:08,491 - goprolist_usb_activate_time_sync_record - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 01:01:13,317 - goprolist_usb_activate_time_sync_record - INFO - Found the following GoPro devices:
+2024-12-22 01:01:13,320 - goprolist_usb_activate_time_sync_record - INFO - Name: C3461326029723, IP: 172.27.123.51
+2024-12-22 01:01:13,323 - goprolist_usb_activate_time_sync_record - INFO - Name: C3461326043977, IP: 172.29.177.51
+2024-12-22 01:01:13,326 - goprolist_usb_activate_time_sync_record - INFO - Name: C3461325908060, IP: 172.20.160.51
+2024-12-22 01:01:13,329 - goprolist_usb_activate_time_sync_record - INFO - Successfully saved 3 devices to cache
+2024-12-22 01:01:13,334 - goprolist_usb_activate_time_sync_record - INFO - Created backup cache file
+2024-12-22 01:01:13,337 - goprolist_usb_activate_time_sync_record - INFO - Enabling USB control on all cameras...
+2024-12-22 01:01:13,342 - goprolist_usb_activate_time_sync_record - INFO - Resetting USB control on camera 172.27.123.51.
+2024-12-22 01:01:13,344 - goprolist_usb_activate_time_sync_record - INFO - Resetting USB control on camera 172.29.177.51.
+2024-12-22 01:01:13,345 - goprolist_usb_activate_time_sync_record - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-22 01:01:13,408 - goprolist_usb_activate_time_sync_record - INFO - USB control disabled on camera 172.27.123.51.
+2024-12-22 01:01:13,408 - goprolist_usb_activate_time_sync_record - INFO - USB control disabled on camera 172.20.160.51.
+2024-12-22 01:01:13,409 - goprolist_usb_activate_time_sync_record - INFO - USB control disabled on camera 172.29.177.51.
+2024-12-22 01:01:15,479 - goprolist_usb_activate_time_sync_record - INFO - USB control enabled on camera 172.27.123.51.
+2024-12-22 01:01:15,480 - goprolist_usb_activate_time_sync_record - INFO - USB control enabled on camera 172.29.177.51.
+2024-12-22 01:01:15,481 - goprolist_usb_activate_time_sync_record - INFO - USB control enabled on camera 172.20.160.51.
+2024-12-22 01:01:15,488 - goprolist_usb_activate_time_sync_record - INFO - Synchronizing time on all cameras...
+2024-12-22 01:01:20,607 - goprolist_usb_activate_time_sync_record - INFO - Time synchronization completed successfully
+2024-12-22 01:01:21,611 - goprolist_usb_activate_time_sync_record - INFO - Starting recording on all cameras...
+2024-12-22 01:01:21,983 - goprolist_usb_activate_time_sync_record - INFO - Recording started successfully on camera 172.20.160.51.
+2024-12-22 01:01:21,998 - goprolist_usb_activate_time_sync_record - INFO - Recording started successfully on camera 172.27.123.51.
+2024-12-22 01:01:22,014 - goprolist_usb_activate_time_sync_record - INFO - Recording started successfully on camera 172.29.177.51.

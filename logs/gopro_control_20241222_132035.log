@@ -1,0 +1,46 @@
+2024-12-22 13:20:35,201 - root - DEBUG - Starting Camera Status Application
+2024-12-22 13:20:35,233 - root - DEBUG - Initializing Camera Status GUI
+2024-12-22 13:20:35,233 - root - DEBUG - Discovering GoPro devices...
+2024-12-22 13:20:35,241 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 13:20:35,245 - root - INFO - Searching for GoPro cameras...
+2024-12-22 13:20:35,360 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 13:20:40,250 - root - INFO - Found 1 GoPro devices.
+2024-12-22 13:20:42,755 - root - DEBUG - Attempting to get status from camera at IP: 172.20.160.51
+2024-12-22 13:20:42,764 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 13:20:42,806 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/state HTTP/11" 200 1411
+2024-12-22 13:20:42,807 - root - DEBUG - Status for camera 172.20.160.51: Recording: False, Duration: 0 seconds
+2024-12-22 13:20:42,809 - root - DEBUG - Refreshing status of all cameras...
+2024-12-22 13:20:45,005 - root - DEBUG - Recording on all cameras...
+2024-12-22 13:20:59,293 - root - DEBUG - Attempting to get status from camera at IP: 172.20.160.51
+2024-12-22 13:20:59,296 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 13:20:59,300 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 13:20:59,303 - root - INFO - Searching for GoPro cameras...
+2024-12-22 13:20:59,327 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/state HTTP/11" 200 1411
+2024-12-22 13:20:59,328 - root - DEBUG - Status for camera 172.20.160.51: Recording: True, Duration: 0 seconds
+2024-12-22 13:20:59,330 - root - DEBUG - Refreshing status of all cameras...
+2024-12-22 13:20:59,387 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 13:21:00,249 - root - DEBUG - Attempting to get status from camera at IP: 172.20.160.51
+2024-12-22 13:21:00,252 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 13:21:00,308 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/state HTTP/11" 200 1411
+2024-12-22 13:21:00,308 - root - DEBUG - Status for camera 172.20.160.51: Recording: True, Duration: 1 seconds
+2024-12-22 13:21:00,313 - root - DEBUG - Refreshing status of all cameras...
+2024-12-22 13:21:01,214 - root - DEBUG - Stopping recording on all cameras...
+2024-12-22 13:21:02,752 - root - DEBUG - Attempting to get status from camera at IP: 172.20.160.51
+2024-12-22 13:21:02,755 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 13:21:02,795 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/state HTTP/11" 200 1411
+2024-12-22 13:21:02,796 - root - DEBUG - Status for camera 172.20.160.51: Recording: False, Duration: 0 seconds
+2024-12-22 13:21:02,799 - root - DEBUG - Refreshing status of all cameras...
+2024-12-22 13:21:04,309 - root - DEBUG - Refreshing device list...
+2024-12-22 13:21:05,262 - root - DEBUG - Attempting to get status from camera at IP: 172.20.160.51
+2024-12-22 13:21:05,266 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 13:21:05,271 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 13:21:05,274 - root - INFO - Searching for GoPro cameras...
+2024-12-22 13:21:05,298 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/state HTTP/11" 200 1411
+2024-12-22 13:21:05,299 - root - DEBUG - Status for camera 172.20.160.51: Recording: False, Duration: 0 seconds
+2024-12-22 13:21:05,302 - root - DEBUG - Refreshing status of all cameras...
+2024-12-22 13:21:05,384 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 13:21:07,759 - root - DEBUG - Attempting to get status from camera at IP: 172.20.160.51
+2024-12-22 13:21:07,762 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 13:21:07,803 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/state HTTP/11" 200 1411
+2024-12-22 13:21:07,804 - root - DEBUG - Status for camera 172.20.160.51: Recording: False, Duration: 0 seconds
+2024-12-22 13:21:07,805 - root - DEBUG - Refreshing status of all cameras...

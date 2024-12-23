@@ -1,0 +1,1340 @@
+2024-12-22 16:11:07,851 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 16:11:07,853 - root - INFO - Searching for GoPro cameras...
+2024-12-22 16:11:08,049 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 16:11:08,063 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-22 16:11:12,859 - root - INFO - Found the following GoPro devices:
+2024-12-22 16:11:12,860 - root - INFO - Name: C3461325908060._gopro-web._tcp.local., IP: 172.20.160.51
+2024-12-22 16:11:12,861 - root - INFO - Name: C3461326043977._gopro-web._tcp.local., IP: 172.29.177.51
+2024-12-22 16:11:12,866 - root - INFO - Cache updated successfully with newly discovered devices.
+2024-12-22 16:11:12,868 - root - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-22 16:11:12,870 - root - INFO - Resetting USB control on camera 172.29.177.51.
+2024-12-22 16:11:12,878 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:12,881 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 16:11:12,948 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-22 16:11:12,949 - root - INFO - USB control disabled on camera 172.29.177.51.
+2024-12-22 16:11:12,950 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-22 16:11:12,951 - root - INFO - USB control disabled on camera 172.20.160.51.
+2024-12-22 16:11:14,954 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 16:11:14,956 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:15,040 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-22 16:11:15,040 - root - INFO - USB control enabled on camera 172.20.160.51.
+2024-12-22 16:11:15,041 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-22 16:11:15,041 - root - INFO - USB control enabled on camera 172.29.177.51.
+2024-12-22 16:11:17,053 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 16:11:17,056 - root - INFO - Searching for GoPro cameras...
+2024-12-22 16:11:17,196 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-22 16:11:17,237 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 16:11:22,064 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 16:11:22,090 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gp/gpControl/info HTTP/11" 200 339
+2024-12-22 16:11:22,091 - root - INFO - Camera info: Model=HERO10 BLACK, Firmware=H21.01.01.62.70
+2024-12-22 16:11:22,094 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 16:11:22,141 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1422
+2024-12-22 16:11:22,143 - root - INFO - Copying settings to all target cameras...
+2024-12-22 16:11:22,148 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:22,168 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/info HTTP/11" 200 327
+2024-12-22 16:11:22,168 - root - INFO - Camera info: Model=HERO10 BLACK, Firmware=H21.01.01.62.70
+2024-12-22 16:11:22,173 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:22,228 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:22,229 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 6805,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 2268,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:22,229 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:22,231 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:22,232 - root - INFO - Applying settings to HERO10 camera at 172.20.160.51
+2024-12-22 16:11:22,233 - root - WARNING - Value 100 not supported for setting video_resolution (ID: 2) on HERO10. Supported values: [1, 4, 9, 12, 18]
+2024-12-22 16:11:22,234 - root - WARNING - Setting 2 with value 100 is not supported on HERO10
+2024-12-22 16:11:22,238 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:22,474 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/3/9 HTTP/11" 200 3
+2024-12-22 16:11:22,475 - root - INFO - Setting 3 successfully set to 9 on camera 172.20.160.51
+2024-12-22 16:11:22,678 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:22,719 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:22,720 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:22,720 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:22,726 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:22,726 - root - WARNING - Setting ID 5 not found in supported settings for HERO10
+2024-12-22 16:11:22,727 - root - WARNING - Setting 5 with value 0 is not supported on HERO10
+2024-12-22 16:11:22,729 - root - WARNING - Setting ID 6 not found in supported settings for HERO10
+2024-12-22 16:11:22,730 - root - WARNING - Setting 6 with value 1 is not supported on HERO10
+2024-12-22 16:11:22,795 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/13/1 HTTP/11" 200 3
+2024-12-22 16:11:22,796 - root - INFO - Setting 13 successfully set to 1 on camera 172.20.160.51
+2024-12-22 16:11:23,000 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:23,051 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:23,052 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:23,053 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:23,055 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:23,056 - root - WARNING - Setting ID 19 not found in supported settings for HERO10
+2024-12-22 16:11:23,057 - root - WARNING - Setting 19 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,058 - root - WARNING - Setting ID 24 not found in supported settings for HERO10
+2024-12-22 16:11:23,059 - root - WARNING - Setting 24 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,060 - root - WARNING - Setting ID 30 not found in supported settings for HERO10
+2024-12-22 16:11:23,062 - root - WARNING - Setting 30 with value 110 is not supported on HERO10
+2024-12-22 16:11:23,062 - root - WARNING - Setting ID 31 not found in supported settings for HERO10
+2024-12-22 16:11:23,066 - root - WARNING - Setting 31 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,067 - root - WARNING - Setting ID 32 not found in supported settings for HERO10
+2024-12-22 16:11:23,068 - root - WARNING - Setting 32 with value 10 is not supported on HERO10
+2024-12-22 16:11:23,069 - root - WARNING - Setting ID 37 not found in supported settings for HERO10
+2024-12-22 16:11:23,070 - root - WARNING - Setting 37 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,071 - root - WARNING - Setting ID 41 not found in supported settings for HERO10
+2024-12-22 16:11:23,072 - root - WARNING - Setting 41 with value 9 is not supported on HERO10
+2024-12-22 16:11:23,073 - root - WARNING - Setting ID 42 not found in supported settings for HERO10
+2024-12-22 16:11:23,074 - root - WARNING - Setting 42 with value 6 is not supported on HERO10
+2024-12-22 16:11:23,075 - root - WARNING - Setting ID 43 not found in supported settings for HERO10
+2024-12-22 16:11:23,076 - root - WARNING - Setting 43 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,077 - root - WARNING - Setting ID 44 not found in supported settings for HERO10
+2024-12-22 16:11:23,078 - root - WARNING - Setting 44 with value 9 is not supported on HERO10
+2024-12-22 16:11:23,079 - root - WARNING - Setting ID 45 not found in supported settings for HERO10
+2024-12-22 16:11:23,080 - root - WARNING - Setting 45 with value 5 is not supported on HERO10
+2024-12-22 16:11:23,081 - root - WARNING - Setting ID 47 not found in supported settings for HERO10
+2024-12-22 16:11:23,081 - root - WARNING - Setting 47 with value 4 is not supported on HERO10
+2024-12-22 16:11:23,082 - root - WARNING - Setting ID 48 not found in supported settings for HERO10
+2024-12-22 16:11:23,083 - root - WARNING - Setting 48 with value 3 is not supported on HERO10
+2024-12-22 16:11:23,112 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/54/1 HTTP/11" 200 3
+2024-12-22 16:11:23,112 - root - INFO - Setting 54 successfully set to 1 on camera 172.20.160.51
+2024-12-22 16:11:23,316 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:23,368 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:23,369 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:23,369 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:23,371 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:23,399 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/59/0 HTTP/11" 200 3
+2024-12-22 16:11:23,400 - root - INFO - Setting 59 successfully set to 0 on camera 172.20.160.51
+2024-12-22 16:11:23,604 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:23,648 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:23,649 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:23,649 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:23,652 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:23,680 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/60/0 HTTP/11" 200 3
+2024-12-22 16:11:23,681 - root - INFO - Setting 60 successfully set to 0 on camera 172.20.160.51
+2024-12-22 16:11:23,885 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:23,931 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:23,932 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:23,932 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:23,935 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:23,936 - root - WARNING - Setting ID 61 not found in supported settings for HERO10
+2024-12-22 16:11:23,938 - root - WARNING - Setting 61 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,938 - root - WARNING - Setting ID 62 not found in supported settings for HERO10
+2024-12-22 16:11:23,939 - root - WARNING - Setting 62 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,941 - root - WARNING - Setting ID 64 not found in supported settings for HERO10
+2024-12-22 16:11:23,941 - root - WARNING - Setting 64 with value 4 is not supported on HERO10
+2024-12-22 16:11:23,942 - root - WARNING - Setting ID 65 not found in supported settings for HERO10
+2024-12-22 16:11:23,943 - root - WARNING - Setting 65 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,944 - root - WARNING - Setting ID 66 not found in supported settings for HERO10
+2024-12-22 16:11:23,945 - root - WARNING - Setting 66 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,946 - root - WARNING - Setting ID 67 not found in supported settings for HERO10
+2024-12-22 16:11:23,947 - root - WARNING - Setting 67 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,948 - root - WARNING - Setting ID 75 not found in supported settings for HERO10
+2024-12-22 16:11:23,949 - root - WARNING - Setting 75 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,950 - root - WARNING - Setting ID 76 not found in supported settings for HERO10
+2024-12-22 16:11:23,951 - root - WARNING - Setting 76 with value 0 is not supported on HERO10
+2024-12-22 16:11:23,980 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/83/0 HTTP/11" 200 3
+2024-12-22 16:11:23,981 - root - INFO - Setting 83 successfully set to 0 on camera 172.20.160.51
+2024-12-22 16:11:24,185 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:24,228 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:24,229 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:24,229 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:24,231 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:24,232 - root - WARNING - Setting ID 84 not found in supported settings for HERO10
+2024-12-22 16:11:24,233 - root - WARNING - Setting 84 with value 0 is not supported on HERO10
+2024-12-22 16:11:24,234 - root - WARNING - Setting ID 85 not found in supported settings for HERO10
+2024-12-22 16:11:24,235 - root - WARNING - Setting 85 with value 0 is not supported on HERO10
+2024-12-22 16:11:24,265 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/86/0 HTTP/11" 200 3
+2024-12-22 16:11:24,265 - root - INFO - Setting 86 successfully set to 0 on camera 172.20.160.51
+2024-12-22 16:11:24,469 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:24,511 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:24,513 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:24,513 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:24,515 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:24,546 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/87/100 HTTP/11" 500 182
+2024-12-22 16:11:24,547 - root - ERROR - Failed to set setting 87 on camera 172.20.160.51: 500 Server Error: Internal Server Error for url: http://172.20.160.51:8080/gp/gpControl/setting/87/100
+2024-12-22 16:11:24,550 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:24,603 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:24,604 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:24,604 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:24,607 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:24,608 - root - WARNING - Setting ID 88 not found in supported settings for HERO10
+2024-12-22 16:11:24,609 - root - WARNING - Setting 88 with value 50 is not supported on HERO10
+2024-12-22 16:11:24,610 - root - WARNING - Setting ID 91 not found in supported settings for HERO10
+2024-12-22 16:11:24,610 - root - WARNING - Setting 91 with value 3 is not supported on HERO10
+2024-12-22 16:11:24,611 - root - WARNING - Value 8 not supported for setting iso_min (ID: 102) on HERO10. Supported values: [0, 1, 2, 3]
+2024-12-22 16:11:24,612 - root - WARNING - Setting 102 with value 8 is not supported on HERO10
+2024-12-22 16:11:24,613 - root - WARNING - Setting ID 103 not found in supported settings for HERO10
+2024-12-22 16:11:24,614 - root - WARNING - Setting 103 with value 3 is not supported on HERO10
+2024-12-22 16:11:24,678 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/105/0 HTTP/11" 200 3
+2024-12-22 16:11:24,678 - root - INFO - Setting 105 successfully set to 0 on camera 172.20.160.51
+2024-12-22 16:11:24,881 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:24,940 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:24,941 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:24,941 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:24,943 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:24,944 - root - WARNING - Setting ID 106 not found in supported settings for HERO10
+2024-12-22 16:11:24,944 - root - WARNING - Setting 106 with value 1 is not supported on HERO10
+2024-12-22 16:11:24,946 - root - WARNING - Setting ID 111 not found in supported settings for HERO10
+2024-12-22 16:11:24,947 - root - WARNING - Setting 111 with value 10 is not supported on HERO10
+2024-12-22 16:11:24,948 - root - WARNING - Setting ID 112 not found in supported settings for HERO10
+2024-12-22 16:11:24,949 - root - WARNING - Setting 112 with value 255 is not supported on HERO10
+2024-12-22 16:11:24,950 - root - WARNING - Setting ID 114 not found in supported settings for HERO10
+2024-12-22 16:11:24,951 - root - WARNING - Setting 114 with value 1 is not supported on HERO10
+2024-12-22 16:11:24,952 - root - WARNING - Setting ID 115 not found in supported settings for HERO10
+2024-12-22 16:11:24,953 - root - WARNING - Setting 115 with value 0 is not supported on HERO10
+2024-12-22 16:11:24,954 - root - WARNING - Setting ID 116 not found in supported settings for HERO10
+2024-12-22 16:11:24,955 - root - WARNING - Setting 116 with value 2 is not supported on HERO10
+2024-12-22 16:11:24,956 - root - WARNING - Setting ID 117 not found in supported settings for HERO10
+2024-12-22 16:11:24,957 - root - WARNING - Setting 117 with value 1 is not supported on HERO10
+2024-12-22 16:11:24,958 - root - WARNING - Setting ID 118 not found in supported settings for HERO10
+2024-12-22 16:11:24,960 - root - WARNING - Setting 118 with value 4 is not supported on HERO10
+2024-12-22 16:11:24,961 - root - WARNING - Value 8 not supported for setting lens (ID: 121) on HERO10. Supported values: [0, 4, 7]
+2024-12-22 16:11:24,962 - root - WARNING - Setting 121 with value 8 is not supported on HERO10
+2024-12-22 16:11:24,963 - root - WARNING - Setting ID 122 not found in supported settings for HERO10
+2024-12-22 16:11:24,964 - root - WARNING - Setting 122 with value 0 is not supported on HERO10
+2024-12-22 16:11:24,965 - root - WARNING - Setting ID 123 not found in supported settings for HERO10
+2024-12-22 16:11:24,966 - root - WARNING - Setting 123 with value 0 is not supported on HERO10
+2024-12-22 16:11:24,967 - root - WARNING - Setting ID 124 not found in supported settings for HERO10
+2024-12-22 16:11:24,968 - root - WARNING - Setting 124 with value 100 is not supported on HERO10
+2024-12-22 16:11:24,968 - root - WARNING - Setting ID 125 not found in supported settings for HERO10
+2024-12-22 16:11:24,969 - root - WARNING - Setting 125 with value 0 is not supported on HERO10
+2024-12-22 16:11:24,970 - root - WARNING - Setting ID 126 not found in supported settings for HERO10
+2024-12-22 16:11:24,971 - root - WARNING - Setting 126 with value 0 is not supported on HERO10
+2024-12-22 16:11:24,971 - root - WARNING - Value 12 not supported for setting media_format (ID: 128) on HERO10. Supported values: [1]
+2024-12-22 16:11:24,972 - root - WARNING - Setting 128 with value 12 is not supported on HERO10
+2024-12-22 16:11:24,972 - root - WARNING - Setting ID 129 not found in supported settings for HERO10
+2024-12-22 16:11:24,973 - root - WARNING - Setting 129 with value 2 is not supported on HERO10
+2024-12-22 16:11:24,973 - root - WARNING - Setting ID 130 not found in supported settings for HERO10
+2024-12-22 16:11:24,973 - root - WARNING - Setting 130 with value 1 is not supported on HERO10
+2024-12-22 16:11:24,973 - root - WARNING - Setting ID 131 not found in supported settings for HERO10
+2024-12-22 16:11:24,973 - root - WARNING - Setting 131 with value 3 is not supported on HERO10
+2024-12-22 16:11:24,974 - root - WARNING - Setting ID 132 not found in supported settings for HERO10
+2024-12-22 16:11:24,974 - root - WARNING - Setting 132 with value 12 is not supported on HERO10
+2024-12-22 16:11:24,974 - root - WARNING - Value 3 not supported for setting anti_flicker (ID: 134) on HERO10. Supported values: [0, 1]
+2024-12-22 16:11:24,974 - root - WARNING - Setting 134 with value 3 is not supported on HERO10
+2024-12-22 16:11:25,263 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/setting/135/2 HTTP/11" 200 3
+2024-12-22 16:11:25,263 - root - INFO - Setting 135 successfully set to 2 on camera 172.20.160.51
+2024-12-22 16:11:25,467 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:11:25,512 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:11:25,513 - root - DEBUG - Camera 172.20.160.51 full status: {
+  "1": 1,
+  "2": 3,
+  "3": 0,
+  "4": 255,
+  "6": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "13": 0,
+  "14": 0,
+  "17": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "26": 0,
+  "27": 0,
+  "28": 82,
+  "29": "",
+  "30": "GP25908060",
+  "31": 0,
+  "32": 0,
+  "33": 0,
+  "34": 4277,
+  "35": 9123,
+  "36": 0,
+  "37": 3,
+  "38": 0,
+  "39": 3,
+  "41": 0,
+  "42": 0,
+  "45": 0,
+  "49": 0,
+  "54": 60431488,
+  "55": 1,
+  "56": 4,
+  "58": 0,
+  "59": 0,
+  "60": 500,
+  "61": 2,
+  "62": 0,
+  "63": 0,
+  "64": 2138,
+  "65": 0,
+  "66": 100,
+  "67": 100,
+  "68": 0,
+  "69": 0,
+  "70": 100,
+  "74": 0,
+  "75": 0,
+  "76": 1,
+  "77": 1,
+  "78": 0,
+  "79": 0,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "85": 0,
+  "86": 0,
+  "88": 0,
+  "89": 12,
+  "90": 0,
+  "91": 0,
+  "93": 0,
+  "94": 65536,
+  "95": 131072,
+  "96": 1000,
+  "97": 0,
+  "98": 16777216,
+  "99": 3041,
+  "100": 0,
+  "101": 0,
+  "102": 0,
+  "103": 0,
+  "104": 1,
+  "105": 0,
+  "106": 0,
+  "107": 4294967295,
+  "108": 0,
+  "109": 0,
+  "110": 0,
+  "111": 0,
+  "112": 0,
+  "113": 0,
+  "114": 0,
+  "115": 0,
+  "116": 1
+}
+2024-12-22 16:11:25,513 - root - INFO - 
+Camera 172.20.160.51 state:
+- Recording: False
+- Busy: False
+- Encoding: False
+- Battery: 3%
+
+2024-12-22 16:11:25,515 - root - INFO - Camera 172.20.160.51 is ready for settings
+2024-12-22 16:11:25,516 - root - WARNING - Setting ID 139 not found in supported settings for HERO10
+2024-12-22 16:11:25,517 - root - WARNING - Setting 139 with value 3 is not supported on HERO10
+2024-12-22 16:11:25,518 - root - WARNING - Setting ID 144 not found in supported settings for HERO10
+2024-12-22 16:11:25,519 - root - WARNING - Setting 144 with value 12 is not supported on HERO10
+2024-12-22 16:11:25,520 - root - WARNING - Setting ID 145 not found in supported settings for HERO10
+2024-12-22 16:11:25,521 - root - WARNING - Setting 145 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,522 - root - WARNING - Setting ID 146 not found in supported settings for HERO10
+2024-12-22 16:11:25,523 - root - WARNING - Setting 146 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,524 - root - WARNING - Setting ID 147 not found in supported settings for HERO10
+2024-12-22 16:11:25,525 - root - WARNING - Setting 147 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,526 - root - WARNING - Setting ID 148 not found in supported settings for HERO10
+2024-12-22 16:11:25,527 - root - WARNING - Setting 148 with value 2 is not supported on HERO10
+2024-12-22 16:11:25,528 - root - WARNING - Setting ID 149 not found in supported settings for HERO10
+2024-12-22 16:11:25,529 - root - WARNING - Setting 149 with value 2 is not supported on HERO10
+2024-12-22 16:11:25,530 - root - WARNING - Setting ID 153 not found in supported settings for HERO10
+2024-12-22 16:11:25,531 - root - WARNING - Setting 153 with value 100 is not supported on HERO10
+2024-12-22 16:11:25,532 - root - WARNING - Setting ID 154 not found in supported settings for HERO10
+2024-12-22 16:11:25,533 - root - WARNING - Setting 154 with value 3 is not supported on HERO10
+2024-12-22 16:11:25,534 - root - WARNING - Setting ID 155 not found in supported settings for HERO10
+2024-12-22 16:11:25,535 - root - WARNING - Setting 155 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,536 - root - WARNING - Setting ID 156 not found in supported settings for HERO10
+2024-12-22 16:11:25,536 - root - WARNING - Setting 156 with value 100 is not supported on HERO10
+2024-12-22 16:11:25,537 - root - WARNING - Setting ID 157 not found in supported settings for HERO10
+2024-12-22 16:11:25,538 - root - WARNING - Setting 157 with value 100 is not supported on HERO10
+2024-12-22 16:11:25,539 - root - WARNING - Setting ID 158 not found in supported settings for HERO10
+2024-12-22 16:11:25,539 - root - WARNING - Setting 158 with value 1 is not supported on HERO10
+2024-12-22 16:11:25,540 - root - WARNING - Setting ID 159 not found in supported settings for HERO10
+2024-12-22 16:11:25,540 - root - WARNING - Setting 159 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,540 - root - WARNING - Setting ID 160 not found in supported settings for HERO10
+2024-12-22 16:11:25,541 - root - WARNING - Setting 160 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,541 - root - WARNING - Setting ID 161 not found in supported settings for HERO10
+2024-12-22 16:11:25,541 - root - WARNING - Setting 161 with value 100 is not supported on HERO10
+2024-12-22 16:11:25,541 - root - WARNING - Setting ID 162 not found in supported settings for HERO10
+2024-12-22 16:11:25,541 - root - WARNING - Setting 162 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,541 - root - WARNING - Setting ID 163 not found in supported settings for HERO10
+2024-12-22 16:11:25,542 - root - WARNING - Setting 163 with value 1 is not supported on HERO10
+2024-12-22 16:11:25,542 - root - WARNING - Setting ID 164 not found in supported settings for HERO10
+2024-12-22 16:11:25,542 - root - WARNING - Setting 164 with value 100 is not supported on HERO10
+2024-12-22 16:11:25,542 - root - WARNING - Setting ID 165 not found in supported settings for HERO10
+2024-12-22 16:11:25,544 - root - WARNING - Setting 165 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,544 - root - WARNING - Setting ID 166 not found in supported settings for HERO10
+2024-12-22 16:11:25,544 - root - WARNING - Setting 166 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,545 - root - WARNING - Setting ID 167 not found in supported settings for HERO10
+2024-12-22 16:11:25,545 - root - WARNING - Setting 167 with value 4 is not supported on HERO10
+2024-12-22 16:11:25,545 - root - WARNING - Setting ID 168 not found in supported settings for HERO10
+2024-12-22 16:11:25,545 - root - WARNING - Setting 168 with value 0 is not supported on HERO10
+2024-12-22 16:11:25,545 - root - WARNING - Setting ID 169 not found in supported settings for HERO10
+2024-12-22 16:11:25,546 - root - WARNING - Setting 169 with value 1 is not supported on HERO10
+2024-12-22 16:11:25,546 - root - WARNING - Setting ID 173 not found in supported settings for HERO10
+2024-12-22 16:11:25,546 - root - WARNING - Setting 173 with value 0 is not supported on HERO10

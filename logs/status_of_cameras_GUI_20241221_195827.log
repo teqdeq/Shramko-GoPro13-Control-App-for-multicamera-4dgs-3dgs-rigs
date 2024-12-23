@@ -1,0 +1,19 @@
+2024-12-21 19:58:27,152 - root - INFO - Using data directory: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data
+2024-12-21 19:58:27,154 - root - INFO - Loaded camera cache from c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data\camera_cache.json
+2024-12-21 19:58:27,155 - root - INFO - Loaded cached camera devices:
+2024-12-21 19:58:27,156 - root - INFO - Name: C3461326029723, IP: 172.27.123.51
+2024-12-21 19:58:27,157 - root - INFO - Name: C3461326043977, IP: 172.29.177.51
+2024-12-21 19:58:27,157 - root - INFO - Stopping recording on all cameras...
+2024-12-21 19:58:27,164 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 19:58:27,165 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 19:58:27,230 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/state HTTP/11" 200 1423
+2024-12-21 19:58:27,232 - root - INFO - Camera 172.29.177.51 waiting for synchronized stop
+2024-12-21 19:58:27,233 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/state HTTP/11" 200 1423
+2024-12-21 19:58:27,234 - root - INFO - Camera 172.27.123.51 waiting for synchronized stop
+2024-12-21 19:58:27,237 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 19:58:27,238 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 19:58:27,752 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 19:58:27,754 - root - INFO - Camera 172.27.123.51 stopped at 1734807507.234719, response at 1734807507.753995
+2024-12-21 19:58:27,766 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 19:58:27,767 - root - INFO - Camera 172.29.177.51 stopped at 1734807507.235719, response at 1734807507.767973
+2024-12-21 19:58:27,768 - root - INFO - All cameras stopped successfully

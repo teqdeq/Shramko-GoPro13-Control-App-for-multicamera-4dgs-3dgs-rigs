@@ -1,0 +1,18 @@
+2024-12-22 17:51:36,378 - root - INFO - Loaded camera cache from c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data\camera_cache.json
+2024-12-22 17:51:36,379 - root - INFO - Loaded cached camera devices:
+2024-12-22 17:51:36,380 - root - INFO - Name: C3461325908060, IP: 172.20.160.51
+2024-12-22 17:51:36,380 - root - INFO - Name: C3461326043977, IP: 172.29.177.51
+2024-12-22 17:51:36,380 - root - INFO - Stopping recording on all cameras...
+2024-12-22 17:51:36,384 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 17:51:36,385 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 17:51:36,433 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/state HTTP/11" 200 1416
+2024-12-22 17:51:36,434 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/state HTTP/11" 200 1428
+2024-12-22 17:51:36,435 - root - INFO - Camera 172.20.160.51 waiting for synchronized stop
+2024-12-22 17:51:36,436 - root - INFO - Camera 172.29.177.51 waiting for synchronized stop
+2024-12-22 17:51:36,440 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 17:51:36,442 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 17:51:37,878 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-22 17:51:37,879 - root - INFO - Camera 172.20.160.51 stopped at 1734886296.441923, response at 1734886297.879804
+2024-12-22 17:51:38,019 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-22 17:51:38,019 - root - INFO - Camera 172.29.177.51 stopped at 1734886296.438803, response at 1734886298.019185
+2024-12-22 17:51:38,021 - root - INFO - All cameras stopped successfully

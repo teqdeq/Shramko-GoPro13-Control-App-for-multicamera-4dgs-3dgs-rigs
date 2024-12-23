@@ -1,0 +1,39 @@
+2024-12-22 16:05:34,283 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 16:05:34,286 - root - INFO - Searching for GoPro cameras...
+2024-12-22 16:05:34,415 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 16:05:34,453 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-22 16:05:39,292 - root - INFO - Found the following GoPro devices:
+2024-12-22 16:05:39,293 - root - INFO - Name: C3461325908060._gopro-web._tcp.local., IP: 172.20.160.51
+2024-12-22 16:05:39,293 - root - INFO - Name: C3461326043977._gopro-web._tcp.local., IP: 172.29.177.51
+2024-12-22 16:05:39,299 - root - INFO - Cache updated successfully with newly discovered devices.
+2024-12-22 16:05:39,301 - root - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-22 16:05:39,303 - root - INFO - Resetting USB control on camera 172.29.177.51.
+2024-12-22 16:05:39,314 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:05:39,318 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 16:05:39,371 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-22 16:05:39,372 - root - INFO - USB control disabled on camera 172.20.160.51.
+2024-12-22 16:05:39,386 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-22 16:05:39,387 - root - INFO - USB control disabled on camera 172.29.177.51.
+2024-12-22 16:05:41,376 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:05:41,391 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 16:05:41,463 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-22 16:05:41,463 - root - INFO - USB control enabled on camera 172.20.160.51.
+2024-12-22 16:05:41,477 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-22 16:05:41,478 - root - INFO - USB control enabled on camera 172.29.177.51.
+2024-12-22 16:05:43,490 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 16:05:43,493 - root - INFO - Searching for GoPro cameras...
+2024-12-22 16:05:43,638 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 16:05:43,675 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-22 16:05:48,502 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 16:05:48,530 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gp/gpControl/info HTTP/11" 200 339
+2024-12-22 16:05:48,530 - root - INFO - Camera info: Model=HERO10 BLACK, Firmware=H21.01.01.62.70
+2024-12-22 16:05:48,534 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 16:05:48,598 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1422
+2024-12-22 16:05:48,601 - root - INFO - Copying settings to all target cameras...
+2024-12-22 16:05:48,605 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:05:48,623 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/info HTTP/11" 200 327
+2024-12-22 16:05:48,624 - root - INFO - Camera info: Model=HERO10 BLACK, Firmware=H21.01.01.62.70
+2024-12-22 16:05:48,628 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 16:05:48,682 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gp/gpControl/status HTTP/11" 200 1413
+2024-12-22 16:05:48,683 - root - WARNING - Camera 172.20.160.51 is recording
+2024-12-22 16:05:48,685 - root - ERROR - Camera 172.20.160.51 is not ready for settings

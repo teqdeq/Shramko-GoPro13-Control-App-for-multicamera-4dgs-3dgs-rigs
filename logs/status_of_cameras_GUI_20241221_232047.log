@@ -1,0 +1,159 @@
+2024-12-21 23:20:47,483 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-21 23:20:47,486 - root - INFO - Searching for GoPro cameras...
+2024-12-21 23:20:47,656 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-21 23:20:47,661 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-21 23:20:47,678 - root - INFO - Discovered GoPro: C3461326029723._gopro-web._tcp.local. at 172.27.123.51
+2024-12-21 23:20:52,494 - root - INFO - Found 3 cameras
+2024-12-21 23:20:52,496 - root - INFO - 
+ThreadPool Test #1
+2024-12-21 23:20:52,497 - root - INFO - 
+=== Starting ThreadPool test ===
+2024-12-21 23:20:52,514 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:20:52,519 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:20:52,523 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:20:52,838 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:20:52,840 - root - INFO - Camera 172.29.177.51 started at 1734819652.840416
+2024-12-21 23:20:52,853 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:20:52,855 - root - INFO - Camera 172.20.160.51 started at 1734819652.855982
+2024-12-21 23:20:52,885 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:20:52,886 - root - INFO - Camera 172.27.123.51 started at 1734819652.886202
+2024-12-21 23:20:55,891 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:20:55,892 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:20:55,893 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:20:56,387 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:20:56,388 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:20:56,389 - root - INFO - Recording stopped on camera 172.27.123.51
+2024-12-21 23:20:56,390 - root - INFO - Recording stopped on camera 172.29.177.51
+2024-12-21 23:20:56,432 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:20:56,434 - root - INFO - Recording stopped on camera 172.20.160.51
+2024-12-21 23:20:56,435 - root - INFO - === ThreadPool test completed ===
+
+2024-12-21 23:21:02,436 - root - INFO - 
+ThreadPool Test #2
+2024-12-21 23:21:02,438 - root - INFO - 
+=== Starting ThreadPool test ===
+2024-12-21 23:21:02,443 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:02,445 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:02,449 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:02,786 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:02,787 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:02,787 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:02,789 - root - INFO - Camera 172.29.177.51 started at 1734819662.789894
+2024-12-21 23:21:02,791 - root - INFO - Camera 172.27.123.51 started at 1734819662.791390
+2024-12-21 23:21:02,793 - root - INFO - Camera 172.20.160.51 started at 1734819662.793500
+2024-12-21 23:21:05,801 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:05,804 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:05,808 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:06,349 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:06,351 - root - INFO - Recording stopped on camera 172.29.177.51
+2024-12-21 23:21:06,365 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:06,366 - root - INFO - Recording stopped on camera 172.20.160.51
+2024-12-21 23:21:06,426 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:06,429 - root - INFO - Recording stopped on camera 172.27.123.51
+2024-12-21 23:21:06,430 - root - INFO - === ThreadPool test completed ===
+
+2024-12-21 23:21:12,432 - root - INFO - 
+ThreadPool Test #3
+2024-12-21 23:21:12,433 - root - INFO - 
+=== Starting ThreadPool test ===
+2024-12-21 23:21:12,437 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:12,438 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:12,442 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:12,760 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:12,762 - root - INFO - Camera 172.27.123.51 started at 1734819672.762207
+2024-12-21 23:21:12,776 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:12,778 - root - INFO - Camera 172.20.160.51 started at 1734819672.778755
+2024-12-21 23:21:12,825 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:12,826 - root - INFO - Camera 172.29.177.51 started at 1734819672.826636
+2024-12-21 23:21:15,835 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:15,837 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:15,839 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:16,350 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:16,352 - root - INFO - Recording stopped on camera 172.27.123.51
+2024-12-21 23:21:16,380 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:16,382 - root - INFO - Recording stopped on camera 172.20.160.51
+2024-12-21 23:21:16,397 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:16,398 - root - INFO - Recording stopped on camera 172.29.177.51
+2024-12-21 23:21:16,400 - root - INFO - === ThreadPool test completed ===
+
+2024-12-21 23:21:27,402 - root - INFO - 
+Barrier Test #1
+2024-12-21 23:21:27,403 - root - INFO - 
+=== Starting Barrier test ===
+2024-12-21 23:21:27,406 - root - INFO - Camera 172.29.177.51 waiting at barrier
+2024-12-21 23:21:27,407 - root - INFO - Camera 172.20.160.51 waiting at barrier
+2024-12-21 23:21:27,409 - root - INFO - Camera 172.27.123.51 waiting at barrier
+2024-12-21 23:21:27,413 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:27,417 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:27,420 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:27,750 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:27,752 - root - INFO - Camera 172.20.160.51 started at 1734819687.752810
+2024-12-21 23:21:27,766 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:27,767 - root - INFO - Camera 172.27.123.51 started at 1734819687.767209
+2024-12-21 23:21:27,844 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:27,846 - root - INFO - Camera 172.29.177.51 started at 1734819687.846821
+2024-12-21 23:21:31,849 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:31,850 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:31,852 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:32,354 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:32,355 - root - INFO - Recording stopped on camera 172.27.123.51
+2024-12-21 23:21:32,370 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:32,372 - root - INFO - Recording stopped on camera 172.20.160.51
+2024-12-21 23:21:32,399 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:32,401 - root - INFO - Recording stopped on camera 172.29.177.51
+2024-12-21 23:21:32,402 - root - INFO - === Barrier test completed ===
+
+2024-12-21 23:21:38,404 - root - INFO - 
+Barrier Test #2
+2024-12-21 23:21:38,406 - root - INFO - 
+=== Starting Barrier test ===
+2024-12-21 23:21:38,407 - root - INFO - Camera 172.29.177.51 waiting at barrier
+2024-12-21 23:21:38,408 - root - INFO - Camera 172.20.160.51 waiting at barrier
+2024-12-21 23:21:38,410 - root - INFO - Camera 172.27.123.51 waiting at barrier
+2024-12-21 23:21:38,412 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:38,415 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:38,415 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:38,761 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:38,762 - root - INFO - Camera 172.27.123.51 started at 1734819698.762029
+2024-12-21 23:21:38,763 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:38,764 - root - INFO - Camera 172.20.160.51 started at 1734819698.764031
+2024-12-21 23:21:38,854 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:38,856 - root - INFO - Camera 172.29.177.51 started at 1734819698.856462
+2024-12-21 23:21:42,859 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:42,861 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:42,863 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:43,351 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:43,352 - root - INFO - Recording stopped on camera 172.27.123.51
+2024-12-21 23:21:43,412 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:43,422 - root - INFO - Recording stopped on camera 172.29.177.51
+2024-12-21 23:21:43,460 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:43,461 - root - INFO - Recording stopped on camera 172.20.160.51
+2024-12-21 23:21:43,462 - root - INFO - === Barrier test completed ===
+
+2024-12-21 23:21:49,464 - root - INFO - 
+Barrier Test #3
+2024-12-21 23:21:49,466 - root - INFO - 
+=== Starting Barrier test ===
+2024-12-21 23:21:49,468 - root - INFO - Camera 172.29.177.51 waiting at barrier
+2024-12-21 23:21:49,469 - root - INFO - Camera 172.20.160.51 waiting at barrier
+2024-12-21 23:21:49,470 - root - INFO - Camera 172.27.123.51 waiting at barrier
+2024-12-21 23:21:49,475 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:49,477 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:49,479 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:49,795 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:49,797 - root - INFO - Camera 172.20.160.51 started at 1734819709.797212
+2024-12-21 23:21:49,831 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:49,832 - root - INFO - Camera 172.27.123.51 started at 1734819709.832782
+2024-12-21 23:21:49,873 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-21 23:21:49,875 - root - INFO - Camera 172.29.177.51 started at 1734819709.875249
+2024-12-21 23:21:53,881 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 23:21:53,885 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 23:21:53,888 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 23:21:54,410 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:54,411 - root - INFO - Recording stopped on camera 172.27.123.51
+2024-12-21 23:21:54,534 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:54,537 - root - INFO - Recording stopped on camera 172.20.160.51
+2024-12-21 23:21:54,720 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-21 23:21:54,721 - root - INFO - Recording stopped on camera 172.29.177.51
+2024-12-21 23:21:54,722 - root - INFO - === Barrier test completed ===
+

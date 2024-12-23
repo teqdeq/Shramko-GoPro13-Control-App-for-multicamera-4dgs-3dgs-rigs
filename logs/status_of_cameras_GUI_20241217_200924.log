@@ -1,0 +1,2 @@
+2024-12-17 20:09:24,022 - root - DEBUG - Starting GoPro Control Interface
+2024-12-17 20:09:28,347 - root - ERROR - Error connecting to cameras: module 'goprolist_and_start_usb' has no attribute 'main'

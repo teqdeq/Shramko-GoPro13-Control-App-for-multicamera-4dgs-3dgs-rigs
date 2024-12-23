@@ -1,0 +1,33 @@
+2024-12-22 14:11:50,229 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 14:11:50,237 - root - INFO - Searching for GoPro cameras...
+2024-12-22 14:11:50,430 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-22 14:11:50,456 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 14:11:55,247 - root - INFO - Found the following GoPro devices:
+2024-12-22 14:11:55,249 - root - INFO - Name: C3461326043977._gopro-web._tcp.local., IP: 172.29.177.51
+2024-12-22 14:11:55,253 - root - INFO - Name: C3461325908060._gopro-web._tcp.local., IP: 172.20.160.51
+2024-12-22 14:11:55,259 - root - INFO - Cache updated successfully with newly discovered devices.
+2024-12-22 14:11:55,261 - root - INFO - Resetting USB control on camera 172.29.177.51.
+2024-12-22 14:11:55,262 - root - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-22 14:11:55,281 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 14:11:55,285 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 14:11:55,344 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 500 3
+2024-12-22 14:11:55,345 - root - ERROR - Failed to disable USB control on camera 172.20.160.51. Status Code: 500. Response: {}
+
+2024-12-22 14:11:55,404 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 500 3
+2024-12-22 14:11:55,405 - root - ERROR - Failed to disable USB control on camera 172.29.177.51. Status Code: 500. Response: {}
+
+2024-12-22 14:11:57,362 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-22 14:11:57,411 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-22 14:11:57,417 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 500 3
+2024-12-22 14:11:57,418 - root - ERROR - Failed to enable USB control on camera 172.20.160.51. Status Code: 500. Response: {}
+
+2024-12-22 14:11:57,496 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-22 14:11:57,497 - root - INFO - USB control enabled on camera 172.29.177.51.
+2024-12-22 14:12:37,188 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 14:12:37,191 - root - INFO - Searching for GoPro cameras...
+2024-12-22 14:12:37,336 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-22 14:12:37,359 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 14:14:52,146 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-22 14:14:52,148 - root - INFO - Searching for GoPro cameras...
+2024-12-22 14:14:52,260 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-22 14:14:52,293 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51

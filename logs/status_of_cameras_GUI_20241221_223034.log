@@ -1,0 +1,301 @@
+2024-12-21 22:30:34,075 - root - INFO - Using data directory: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data
+2024-12-21 22:30:34,078 - root - INFO - Using data directory: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data
+2024-12-21 22:30:34,081 - root - INFO - Application environment initialized successfully
+2024-12-21 22:30:34,082 - root - DEBUG - Starting GoPro Control Interface
+2024-12-21 22:30:45,782 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-21 22:30:45,790 - root - INFO - Searching for GoPro cameras...
+2024-12-21 22:30:46,010 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-21 22:30:46,015 - root - INFO - Discovered GoPro: C3461326029723._gopro-web._tcp.local. at 172.27.123.51
+2024-12-21 22:30:46,023 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-21 22:30:50,892 - root - INFO - Found the following GoPro devices:
+2024-12-21 22:30:50,894 - root - INFO - Name: C3461326043977._gopro-web._tcp.local., IP: 172.29.177.51
+2024-12-21 22:30:50,895 - root - INFO - Name: C3461326029723._gopro-web._tcp.local., IP: 172.27.123.51
+2024-12-21 22:30:50,896 - root - INFO - Name: C3461325908060._gopro-web._tcp.local., IP: 172.20.160.51
+2024-12-21 22:30:50,919 - root - INFO - Using data directory: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data
+2024-12-21 22:30:50,934 - root - INFO - Cache updated successfully with newly discovered devices.
+2024-12-21 22:30:50,937 - root - INFO - Resetting USB control on camera 172.29.177.51.
+2024-12-21 22:30:50,939 - root - INFO - Resetting USB control on camera 172.27.123.51.
+2024-12-21 22:30:50,940 - root - INFO - Resetting USB control on camera 172.20.160.51.
+2024-12-21 22:30:51,009 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 22:30:51,012 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 22:30:51,014 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 22:30:51,162 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 500 3
+2024-12-21 22:30:51,163 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 500 3
+2024-12-21 22:30:51,164 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 500 3
+2024-12-21 22:30:51,165 - root - ERROR - Failed to disable USB control on camera 172.29.177.51. Status Code: 500. Response: {}
+
+2024-12-21 22:30:51,185 - root - ERROR - Failed to disable USB control on camera 172.20.160.51. Status Code: 500. Response: {}
+
+2024-12-21 22:30:51,188 - root - ERROR - Failed to disable USB control on camera 172.27.123.51. Status Code: 500. Response: {}
+
+2024-12-21 22:30:53,193 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 22:30:53,196 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 22:30:53,199 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 22:30:53,267 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-21 22:30:53,269 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-21 22:30:53,269 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-21 22:30:53,270 - root - INFO - USB control enabled on camera 172.20.160.51.
+2024-12-21 22:30:53,272 - root - INFO - USB control enabled on camera 172.27.123.51.
+2024-12-21 22:30:53,273 - root - INFO - USB control enabled on camera 172.29.177.51.
+2024-12-21 22:31:11,630 - copy_to_pc_and_scene_sorting - INFO - Collecting files information from cameras...
+2024-12-21 22:31:11,638 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-21 22:31:11,639 - root - INFO - Searching for GoPro cameras...
+2024-12-21 22:31:11,724 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-21 22:31:11,745 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-21 22:31:11,782 - root - INFO - Discovered GoPro: C3461326029723._gopro-web._tcp.local. at 172.27.123.51
+2024-12-21 22:31:16,650 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 22:31:16,738 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/media/list HTTP/11" 200 664
+2024-12-21 22:31:16,742 - root - INFO - Camera C3461325908060: found 6 files, 164.87 MB
+2024-12-21 22:31:16,745 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 22:31:16,832 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/media/list HTTP/11" 200 1241
+2024-12-21 22:31:16,835 - root - INFO - Camera C3461326043977: found 14 files, 818.91 MB
+2024-12-21 22:31:16,837 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 22:31:16,942 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/media/list HTTP/11" 200 1241
+2024-12-21 22:31:16,944 - root - INFO - Camera C3461326029723: found 14 files, 783.81 MB
+2024-12-21 22:31:16,945 - copy_to_pc_and_scene_sorting - INFO - Checking existing files...
+2024-12-21 22:31:16,958 - root - INFO - Found existing file: C3461325908060_GX010056.MP4
+2024-12-21 22:31:16,960 - root - INFO - Found existing file: C3461325908060_GX010057.MP4
+2024-12-21 22:31:16,961 - root - INFO - Found existing file: C3461325908060_GX010058.MP4
+2024-12-21 22:31:16,969 - root - INFO - Found existing file: C3461325908060_GX010059.MP4
+2024-12-21 22:31:16,971 - root - INFO - Found existing file: C3461325908060_GX010060.MP4
+2024-12-21 22:31:16,973 - root - INFO - Found existing file: C3461325908060_GX010061.MP4
+2024-12-21 22:31:16,980 - root - INFO - Found existing file: C3461326043977_GX010233.MP4
+2024-12-21 22:31:16,982 - root - INFO - Found existing file: C3461326043977_GX010234.MP4
+2024-12-21 22:31:16,984 - root - INFO - Found existing file: C3461326043977_GX010235.MP4
+2024-12-21 22:31:16,988 - root - INFO - Found existing file: C3461326043977_GX010236.MP4
+2024-12-21 22:31:16,990 - root - INFO - Found existing file: C3461326043977_GX010237.MP4
+2024-12-21 22:31:16,993 - root - INFO - Found existing file: C3461326043977_GX010238.MP4
+2024-12-21 22:31:16,998 - root - INFO - Found existing file: C3461326029723_GX010227.MP4
+2024-12-21 22:31:17,000 - root - INFO - Found existing file: C3461326029723_GX010228.MP4
+2024-12-21 22:31:17,002 - root - INFO - Found existing file: C3461326029723_GX010229.MP4
+2024-12-21 22:31:17,005 - root - INFO - Found existing file: C3461326029723_GX010230.MP4
+2024-12-21 22:31:17,007 - root - INFO - Found existing file: C3461326029723_GX010231.MP4
+2024-12-21 22:31:17,009 - root - INFO - Found existing file: C3461326029723_GX010232.MP4
+2024-12-21 22:31:17,011 - copy_to_pc_and_scene_sorting - INFO - Calculating scene ranges...
+2024-12-21 22:31:17,013 - copy_to_pc_and_scene_sorting - INFO - Creating scene folders...
+2024-12-21 22:31:17,022 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene01_2024_12_21_20_33_05
+2024-12-21 22:31:17,025 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010056.MP4
+2024-12-21 22:31:17,027 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010057.MP4
+2024-12-21 22:31:17,028 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010058.MP4
+2024-12-21 22:31:17,029 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene02_2024_12_21_20_33_18
+2024-12-21 22:31:17,033 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010059.MP4
+2024-12-21 22:31:17,036 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010060.MP4
+2024-12-21 22:31:17,039 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010061.MP4
+2024-12-21 22:31:17,042 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene03_2024_12_21_20_45_18
+2024-12-21 22:31:17,044 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010233.MP4
+2024-12-21 22:31:17,047 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010227.MP4
+2024-12-21 22:31:17,050 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010234.MP4
+2024-12-21 22:31:17,053 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010228.MP4
+2024-12-21 22:31:17,055 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010235.MP4
+2024-12-21 22:31:17,056 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010229.MP4
+2024-12-21 22:31:17,058 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene04_2024_12_21_20_46_06
+2024-12-21 22:31:17,060 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010236.MP4
+2024-12-21 22:31:17,062 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010230.MP4
+2024-12-21 22:31:17,065 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010237.MP4
+2024-12-21 22:31:17,067 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010231.MP4
+2024-12-21 22:31:17,068 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene05_2024_12_21_20_46_17
+2024-12-21 22:31:17,070 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010238.MP4
+2024-12-21 22:31:17,071 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010232.MP4
+2024-12-21 22:31:17,073 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene06_2024_12_21_20_56_07
+2024-12-21 22:31:17,074 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010239.MP4...
+2024-12-21 22:31:17,077 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:31:17,106 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010239.MP4 HTTP/11" 200 106378555
+2024-12-21 22:31:20,053 - root - ERROR - Size mismatch for C3461326043977_GX010239.MP4: expected 23636418, got 106378555
+2024-12-21 22:31:20,074 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010233.MP4...
+2024-12-21 22:31:20,078 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:31:20,106 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010233.MP4 HTTP/11" 200 109237569
+2024-12-21 22:31:23,329 - root - ERROR - Size mismatch for C3461326029723_GX010233.MP4: expected 23406966, got 109237569
+2024-12-21 22:31:24,009 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene07_2024_12_21_20_57_23
+2024-12-21 22:31:24,010 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010240.MP4...
+2024-12-21 22:31:24,014 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:31:24,036 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010240.MP4 HTTP/11" 200 44157898
+2024-12-21 22:31:25,281 - root - ERROR - Size mismatch for C3461326043977_GX010240.MP4: expected 23636418, got 44157898
+2024-12-21 22:31:25,287 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010234.MP4...
+2024-12-21 22:31:25,291 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:31:25,310 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010234.MP4 HTTP/11" 200 42286488
+2024-12-21 22:31:26,503 - root - ERROR - Size mismatch for C3461326029723_GX010234.MP4: expected 23406966, got 42286488
+2024-12-21 22:31:26,514 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene08_2024_12_21_20_58_10
+2024-12-21 22:31:26,518 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010241.MP4...
+2024-12-21 22:31:26,522 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:31:26,544 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010241.MP4 HTTP/11" 200 59013498
+2024-12-21 22:31:28,112 - root - ERROR - Size mismatch for C3461326043977_GX010241.MP4: expected 23636418, got 59013498
+2024-12-21 22:31:28,121 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010235.MP4...
+2024-12-21 22:31:28,123 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:31:28,145 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010235.MP4 HTTP/11" 200 55939356
+2024-12-21 22:31:29,718 - root - ERROR - Size mismatch for C3461326029723_GX010235.MP4: expected 23406966, got 55939356
+2024-12-21 22:31:29,731 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene09_2024_12_21_21_12_11
+2024-12-21 22:31:29,735 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010242.MP4...
+2024-12-21 22:31:29,739 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:31:29,759 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010242.MP4 HTTP/11" 200 83006586
+2024-12-21 22:31:32,215 - root - ERROR - Size mismatch for C3461326043977_GX010242.MP4: expected 23636418, got 83006586
+2024-12-21 22:31:32,364 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010236.MP4...
+2024-12-21 22:31:32,375 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:31:32,402 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010236.MP4 HTTP/11" 200 78941033
+2024-12-21 22:31:35,427 - root - ERROR - Size mismatch for C3461326029723_GX010236.MP4: expected 23406966, got 78941033
+2024-12-21 22:31:36,175 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene10_2024_12_21_21_13_04
+2024-12-21 22:31:36,177 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010243.MP4...
+2024-12-21 22:31:36,182 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:31:36,205 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010243.MP4 HTTP/11" 200 31011959
+2024-12-21 22:31:37,235 - root - ERROR - Size mismatch for C3461326043977_GX010243.MP4: expected 23636418, got 31011959
+2024-12-21 22:31:37,300 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010237.MP4...
+2024-12-21 22:31:37,304 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:31:37,327 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010237.MP4 HTTP/11" 200 28771025
+2024-12-21 22:31:38,119 - root - ERROR - Size mismatch for C3461326029723_GX010237.MP4: expected 23406966, got 28771025
+2024-12-21 22:31:38,127 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene11_2024_12_21_21_14_07
+2024-12-21 22:31:38,129 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010244.MP4...
+2024-12-21 22:31:38,133 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:31:38,156 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010244.MP4 HTTP/11" 200 146634554
+2024-12-21 22:31:42,332 - root - ERROR - Size mismatch for C3461326043977_GX010244.MP4: expected 23636418, got 146634554
+2024-12-21 22:31:42,354 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010238.MP4...
+2024-12-21 22:31:42,357 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:31:42,377 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010238.MP4 HTTP/11" 200 127052916
+2024-12-21 22:31:45,830 - root - ERROR - Size mismatch for C3461326029723_GX010238.MP4: expected 23406966, got 127052916
+2024-12-21 22:31:45,847 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene12_2024_12_21_21_21_02
+2024-12-21 22:31:45,848 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010245.MP4...
+2024-12-21 22:31:45,857 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:31:45,878 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010245.MP4 HTTP/11" 200 158601399
+2024-12-21 22:31:50,101 - root - ERROR - Size mismatch for C3461326043977_GX010245.MP4: expected 23636418, got 158601399
+2024-12-21 22:31:50,133 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010239.MP4...
+2024-12-21 22:31:50,136 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:31:50,161 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010239.MP4 HTTP/11" 200 153367924
+2024-12-21 22:31:54,309 - root - ERROR - Size mismatch for C3461326029723_GX010239.MP4: expected 23406966, got 153367924
+2024-12-21 22:31:54,326 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene13_2024_12_21_21_21_14
+2024-12-21 22:31:54,327 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010246.MP4...
+2024-12-21 22:31:54,331 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:31:54,351 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010246.MP4 HTTP/11" 200 35570428
+2024-12-21 22:31:55,326 - root - ERROR - Size mismatch for C3461326043977_GX010246.MP4: expected 23636418, got 35570428
+2024-12-21 22:31:55,333 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010240.MP4...
+2024-12-21 22:31:55,337 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:31:55,367 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010240.MP4 HTTP/11" 200 34129449
+2024-12-21 22:31:56,305 - root - ERROR - Size mismatch for C3461326029723_GX010240.MP4: expected 23406966, got 34129449
+2024-12-21 22:35:24,238 - copy_to_pc_and_scene_sorting - INFO - Collecting files information from cameras...
+2024-12-21 22:35:24,278 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-21 22:35:24,288 - root - INFO - Searching for GoPro cameras...
+2024-12-21 22:35:24,493 - root - INFO - Discovered GoPro: C3461326029723._gopro-web._tcp.local. at 172.27.123.51
+2024-12-21 22:35:24,499 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-21 22:35:24,520 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-21 22:35:29,318 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 22:35:29,410 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/media/list HTTP/11" 200 1241
+2024-12-21 22:35:29,418 - root - INFO - Camera C3461326029723: found 14 files, 783.81 MB
+2024-12-21 22:35:29,421 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.160.51:8080
+2024-12-21 22:35:29,504 - urllib3.connectionpool - DEBUG - http://172.20.160.51:8080 "GET /gopro/media/list HTTP/11" 200 664
+2024-12-21 22:35:29,506 - root - INFO - Camera C3461325908060: found 6 files, 164.87 MB
+2024-12-21 22:35:29,509 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 22:35:29,568 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/media/list HTTP/11" 200 1241
+2024-12-21 22:35:29,570 - root - INFO - Camera C3461326043977: found 14 files, 818.91 MB
+2024-12-21 22:35:29,571 - copy_to_pc_and_scene_sorting - INFO - Checking existing files...
+2024-12-21 22:35:29,586 - root - INFO - Found existing file: C3461326029723_GX010227.MP4
+2024-12-21 22:35:29,588 - root - INFO - Found existing file: C3461326029723_GX010228.MP4
+2024-12-21 22:35:29,589 - root - INFO - Found existing file: C3461326029723_GX010229.MP4
+2024-12-21 22:35:29,593 - root - INFO - Found existing file: C3461326029723_GX010230.MP4
+2024-12-21 22:35:29,594 - root - INFO - Found existing file: C3461326029723_GX010231.MP4
+2024-12-21 22:35:29,596 - root - INFO - Found existing file: C3461326029723_GX010232.MP4
+2024-12-21 22:35:29,601 - root - INFO - Found existing file: C3461325908060_GX010056.MP4
+2024-12-21 22:35:29,603 - root - INFO - Found existing file: C3461325908060_GX010057.MP4
+2024-12-21 22:35:29,605 - root - INFO - Found existing file: C3461325908060_GX010058.MP4
+2024-12-21 22:35:29,608 - root - INFO - Found existing file: C3461325908060_GX010059.MP4
+2024-12-21 22:35:29,610 - root - INFO - Found existing file: C3461325908060_GX010060.MP4
+2024-12-21 22:35:29,611 - root - INFO - Found existing file: C3461325908060_GX010061.MP4
+2024-12-21 22:35:29,615 - root - INFO - Found existing file: C3461326043977_GX010233.MP4
+2024-12-21 22:35:29,617 - root - INFO - Found existing file: C3461326043977_GX010234.MP4
+2024-12-21 22:35:29,618 - root - INFO - Found existing file: C3461326043977_GX010235.MP4
+2024-12-21 22:35:29,621 - root - INFO - Found existing file: C3461326043977_GX010236.MP4
+2024-12-21 22:35:29,623 - root - INFO - Found existing file: C3461326043977_GX010237.MP4
+2024-12-21 22:35:29,624 - root - INFO - Found existing file: C3461326043977_GX010238.MP4
+2024-12-21 22:35:29,625 - copy_to_pc_and_scene_sorting - INFO - Calculating scene ranges...
+2024-12-21 22:35:29,628 - copy_to_pc_and_scene_sorting - INFO - Creating scene folders...
+2024-12-21 22:35:29,656 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene01_2024_12_21_20_33_05
+2024-12-21 22:35:29,658 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010056.MP4
+2024-12-21 22:35:29,675 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010057.MP4
+2024-12-21 22:35:29,675 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010058.MP4
+2024-12-21 22:35:29,676 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene02_2024_12_21_20_33_18
+2024-12-21 22:35:29,679 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010059.MP4
+2024-12-21 22:35:29,680 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010060.MP4
+2024-12-21 22:35:29,684 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461325908060_GX010061.MP4
+2024-12-21 22:35:29,684 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene03_2024_12_21_20_45_18
+2024-12-21 22:35:29,689 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010227.MP4
+2024-12-21 22:35:29,690 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010233.MP4
+2024-12-21 22:35:29,690 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010228.MP4
+2024-12-21 22:35:29,691 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010234.MP4
+2024-12-21 22:35:29,691 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010229.MP4
+2024-12-21 22:35:29,692 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010235.MP4
+2024-12-21 22:35:29,697 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene04_2024_12_21_20_46_06
+2024-12-21 22:35:29,699 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010230.MP4
+2024-12-21 22:35:29,700 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010236.MP4
+2024-12-21 22:35:29,700 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010231.MP4
+2024-12-21 22:35:29,700 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010237.MP4
+2024-12-21 22:35:29,700 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene05_2024_12_21_20_46_17
+2024-12-21 22:35:29,701 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326029723_GX010232.MP4
+2024-12-21 22:35:29,701 - copy_to_pc_and_scene_sorting - INFO - File already exists: C3461326043977_GX010238.MP4
+2024-12-21 22:35:29,701 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene06_2024_12_21_20_56_07
+2024-12-21 22:35:29,701 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010233.MP4...
+2024-12-21 22:35:29,702 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:35:29,726 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010233.MP4 HTTP/11" 200 109237569
+2024-12-21 22:35:32,705 - root - ERROR - Size mismatch for C3461326029723_GX010233.MP4: expected 23406966, got 109237569
+2024-12-21 22:35:32,729 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010239.MP4...
+2024-12-21 22:35:32,735 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:35:32,757 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010239.MP4 HTTP/11" 200 106378555
+2024-12-21 22:35:35,639 - root - ERROR - Size mismatch for C3461326043977_GX010239.MP4: expected 23636418, got 106378555
+2024-12-21 22:35:35,656 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene07_2024_12_21_20_57_23
+2024-12-21 22:35:35,658 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010234.MP4...
+2024-12-21 22:35:35,661 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:35:35,684 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010234.MP4 HTTP/11" 200 42286488
+2024-12-21 22:35:36,835 - root - ERROR - Size mismatch for C3461326029723_GX010234.MP4: expected 23406966, got 42286488
+2024-12-21 22:35:36,843 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010240.MP4...
+2024-12-21 22:35:36,848 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:35:36,867 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010240.MP4 HTTP/11" 200 44157898
+2024-12-21 22:35:38,186 - root - ERROR - Size mismatch for C3461326043977_GX010240.MP4: expected 23636418, got 44157898
+2024-12-21 22:35:38,196 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene08_2024_12_21_20_58_10
+2024-12-21 22:35:38,198 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010235.MP4...
+2024-12-21 22:35:38,202 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:35:38,222 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010235.MP4 HTTP/11" 200 55939356
+2024-12-21 22:35:39,980 - root - ERROR - Size mismatch for C3461326029723_GX010235.MP4: expected 23406966, got 55939356
+2024-12-21 22:35:40,001 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010241.MP4...
+2024-12-21 22:35:40,006 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:35:40,026 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010241.MP4 HTTP/11" 200 59013498
+2024-12-21 22:35:41,623 - root - ERROR - Size mismatch for C3461326043977_GX010241.MP4: expected 23636418, got 59013498
+2024-12-21 22:35:41,635 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene09_2024_12_21_21_12_11
+2024-12-21 22:35:41,641 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010236.MP4...
+2024-12-21 22:35:41,644 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:35:41,664 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010236.MP4 HTTP/11" 200 78941033
+2024-12-21 22:35:43,815 - root - ERROR - Size mismatch for C3461326029723_GX010236.MP4: expected 23406966, got 78941033
+2024-12-21 22:35:43,833 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010242.MP4...
+2024-12-21 22:35:43,839 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:35:43,859 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010242.MP4 HTTP/11" 200 83006586
+2024-12-21 22:35:46,383 - root - ERROR - Size mismatch for C3461326043977_GX010242.MP4: expected 23636418, got 83006586
+2024-12-21 22:35:46,886 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene10_2024_12_21_21_13_04
+2024-12-21 22:35:46,891 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010237.MP4...
+2024-12-21 22:35:46,893 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:35:46,915 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010237.MP4 HTTP/11" 200 28771025
+2024-12-21 22:35:47,720 - root - ERROR - Size mismatch for C3461326029723_GX010237.MP4: expected 23406966, got 28771025
+2024-12-21 22:35:47,726 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010243.MP4...
+2024-12-21 22:35:47,732 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:35:47,752 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010243.MP4 HTTP/11" 200 31011959
+2024-12-21 22:35:48,612 - root - ERROR - Size mismatch for C3461326043977_GX010243.MP4: expected 23636418, got 31011959
+2024-12-21 22:35:48,617 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene11_2024_12_21_21_14_07
+2024-12-21 22:35:48,618 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010238.MP4...
+2024-12-21 22:35:48,622 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:35:48,645 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010238.MP4 HTTP/11" 200 127052916
+2024-12-21 22:35:52,086 - root - ERROR - Size mismatch for C3461326029723_GX010238.MP4: expected 23406966, got 127052916
+2024-12-21 22:35:52,114 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010244.MP4...
+2024-12-21 22:35:52,118 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:35:52,137 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010244.MP4 HTTP/11" 200 146634554
+2024-12-21 22:35:56,030 - root - ERROR - Size mismatch for C3461326043977_GX010244.MP4: expected 23636418, got 146634554
+2024-12-21 22:35:56,048 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene12_2024_12_21_21_21_02
+2024-12-21 22:35:56,051 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010239.MP4...
+2024-12-21 22:35:56,054 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:35:56,083 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010239.MP4 HTTP/11" 200 153367924
+2024-12-21 22:36:00,204 - root - ERROR - Size mismatch for C3461326029723_GX010239.MP4: expected 23406966, got 153367924
+2024-12-21 22:36:00,233 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010245.MP4...
+2024-12-21 22:36:00,237 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:36:00,257 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010245.MP4 HTTP/11" 200 158601399
+2024-12-21 22:36:04,436 - root - ERROR - Size mismatch for C3461326043977_GX010245.MP4: expected 23636418, got 158601399
+2024-12-21 22:36:04,473 - copy_to_pc_and_scene_sorting - INFO - Processing scene: scene13_2024_12_21_21_21_14
+2024-12-21 22:36:04,476 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326029723_GX010240.MP4...
+2024-12-21 22:36:04,481 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:80
+2024-12-21 22:36:04,501 - urllib3.connectionpool - DEBUG - http://172.27.123.51:80 "GET /videos/DCIM/100GOPRO/GX010240.MP4 HTTP/11" 200 34129449
+2024-12-21 22:36:05,440 - root - ERROR - Size mismatch for C3461326029723_GX010240.MP4: expected 23406966, got 34129449
+2024-12-21 22:36:05,446 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326043977_GX010246.MP4...
+2024-12-21 22:36:05,451 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:80
+2024-12-21 22:36:05,472 - urllib3.connectionpool - DEBUG - http://172.29.177.51:80 "GET /videos/DCIM/100GOPRO/GX010246.MP4 HTTP/11" 200 35570428
+2024-12-21 22:36:06,442 - root - ERROR - Size mismatch for C3461326043977_GX010246.MP4: expected 23636418, got 35570428

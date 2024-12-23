@@ -1,0 +1,5 @@
+2024-12-23 00:03:10,197 - __main__ - INFO - Found the following GoPro devices:
+2024-12-23 00:03:10,198 - __main__ - INFO - Name: C3461325908060._gopro-web._tcp.local., IP: 172.20.160.51
+2024-12-23 00:03:10,290 - __main__ - ERROR - Failed to set RAW mode for camera 172.20.160.51. Status: 403
+2024-12-23 00:03:10,291 - __main__ - INFO - Name: C3461326043977._gopro-web._tcp.local., IP: 172.29.177.51
+2024-12-23 00:03:10,415 - __main__ - ERROR - Failed to set RAW mode for camera 172.29.177.51. Status: 403

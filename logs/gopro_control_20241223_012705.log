@@ -1,0 +1,5 @@
+2024-12-23 01:27:11,306 - __main__ - INFO - Found 2 GoPro devices
+2024-12-23 01:27:17,996 - __main__ - INFO - Saved last mode: video
+2024-12-23 01:27:18,343 - __main__ - ERROR - Failed to set video mode for camera C3461325908060._gopro-web._tcp.local.. Status: 500
+2024-12-23 01:27:18,354 - __main__ - ERROR - Failed to set video mode for camera C3461326043977._gopro-web._tcp.local.. Status: 500
+2024-12-23 01:27:18,356 - __main__ - ERROR - Failed to set video mode for some cameras

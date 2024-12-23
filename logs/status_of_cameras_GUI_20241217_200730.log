@@ -1,0 +1,13 @@
+2024-12-17 20:07:30,119 - root - DEBUG - Starting GoPro Control Interface
+2024-12-17 20:07:35,783 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:07:35,788 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:07:35,951 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:07:36,033 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:07:40,796 - root - INFO - Loading preset on all cameras...
+2024-12-17 20:07:40,811 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:07:40,813 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:07:40,872 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/presets/load?id=0 HTTP/11" 200 2
+2024-12-17 20:07:40,873 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/presets/load?id=0 HTTP/11" 200 2
+2024-12-17 20:07:40,874 - root - INFO - Preset successfully loaded on camera 172.28.185.51
+2024-12-17 20:07:40,875 - root - INFO - Preset successfully loaded on camera 172.27.140.51
+2024-12-17 20:07:58,113 - root - ERROR - Error running script goprolist_usb_activate_time_sync.py: Command 'goprolist_usb_activate_time_sync.py' returned non-zero exit status 1.

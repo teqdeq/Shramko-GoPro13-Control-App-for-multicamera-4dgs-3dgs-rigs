@@ -1,0 +1,621 @@
+2024-12-17 20:11:46,658 - root - DEBUG - Starting GoPro Control Interface
+2024-12-17 20:11:51,119 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:11:51,128 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:11:51,269 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:11:51,321 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:11:56,137 - root - INFO - Found the following GoPro devices:
+2024-12-17 20:11:56,138 - root - INFO - Name: C3461326143885._gopro-web._tcp.local., IP: 172.28.185.51
+2024-12-17 20:11:56,140 - root - INFO - Name: C3461350386740._gopro-web._tcp.local., IP: 172.27.140.51
+2024-12-17 20:11:56,142 - root - INFO - Cache updated successfully with newly discovered devices.
+2024-12-17 20:11:56,143 - root - INFO - Resetting USB control on camera 172.28.185.51.
+2024-12-17 20:11:56,144 - root - INFO - Resetting USB control on camera 172.27.140.51.
+2024-12-17 20:11:56,160 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:11:56,160 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:11:56,220 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:11:56,221 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:11:56,225 - root - INFO - USB control disabled on camera 172.28.185.51.
+2024-12-17 20:11:56,227 - root - INFO - USB control disabled on camera 172.27.140.51.
+2024-12-17 20:11:58,230 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:11:58,231 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:11:58,290 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:11:58,292 - root - INFO - USB control enabled on camera 172.28.185.51.
+2024-12-17 20:11:58,321 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:11:58,321 - root - INFO - USB control enabled on camera 172.27.140.51.
+2024-12-17 20:12:12,495 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:12:12,500 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:12:12,645 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:12:12,678 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:12:17,510 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:12:17,562 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1407
+2024-12-17 20:12:17,563 - root - INFO - Copying settings to all target cameras...
+2024-12-17 20:12:17,567 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:18,001 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=2&option=9 HTTP/11" 200 3
+2024-12-17 20:12:18,003 - root - INFO - Setting 2 successfully set to 9 on camera 172.27.140.51
+2024-12-17 20:12:18,006 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:18,375 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=3&option=6 HTTP/11" 200 3
+2024-12-17 20:12:18,377 - root - INFO - Setting 3 successfully set to 6 on camera 172.27.140.51
+2024-12-17 20:12:18,387 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:18,483 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=5&option=0 HTTP/11" 403 77
+2024-12-17 20:12:18,487 - root - ERROR - Failed to set setting 5 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=5&option=0
+2024-12-17 20:12:18,493 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:18,607 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=6&option=1 HTTP/11" 403 77
+2024-12-17 20:12:18,611 - root - ERROR - Failed to set setting 6 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=6&option=1
+2024-12-17 20:12:18,616 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:18,808 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=13&option=1 HTTP/11" 200 3
+2024-12-17 20:12:18,810 - root - INFO - Setting 13 successfully set to 1 on camera 172.27.140.51
+2024-12-17 20:12:18,815 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:18,933 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=19&option=0 HTTP/11" 403 78
+2024-12-17 20:12:18,935 - root - ERROR - Failed to set setting 19 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=19&option=0
+2024-12-17 20:12:18,940 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:19,043 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=24&option=0 HTTP/11" 403 78
+2024-12-17 20:12:19,045 - root - ERROR - Failed to set setting 24 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=24&option=0
+2024-12-17 20:12:19,049 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:19,166 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=30&option=110 HTTP/11" 403 80
+2024-12-17 20:12:19,168 - root - ERROR - Failed to set setting 30 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=30&option=110
+2024-12-17 20:12:19,171 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:19,275 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=31&option=0 HTTP/11" 403 78
+2024-12-17 20:12:19,278 - root - ERROR - Failed to set setting 31 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=31&option=0
+2024-12-17 20:12:19,281 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:19,399 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=32&option=10 HTTP/11" 403 79
+2024-12-17 20:12:19,401 - root - ERROR - Failed to set setting 32 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=32&option=10
+2024-12-17 20:12:19,405 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:19,510 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=37&option=0 HTTP/11" 403 78
+2024-12-17 20:12:19,513 - root - ERROR - Failed to set setting 37 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=37&option=0
+2024-12-17 20:12:19,516 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:19,694 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=41&option=9 HTTP/11" 500 0
+2024-12-17 20:12:19,704 - root - ERROR - Failed to set setting 41 on camera 172.27.140.51: 500 Server Error: Internal Server Error for url: http://172.27.140.51:8080/gopro/camera/setting?setting=41&option=9
+2024-12-17 20:12:19,710 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:19,833 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=42&option=6 HTTP/11" 403 114
+2024-12-17 20:12:19,836 - root - ERROR - Failed to set setting 42 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=42&option=6
+2024-12-17 20:12:19,841 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:20,032 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=43&option=0 HTTP/11" 500 0
+2024-12-17 20:12:20,035 - root - ERROR - Failed to set setting 43 on camera 172.27.140.51: 500 Server Error: Internal Server Error for url: http://172.27.140.51:8080/gopro/camera/setting?setting=43&option=0
+2024-12-17 20:12:20,047 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:20,253 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=44&option=9 HTTP/11" 500 0
+2024-12-17 20:12:20,257 - root - ERROR - Failed to set setting 44 on camera 172.27.140.51: 500 Server Error: Internal Server Error for url: http://172.27.140.51:8080/gopro/camera/setting?setting=44&option=9
+2024-12-17 20:12:20,265 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:20,357 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=45&option=5 HTTP/11" 403 114
+2024-12-17 20:12:20,361 - root - ERROR - Failed to set setting 45 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=45&option=5
+2024-12-17 20:12:20,367 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:20,497 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=47&option=4 HTTP/11" 200 3
+2024-12-17 20:12:20,499 - root - INFO - Setting 47 successfully set to 4 on camera 172.27.140.51
+2024-12-17 20:12:20,501 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:20,624 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=48&option=3 HTTP/11" 403 193
+2024-12-17 20:12:20,626 - root - ERROR - Failed to set setting 48 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=48&option=3
+2024-12-17 20:12:20,628 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:20,765 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=54&option=1 HTTP/11" 200 3
+2024-12-17 20:12:20,766 - root - INFO - Setting 54 successfully set to 1 on camera 172.27.140.51
+2024-12-17 20:12:20,767 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:20,900 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=59&option=0 HTTP/11" 200 3
+2024-12-17 20:12:20,902 - root - INFO - Setting 59 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:20,904 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:21,046 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=60&option=0 HTTP/11" 200 3
+2024-12-17 20:12:21,047 - root - INFO - Setting 60 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:21,049 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:21,251 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=61&option=0 HTTP/11" 200 3
+2024-12-17 20:12:21,253 - root - INFO - Setting 61 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:21,255 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:21,374 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=62&option=0 HTTP/11" 403 632
+2024-12-17 20:12:21,376 - root - ERROR - Failed to set setting 62 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=62&option=0
+2024-12-17 20:12:21,378 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:21,514 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=64&option=4 HTTP/11" 200 3
+2024-12-17 20:12:21,516 - root - INFO - Setting 64 successfully set to 4 on camera 172.27.140.51
+2024-12-17 20:12:21,517 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:21,656 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=65&option=0 HTTP/11" 200 3
+2024-12-17 20:12:21,658 - root - INFO - Setting 65 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:21,660 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:21,844 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=66&option=0 HTTP/11" 200 3
+2024-12-17 20:12:21,846 - root - INFO - Setting 66 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:21,848 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:21,938 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=67&option=0 HTTP/11" 403 632
+2024-12-17 20:12:21,939 - root - ERROR - Failed to set setting 67 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=67&option=0
+2024-12-17 20:12:21,943 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:22,045 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=75&option=0 HTTP/11" 403 78
+2024-12-17 20:12:22,049 - root - ERROR - Failed to set setting 75 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=75&option=0
+2024-12-17 20:12:22,054 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:22,171 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=76&option=0 HTTP/11" 403 78
+2024-12-17 20:12:22,174 - root - ERROR - Failed to set setting 76 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=76&option=0
+2024-12-17 20:12:22,177 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:22,326 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=83&option=0 HTTP/11" 200 3
+2024-12-17 20:12:22,328 - root - INFO - Setting 83 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:22,331 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:22,465 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=84&option=0 HTTP/11" 200 3
+2024-12-17 20:12:22,470 - root - INFO - Setting 84 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:22,474 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:22,606 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=85&option=0 HTTP/11" 200 3
+2024-12-17 20:12:22,608 - root - INFO - Setting 85 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:22,612 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:22,762 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=86&option=0 HTTP/11" 200 3
+2024-12-17 20:12:22,765 - root - INFO - Setting 86 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:22,769 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:22,918 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=87&option=0 HTTP/11" 200 3
+2024-12-17 20:12:22,923 - root - INFO - Setting 87 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:22,929 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:23,074 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=88&option=50 HTTP/11" 200 3
+2024-12-17 20:12:23,080 - root - INFO - Setting 88 successfully set to 50 on camera 172.27.140.51
+2024-12-17 20:12:23,083 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:23,214 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=91&option=3 HTTP/11" 200 3
+2024-12-17 20:12:23,218 - root - INFO - Setting 91 successfully set to 3 on camera 172.27.140.51
+2024-12-17 20:12:23,224 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:23,399 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=102&option=8 HTTP/11" 200 3
+2024-12-17 20:12:23,402 - root - INFO - Setting 102 successfully set to 8 on camera 172.27.140.51
+2024-12-17 20:12:23,406 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:23,539 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=103&option=3 HTTP/11" 200 3
+2024-12-17 20:12:23,543 - root - INFO - Setting 103 successfully set to 3 on camera 172.27.140.51
+2024-12-17 20:12:23,547 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:23,741 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=105&option=0 HTTP/11" 200 3
+2024-12-17 20:12:23,742 - root - INFO - Setting 105 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:23,743 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:23,896 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=106&option=1 HTTP/11" 200 3
+2024-12-17 20:12:23,900 - root - INFO - Setting 106 successfully set to 1 on camera 172.27.140.51
+2024-12-17 20:12:23,903 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:24,006 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=111&option=10 HTTP/11" 403 80
+2024-12-17 20:12:24,008 - root - ERROR - Failed to set setting 111 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=111&option=10
+2024-12-17 20:12:24,012 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:24,147 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=112&option=255 HTTP/11" 200 3
+2024-12-17 20:12:24,149 - root - INFO - Setting 112 successfully set to 255 on camera 172.27.140.51
+2024-12-17 20:12:24,153 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:24,333 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=114&option=1 HTTP/11" 200 3
+2024-12-17 20:12:24,335 - root - INFO - Setting 114 successfully set to 1 on camera 172.27.140.51
+2024-12-17 20:12:24,339 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:24,537 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=115&option=0 HTTP/11" 200 3
+2024-12-17 20:12:24,540 - root - INFO - Setting 115 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:24,543 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:24,738 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=116&option=2 HTTP/11" 200 3
+2024-12-17 20:12:24,740 - root - INFO - Setting 116 successfully set to 2 on camera 172.27.140.51
+2024-12-17 20:12:24,744 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:24,939 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=117&option=1 HTTP/11" 200 3
+2024-12-17 20:12:24,943 - root - INFO - Setting 117 successfully set to 1 on camera 172.27.140.51
+2024-12-17 20:12:24,947 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:25,141 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=118&option=4 HTTP/11" 200 3
+2024-12-17 20:12:25,145 - root - INFO - Setting 118 successfully set to 4 on camera 172.27.140.51
+2024-12-17 20:12:25,150 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:25,500 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=121&option=0 HTTP/11" 200 3
+2024-12-17 20:12:25,503 - root - INFO - Setting 121 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:25,506 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:25,624 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=122&option=0 HTTP/11" 403 248
+2024-12-17 20:12:25,629 - root - ERROR - Failed to set setting 122 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=122&option=0
+2024-12-17 20:12:25,637 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:25,733 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=123&option=0 HTTP/11" 403 248
+2024-12-17 20:12:25,735 - root - ERROR - Failed to set setting 123 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=123&option=0
+2024-12-17 20:12:25,740 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:25,951 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=124&option=100 HTTP/11" 200 3
+2024-12-17 20:12:25,955 - root - INFO - Setting 124 successfully set to 100 on camera 172.27.140.51
+2024-12-17 20:12:25,958 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:26,076 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=125&option=0 HTTP/11" 403 79
+2024-12-17 20:12:26,080 - root - ERROR - Failed to set setting 125 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=125&option=0
+2024-12-17 20:12:26,085 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:26,184 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=126&option=0 HTTP/11" 403 79
+2024-12-17 20:12:26,186 - root - ERROR - Failed to set setting 126 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=126&option=0
+2024-12-17 20:12:26,189 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:26,307 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=128&option=12 HTTP/11" 403 237
+2024-12-17 20:12:26,310 - root - ERROR - Failed to set setting 128 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=128&option=12
+2024-12-17 20:12:26,314 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:26,480 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=129&option=2 HTTP/11" 200 3
+2024-12-17 20:12:26,482 - root - INFO - Setting 129 successfully set to 2 on camera 172.27.140.51
+2024-12-17 20:12:26,489 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:26,665 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=130&option=1 HTTP/11" 200 3
+2024-12-17 20:12:26,669 - root - INFO - Setting 130 successfully set to 1 on camera 172.27.140.51
+2024-12-17 20:12:26,675 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:26,866 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=131&option=3 HTTP/11" 200 3
+2024-12-17 20:12:26,870 - root - INFO - Setting 131 successfully set to 3 on camera 172.27.140.51
+2024-12-17 20:12:26,874 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:27,068 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=132&option=12 HTTP/11" 200 3
+2024-12-17 20:12:27,070 - root - INFO - Setting 132 successfully set to 12 on camera 172.27.140.51
+2024-12-17 20:12:27,074 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:27,215 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=134&option=3 HTTP/11" 200 3
+2024-12-17 20:12:27,219 - root - INFO - Setting 134 successfully set to 3 on camera 172.27.140.51
+2024-12-17 20:12:27,225 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:27,722 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=135&option=2 HTTP/11" 200 3
+2024-12-17 20:12:27,725 - root - INFO - Setting 135 successfully set to 2 on camera 172.27.140.51
+2024-12-17 20:12:27,731 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:28,002 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=139&option=3 HTTP/11" 200 3
+2024-12-17 20:12:28,004 - root - INFO - Setting 139 successfully set to 3 on camera 172.27.140.51
+2024-12-17 20:12:28,007 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:28,126 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=144&option=12 HTTP/11" 500 0
+2024-12-17 20:12:28,129 - root - ERROR - Failed to set setting 144 on camera 172.27.140.51: 500 Server Error: Internal Server Error for url: http://172.27.140.51:8080/gopro/camera/setting?setting=144&option=12
+2024-12-17 20:12:28,133 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:28,329 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=145&option=0 HTTP/11" 200 3
+2024-12-17 20:12:28,332 - root - INFO - Setting 145 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:28,335 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:28,450 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=146&option=0 HTTP/11" 403 79
+2024-12-17 20:12:28,452 - root - ERROR - Failed to set setting 146 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=146&option=0
+2024-12-17 20:12:28,456 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:28,544 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=147&option=0 HTTP/11" 403 79
+2024-12-17 20:12:28,546 - root - ERROR - Failed to set setting 147 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=147&option=0
+2024-12-17 20:12:28,547 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:28,639 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=148&option=2 HTTP/11" 403 159
+2024-12-17 20:12:28,642 - root - ERROR - Failed to set setting 148 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=148&option=2
+2024-12-17 20:12:28,646 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:28,842 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=149&option=2 HTTP/11" 200 3
+2024-12-17 20:12:28,846 - root - INFO - Setting 149 successfully set to 2 on camera 172.27.140.51
+2024-12-17 20:12:28,849 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:28,951 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=153&option=100 HTTP/11" 403 81
+2024-12-17 20:12:28,952 - root - ERROR - Failed to set setting 153 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=153&option=100
+2024-12-17 20:12:28,955 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:29,108 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=154&option=3 HTTP/11" 200 3
+2024-12-17 20:12:29,109 - root - INFO - Setting 154 successfully set to 3 on camera 172.27.140.51
+2024-12-17 20:12:29,115 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:29,202 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=155&option=0 HTTP/11" 403 170
+2024-12-17 20:12:29,203 - root - ERROR - Failed to set setting 155 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=155&option=0
+2024-12-17 20:12:29,210 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:29,390 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=156&option=100 HTTP/11" 200 3
+2024-12-17 20:12:29,394 - root - INFO - Setting 156 successfully set to 100 on camera 172.27.140.51
+2024-12-17 20:12:29,397 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:29,499 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=157&option=100 HTTP/11" 403 81
+2024-12-17 20:12:29,503 - root - ERROR - Failed to set setting 157 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=157&option=100
+2024-12-17 20:12:29,508 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:29,639 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=158&option=1 HTTP/11" 200 3
+2024-12-17 20:12:29,643 - root - INFO - Setting 158 successfully set to 1 on camera 172.27.140.51
+2024-12-17 20:12:29,646 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:29,779 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=159&option=0 HTTP/11" 200 3
+2024-12-17 20:12:29,784 - root - INFO - Setting 159 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:29,788 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:29,900 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=160&option=0 HTTP/11" 403 79
+2024-12-17 20:12:29,903 - root - ERROR - Failed to set setting 160 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=160&option=0
+2024-12-17 20:12:29,906 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:30,088 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=161&option=100 HTTP/11" 200 3
+2024-12-17 20:12:30,090 - root - INFO - Setting 161 successfully set to 100 on camera 172.27.140.51
+2024-12-17 20:12:30,092 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:30,245 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=162&option=0 HTTP/11" 200 3
+2024-12-17 20:12:30,250 - root - INFO - Setting 162 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:30,254 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:30,454 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=163&option=1 HTTP/11" 200 3
+2024-12-17 20:12:30,456 - root - INFO - Setting 163 successfully set to 1 on camera 172.27.140.51
+2024-12-17 20:12:30,460 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:30,556 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=164&option=100 HTTP/11" 403 82
+2024-12-17 20:12:30,560 - root - ERROR - Failed to set setting 164 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=164&option=100
+2024-12-17 20:12:30,564 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:30,651 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=165&option=0 HTTP/11" 403 79
+2024-12-17 20:12:30,655 - root - ERROR - Failed to set setting 165 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=165&option=0
+2024-12-17 20:12:30,659 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:30,770 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=166&option=0 HTTP/11" 403 79
+2024-12-17 20:12:30,772 - root - ERROR - Failed to set setting 166 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=166&option=0
+2024-12-17 20:12:30,775 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:30,884 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=167&option=4 HTTP/11" 200 3
+2024-12-17 20:12:30,887 - root - INFO - Setting 167 successfully set to 4 on camera 172.27.140.51
+2024-12-17 20:12:30,898 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:31,086 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=168&option=0 HTTP/11" 200 3
+2024-12-17 20:12:31,089 - root - INFO - Setting 168 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:31,092 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:31,179 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=169&option=1 HTTP/11" 403 79
+2024-12-17 20:12:31,181 - root - ERROR - Failed to set setting 169 on camera 172.27.140.51: 403 Client Error: Forbidden for url: http://172.27.140.51:8080/gopro/camera/setting?setting=169&option=1
+2024-12-17 20:12:31,186 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:31,319 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/setting?setting=173&option=0 HTTP/11" 200 3
+2024-12-17 20:12:31,323 - root - INFO - Setting 173 successfully set to 0 on camera 172.27.140.51
+2024-12-17 20:12:35,415 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:12:35,417 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:12:35,626 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:12:35,630 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:12:40,424 - root - INFO - Found the following GoPro devices:
+2024-12-17 20:12:40,425 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 20:12:40,428 - root - INFO - Name: C3461350386740, IP: 172.27.140.51
+2024-12-17 20:12:40,433 - root - INFO - Successfully saved 2 devices to cache
+2024-12-17 20:12:40,443 - root - INFO - Created backup cache file
+2024-12-17 20:12:40,443 - root - INFO - Enabling USB control on all cameras...
+2024-12-17 20:12:40,446 - root - INFO - Resetting USB control on camera 172.28.185.51.
+2024-12-17 20:12:40,447 - root - INFO - Resetting USB control on camera 172.27.140.51.
+2024-12-17 20:12:40,448 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:12:40,452 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:40,508 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:12:40,509 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:12:40,511 - root - INFO - USB control disabled on camera 172.27.140.51.
+2024-12-17 20:12:40,511 - root - INFO - USB control disabled on camera 172.28.185.51.
+2024-12-17 20:12:42,515 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:42,517 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:12:42,574 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:12:42,575 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:12:42,576 - root - INFO - USB control enabled on camera 172.27.140.51.
+2024-12-17 20:12:42,576 - root - INFO - USB control enabled on camera 172.28.185.51.
+2024-12-17 20:12:42,579 - root - INFO - Synchronizing time on all cameras...
+2024-12-17 20:12:42,585 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:12:42,587 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:12:42,767 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:12:42,770 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:12:47,591 - root - INFO - Found 2 cameras to synchronize
+2024-12-17 20:12:47,593 - root - INFO - Phase 1: Preparing cameras for synchronization...
+2024-12-17 20:12:47,597 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:12:47,599 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:47,643 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/state HTTP/11" 200 1418
+2024-12-17 20:12:47,645 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1407
+2024-12-17 20:12:47,646 - root - INFO - Phase 3: Synchronizing time on all cameras...
+2024-12-17 20:12:48,147 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:12:48,149 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:48,236 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_17&time=20_12_47&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-17 20:12:48,237 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_17&time=20_12_47&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-17 20:12:48,238 - root - INFO - Time set on camera 172.27.140.51 at 20:12:48.238323
+2024-12-17 20:12:48,238 - root - INFO - Time set on camera 172.28.185.51 at 20:12:48.238323
+2024-12-17 20:12:48,241 - root - INFO - Time synchronization completed successfully on all cameras
+2024-12-17 20:12:48,241 - root - INFO - Time synchronization completed successfully
+2024-12-17 20:12:49,242 - root - INFO - Starting recording on all cameras...
+2024-12-17 20:12:49,244 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:12:49,245 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:49,684 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-17 20:12:49,686 - root - INFO - Recording started successfully on camera 172.28.185.51.
+2024-12-17 20:12:49,700 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-17 20:12:49,701 - root - INFO - Recording started successfully on camera 172.27.140.51.
+2024-12-17 20:12:53,103 - root - INFO - Loaded camera cache from c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data\camera_cache.json
+2024-12-17 20:12:53,104 - root - INFO - Loaded cached camera devices:
+2024-12-17 20:12:53,106 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 20:12:53,106 - root - INFO - Name: C3461350386740, IP: 172.27.140.51
+2024-12-17 20:12:53,106 - root - INFO - Stopping recording on all cameras...
+2024-12-17 20:12:53,109 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:12:53,119 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:53,171 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/state HTTP/11" 200 1418
+2024-12-17 20:12:53,175 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:12:53,175 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1407
+2024-12-17 20:12:53,180 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:12:54,640 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 20:12:54,655 - root - INFO - Recording stopped successfully on camera 172.28.185.51.
+2024-12-17 20:12:54,685 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 20:12:54,686 - root - INFO - Recording stopped successfully on camera 172.27.140.51.
+2024-12-17 20:12:58,599 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:12:58,601 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:12:58,759 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:12:58,823 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:13:03,604 - root - INFO - Loading preset on all cameras...
+2024-12-17 20:13:03,607 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:13:03,608 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:13:03,665 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/presets/load?id=0 HTTP/11" 200 2
+2024-12-17 20:13:03,666 - root - INFO - Preset successfully loaded on camera 172.27.140.51
+2024-12-17 20:13:03,963 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/presets/load?id=0 HTTP/11" 200 2
+2024-12-17 20:13:03,964 - root - INFO - Preset successfully loaded on camera 172.28.185.51
+2024-12-17 20:13:38,712 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:13:38,715 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:13:38,826 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:13:38,871 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:13:43,722 - root - INFO - Found the following GoPro devices:
+2024-12-17 20:13:43,723 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 20:13:43,725 - root - INFO - Name: C3461350386740, IP: 172.27.140.51
+2024-12-17 20:13:43,730 - root - INFO - Successfully saved 2 devices to cache
+2024-12-17 20:13:43,733 - root - INFO - Created backup cache file
+2024-12-17 20:13:43,734 - root - INFO - Enabling USB control on all cameras...
+2024-12-17 20:13:43,738 - root - INFO - Resetting USB control on camera 172.28.185.51.
+2024-12-17 20:13:43,739 - root - INFO - Resetting USB control on camera 172.27.140.51.
+2024-12-17 20:13:43,747 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:13:43,748 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:13:43,808 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:13:43,808 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:13:43,809 - root - INFO - USB control disabled on camera 172.27.140.51.
+2024-12-17 20:13:43,810 - root - INFO - USB control disabled on camera 172.28.185.51.
+2024-12-17 20:13:45,813 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:13:45,814 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:13:45,879 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:13:45,880 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:13:45,880 - root - INFO - USB control enabled on camera 172.28.185.51.
+2024-12-17 20:13:45,882 - root - INFO - USB control enabled on camera 172.27.140.51.
+2024-12-17 20:13:45,884 - root - INFO - Synchronizing time on all cameras...
+2024-12-17 20:13:45,890 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:13:45,894 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:13:46,025 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:13:46,070 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:13:50,900 - root - INFO - Found 2 cameras to synchronize
+2024-12-17 20:13:50,902 - root - INFO - Phase 1: Preparing cameras for synchronization...
+2024-12-17 20:13:50,906 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:13:50,907 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:13:50,951 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/state HTTP/11" 200 1418
+2024-12-17 20:13:50,965 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1409
+2024-12-17 20:13:50,967 - root - INFO - Phase 3: Synchronizing time on all cameras...
+2024-12-17 20:13:51,467 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:13:51,468 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:13:51,540 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_17&time=20_13_50&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-17 20:13:51,540 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_17&time=20_13_50&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-17 20:13:51,544 - root - INFO - Time set on camera 172.27.140.51 at 20:13:51.544275
+2024-12-17 20:13:51,545 - root - INFO - Time set on camera 172.28.185.51 at 20:13:51.545404
+2024-12-17 20:13:51,550 - root - INFO - Time synchronization completed successfully on all cameras
+2024-12-17 20:13:51,551 - root - INFO - Time synchronization completed successfully
+2024-12-17 20:13:52,555 - root - INFO - Starting recording on all cameras...
+2024-12-17 20:13:52,564 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:13:52,566 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:13:52,964 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-17 20:13:52,965 - root - INFO - Recording started successfully on camera 172.28.185.51.
+2024-12-17 20:13:53,088 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-17 20:13:53,095 - root - INFO - Recording started successfully on camera 172.27.140.51.
+2024-12-17 20:14:00,479 - root - INFO - Loaded camera cache from c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data\camera_cache.json
+2024-12-17 20:14:00,479 - root - INFO - Loaded cached camera devices:
+2024-12-17 20:14:00,480 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 20:14:00,481 - root - INFO - Name: C3461350386740, IP: 172.27.140.51
+2024-12-17 20:14:00,482 - root - INFO - Stopping recording on all cameras...
+2024-12-17 20:14:00,485 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:00,485 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:00,537 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/state HTTP/11" 200 1418
+2024-12-17 20:14:00,541 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:00,546 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1409
+2024-12-17 20:14:00,550 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:01,051 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 20:14:01,053 - root - INFO - Recording stopped successfully on camera 172.28.185.51.
+2024-12-17 20:14:02,068 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 20:14:02,069 - root - INFO - Recording stopped successfully on camera 172.27.140.51.
+2024-12-17 20:14:10,377 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:14:10,379 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:14:10,510 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:14:10,563 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:14:15,386 - root - INFO - Found the following GoPro devices:
+2024-12-17 20:14:15,387 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 20:14:15,389 - root - INFO - Name: C3461350386740, IP: 172.27.140.51
+2024-12-17 20:14:15,394 - root - INFO - Successfully saved 2 devices to cache
+2024-12-17 20:14:15,398 - root - INFO - Created backup cache file
+2024-12-17 20:14:15,399 - root - INFO - Enabling USB control on all cameras...
+2024-12-17 20:14:15,402 - root - INFO - Resetting USB control on camera 172.28.185.51.
+2024-12-17 20:14:15,404 - root - INFO - Resetting USB control on camera 172.27.140.51.
+2024-12-17 20:14:15,415 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:15,416 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:15,475 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:14:15,476 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:14:15,479 - root - INFO - USB control disabled on camera 172.27.140.51.
+2024-12-17 20:14:15,480 - root - INFO - USB control disabled on camera 172.28.185.51.
+2024-12-17 20:14:17,484 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:17,484 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:17,550 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:14:17,550 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:14:17,551 - root - INFO - USB control enabled on camera 172.27.140.51.
+2024-12-17 20:14:17,553 - root - INFO - USB control enabled on camera 172.28.185.51.
+2024-12-17 20:14:17,554 - root - INFO - Synchronizing time on all cameras...
+2024-12-17 20:14:17,560 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:14:17,562 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:14:17,721 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:14:17,774 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:14:22,569 - root - INFO - Found 2 cameras to synchronize
+2024-12-17 20:14:22,571 - root - INFO - Phase 1: Preparing cameras for synchronization...
+2024-12-17 20:14:22,580 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:22,582 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:22,631 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/state HTTP/11" 200 1418
+2024-12-17 20:14:22,632 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1409
+2024-12-17 20:14:22,637 - root - INFO - Phase 3: Synchronizing time on all cameras...
+2024-12-17 20:14:23,139 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:23,141 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:23,222 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_17&time=20_14_22&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-17 20:14:23,224 - root - INFO - Time set on camera 172.27.140.51 at 20:14:23.223151
+2024-12-17 20:14:23,237 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_17&time=20_14_22&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-17 20:14:23,238 - root - INFO - Time set on camera 172.28.185.51 at 20:14:23.238747
+2024-12-17 20:14:23,244 - root - INFO - Time synchronization completed successfully on all cameras
+2024-12-17 20:14:23,245 - root - INFO - Time synchronization completed successfully
+2024-12-17 20:14:24,247 - root - INFO - Starting recording on all cameras...
+2024-12-17 20:14:24,251 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:24,252 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:24,580 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-17 20:14:24,582 - root - INFO - Recording started successfully on camera 172.28.185.51.
+2024-12-17 20:14:24,672 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-17 20:14:24,678 - root - INFO - Recording started successfully on camera 172.27.140.51.
+2024-12-17 20:14:27,306 - root - INFO - Loaded camera cache from c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data\camera_cache.json
+2024-12-17 20:14:27,306 - root - INFO - Loaded cached camera devices:
+2024-12-17 20:14:27,307 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 20:14:27,308 - root - INFO - Name: C3461350386740, IP: 172.27.140.51
+2024-12-17 20:14:27,309 - root - INFO - Stopping recording on all cameras...
+2024-12-17 20:14:27,312 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:27,313 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:27,358 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/state HTTP/11" 200 1418
+2024-12-17 20:14:27,362 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:27,364 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1409
+2024-12-17 20:14:27,369 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:27,906 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 20:14:27,908 - root - INFO - Recording stopped successfully on camera 172.28.185.51.
+2024-12-17 20:14:28,809 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 20:14:28,811 - root - INFO - Recording stopped successfully on camera 172.27.140.51.
+2024-12-17 20:14:36,278 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:14:36,281 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:14:36,401 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:14:36,474 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:14:41,287 - root - INFO - Found the following GoPro devices:
+2024-12-17 20:14:41,289 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 20:14:41,291 - root - INFO - Name: C3461350386740, IP: 172.27.140.51
+2024-12-17 20:14:41,295 - root - INFO - Successfully saved 2 devices to cache
+2024-12-17 20:14:41,301 - root - INFO - Created backup cache file
+2024-12-17 20:14:41,302 - root - INFO - Enabling USB control on all cameras...
+2024-12-17 20:14:41,306 - root - INFO - Resetting USB control on camera 172.28.185.51.
+2024-12-17 20:14:41,307 - root - INFO - Resetting USB control on camera 172.27.140.51.
+2024-12-17 20:14:41,311 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:41,316 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:41,380 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:14:41,380 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/11" 200 3
+2024-12-17 20:14:41,380 - root - INFO - USB control disabled on camera 172.28.185.51.
+2024-12-17 20:14:41,382 - root - INFO - USB control disabled on camera 172.27.140.51.
+2024-12-17 20:14:43,386 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:43,388 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:43,456 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:14:43,456 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/11" 200 3
+2024-12-17 20:14:43,458 - root - INFO - USB control enabled on camera 172.27.140.51.
+2024-12-17 20:14:43,459 - root - INFO - USB control enabled on camera 172.28.185.51.
+2024-12-17 20:14:43,463 - root - INFO - Synchronizing time on all cameras...
+2024-12-17 20:14:43,474 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:14:43,478 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:14:43,607 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:14:43,682 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:14:48,483 - root - INFO - Found 2 cameras to synchronize
+2024-12-17 20:14:48,484 - root - INFO - Phase 1: Preparing cameras for synchronization...
+2024-12-17 20:14:48,489 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:48,492 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:48,542 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1409
+2024-12-17 20:14:48,556 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/state HTTP/11" 200 1418
+2024-12-17 20:14:48,558 - root - INFO - Phase 3: Synchronizing time on all cameras...
+2024-12-17 20:14:49,060 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:49,063 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:49,127 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_17&time=20_14_48&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-17 20:14:49,128 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_17&time=20_14_48&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-17 20:14:49,128 - root - INFO - Time set on camera 172.27.140.51 at 20:14:49.128785
+2024-12-17 20:14:49,131 - root - INFO - Time set on camera 172.28.185.51 at 20:14:49.131712
+2024-12-17 20:14:49,136 - root - INFO - Time synchronization completed successfully on all cameras
+2024-12-17 20:14:49,138 - root - INFO - Time synchronization completed successfully
+2024-12-17 20:14:50,141 - root - INFO - Starting recording on all cameras...
+2024-12-17 20:14:50,148 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:50,150 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:50,495 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-17 20:14:50,497 - root - INFO - Recording started successfully on camera 172.28.185.51.
+2024-12-17 20:14:50,589 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/shutter/start HTTP/11" 200 0
+2024-12-17 20:14:50,591 - root - INFO - Recording started successfully on camera 172.27.140.51.
+2024-12-17 20:14:57,181 - root - INFO - Loaded camera cache from c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data\camera_cache.json
+2024-12-17 20:14:57,182 - root - INFO - Loaded cached camera devices:
+2024-12-17 20:14:57,184 - root - INFO - Name: C3461326143885, IP: 172.28.185.51
+2024-12-17 20:14:57,185 - root - INFO - Name: C3461350386740, IP: 172.27.140.51
+2024-12-17 20:14:57,188 - root - INFO - Stopping recording on all cameras...
+2024-12-17 20:14:57,191 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:57,192 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:57,249 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/state HTTP/11" 200 1418
+2024-12-17 20:14:57,254 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:14:57,255 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/state HTTP/11" 200 1409
+2024-12-17 20:14:57,261 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:14:57,934 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 20:14:57,936 - root - INFO - Recording stopped successfully on camera 172.28.185.51.
+2024-12-17 20:14:58,666 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/camera/shutter/stop HTTP/11" 200 0
+2024-12-17 20:14:58,667 - root - INFO - Recording stopped successfully on camera 172.27.140.51.
+2024-12-17 20:15:19,756 - copy_to_pc_and_scene_sorting - INFO - ==================================================
+2024-12-17 20:15:19,757 - copy_to_pc_and_scene_sorting - INFO - Starting new copy operation
+2024-12-17 20:15:19,757 - copy_to_pc_and_scene_sorting - INFO - ==================================================
+2024-12-17 20:15:19,759 - copy_to_pc_and_scene_sorting - INFO - Destination directory is writable: C:\tmp
+2024-12-17 20:15:19,759 - copy_to_pc_and_scene_sorting - INFO - Starting discovery of connected cameras...
+2024-12-17 20:15:19,764 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-17 20:15:19,766 - root - INFO - Searching for GoPro cameras...
+2024-12-17 20:15:19,885 - root - INFO - Discovered GoPro: C3461326143885._gopro-web._tcp.local. at 172.28.185.51
+2024-12-17 20:15:19,929 - root - INFO - Discovered GoPro: C3461350386740._gopro-web._tcp.local. at 172.27.140.51
+2024-12-17 20:15:24,773 - copy_to_pc_and_scene_sorting - INFO - Discovered devices: ['C3461326143885._gopro-web._tcp.local.', 'C3461350386740._gopro-web._tcp.local.']
+2024-12-17 20:15:24,777 - copy_to_pc_and_scene_sorting - INFO - Destination root folder: C:\tmp
+2024-12-17 20:15:24,779 - copy_to_pc_and_scene_sorting - INFO - Requesting media list from camera C3461326143885 (172.28.185.51)
+2024-12-17 20:15:24,784 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:15:24,898 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /gopro/media/list HTTP/11" 200 364
+2024-12-17 20:15:24,901 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010577.MP4 from camera C3461326143885
+2024-12-17 20:15:24,903 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010578.MP4 from camera C3461326143885
+2024-12-17 20:15:24,906 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010579.MP4 from camera C3461326143885
+2024-12-17 20:15:24,907 - copy_to_pc_and_scene_sorting - INFO - Requesting media list from camera C3461350386740 (172.27.140.51)
+2024-12-17 20:15:24,915 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:15:25,039 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /gopro/media/list HTTP/11" 200 316
+2024-12-17 20:15:25,039 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010234.MP4 from camera C3461350386740
+2024-12-17 20:15:25,041 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010235.MP4 from camera C3461350386740
+2024-12-17 20:15:25,042 - copy_to_pc_and_scene_sorting - DEBUG - Found file: GX010236.MP4 from camera C3461350386740
+2024-12-17 20:15:25,044 - copy_to_pc_and_scene_sorting - INFO - Sorted files into 3 scenes
+2024-12-17 20:15:25,045 - copy_to_pc_and_scene_sorting - INFO - Scene 1 contains 2 files:
+2024-12-17 20:15:25,046 - copy_to_pc_and_scene_sorting - INFO -   - C3461326143885: GX010577.MP4 (2024-12-17 21:13:25)
+2024-12-17 20:15:25,046 - copy_to_pc_and_scene_sorting - INFO -   - C3461350386740: GX010234.MP4 (2024-12-17 21:13:25)
+2024-12-17 20:15:25,048 - copy_to_pc_and_scene_sorting - INFO - Scene 2 contains 2 files:
+2024-12-17 20:15:25,048 - copy_to_pc_and_scene_sorting - INFO -   - C3461326143885: GX010578.MP4 (2024-12-17 21:14:11)
+2024-12-17 20:15:25,049 - copy_to_pc_and_scene_sorting - INFO -   - C3461350386740: GX010235.MP4 (2024-12-17 21:14:11)
+2024-12-17 20:15:25,051 - copy_to_pc_and_scene_sorting - INFO - Scene 3 contains 2 files:
+2024-12-17 20:15:25,051 - copy_to_pc_and_scene_sorting - INFO -   - C3461326143885: GX010579.MP4 (2024-12-17 21:14:24)
+2024-12-17 20:15:25,052 - copy_to_pc_and_scene_sorting - INFO -   - C3461350386740: GX010236.MP4 (2024-12-17 21:14:24)
+2024-12-17 20:15:25,054 - copy_to_pc_and_scene_sorting - INFO - Processing scene 1: scene01_2024_12_17_21_13_25
+2024-12-17 20:15:25,055 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326143885_GX010577.MP4 from camera C3461326143885
+2024-12-17 20:15:25,060 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:15:25,083 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /videos/DCIM/100GOPRO/GX010577.MP4 HTTP/11" 200 78033479
+2024-12-17 20:15:27,528 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461326143885_GX010577.MP4
+2024-12-17 20:15:27,529 - copy_to_pc_and_scene_sorting - INFO - Copying C3461350386740_GX010234.MP4 from camera C3461350386740
+2024-12-17 20:15:27,533 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:15:27,555 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /videos/DCIM/100GOPRO/GX010234.MP4 HTTP/11" 200 123079184
+2024-12-17 20:15:31,003 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461350386740_GX010234.MP4
+2024-12-17 20:15:31,005 - copy_to_pc_and_scene_sorting - INFO - Processing scene 2: scene02_2024_12_17_21_14_11
+2024-12-17 20:15:31,006 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326143885_GX010578.MP4 from camera C3461326143885
+2024-12-17 20:15:31,008 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:15:31,028 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /videos/DCIM/100GOPRO/GX010578.MP4 HTTP/11" 200 18223908
+2024-12-17 20:15:31,614 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461326143885_GX010578.MP4
+2024-12-17 20:15:31,618 - copy_to_pc_and_scene_sorting - INFO - Copying C3461350386740_GX010235.MP4 from camera C3461350386740
+2024-12-17 20:15:31,623 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:15:31,643 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /videos/DCIM/100GOPRO/GX010235.MP4 HTTP/11" 200 32676354
+2024-12-17 20:15:32,512 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461350386740_GX010235.MP4
+2024-12-17 20:15:32,514 - copy_to_pc_and_scene_sorting - INFO - Processing scene 3: scene03_2024_12_17_21_14_24
+2024-12-17 20:15:32,514 - copy_to_pc_and_scene_sorting - INFO - Copying C3461326143885_GX010579.MP4 from camera C3461326143885
+2024-12-17 20:15:32,520 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
+2024-12-17 20:15:32,548 - urllib3.connectionpool - DEBUG - http://172.28.185.51:8080 "GET /videos/DCIM/100GOPRO/GX010579.MP4 HTTP/11" 200 67932260
+2024-12-17 20:15:34,713 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461326143885_GX010579.MP4
+2024-12-17 20:15:34,717 - copy_to_pc_and_scene_sorting - INFO - Copying C3461350386740_GX010236.MP4 from camera C3461350386740
+2024-12-17 20:15:34,721 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.140.51:8080
+2024-12-17 20:15:34,748 - urllib3.connectionpool - DEBUG - http://172.27.140.51:8080 "GET /videos/DCIM/100GOPRO/GX010236.MP4 HTTP/11" 200 105306930
+2024-12-17 20:15:37,532 - copy_to_pc_and_scene_sorting - INFO - Successfully copied C3461350386740_GX010236.MP4
+2024-12-17 20:15:37,535 - copy_to_pc_and_scene_sorting - INFO - Copy and sort operation completed successfully

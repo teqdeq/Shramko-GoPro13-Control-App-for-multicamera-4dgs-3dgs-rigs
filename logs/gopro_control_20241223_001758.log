@@ -1,0 +1,8 @@
+2024-12-23 00:18:03,668 - __main__ - INFO - Connecting to GoPro at 172.20.160.51
+2024-12-23 00:18:03,736 - __main__ - INFO - Camera type: gpcontrol
+2024-12-23 00:18:06,017 - __main__ - INFO - Photo mode set
+2024-12-23 00:18:08,350 - __main__ - ERROR - Error with camera C3461325908060._gopro-web._tcp.local.: No module named 'netifaces'
+2024-12-23 00:18:08,352 - __main__ - INFO - Connecting to GoPro at 172.29.177.51
+2024-12-23 00:18:08,404 - __main__ - INFO - Camera type: gpcontrol
+2024-12-23 00:18:10,702 - __main__ - INFO - Photo mode set
+2024-12-23 00:18:13,103 - __main__ - ERROR - Error with camera C3461326043977._gopro-web._tcp.local.: No module named 'netifaces'

@@ -1,0 +1,2 @@
+2024-12-17 19:01:27,708 - root - DEBUG - Starting GoPro Control Interface
+2024-12-17 19:01:38,306 - root - ERROR - Error setting preset: module 'set_preset_0' has no attribute 'main'

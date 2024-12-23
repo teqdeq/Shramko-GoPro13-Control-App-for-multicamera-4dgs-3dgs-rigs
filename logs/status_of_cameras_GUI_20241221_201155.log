@@ -1,0 +1,13 @@
+2024-12-21 20:11:55,358 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-21 20:11:55,362 - root - INFO - Searching for GoPro cameras...
+2024-12-21 20:11:55,484 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-21 20:11:55,487 - root - INFO - Discovered GoPro: C3461326029723._gopro-web._tcp.local. at 172.27.123.51
+2024-12-21 20:12:00,374 - root - INFO - Camera 172.29.177.51 waiting at barrier for time sync
+2024-12-21 20:12:00,375 - root - INFO - Camera 172.27.123.51 waiting at barrier for time sync
+2024-12-21 20:12:00,383 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.123.51:8080
+2024-12-21 20:12:00,385 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
+2024-12-21 20:12:00,454 - urllib3.connectionpool - DEBUG - http://172.27.123.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_21&time=20_12_00&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-21 20:12:00,455 - root - INFO - Time set on camera 172.27.123.51 at 1734808320.376946, response at 1734808320.455655
+2024-12-21 20:12:00,468 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/set_date_time?date=2024_12_21&time=20_12_00&tzone=0&dst=0 HTTP/11" 200 3
+2024-12-21 20:12:00,471 - root - INFO - Time set on camera 172.29.177.51 at 1734808320.376946, response at 1734808320.469985
+2024-12-21 20:12:00,472 - root - INFO - Time synchronization completed successfully on all cameras
