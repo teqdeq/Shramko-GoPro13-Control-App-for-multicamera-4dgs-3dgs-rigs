@@ -13,7 +13,8 @@ import aiohttp
 import logging
 import threading
 from utils import setup_logging, get_data_dir
-from goprolist_and_start_usb import discover_gopro_devices
+from goprolist_and_start_usb import discover_gopro_devices, reset_and_enable_usb_control
+from concurrent.futures import ThreadPoolExecutor
 
 logger = setup_logging(__name__)
 
@@ -134,6 +135,22 @@ class ModeSwitcher(QWidget):
 
     async def _apply_mode_async(self, devices, mode):
         try:
+            # Сначала активируем USB на всех камерах и дожидаемся результата
+            with ThreadPoolExecutor() as executor:
+                # Создаем список future для отслеживания выполнения
+                futures = list(map(
+                    lambda d: executor.submit(reset_and_enable_usb_control, d['ip']), 
+                    devices
+                ))
+                # Ждем завершения всех операций активации USB
+                for future in futures:
+                    future.result()  # Это заблокирует выполнение пока все камеры не будут активированы
+                    
+            logger.info("USB control enabled on all cameras")
+            
+            # Ждем стабилизации USB-соединения
+            await asyncio.sleep(2)
+            
             async with aiohttp.ClientSession() as session:
                 tasks = []
                 for device in devices:
@@ -146,6 +163,10 @@ class ModeSwitcher(QWidget):
                         url += "13"
                         
                     tasks.append(self.set_mode_for_camera(session, url, device, mode))
+
+                if not tasks:
+                    logger.error("No tasks created for mode switching")
+                    return
 
                 results = await asyncio.gather(*tasks, return_exceptions=True)
 
@@ -167,16 +188,16 @@ class ModeSwitcher(QWidget):
 
     async def set_mode_for_camera(self, session, url, device, mode):
         try:
-            async with session.get(url, timeout=2) as response:
-                if response.status_code != 200:
-                    logger.error(f"Failed to set {mode} mode for camera {device['name']}. Status: {response.status_code}")
+            async with session.get(url, timeout=5) as response:  # Увеличил timeout
+                if response.status != 200:  # Исправлено с status_code на status
+                    logger.error(f"Failed to set {mode} mode for camera {device['name']}. Status: {response.status}")
                     return False
                     
-            await asyncio.sleep(0.5)  # Уменьшаем задержку
+            await asyncio.sleep(1)  # Увеличил задержку для стабильности
             
             status_url = f"http://{device['ip']}:8080/gp/gpControl/status"
-            async with session.get(status_url, timeout=2) as status_response:
-                if status_response.status_code == 200:
+            async with session.get(status_url, timeout=5) as status_response:
+                if status_response.status == 200:  # Исправлено с status_code на status
                     status_data = await status_response.json()
                     current_mode = status_data.get('status', {}).get('43')
                     expected_mode = {'video': 0, 'photo': 1, 'timelapse': 13}[mode]
@@ -189,6 +210,9 @@ class ModeSwitcher(QWidget):
                         return False
                         
             return True
+        except asyncio.TimeoutError:
+            logger.error(f"Timeout setting {mode} mode for camera {device['name']}")
+            return False
         except Exception as e:
             logger.error(f"Error setting {mode} mode for camera {device['name']}: {e}")
             return False

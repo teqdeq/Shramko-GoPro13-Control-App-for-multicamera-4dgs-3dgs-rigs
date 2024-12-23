@@ -1,4 +1,4 @@
-
+https://github.com/AndriiShramko/Shramko_GoPro_Control_App
 На основе анализа кодовой базы, вот архитектура взаимодействия файлов, начиная с `Gopro_Gui_interfase_Pyqt5.py`:
 
    - Запускает следующие скрипты через `ScriptRunner`:
