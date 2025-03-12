@@ -1,3 +1,5 @@
+Please note that there is no order in this documentation. I made everything for myself. If you want to organize the documentation, you’re more than welcome! :) This app designed and tested only on gopro13
+
 https://github.com/AndriiShramko/Shramko_GoPro_Control_App
 На основе анализа кодовой базы, вот архитектура взаимодействия файлов, начиная с `Gopro_Gui_interfase_Pyqt5.py`:
 
