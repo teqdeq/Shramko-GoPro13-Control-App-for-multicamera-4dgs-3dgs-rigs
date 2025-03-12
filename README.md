@@ -2,6 +2,7 @@ Please note that there is no order in this documentation. I made everything for 
 
 video1 https://www.youtube.com/watch?v=Ebfrfn7vIq0&t 
 video2 https://www.youtube.com/watch?v=DEYwaLhZ4Hs&t=2s 
+video3 https://www.youtube.com/watch?v=2fwNsqx1RHg 
 
 https://github.com/AndriiShramko/Shramko_GoPro_Control_App
 На основе анализа кодовой базы, вот архитектура взаимодействия файлов, начиная с `Gopro_Gui_interfase_Pyqt5.py`:
