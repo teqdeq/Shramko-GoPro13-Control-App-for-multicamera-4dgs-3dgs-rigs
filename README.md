@@ -1,8 +1,12 @@
 Please note that there is no order in this documentation. I made everything for myself. If you want to organize the documentation, you’re more than welcome! :) This app designed and tested only on gopro13
 
-video1 https://www.youtube.com/watch?v=Ebfrfn7vIq0&t 
-video2 https://www.youtube.com/watch?v=DEYwaLhZ4Hs&t=2s 
-video3 https://www.youtube.com/watch?v=2fwNsqx1RHg 
+## Demo Videos
+
+[![Video 1: GoPro Control App Demo](https://img.youtube.com/vi/Ebfrfn7vIq0/0.jpg)](https://www.youtube.com/watch?v=Ebfrfn7vIq0)
+
+[![Video 2: GoPro Control Features](https://img.youtube.com/vi/DEYwaLhZ4Hs/0.jpg)](https://www.youtube.com/watch?v=DEYwaLhZ4Hs)
+
+[![Video 3: GoPro Multi-Camera Setup](https://img.youtube.com/vi/2fwNsqx1RHg/0.jpg)](https://www.youtube.com/watch?v=2fwNsqx1RHg)
 
 https://github.com/AndriiShramko/Shramko_GoPro_Control_App
 На основе анализа кодовой базы, вот архитектура взаимодействия файлов, начиная с `Gopro_Gui_interfase_Pyqt5.py`:
