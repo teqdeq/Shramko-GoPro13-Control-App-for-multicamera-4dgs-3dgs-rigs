@@ -1,3 +1,0 @@
-2024-12-23 01:04:02,643 - __main__ - INFO - Saved last mode: timelapse
-2024-12-23 01:04:07,662 - timelapse_mode - ERROR - No GoPro devices found
-2024-12-23 01:04:07,664 - __main__ - ERROR - Error applying timelapse mode: object bool can't be used in 'await' expression

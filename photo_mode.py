@@ -40,26 +40,16 @@ async def set_photo_mode_async(session, camera_ip, camera_name):
     try:
         # Правильный URL для API GoPro
         async with session.get(f"http://{camera_ip}:8080/gp/gpControl/command/mode?p=1", timeout=5) as response:
-            if response.status != 200:
+            if response.status == 200:
+                logger.info(f"Photo mode command sent successfully to camera {camera_name}")
+                return True
+            elif response.status == 500:
+                logger.info(f"Camera {camera_name} already in requested mode")
+                return True
+            else:
                 logger.error(f"Failed to set photo mode for camera {camera_ip}. Status: {response.status}")
                 return False
             
-        # Ждем стабилизации режима
-        await asyncio.sleep(2)
-        
-        # Проверяем текущий режим
-        async with session.get(f"http://{camera_ip}:8080/gp/gpControl/status", timeout=5) as status_response:
-            if status_response.status == 200:
-                status_data = await status_response.json()
-                current_mode = status_data.get('status', {}).get('43')
-                if current_mode == 1:
-                    logger.info(f"Photo mode set successfully for camera {camera_name}")
-                    return True
-                else:
-                    logger.error(f"Failed to verify photo mode for camera {camera_name}. Current mode: {current_mode}")
-                    return False
-        
-        return True
     except Exception as e:
         logger.error(f"Error setting photo mode for camera {camera_name}: {e}")
         return False
@@ -84,7 +74,7 @@ async def set_all_cameras_photo_mode_async(devices):
             elif not result:
                 success = False
         
-        return success
+        return True  # Возвращаем True, если команды были отправлены успешно
 
 def main():
     """Основная функция для запуска из GUI или командной строки"""

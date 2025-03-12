@@ -1,8 +1,0 @@
-2024-12-21 22:51:55,303 - root - INFO - Using data directory: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data
-2024-12-21 22:51:55,304 - root - INFO - Using data directory: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data
-2024-12-21 22:51:55,305 - root - INFO - Application environment initialized successfully
-2024-12-21 22:51:55,305 - root - DEBUG - Starting GoPro Control Interface
-2024-12-21 22:52:19,320 - copy_to_pc_and_scene_sorting - INFO - Collecting files information from cameras...
-2024-12-21 22:52:19,336 - asyncio - DEBUG - Using proactor: IocpProactor
-2024-12-21 22:52:19,340 - root - INFO - Searching for GoPro cameras...
-2024-12-21 22:52:24,350 - copy_to_pc_and_scene_sorting - ERROR - No GoPro devices found

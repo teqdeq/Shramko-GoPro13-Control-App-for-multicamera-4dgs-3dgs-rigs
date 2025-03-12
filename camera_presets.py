@@ -14,6 +14,14 @@ from read_and_write_all_settings_from_prime_to_other import (
     check_camera_state,
     copy_settings_to_camera
 )
+import os
+
+# Mode prefixes for different camera modes
+MODE_PREFIXES = {
+    'video': 'video_',
+    'photo': 'photo_',
+    'timelapse': 'timelapse_'
+}
 
 @dataclass
 class CameraPreset:
@@ -22,88 +30,91 @@ class CameraPreset:
     settings: Dict
     created_at: str
     updated_at: str
+    mode: str
     
 class PresetManager:
     def __init__(self):
-        self.presets_file = get_app_root() / "data" / "presets.json"
-        self.presets_file.parent.mkdir(exist_ok=True)
-        self.load_presets()
+        # Use the same templates directory as the main application
+        current_dir = Path(os.path.dirname(os.path.abspath(__file__)))
+        self.templates_dir = current_dir / 'camera_templates'
+        self.templates_dir.mkdir(exist_ok=True)
+        logging.info(f"Templates directory: {self.templates_dir}")
 
-    def load_presets(self):
-        """Загружает пресеты из файла"""
-        try:
-            if self.presets_file.exists():
-                with open(self.presets_file, 'r', encoding='utf-8') as f:
-                    self.presets = json.load(f)
-            else:
-                self.presets = {}
-                self.save_presets()
-        except Exception as e:
-            logging.error(f"Error loading presets: {e}")
-            self.presets = {}
+    def get_preset_path(self, name: str, mode: str) -> Path:
+        """Get full path for a preset file"""
+        prefix = MODE_PREFIXES.get(mode.lower(), 'unknown_')
+        return self.templates_dir / f"{prefix}{name}.json"
 
-    def save_presets(self):
-        """Сохраняет пресеты в файл"""
+    def create_preset(self, name: str, camera_ip: str, mode: str = 'video', description: str = ''):
+        """Creates a new preset from current camera settings"""
         try:
-            with open(self.presets_file, 'w', encoding='utf-8') as f:
-                json.dump(self.presets, f, indent=4, ensure_ascii=False)
-        except Exception as e:
-            logging.error(f"Error saving presets: {e}")
-
-    def create_preset(self, name, camera_ip):
-        """Создает новый пресет из текущих настроек камеры"""
-        try:
+            # Get camera settings
             url = f"http://{camera_ip}:8080/gp/gpControl/status"
             response = requests.get(url, timeout=5)
             response.raise_for_status()
             camera_state = response.json()
             settings = camera_state.get("settings", {})
             
-            # Получаем модель камеры
+            # Get camera model
             camera_model = get_camera_model(camera_ip)
             if not camera_model:
                 raise ValueError("Could not determine camera model")
             
-            # Преобразуем настройки в нужный формат
+            # Format settings
             formatted_settings = {}
             for setting_id, value in settings.items():
                 if isinstance(setting_id, str) and setting_id.isdigit():
                     formatted_settings[int(setting_id)] = int(value)
                 else:
                     formatted_settings[setting_id] = value
-                
-            # Сохраняем все настройки без фильтрации
-            self.presets[name] = {
-                "settings": formatted_settings,
-                "source_model": camera_model,
-                "created_at": datetime.now().isoformat(),
-                "description": f"Preset created from {camera_model} camera"
+            
+            # Create template data
+            timestamp = datetime.now().isoformat()
+            template_data = {
+                "metadata": {
+                    "camera_ip": camera_ip,
+                    "camera_model": camera_model,
+                    "scan_date": timestamp,
+                    "description": description or f"Preset created from {camera_model} camera",
+                    "mode": mode.lower()
+                },
+                "settings": formatted_settings
             }
-            self.save_presets()
+            
+            # Save template
+            preset_path = self.get_preset_path(name, mode)
+            with open(preset_path, 'w', encoding='utf-8') as f:
+                json.dump(template_data, f, indent=2)
+            
             logging.info(f"Created preset '{name}' from camera {camera_ip} (model: {camera_model})")
             return True
+            
         except Exception as e:
             logging.error(f"Error creating preset: {e}")
             return False
 
-    def apply_preset_to_camera(self, preset_name, camera_ip, progress_callback=None):
-        """Применяет пресет к камере с учетом совместимости"""
+    def apply_preset_to_camera(self, preset_name: str, mode: str, camera_ip: str, progress_callback=None):
+        """Applies a preset to the camera"""
         try:
-            if preset_name not in self.presets:
+            preset_path = self.get_preset_path(preset_name, mode)
+            if not preset_path.exists():
                 raise ValueError(f"Preset '{preset_name}' not found")
 
-            # Получаем модель целевой камеры
+            # Load template
+            with open(preset_path, 'r', encoding='utf-8') as f:
+                template_data = json.load(f)
+            
+            # Get camera model
             target_model = get_camera_model(camera_ip)
             if not target_model:
                 raise ValueError(f"Could not determine model for camera {camera_ip}")
 
-            # Проверяем состояние камеры
+            # Check camera state
             if not check_camera_state(camera_ip):
                 raise ValueError(f"Camera {camera_ip} is busy or recording")
 
-            preset_data = self.presets[preset_name]
-            settings = preset_data["settings"]
-            source_model = preset_data.get("source_model")
+            settings = template_data.get("settings", {})
+            source_model = template_data.get("metadata", {}).get("camera_model")
 
             if progress_callback:
                 progress_callback("status", f"Applying preset '{preset_name}' to camera {camera_ip}")
@@ -111,15 +122,14 @@ class PresetManager:
             
             logging.info(f"Applying preset '{preset_name}' to {target_model} camera at {camera_ip}")
             
-            # Создаем объект камеры для функции copy_settings_to_camera
+            # Create camera object
             target_camera = {
                 "ip": camera_ip,
-                "name": f"Camera_{camera_ip}"  # Временное имя
+                "name": f"Camera_{camera_ip}"
             }
             
-            # Используем функцию из read_and_write_all_settings_from_prime_to_other.py
+            # Apply settings
             copy_settings_to_camera(target_camera, settings, source_model, progress_callback)
-            
             return True
             
         except Exception as e:
@@ -129,12 +139,12 @@ class PresetManager:
                 progress_callback("log", error_msg)
             return False
 
-    def delete_preset(self, name):
-        """Удаляет пресет"""
+    def delete_preset(self, name: str, mode: str) -> bool:
+        """Deletes a preset"""
         try:
-            if name in self.presets:
-                del self.presets[name]
-                self.save_presets()
+            preset_path = self.get_preset_path(name, mode)
+            if preset_path.exists():
+                preset_path.unlink()
                 logging.info(f"Deleted preset '{name}'")
                 return True
             return False
@@ -142,13 +152,65 @@ class PresetManager:
             logging.error(f"Error deleting preset: {e}")
             return False
 
-    def get_preset_list(self):
-        """Возвращает список доступных пресетов"""
-        return list(self.presets.keys())
+    def get_preset_list(self, mode: Optional[str] = None) -> List[Dict]:
+        """Returns list of available presets"""
+        presets = []
+        try:
+            # Get all JSON files in templates directory
+            if mode:
+                prefix = MODE_PREFIXES.get(mode.lower(), '')
+                pattern = f"{prefix}*.json"
+            else:
+                pattern = "*.json"
+                
+            for preset_file in self.templates_dir.glob(pattern):
+                try:
+                    with open(preset_file, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                    
+                    # Get preset mode from filename
+                    preset_mode = 'unknown'
+                    for mode_key, prefix in MODE_PREFIXES.items():
+                        if preset_file.name.startswith(prefix):
+                            preset_mode = mode_key
+                            break
+                    
+                    # Get name without prefix
+                    name = preset_file.stem
+                    for prefix in MODE_PREFIXES.values():
+                        if name.startswith(prefix):
+                            name = name[len(prefix):]
+                            break
+                    
+                    presets.append({
+                        'name': name,
+                        'mode': preset_mode,
+                        'description': data.get('metadata', {}).get('description', ''),
+                        'created_at': data.get('metadata', {}).get('scan_date', ''),
+                        'camera_model': data.get('metadata', {}).get('camera_model', ''),
+                        'settings_count': len(data.get('settings', {}))
+                    })
+                except Exception as e:
+                    logging.error(f"Error reading preset {preset_file}: {e}")
+                    
+            return sorted(presets, key=lambda x: x['name'])
+            
+        except Exception as e:
+            logging.error(f"Error getting preset list: {e}")
+            return []
 
-    def get_preset_settings(self, name):
-        """Возвращает настройки пресета"""
-        return self.presets.get(name, {}).get("settings", {})
+    def get_preset_settings(self, name: str, mode: str) -> Optional[Dict]:
+        """Returns preset settings"""
+        try:
+            preset_path = self.get_preset_path(name, mode)
+            if preset_path.exists():
+                with open(preset_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                return data.get('settings', {})
+            return None
+        except Exception as e:
+            logging.error(f"Error getting preset settings: {e}")
+            return None
 
 def get_camera_settings(camera_ip: str) -> Optional[Dict]:
     """Get current camera settings"""
@@ -177,4 +239,4 @@ if __name__ == "__main__":
     # Apply preset to camera
     preset = preset_manager.get_preset_settings("default_4k")
     if preset:
-        preset_manager.apply_preset_to_camera("default_4k", camera_ip) 
+        preset_manager.apply_preset_to_camera("default_4k", "video", camera_ip) 

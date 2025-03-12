@@ -1,4 +1,0 @@
-2024-12-22 04:48:33,857 - __main__ - INFO - Loaded cached camera devices:
-2024-12-22 04:48:33,857 - __main__ - INFO - Name: C3461325908060._gopro-web._tcp.local., IP: 172.20.160.51
-2024-12-22 04:48:33,857 - __main__ - INFO - Turning off all cameras...
-2024-12-22 04:48:33,895 - __main__ - INFO - Camera 172.20.160.51 turned off successfully.

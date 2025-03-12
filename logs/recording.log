@@ -1,6 +1,0 @@
-2024-12-16 20:34:49,448 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
-2024-12-16 20:34:49,507 - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/mode/video HTTP/11" 404 3
-2024-12-16 20:34:49,508 - ERROR - Failed to set video mode on camera 172.28.185.51
-2024-12-16 20:35:01,446 - DEBUG - Starting new HTTP connection (1): 172.28.185.51:8080
-2024-12-16 20:35:01,495 - DEBUG - http://172.28.185.51:8080 "GET /gopro/camera/mode/video HTTP/11" 404 3
-2024-12-16 20:35:01,496 - ERROR - Failed to set video mode on camera 172.28.185.51

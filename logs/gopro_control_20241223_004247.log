@@ -1,4 +1,0 @@
-2024-12-23 00:42:53,228 - __main__ - ERROR - Failed to set timelapse mode for camera 172.20.160.51. Status: 500
-2024-12-23 00:42:53,230 - __main__ - ERROR - Failed to set timelapse mode for C3461325908060._gopro-web._tcp.local.
-2024-12-23 00:42:55,627 - __main__ - ERROR - Failed to verify timelapse mode for camera 172.29.177.51. Current mode: None
-2024-12-23 00:42:55,629 - __main__ - ERROR - Failed to set timelapse mode for C3461326043977._gopro-web._tcp.local.

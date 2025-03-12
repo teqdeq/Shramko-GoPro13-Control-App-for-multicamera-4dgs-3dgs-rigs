@@ -1,5 +1,0 @@
-2024-12-22 03:13:09,040 - app_init - INFO - Initializing application...
-2024-12-22 03:13:09,137 - app_init - INFO - Dependencies checked successfully
-2024-12-22 03:13:09,137 - app_init - INFO - Added c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39 to PYTHONPATH
-2024-12-22 03:13:09,139 - app_init - INFO - Created data directory: c:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v39\data
-2024-12-22 03:13:09,139 - app_init - INFO - Application initialized successfully

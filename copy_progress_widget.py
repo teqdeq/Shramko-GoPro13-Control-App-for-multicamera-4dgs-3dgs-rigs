@@ -4,6 +4,11 @@ from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QProgressBar,
 from PyQt5.QtCore import Qt, pyqtSignal
 import humanize
 from datetime import datetime
+import logging
+from pathlib import Path
+from file_manager import FileInfo
+
+logger = logging.getLogger(__name__)
 
 class SceneProgressWidget(QFrame):
     """Виджет прогресса для одной сцены"""
@@ -55,16 +60,31 @@ class SceneProgressWidget(QFrame):
         # Словарь для хранения виджетов файлов
         self.file_widgets = {}
         
-    def add_file(self, file_name: str, file_size: int):
+    def add_file(self, file_name: str, file_size: int, camera_id: str = None):
         """Добавление файла в таблицу"""
         row = len(self.file_widgets) + 1
         
+        # Всегда показываем имя с префиксом
+        display_name = f"{camera_id}_{file_name}" if camera_id else file_name
+        
         # Создаем виджеты для файла
-        name_label = QLabel(file_name)
+        name_label = QLabel(display_name)
         size_label = QLabel(humanize.naturalsize(file_size))
         progress_bar = QProgressBar()
         progress_bar.setRange(0, 100)
         status_label = QLabel("Waiting...")
+        
+        # Проверяем существование файла
+        if hasattr(self, 'scene_dir') and self.scene_dir:
+            target_path = self.scene_dir / display_name
+            if target_path.exists():
+                actual_size = target_path.stat().st_size
+                if actual_size == file_size:
+                    status_label.setText("Completed")
+                    progress_bar.setValue(100)
+                    logger.info(f"Found existing file: {display_name}")
+                else:
+                    logger.warning(f"Size mismatch for {display_name}")
         
         # Добавляем виджеты в таблицу
         self.files_layout.addWidget(name_label, row, 0)
@@ -74,17 +94,32 @@ class SceneProgressWidget(QFrame):
         
         # Сохраняем виджеты
         self.file_widgets[file_name] = {
+            'name_label': name_label,
             'progress_bar': progress_bar,
-            'status_label': status_label
+            'status_label': status_label,
+            'camera_id': camera_id,
+            'size': file_size
         }
         
-    def update_file_progress(self, file_name: str, progress: float, status: str = None):
+    def update_file_progress(self, file_name: str, progress: float, status: str = None, camera_id: str = None):
         """Обновление прогресса файла"""
         if file_name in self.file_widgets:
             widgets = self.file_widgets[file_name]
             widgets['progress_bar'].setValue(int(progress))
+            
+            # Обновляем статус с учетом пропущенных файлов
             if status:
-                widgets['status_label'].setText(status)
+                if status == "Skipped":
+                    widgets['status_label'].setText("Completed")
+                    widgets['progress_bar'].setValue(100)
+                else:
+                    widgets['status_label'].setText(status)
+                
+            # Обновляем camera_id и отображаемое имя если необходимо
+            if camera_id and camera_id != widgets.get('camera_id'):
+                widgets['camera_id'] = camera_id
+                widgets['name_label'].setText(f"{camera_id}_{file_name}")
+                logger.info(f"Updated camera_id for file {file_name}")
                 
     def update_scene_progress(self, total_files: int, copied_files: int, failed_files: int, total_size: int):
         """Обновление статистики сцены"""
@@ -227,10 +262,12 @@ class CopyProgressWidget(QWidget):
         # Добавление новой сцены
         if "add_scene" in data:
             scene_data = data["add_scene"]
+            logger.info(f"Adding scene with data: {scene_data}")
             self.add_scene(
                 scene_data["id"],
                 scene_data["name"],
-                scene_data["files"]
+                scene_data["files"],
+                scene_data.get("scene_dir")  # Исправлено с dir на scene_dir
             )
             return
             
@@ -252,18 +289,26 @@ class CopyProgressWidget(QWidget):
         # Обновляем информацию о файле
         if "file" in data:
             file_name = data["file"]
-            progress = data["progress"]
             scene_id = data.get("scene_id")
             
-            if scene_id and scene_id in self.scenes:
+            if scene_id in self.scenes:
                 scene_widget = self.scenes[scene_id]
-                scene_widget.update_file_progress(
-                    file_name,
-                    progress,
-                    f"Copying: {progress:.1f}%"
-                )
+                progress = data.get("progress", 0)
+                status = data.get("status", "")
+                camera_id = data.get("camera_id")
                 
-            self.current_op_label.setText(f"Copying {file_name}: {progress:.1f}%")
+                if not camera_id:
+                    logger.warning(f"No camera_id in update for file {file_name}")
+                    
+                # Немедленно обновляем статус файла
+                scene_widget.update_file_progress(file_name, progress, status, camera_id)
+                
+                # Если файл пропущен или завершен, сразу обновляем общий прогресс
+                if status in ["Completed", "Skipped"]:
+                    self.total_progress.setValue(int(progress))
+                
+            if status not in ["Completed", "Skipped"]:
+                self.current_op_label.setText(f"Copying {file_name}: {progress:.1f}%")
                 
         # Обновляем общую статистику
         if "total_files" in data:
@@ -291,14 +336,31 @@ class CopyProgressWidget(QWidget):
                 self.current_op_label.setText(f"Copy in progress (with {failed} errors)")
                 self.current_op_label.setStyleSheet("color: red;")
                 
-    def add_scene(self, scene_id: str, scene_name: str, files: list):
+    def add_scene(self, scene_id: str, scene_name: str, files: list, scene_dir: str = None):
         """Добавление новой сцены"""
         if scene_id not in self.scenes:
             scene_widget = SceneProgressWidget(scene_id, scene_name)
             
+            # Устанавливаем путь к директории сцены
+            if scene_dir:
+                scene_widget.scene_dir = Path(scene_dir)
+                logger.info(f"Set scene_dir for scene {scene_id}: {scene_dir}")
+            else:
+                logger.warning(f"No scene_dir provided for scene {scene_id}")
+            
             # Добавляем файлы в сцену
             for file_info in files:
-                scene_widget.add_file(file_info.name, file_info.size)
+                if isinstance(file_info, tuple):
+                    file, camera_id = file_info
+                    if not camera_id:
+                        logger.warning(f"No camera_id for file {file.name}")
+                    scene_widget.add_file(file.name, file.size, camera_id)
+                else:
+                    # Для обратной совместимости
+                    camera_id = getattr(file_info, 'camera_id', None)
+                    if not camera_id:
+                        logger.warning(f"No camera_id for file {file_info.name}")
+                    scene_widget.add_file(file_info.name, file_info.size, camera_id)
                 
             self.scenes[scene_id] = scene_widget
             self.scenes_layout.addWidget(scene_widget)

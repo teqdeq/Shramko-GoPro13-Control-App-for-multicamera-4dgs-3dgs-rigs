@@ -44,50 +44,96 @@ def check_camera_connection(camera_ip, timeout=2):
 
 def stop_recording_synchronized(devices):
     """Синхронная остановка записи на всех камерах"""
-    barrier = Barrier(len(devices))
+    # Сначала проверяем доступность камер
+    available_devices = []
+    unavailable_devices = []
+    
+    for device in devices:
+        if check_camera_connection(device['ip']):
+            available_devices.append(device)
+        else:
+            logging.error(f"Camera {device['ip']} is not accessible")
+            unavailable_devices.append(device['ip'])
+    
+    if not available_devices:
+        logging.error("No cameras are accessible")
+        return False
+        
+    # Создаем барьер только для доступных камер
+    barrier = None
+    try:
+        barrier = Barrier(len(available_devices), timeout=10)  # Увеличиваем таймаут барьера до 10 секунд
+    except Exception as e:
+        logging.error(f"Failed to create barrier: {e}")
+        return False
+
     results = []
 
     def stop_camera(camera_ip):
         try:
-            if not check_camera_connection(camera_ip):
-                logging.error(f"Camera {camera_ip} is not accessible")
-                return False
-
             logging.info(f"Camera {camera_ip} waiting for synchronized stop")
-            barrier.wait()  # Ждем, пока все камеры будут готовы
-
-            start_time = time.time()
-            response = requests.get(f"http://{camera_ip}:8080/gopro/camera/shutter/stop", timeout=5)
-            end_time = time.time()
-
-            if response.status_code == 200:
-                logging.info(f"Camera {camera_ip} stopped at {start_time:.6f}, response at {end_time:.6f}")
-                return True
-            else:
-                logging.error(f"Failed to stop camera {camera_ip}. Status: {response.status_code}")
+            try:
+                barrier.wait()
+            except Exception as e:
+                logging.error(f"Barrier wait failed for camera {camera_ip}: {e}")
                 return False
+
+            for attempt in range(3):  # Добавляем 3 попытки для остановки
+                try:
+                    response = requests.get(
+                        f"http://{camera_ip}:8080/gopro/camera/shutter/stop",
+                        timeout=5
+                    )
+                    
+                    if response.status_code == 200:
+                        logging.info(f"Camera {camera_ip} stopped successfully")
+                        return True
+                    elif response.status_code == 503:
+                        logging.warning(f"Camera {camera_ip} returned 503, attempt {attempt + 1}/3")
+                        time.sleep(1)  # Ждем секунду перед повторной попыткой
+                    else:
+                        logging.error(f"Failed to stop camera {camera_ip}. Status: {response.status_code}")
+                        return False
+                except requests.RequestException as e:
+                    if attempt < 2:  # Если это не последняя попытка
+                        logging.warning(f"Request failed for camera {camera_ip}, attempt {attempt + 1}/3: {e}")
+                        time.sleep(1)
+                    else:
+                        logging.error(f"Failed to stop camera {camera_ip} after 3 attempts: {e}")
+                        return False
+            
+            return False  # Если все попытки не удались
         except Exception as e:
             logging.error(f"Error stopping camera {camera_ip}: {e}")
             return False
 
-    # Запускаем потоки для каждой камеры
+    # Запускаем потоки только для доступных камер
     threads = []
-    for device in devices:
-        thread = Thread(target=lambda: results.append((device['ip'], stop_camera(device['ip']))))
+    for device in available_devices:
+        thread = Thread(target=lambda d=device: results.append((d['ip'], stop_camera(d['ip']))))
         threads.append(thread)
         thread.start()
 
-    # Ждем завершения всех потоков
+    # Ждем завершения всех потоков с таймаутом
     for thread in threads:
-        thread.join()
+        thread.join(timeout=15)  # Увеличиваем таймаут до 15 секунд
 
     # Проверяем результаты
-    success = all(success for _, success in results)
+    success = True
+    failed_cameras = []
+    
+    for ip, result in results:
+        if not result:
+            success = False
+            failed_cameras.append(ip)
+    
     if success:
-        logging.info("All cameras stopped successfully")
+        logging.info("All accessible cameras stopped successfully")
     else:
-        failed_cameras = [ip for ip, success in results if not success]
         logging.error(f"Failed to stop cameras: {failed_cameras}")
+        
+    if unavailable_devices:
+        logging.warning(f"The following cameras were not accessible: {unavailable_devices}")
 
     return success
 

@@ -1,6 +1,0 @@
-2024-12-22 14:15:59,105 - asyncio - DEBUG - Using proactor: IocpProactor
-2024-12-22 14:15:59,107 - root - INFO - Searching for GoPro cameras...
-2024-12-22 14:15:59,318 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
-2024-12-22 14:15:59,325 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
-2024-12-22 14:16:04,113 - root - ERROR - Error reading primary camera config: 'charmap' codec can't decode byte 0x81 in position 455: character maps to <undefined>
-2024-12-22 14:16:04,115 - root - ERROR - Primary camera serial number not found.

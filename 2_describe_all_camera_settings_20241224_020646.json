@@ -1,0 +1,6355 @@
+{
+  "1": {
+    "id": 1,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 1
+    }
+  },
+  "2": {
+    "id": 2,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 2,
+      "supported_options": [
+        {
+          "display_name": "5.3K",
+          "id": 100
+        },
+        {
+          "display_name": "5K 4:3",
+          "id": 25
+        },
+        {
+          "display_name": "4K",
+          "id": 1
+        },
+        {
+          "display_name": "4K 4:3",
+          "id": 18
+        },
+        {
+          "display_name": "2.7K",
+          "id": 4
+        },
+        {
+          "display_name": "2.7K 4:3",
+          "id": 6
+        },
+        {
+          "display_name": "1080",
+          "id": 9
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "5.3K",
+        "id": 100
+      },
+      {
+        "display_name": "5K 4:3",
+        "id": 25
+      },
+      {
+        "display_name": "4K",
+        "id": 1
+      },
+      {
+        "display_name": "4K 4:3",
+        "id": 18
+      },
+      {
+        "display_name": "2.7K",
+        "id": 4
+      },
+      {
+        "display_name": "2.7K 4:3",
+        "id": 6
+      },
+      {
+        "display_name": "1080",
+        "id": 9
+      }
+    ]
+  },
+  "3": {
+    "id": 3,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 3,
+      "supported_options": [
+        {
+          "display_name": "240",
+          "id": 0
+        },
+        {
+          "display_name": "200",
+          "id": 13
+        },
+        {
+          "display_name": "120",
+          "id": 1
+        },
+        {
+          "display_name": "100",
+          "id": 2
+        },
+        {
+          "display_name": "60",
+          "id": 5
+        },
+        {
+          "display_name": "50",
+          "id": 6
+        },
+        {
+          "display_name": "30",
+          "id": 8
+        },
+        {
+          "display_name": "25",
+          "id": 9
+        },
+        {
+          "display_name": "24",
+          "id": 10
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "240",
+        "id": 0
+      },
+      {
+        "display_name": "200",
+        "id": 13
+      },
+      {
+        "display_name": "120",
+        "id": 1
+      },
+      {
+        "display_name": "100",
+        "id": 2
+      },
+      {
+        "display_name": "60",
+        "id": 5
+      },
+      {
+        "display_name": "50",
+        "id": 6
+      },
+      {
+        "display_name": "30",
+        "id": 8
+      },
+      {
+        "display_name": "25",
+        "id": 9
+      },
+      {
+        "display_name": "24",
+        "id": 10
+      }
+    ]
+  },
+  "4": {
+    "id": 4,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 4
+    }
+  },
+  "5": {
+    "id": 5,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 5,
+      "supported_options": [
+        {
+          "display_name": "60 Minutes",
+          "id": 10
+        },
+        {
+          "display_name": "30 Minutes",
+          "id": 9
+        },
+        {
+          "display_name": "5 Minutes",
+          "id": 8
+        },
+        {
+          "display_name": "2 Minutes",
+          "id": 7
+        },
+        {
+          "display_name": "60 Seconds",
+          "id": 6
+        },
+        {
+          "display_name": "30 Seconds",
+          "id": 5
+        },
+        {
+          "display_name": "10 Seconds",
+          "id": 4
+        },
+        {
+          "display_name": "5 Seconds",
+          "id": 3
+        },
+        {
+          "display_name": "2 Seconds",
+          "id": 2
+        },
+        {
+          "display_name": "1 Second",
+          "id": 1
+        },
+        {
+          "display_name": "0.5 Seconds",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "60 Minutes",
+        "id": 10
+      },
+      {
+        "display_name": "30 Minutes",
+        "id": 9
+      },
+      {
+        "display_name": "5 Minutes",
+        "id": 8
+      },
+      {
+        "display_name": "2 Minutes",
+        "id": 7
+      },
+      {
+        "display_name": "60 Seconds",
+        "id": 6
+      },
+      {
+        "display_name": "30 Seconds",
+        "id": 5
+      },
+      {
+        "display_name": "10 Seconds",
+        "id": 4
+      },
+      {
+        "display_name": "5 Seconds",
+        "id": 3
+      },
+      {
+        "display_name": "2 Seconds",
+        "id": 2
+      },
+      {
+        "display_name": "1 Second",
+        "id": 1
+      },
+      {
+        "display_name": "0.5 Seconds",
+        "id": 0
+      }
+    ]
+  },
+  "6": {
+    "id": 6,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 6,
+      "supported_options": [
+        {
+          "display_name": "Max",
+          "id": 0
+        },
+        {
+          "display_name": "120 Minutes",
+          "id": 4
+        },
+        {
+          "display_name": "60 Minutes",
+          "id": 3
+        },
+        {
+          "display_name": "20 Minutes",
+          "id": 2
+        },
+        {
+          "display_name": "5 Minutes",
+          "id": 1
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Max",
+        "id": 0
+      },
+      {
+        "display_name": "120 Minutes",
+        "id": 4
+      },
+      {
+        "display_name": "60 Minutes",
+        "id": 3
+      },
+      {
+        "display_name": "20 Minutes",
+        "id": 2
+      },
+      {
+        "display_name": "5 Minutes",
+        "id": 1
+      }
+    ]
+  },
+  "7": {
+    "id": 7,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 7
+    }
+  },
+  "8": {
+    "id": 8,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 8
+    }
+  },
+  "9": {
+    "id": 9,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 9
+    }
+  },
+  "10": {
+    "id": 10,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 10
+    }
+  },
+  "11": {
+    "id": 11,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 11
+    }
+  },
+  "12": {
+    "id": 12,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 12
+    }
+  },
+  "13": {
+    "id": 13,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 13,
+      "supported_options": [
+        {
+          "display_name": "6400",
+          "id": 0
+        },
+        {
+          "display_name": "3200",
+          "id": 3
+        },
+        {
+          "display_name": "1600",
+          "id": 1
+        },
+        {
+          "display_name": "800",
+          "id": 4
+        },
+        {
+          "display_name": "400",
+          "id": 2
+        },
+        {
+          "display_name": "200",
+          "id": 7
+        },
+        {
+          "display_name": "100",
+          "id": 8
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "6400",
+        "id": 0
+      },
+      {
+        "display_name": "3200",
+        "id": 3
+      },
+      {
+        "display_name": "1600",
+        "id": 1
+      },
+      {
+        "display_name": "800",
+        "id": 4
+      },
+      {
+        "display_name": "400",
+        "id": 2
+      },
+      {
+        "display_name": "200",
+        "id": 7
+      },
+      {
+        "display_name": "100",
+        "id": 8
+      }
+    ]
+  },
+  "14": {
+    "id": 14,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 14
+    }
+  },
+  "15": {
+    "id": 15,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 15
+    }
+  },
+  "16": {
+    "id": 16,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 16
+    }
+  },
+  "17": {
+    "id": 17,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 17
+    }
+  },
+  "18": {
+    "id": 18,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 18
+    }
+  },
+  "19": {
+    "id": 19,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 19,
+      "supported_options": [
+        {
+          "display_name": "30 Seconds",
+          "id": 6
+        },
+        {
+          "display_name": "20 Seconds",
+          "id": 5
+        },
+        {
+          "display_name": "15 Seconds",
+          "id": 4
+        },
+        {
+          "display_name": "10 Seconds",
+          "id": 3
+        },
+        {
+          "display_name": "5 Seconds",
+          "id": 2
+        },
+        {
+          "display_name": "2 Seconds",
+          "id": 1
+        },
+        {
+          "display_name": "Auto",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "30 Seconds",
+        "id": 6
+      },
+      {
+        "display_name": "20 Seconds",
+        "id": 5
+      },
+      {
+        "display_name": "15 Seconds",
+        "id": 4
+      },
+      {
+        "display_name": "10 Seconds",
+        "id": 3
+      },
+      {
+        "display_name": "5 Seconds",
+        "id": 2
+      },
+      {
+        "display_name": "2 Seconds",
+        "id": 1
+      },
+      {
+        "display_name": "Auto",
+        "id": 0
+      }
+    ]
+  },
+  "20": {
+    "id": 20,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 20
+    }
+  },
+  "21": {
+    "id": 21,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 21
+    }
+  },
+  "22": {
+    "id": 22,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 22
+    }
+  },
+  "23": {
+    "id": 23,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 23
+    }
+  },
+  "24": {
+    "id": 24,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 24,
+      "supported_options": [
+        {
+          "display_name": "3200",
+          "id": 5
+        },
+        {
+          "display_name": "1600",
+          "id": 4
+        },
+        {
+          "display_name": "800",
+          "id": 0
+        },
+        {
+          "display_name": "400",
+          "id": 1
+        },
+        {
+          "display_name": "200",
+          "id": 2
+        },
+        {
+          "display_name": "100",
+          "id": 3
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "3200",
+        "id": 5
+      },
+      {
+        "display_name": "1600",
+        "id": 4
+      },
+      {
+        "display_name": "800",
+        "id": 0
+      },
+      {
+        "display_name": "400",
+        "id": 1
+      },
+      {
+        "display_name": "200",
+        "id": 2
+      },
+      {
+        "display_name": "100",
+        "id": 3
+      }
+    ]
+  },
+  "25": {
+    "id": 25,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 25
+    }
+  },
+  "26": {
+    "id": 26,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 26
+    }
+  },
+  "27": {
+    "id": 27,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 27
+    }
+  },
+  "28": {
+    "id": 28,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 28
+    }
+  },
+  "29": {
+    "id": 29,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 29
+    }
+  },
+  "30": {
+    "id": 30,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 30,
+      "supported_options": [
+        {
+          "display_name": "60 Minutes",
+          "id": 100
+        },
+        {
+          "display_name": "30 Minutes",
+          "id": 101
+        },
+        {
+          "display_name": "5 Minutes",
+          "id": 102
+        },
+        {
+          "display_name": "2 Minutes",
+          "id": 103
+        },
+        {
+          "display_name": "60 Seconds",
+          "id": 104
+        },
+        {
+          "display_name": "30 Seconds",
+          "id": 105
+        },
+        {
+          "display_name": "10 Seconds",
+          "id": 106
+        },
+        {
+          "display_name": "5 Seconds",
+          "id": 107
+        },
+        {
+          "display_name": "2 Seconds",
+          "id": 108
+        },
+        {
+          "display_name": "1 Second",
+          "id": 109
+        },
+        {
+          "display_name": "0.5 Seconds",
+          "id": 110
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "60 Minutes",
+        "id": 100
+      },
+      {
+        "display_name": "30 Minutes",
+        "id": 101
+      },
+      {
+        "display_name": "5 Minutes",
+        "id": 102
+      },
+      {
+        "display_name": "2 Minutes",
+        "id": 103
+      },
+      {
+        "display_name": "60 Seconds",
+        "id": 104
+      },
+      {
+        "display_name": "30 Seconds",
+        "id": 105
+      },
+      {
+        "display_name": "10 Seconds",
+        "id": 106
+      },
+      {
+        "display_name": "5 Seconds",
+        "id": 107
+      },
+      {
+        "display_name": "2 Seconds",
+        "id": 108
+      },
+      {
+        "display_name": "1 Second",
+        "id": 109
+      },
+      {
+        "display_name": "0.5 Seconds",
+        "id": 110
+      }
+    ]
+  },
+  "31": {
+    "id": 31,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 31,
+      "supported_options": [
+        {
+          "display_name": "30 Seconds",
+          "id": 6
+        },
+        {
+          "display_name": "20 Seconds",
+          "id": 5
+        },
+        {
+          "display_name": "15 Seconds",
+          "id": 4
+        },
+        {
+          "display_name": "10 Seconds",
+          "id": 3
+        },
+        {
+          "display_name": "5 Seconds",
+          "id": 2
+        },
+        {
+          "display_name": "2 Seconds",
+          "id": 1
+        },
+        {
+          "display_name": "Auto",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "30 Seconds",
+        "id": 6
+      },
+      {
+        "display_name": "20 Seconds",
+        "id": 5
+      },
+      {
+        "display_name": "15 Seconds",
+        "id": 4
+      },
+      {
+        "display_name": "10 Seconds",
+        "id": 3
+      },
+      {
+        "display_name": "5 Seconds",
+        "id": 2
+      },
+      {
+        "display_name": "2 Seconds",
+        "id": 1
+      },
+      {
+        "display_name": "Auto",
+        "id": 0
+      }
+    ]
+  },
+  "32": {
+    "id": 32,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 32,
+      "supported_options": [
+        {
+          "display_name": "60 Minutes",
+          "id": 3600
+        },
+        {
+          "display_name": "30 Minutes",
+          "id": 1800
+        },
+        {
+          "display_name": "5 Minutes",
+          "id": 300
+        },
+        {
+          "display_name": "2 Minutes",
+          "id": 120
+        },
+        {
+          "display_name": "60 Seconds",
+          "id": 100
+        },
+        {
+          "display_name": "30 Seconds",
+          "id": 30
+        },
+        {
+          "display_name": "20 Seconds",
+          "id": 20
+        },
+        {
+          "display_name": "15 Seconds",
+          "id": 15
+        },
+        {
+          "display_name": "10 Seconds",
+          "id": 10
+        },
+        {
+          "display_name": "5 Seconds",
+          "id": 5
+        },
+        {
+          "display_name": "4 Seconds",
+          "id": 4
+        },
+        {
+          "display_name": "Auto",
+          "id": 3601
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "60 Minutes",
+        "id": 3600
+      },
+      {
+        "display_name": "30 Minutes",
+        "id": 1800
+      },
+      {
+        "display_name": "5 Minutes",
+        "id": 300
+      },
+      {
+        "display_name": "2 Minutes",
+        "id": 120
+      },
+      {
+        "display_name": "60 Seconds",
+        "id": 100
+      },
+      {
+        "display_name": "30 Seconds",
+        "id": 30
+      },
+      {
+        "display_name": "20 Seconds",
+        "id": 20
+      },
+      {
+        "display_name": "15 Seconds",
+        "id": 15
+      },
+      {
+        "display_name": "10 Seconds",
+        "id": 10
+      },
+      {
+        "display_name": "5 Seconds",
+        "id": 5
+      },
+      {
+        "display_name": "4 Seconds",
+        "id": 4
+      },
+      {
+        "display_name": "Auto",
+        "id": 3601
+      }
+    ]
+  },
+  "33": {
+    "id": 33,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 33
+    }
+  },
+  "34": {
+    "id": 34,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 34
+    }
+  },
+  "35": {
+    "id": 35,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 35
+    }
+  },
+  "36": {
+    "id": 36,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 36
+    }
+  },
+  "37": {
+    "id": 37,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 37,
+      "supported_options": [
+        {
+          "display_name": "3200",
+          "id": 5
+        },
+        {
+          "display_name": "1600",
+          "id": 4
+        },
+        {
+          "display_name": "800",
+          "id": 0
+        },
+        {
+          "display_name": "400",
+          "id": 1
+        },
+        {
+          "display_name": "200",
+          "id": 2
+        },
+        {
+          "display_name": "100",
+          "id": 3
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "3200",
+        "id": 5
+      },
+      {
+        "display_name": "1600",
+        "id": 4
+      },
+      {
+        "display_name": "800",
+        "id": 0
+      },
+      {
+        "display_name": "400",
+        "id": 1
+      },
+      {
+        "display_name": "200",
+        "id": 2
+      },
+      {
+        "display_name": "100",
+        "id": 3
+      }
+    ]
+  },
+  "38": {
+    "id": 38,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 38
+    }
+  },
+  "39": {
+    "id": 39,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 39
+    }
+  },
+  "40": {
+    "id": 40,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 40
+    }
+  },
+  "41": {
+    "id": 41,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 41,
+      "supported_options": [
+        {
+          "display_name": "1080",
+          "id": 9
+        },
+        {
+          "display_name": "720",
+          "id": 12
+        },
+        {
+          "display_name": "480",
+          "id": 17
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "1080",
+        "id": 9
+      },
+      {
+        "display_name": "720",
+        "id": 12
+      },
+      {
+        "display_name": "480",
+        "id": 17
+      }
+    ]
+  },
+  "42": {
+    "id": 42,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 42,
+      "supported_options": [
+        {
+          "display_name": "30",
+          "id": 8
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "30",
+        "id": 8
+      }
+    ]
+  },
+  "43": {
+    "id": 43,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 43,
+      "supported_options": [
+        {
+          "display_name": "Superview",
+          "id": 3
+        },
+        {
+          "display_name": "Wide",
+          "id": 0
+        },
+        {
+          "display_name": "Linear",
+          "id": 4
+        },
+        {
+          "display_name": "Narrow",
+          "id": 2
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Superview",
+        "id": 3
+      },
+      {
+        "display_name": "Wide",
+        "id": 0
+      },
+      {
+        "display_name": "Linear",
+        "id": 4
+      },
+      {
+        "display_name": "Narrow",
+        "id": 2
+      }
+    ]
+  },
+  "44": {
+    "id": 44,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 44,
+      "supported_options": [
+        {
+          "display_name": "1080",
+          "id": 9
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "1080",
+        "id": 9
+      }
+    ]
+  },
+  "45": {
+    "id": 45,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 45,
+      "supported_options": [
+        {
+          "display_name": "30",
+          "id": 8
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "30",
+        "id": 8
+      }
+    ]
+  },
+  "46": {
+    "id": 46,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 46
+    }
+  },
+  "47": {
+    "id": 47,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 47,
+      "supported_options": [
+        {
+          "display_name": "480",
+          "id": 4
+        },
+        {
+          "display_name": "720",
+          "id": 7
+        },
+        {
+          "display_name": "1080",
+          "id": 12
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "480",
+        "id": 4
+      },
+      {
+        "display_name": "720",
+        "id": 7
+      },
+      {
+        "display_name": "1080",
+        "id": 12
+      }
+    ]
+  },
+  "48": {
+    "id": 48,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 48,
+      "supported_options": [
+        {
+          "display_name": "Ask",
+          "id": 0
+        },
+        {
+          "display_name": "Public",
+          "id": 1
+        },
+        {
+          "display_name": "Hidden",
+          "id": 2
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Ask",
+        "id": 0
+      },
+      {
+        "display_name": "Public",
+        "id": 1
+      },
+      {
+        "display_name": "Hidden",
+        "id": 2
+      }
+    ]
+  },
+  "49": {
+    "id": 49,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 49
+    }
+  },
+  "50": {
+    "id": 50,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 50
+    }
+  },
+  "51": {
+    "id": 51,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 51
+    }
+  },
+  "52": {
+    "id": 52,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 52
+    }
+  },
+  "53": {
+    "id": 53,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 53
+    }
+  },
+  "54": {
+    "id": 54,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 54,
+      "supported_options": [
+        {
+          "display_name": "ON",
+          "id": 1
+        },
+        {
+          "display_name": "OFF",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "ON",
+        "id": 1
+      },
+      {
+        "display_name": "OFF",
+        "id": 0
+      }
+    ]
+  },
+  "55": {
+    "id": 55,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 55
+    }
+  },
+  "56": {
+    "id": 56,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 56
+    }
+  },
+  "57": {
+    "id": 57,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 57
+    }
+  },
+  "58": {
+    "id": 58,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 58
+    }
+  },
+  "59": {
+    "id": 59,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 59,
+      "supported_options": [
+        {
+          "display_name": "5 Min",
+          "id": 4
+        },
+        {
+          "display_name": "15 Min",
+          "id": 6
+        },
+        {
+          "display_name": "30 Min",
+          "id": 7
+        },
+        {
+          "display_name": "Never",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "5 Min",
+        "id": 4
+      },
+      {
+        "display_name": "15 Min",
+        "id": 6
+      },
+      {
+        "display_name": "30 Min",
+        "id": 7
+      },
+      {
+        "display_name": "Never",
+        "id": 0
+      }
+    ]
+  },
+  "60": {
+    "id": 60,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 60,
+      "supported_options": [
+        {
+          "display_name": "Default",
+          "id": 0
+        },
+        {
+          "display_name": "3",
+          "id": 3
+        },
+        {
+          "display_name": "4",
+          "id": 4
+        },
+        {
+          "display_name": "8",
+          "id": 8
+        },
+        {
+          "display_name": "15",
+          "id": 15
+        },
+        {
+          "display_name": "30",
+          "id": 30
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Default",
+        "id": 0
+      },
+      {
+        "display_name": "3",
+        "id": 3
+      },
+      {
+        "display_name": "4",
+        "id": 4
+      },
+      {
+        "display_name": "8",
+        "id": 8
+      },
+      {
+        "display_name": "15",
+        "id": 15
+      },
+      {
+        "display_name": "30",
+        "id": 30
+      }
+    ]
+  },
+  "61": {
+    "id": 61,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 61,
+      "supported_options": [
+        {
+          "display_name": "Default",
+          "id": 0
+        },
+        {
+          "display_name": "1",
+          "id": 1
+        },
+        {
+          "display_name": "2",
+          "id": 2
+        },
+        {
+          "display_name": "4",
+          "id": 4
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Default",
+        "id": 0
+      },
+      {
+        "display_name": "1",
+        "id": 1
+      },
+      {
+        "display_name": "2",
+        "id": 2
+      },
+      {
+        "display_name": "4",
+        "id": 4
+      }
+    ]
+  },
+  "62": {
+    "id": 62,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 62,
+      "supported_options": [
+        {
+          "display_name": "250 Kbps",
+          "id": 250000
+        },
+        {
+          "display_name": "400 Kbps",
+          "id": 400000
+        },
+        {
+          "display_name": "600 Kbps",
+          "id": 600000
+        },
+        {
+          "display_name": "700 Kbps",
+          "id": 700000
+        },
+        {
+          "display_name": "800 Kbps",
+          "id": 800000
+        },
+        {
+          "display_name": "1 Mbps",
+          "id": 1000000
+        },
+        {
+          "display_name": "1.2 Mbps",
+          "id": 1200000
+        },
+        {
+          "display_name": "1.6 Mbps",
+          "id": 1600000
+        },
+        {
+          "display_name": "2 Mbps",
+          "id": 2000000
+        },
+        {
+          "display_name": "2.4 Mbps",
+          "id": 2400000
+        },
+        {
+          "display_name": "2.5 Mbps",
+          "id": 2500000
+        },
+        {
+          "display_name": "4 Mbps",
+          "id": 4000000
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "250 Kbps",
+        "id": 250000
+      },
+      {
+        "display_name": "400 Kbps",
+        "id": 400000
+      },
+      {
+        "display_name": "600 Kbps",
+        "id": 600000
+      },
+      {
+        "display_name": "700 Kbps",
+        "id": 700000
+      },
+      {
+        "display_name": "800 Kbps",
+        "id": 800000
+      },
+      {
+        "display_name": "1 Mbps",
+        "id": 1000000
+      },
+      {
+        "display_name": "1.2 Mbps",
+        "id": 1200000
+      },
+      {
+        "display_name": "1.6 Mbps",
+        "id": 1600000
+      },
+      {
+        "display_name": "2 Mbps",
+        "id": 2000000
+      },
+      {
+        "display_name": "2.4 Mbps",
+        "id": 2400000
+      },
+      {
+        "display_name": "2.5 Mbps",
+        "id": 2500000
+      },
+      {
+        "display_name": "4 Mbps",
+        "id": 4000000
+      }
+    ]
+  },
+  "63": {
+    "id": 63,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 63
+    }
+  },
+  "64": {
+    "id": 64,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 64,
+      "supported_options": [
+        {
+          "display_name": "Default",
+          "id": 0
+        },
+        {
+          "display_name": "240",
+          "id": 1
+        },
+        {
+          "display_name": "240 3:4 Subsample",
+          "id": 2
+        },
+        {
+          "display_name": "240 1:2 Subsample",
+          "id": 3
+        },
+        {
+          "display_name": "480",
+          "id": 4
+        },
+        {
+          "display_name": "480 3:4 Subsample",
+          "id": 5
+        },
+        {
+          "display_name": "480 1:2 Subsample",
+          "id": 6
+        },
+        {
+          "display_name": "720",
+          "id": 7
+        },
+        {
+          "display_name": "720 3:4 Subsample",
+          "id": 8
+        },
+        {
+          "display_name": "720 1:2 Subsample",
+          "id": 9
+        },
+        {
+          "display_name": "720 Square",
+          "id": 10
+        },
+        {
+          "display_name": "480 Square",
+          "id": 11
+        },
+        {
+          "display_name": "1080",
+          "id": 12
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Default",
+        "id": 0
+      },
+      {
+        "display_name": "240",
+        "id": 1
+      },
+      {
+        "display_name": "240 3:4 Subsample",
+        "id": 2
+      },
+      {
+        "display_name": "240 1:2 Subsample",
+        "id": 3
+      },
+      {
+        "display_name": "480",
+        "id": 4
+      },
+      {
+        "display_name": "480 3:4 Subsample",
+        "id": 5
+      },
+      {
+        "display_name": "480 1:2 Subsample",
+        "id": 6
+      },
+      {
+        "display_name": "720",
+        "id": 7
+      },
+      {
+        "display_name": "720 3:4 Subsample",
+        "id": 8
+      },
+      {
+        "display_name": "720 1:2 Subsample",
+        "id": 9
+      },
+      {
+        "display_name": "720 Square",
+        "id": 10
+      },
+      {
+        "display_name": "480 Square",
+        "id": 11
+      },
+      {
+        "display_name": "1080",
+        "id": 12
+      }
+    ]
+  },
+  "65": {
+    "id": 65,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 65,
+      "supported_options": [
+        {
+          "display_name": "Default",
+          "id": 0
+        },
+        {
+          "display_name": "3",
+          "id": 3
+        },
+        {
+          "display_name": "4",
+          "id": 4
+        },
+        {
+          "display_name": "8",
+          "id": 8
+        },
+        {
+          "display_name": "15",
+          "id": 15
+        },
+        {
+          "display_name": "30",
+          "id": 30
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Default",
+        "id": 0
+      },
+      {
+        "display_name": "3",
+        "id": 3
+      },
+      {
+        "display_name": "4",
+        "id": 4
+      },
+      {
+        "display_name": "8",
+        "id": 8
+      },
+      {
+        "display_name": "15",
+        "id": 15
+      },
+      {
+        "display_name": "30",
+        "id": 30
+      }
+    ]
+  },
+  "66": {
+    "id": 66,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 66,
+      "supported_options": [
+        {
+          "display_name": "Default",
+          "id": 0
+        },
+        {
+          "display_name": "1",
+          "id": 1
+        },
+        {
+          "display_name": "2",
+          "id": 2
+        },
+        {
+          "display_name": "4",
+          "id": 4
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Default",
+        "id": 0
+      },
+      {
+        "display_name": "1",
+        "id": 1
+      },
+      {
+        "display_name": "2",
+        "id": 2
+      },
+      {
+        "display_name": "4",
+        "id": 4
+      }
+    ]
+  },
+  "67": {
+    "id": 67,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 67,
+      "supported_options": [
+        {
+          "display_name": "250 Kbps",
+          "id": 250000
+        },
+        {
+          "display_name": "400 Kbps",
+          "id": 400000
+        },
+        {
+          "display_name": "600 Kbps",
+          "id": 600000
+        },
+        {
+          "display_name": "700 Kbps",
+          "id": 700000
+        },
+        {
+          "display_name": "800 Kbps",
+          "id": 800000
+        },
+        {
+          "display_name": "1 Mbps",
+          "id": 1000000
+        },
+        {
+          "display_name": "1.2 Mbps",
+          "id": 1200000
+        },
+        {
+          "display_name": "1.6 Mbps",
+          "id": 1600000
+        },
+        {
+          "display_name": "2 Mbps",
+          "id": 2000000
+        },
+        {
+          "display_name": "2.4 Mbps",
+          "id": 2400000
+        },
+        {
+          "display_name": "2.5 Mbps",
+          "id": 2500000
+        },
+        {
+          "display_name": "4 Mbps",
+          "id": 4000000
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "250 Kbps",
+        "id": 250000
+      },
+      {
+        "display_name": "400 Kbps",
+        "id": 400000
+      },
+      {
+        "display_name": "600 Kbps",
+        "id": 600000
+      },
+      {
+        "display_name": "700 Kbps",
+        "id": 700000
+      },
+      {
+        "display_name": "800 Kbps",
+        "id": 800000
+      },
+      {
+        "display_name": "1 Mbps",
+        "id": 1000000
+      },
+      {
+        "display_name": "1.2 Mbps",
+        "id": 1200000
+      },
+      {
+        "display_name": "1.6 Mbps",
+        "id": 1600000
+      },
+      {
+        "display_name": "2 Mbps",
+        "id": 2000000
+      },
+      {
+        "display_name": "2.4 Mbps",
+        "id": 2400000
+      },
+      {
+        "display_name": "2.5 Mbps",
+        "id": 2500000
+      },
+      {
+        "display_name": "4 Mbps",
+        "id": 4000000
+      }
+    ]
+  },
+  "68": {
+    "id": 68,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 68
+    }
+  },
+  "69": {
+    "id": 69,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 69
+    }
+  },
+  "70": {
+    "id": 70,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 70
+    }
+  },
+  "71": {
+    "id": 71,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 71
+    }
+  },
+  "72": {
+    "id": 72,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 72
+    }
+  },
+  "73": {
+    "id": 73,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 73
+    }
+  },
+  "74": {
+    "id": 74,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 74
+    }
+  },
+  "75": {
+    "id": 75,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 75,
+      "supported_options": [
+        {
+          "display_name": "3200",
+          "id": 5
+        },
+        {
+          "display_name": "1600",
+          "id": 4
+        },
+        {
+          "display_name": "800",
+          "id": 0
+        },
+        {
+          "display_name": "400",
+          "id": 1
+        },
+        {
+          "display_name": "200",
+          "id": 2
+        },
+        {
+          "display_name": "100",
+          "id": 3
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "3200",
+        "id": 5
+      },
+      {
+        "display_name": "1600",
+        "id": 4
+      },
+      {
+        "display_name": "800",
+        "id": 0
+      },
+      {
+        "display_name": "400",
+        "id": 1
+      },
+      {
+        "display_name": "200",
+        "id": 2
+      },
+      {
+        "display_name": "100",
+        "id": 3
+      }
+    ]
+  },
+  "76": {
+    "id": 76,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 76,
+      "supported_options": [
+        {
+          "display_name": "3200",
+          "id": 5
+        },
+        {
+          "display_name": "1600",
+          "id": 4
+        },
+        {
+          "display_name": "800",
+          "id": 0
+        },
+        {
+          "display_name": "400",
+          "id": 1
+        },
+        {
+          "display_name": "200",
+          "id": 2
+        },
+        {
+          "display_name": "100",
+          "id": 3
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "3200",
+        "id": 5
+      },
+      {
+        "display_name": "1600",
+        "id": 4
+      },
+      {
+        "display_name": "800",
+        "id": 0
+      },
+      {
+        "display_name": "400",
+        "id": 1
+      },
+      {
+        "display_name": "200",
+        "id": 2
+      },
+      {
+        "display_name": "100",
+        "id": 3
+      }
+    ]
+  },
+  "77": {
+    "id": 77,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 77
+    }
+  },
+  "78": {
+    "id": 78,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 78
+    }
+  },
+  "79": {
+    "id": 79,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 79
+    }
+  },
+  "80": {
+    "id": 80,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 80
+    }
+  },
+  "81": {
+    "id": 81,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 81
+    }
+  },
+  "82": {
+    "id": 82,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 82
+    }
+  },
+  "83": {
+    "id": 83,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 83,
+      "supported_options": [
+        {
+          "display_name": "ON",
+          "id": 1
+        },
+        {
+          "display_name": "OFF",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "ON",
+        "id": 1
+      },
+      {
+        "display_name": "OFF",
+        "id": 0
+      }
+    ]
+  },
+  "84": {
+    "id": 84,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 84,
+      "supported_options": [
+        {
+          "display_name": "English",
+          "id": 0
+        },
+        {
+          "display_name": "French",
+          "id": 6
+        },
+        {
+          "display_name": "German",
+          "id": 2
+        },
+        {
+          "display_name": "Italian",
+          "id": 3
+        },
+        {
+          "display_name": "Spanish",
+          "id": 4
+        },
+        {
+          "display_name": "Chinese",
+          "id": 1
+        },
+        {
+          "display_name": "Japanese",
+          "id": 5
+        },
+        {
+          "display_name": "Korean",
+          "id": 7
+        },
+        {
+          "display_name": "Portuguese",
+          "id": 8
+        },
+        {
+          "display_name": "Russian",
+          "id": 9
+        },
+        {
+          "display_name": "Swedish",
+          "id": 10
+        },
+        {
+          "display_name": "Chinese(Traditional)",
+          "id": 11
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "English",
+        "id": 0
+      },
+      {
+        "display_name": "French",
+        "id": 6
+      },
+      {
+        "display_name": "German",
+        "id": 2
+      },
+      {
+        "display_name": "Italian",
+        "id": 3
+      },
+      {
+        "display_name": "Spanish",
+        "id": 4
+      },
+      {
+        "display_name": "Chinese",
+        "id": 1
+      },
+      {
+        "display_name": "Japanese",
+        "id": 5
+      },
+      {
+        "display_name": "Korean",
+        "id": 7
+      },
+      {
+        "display_name": "Portuguese",
+        "id": 8
+      },
+      {
+        "display_name": "Russian",
+        "id": 9
+      },
+      {
+        "display_name": "Swedish",
+        "id": 10
+      },
+      {
+        "display_name": "Chinese(Traditional)",
+        "id": 11
+      }
+    ]
+  },
+  "85": {
+    "id": 85,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 85,
+      "supported_options": [
+        {
+          "display_name": "Chinese",
+          "id": 8
+        },
+        {
+          "display_name": "English - AUS",
+          "id": 2
+        },
+        {
+          "display_name": "English - IND",
+          "id": 13
+        },
+        {
+          "display_name": "English - UK",
+          "id": 1
+        },
+        {
+          "display_name": "English - US",
+          "id": 0
+        },
+        {
+          "display_name": "French",
+          "id": 4
+        },
+        {
+          "display_name": "German",
+          "id": 3
+        },
+        {
+          "display_name": "Italian",
+          "id": 5
+        },
+        {
+          "display_name": "Japanese",
+          "id": 9
+        },
+        {
+          "display_name": "Korean",
+          "id": 10
+        },
+        {
+          "display_name": "Portuguese",
+          "id": 11
+        },
+        {
+          "display_name": "Russian",
+          "id": 12
+        },
+        {
+          "display_name": "Spanish",
+          "id": 6
+        },
+        {
+          "display_name": "Spanish - NA",
+          "id": 7
+        },
+        {
+          "display_name": "Swedish",
+          "id": 14
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Chinese",
+        "id": 8
+      },
+      {
+        "display_name": "English - AUS",
+        "id": 2
+      },
+      {
+        "display_name": "English - IND",
+        "id": 13
+      },
+      {
+        "display_name": "English - UK",
+        "id": 1
+      },
+      {
+        "display_name": "English - US",
+        "id": 0
+      },
+      {
+        "display_name": "French",
+        "id": 4
+      },
+      {
+        "display_name": "German",
+        "id": 3
+      },
+      {
+        "display_name": "Italian",
+        "id": 5
+      },
+      {
+        "display_name": "Japanese",
+        "id": 9
+      },
+      {
+        "display_name": "Korean",
+        "id": 10
+      },
+      {
+        "display_name": "Portuguese",
+        "id": 11
+      },
+      {
+        "display_name": "Russian",
+        "id": 12
+      },
+      {
+        "display_name": "Spanish",
+        "id": 6
+      },
+      {
+        "display_name": "Spanish - NA",
+        "id": 7
+      },
+      {
+        "display_name": "Swedish",
+        "id": 14
+      }
+    ]
+  },
+  "86": {
+    "id": 86,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 86,
+      "supported_options": [
+        {
+          "display_name": "ON",
+          "id": 1
+        },
+        {
+          "display_name": "OFF",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "ON",
+        "id": 1
+      },
+      {
+        "display_name": "OFF",
+        "id": 0
+      }
+    ]
+  },
+  "87": {
+    "id": 87,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 87,
+      "supported_options": [
+        {
+          "display_name": "High",
+          "id": 100
+        },
+        {
+          "display_name": "Medium",
+          "id": 70
+        },
+        {
+          "display_name": "Low",
+          "id": 40
+        },
+        {
+          "display_name": "Mute",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "High",
+        "id": 100
+      },
+      {
+        "display_name": "Medium",
+        "id": 70
+      },
+      {
+        "display_name": "Low",
+        "id": 40
+      },
+      {
+        "display_name": "Mute",
+        "id": 0
+      }
+    ]
+  },
+  "88": {
+    "id": 88,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 88,
+      "supported_options": [
+        {
+          "display_name": "10%",
+          "id": 10
+        },
+        {
+          "display_name": "20%",
+          "id": 20
+        },
+        {
+          "display_name": "30%",
+          "id": 30
+        },
+        {
+          "display_name": "40%",
+          "id": 40
+        },
+        {
+          "display_name": "50%",
+          "id": 50
+        },
+        {
+          "display_name": "60%",
+          "id": 60
+        },
+        {
+          "display_name": "70%",
+          "id": 70
+        },
+        {
+          "display_name": "80%",
+          "id": 80
+        },
+        {
+          "display_name": "90%",
+          "id": 90
+        },
+        {
+          "display_name": "100%",
+          "id": 100
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "10%",
+        "id": 10
+      },
+      {
+        "display_name": "20%",
+        "id": 20
+      },
+      {
+        "display_name": "30%",
+        "id": 30
+      },
+      {
+        "display_name": "40%",
+        "id": 40
+      },
+      {
+        "display_name": "50%",
+        "id": 50
+      },
+      {
+        "display_name": "60%",
+        "id": 60
+      },
+      {
+        "display_name": "70%",
+        "id": 70
+      },
+      {
+        "display_name": "80%",
+        "id": 80
+      },
+      {
+        "display_name": "90%",
+        "id": 90
+      },
+      {
+        "display_name": "100%",
+        "id": 100
+      }
+    ]
+  },
+  "89": {
+    "id": 89,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 89
+    }
+  },
+  "90": {
+    "id": 90,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 90
+    }
+  },
+  "91": {
+    "id": 91,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 91,
+      "supported_options": [
+        {
+          "display_name": "All On",
+          "id": 3
+        },
+        {
+          "display_name": "All Off",
+          "id": 4
+        },
+        {
+          "display_name": "Front Off Only",
+          "id": 5
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "All On",
+        "id": 3
+      },
+      {
+        "display_name": "All Off",
+        "id": 4
+      },
+      {
+        "display_name": "Front Off Only",
+        "id": 5
+      }
+    ]
+  },
+  "92": {
+    "id": 92,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 92
+    }
+  },
+  "93": {
+    "id": 93,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 93
+    }
+  },
+  "94": {
+    "id": 94,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 94
+    }
+  },
+  "95": {
+    "id": 95,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 95
+    }
+  },
+  "96": {
+    "id": 96,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 96
+    }
+  },
+  "97": {
+    "id": 97,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 97
+    }
+  },
+  "98": {
+    "id": 98,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 98
+    }
+  },
+  "99": {
+    "id": 99,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 99
+    }
+  },
+  "100": {
+    "id": 100,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 100
+    }
+  },
+  "101": {
+    "id": 101,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 101
+    }
+  },
+  "102": {
+    "id": 102,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 102,
+      "supported_options": [
+        {
+          "display_name": "6400",
+          "id": 0
+        },
+        {
+          "display_name": "3200",
+          "id": 3
+        },
+        {
+          "display_name": "1600",
+          "id": 1
+        },
+        {
+          "display_name": "800",
+          "id": 4
+        },
+        {
+          "display_name": "400",
+          "id": 2
+        },
+        {
+          "display_name": "200",
+          "id": 7
+        },
+        {
+          "display_name": "100",
+          "id": 8
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "6400",
+        "id": 0
+      },
+      {
+        "display_name": "3200",
+        "id": 3
+      },
+      {
+        "display_name": "1600",
+        "id": 1
+      },
+      {
+        "display_name": "800",
+        "id": 4
+      },
+      {
+        "display_name": "400",
+        "id": 2
+      },
+      {
+        "display_name": "200",
+        "id": 7
+      },
+      {
+        "display_name": "100",
+        "id": 8
+      }
+    ]
+  },
+  "103": {
+    "id": 103,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 103,
+      "supported_options": [
+        {
+          "display_name": "Off",
+          "id": 3
+        },
+        {
+          "display_name": "On",
+          "id": 100
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Off",
+        "id": 3
+      },
+      {
+        "display_name": "On",
+        "id": 100
+      }
+    ]
+  },
+  "104": {
+    "id": 104,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 104
+    }
+  },
+  "105": {
+    "id": 105,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 105,
+      "supported_options": [
+        {
+          "display_name": "10 Seconds",
+          "id": 2
+        },
+        {
+          "display_name": "3 Seconds",
+          "id": 1
+        },
+        {
+          "display_name": "Off",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "10 Seconds",
+        "id": 2
+      },
+      {
+        "display_name": "3 Seconds",
+        "id": 1
+      },
+      {
+        "display_name": "Off",
+        "id": 0
+      }
+    ]
+  },
+  "106": {
+    "id": 106,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 106,
+      "supported_options": [
+        {
+          "display_name": "HEVC",
+          "id": 1
+        },
+        {
+          "display_name": "H.264 + HEVC",
+          "id": 2
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "HEVC",
+        "id": 1
+      },
+      {
+        "display_name": "H.264 + HEVC",
+        "id": 2
+      }
+    ]
+  },
+  "107": {
+    "id": 107,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 107
+    }
+  },
+  "108": {
+    "id": 108,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 108
+    }
+  },
+  "109": {
+    "id": 109,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 109
+    }
+  },
+  "110": {
+    "id": 110,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 110
+    }
+  },
+  "111": {
+    "id": 111,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 111,
+      "supported_options": [
+        {
+          "display_name": "30X",
+          "id": 1
+        },
+        {
+          "display_name": "15X",
+          "id": 0
+        },
+        {
+          "display_name": "10X",
+          "id": 9
+        },
+        {
+          "display_name": "5X",
+          "id": 8
+        },
+        {
+          "display_name": "2X",
+          "id": 7
+        },
+        {
+          "display_name": "Auto",
+          "id": 10
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "30X",
+        "id": 1
+      },
+      {
+        "display_name": "15X",
+        "id": 0
+      },
+      {
+        "display_name": "10X",
+        "id": 9
+      },
+      {
+        "display_name": "5X",
+        "id": 8
+      },
+      {
+        "display_name": "2X",
+        "id": 7
+      },
+      {
+        "display_name": "Auto",
+        "id": 10
+      }
+    ]
+  },
+  "112": {
+    "id": 112,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 112,
+      "supported_options": [
+        {
+          "display_name": "All",
+          "id": 100
+        },
+        {
+          "display_name": "Landscape",
+          "id": 5
+        },
+        {
+          "display_name": "Locked",
+          "id": 255
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "All",
+        "id": 100
+      },
+      {
+        "display_name": "Landscape",
+        "id": 5
+      },
+      {
+        "display_name": "Locked",
+        "id": 255
+      }
+    ]
+  },
+  "113": {
+    "id": 113,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 113
+    }
+  },
+  "114": {
+    "id": 114,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 114,
+      "supported_options": [
+        {
+          "display_name": "ON",
+          "id": 1
+        },
+        {
+          "display_name": "OFF",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "ON",
+        "id": 1
+      },
+      {
+        "display_name": "OFF",
+        "id": 0
+      }
+    ]
+  },
+  "115": {
+    "id": 115,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 115,
+      "supported_options": [
+        {
+          "display_name": "6500K",
+          "id": 3
+        },
+        {
+          "display_name": "6000K",
+          "id": 7
+        },
+        {
+          "display_name": "5500K",
+          "id": 2
+        },
+        {
+          "display_name": "5000K",
+          "id": 12
+        },
+        {
+          "display_name": "4500K",
+          "id": 11
+        },
+        {
+          "display_name": "Auto",
+          "id": 0
+        },
+        {
+          "display_name": "Native",
+          "id": 4
+        },
+        {
+          "display_name": "4000K",
+          "id": 5
+        },
+        {
+          "display_name": "3200K",
+          "id": 10
+        },
+        {
+          "display_name": "2800K",
+          "id": 9
+        },
+        {
+          "display_name": "2300K",
+          "id": 8
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "6500K",
+        "id": 3
+      },
+      {
+        "display_name": "6000K",
+        "id": 7
+      },
+      {
+        "display_name": "5500K",
+        "id": 2
+      },
+      {
+        "display_name": "5000K",
+        "id": 12
+      },
+      {
+        "display_name": "4500K",
+        "id": 11
+      },
+      {
+        "display_name": "Auto",
+        "id": 0
+      },
+      {
+        "display_name": "Native",
+        "id": 4
+      },
+      {
+        "display_name": "4000K",
+        "id": 5
+      },
+      {
+        "display_name": "3200K",
+        "id": 10
+      },
+      {
+        "display_name": "2800K",
+        "id": 9
+      },
+      {
+        "display_name": "2300K",
+        "id": 8
+      }
+    ]
+  },
+  "116": {
+    "id": 116,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 116,
+      "supported_options": [
+        {
+          "display_name": "Vibrant",
+          "id": 100
+        },
+        {
+          "display_name": "Natural",
+          "id": 2
+        },
+        {
+          "display_name": "Flat",
+          "id": 1
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Vibrant",
+        "id": 100
+      },
+      {
+        "display_name": "Natural",
+        "id": 2
+      },
+      {
+        "display_name": "Flat",
+        "id": 1
+      }
+    ]
+  },
+  "117": {
+    "id": 117,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 117,
+      "supported_options": [
+        {
+          "display_name": "High",
+          "id": 0
+        },
+        {
+          "display_name": "Medium",
+          "id": 1
+        },
+        {
+          "display_name": "Low",
+          "id": 2
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "High",
+        "id": 0
+      },
+      {
+        "display_name": "Medium",
+        "id": 1
+      },
+      {
+        "display_name": "Low",
+        "id": 2
+      }
+    ]
+  },
+  "118": {
+    "id": 118,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 118,
+      "supported_options": [
+        {
+          "display_name": "-2.0",
+          "id": 8
+        },
+        {
+          "display_name": "-1.5",
+          "id": 7
+        },
+        {
+          "display_name": "-1.0",
+          "id": 6
+        },
+        {
+          "display_name": "-0.5",
+          "id": 5
+        },
+        {
+          "display_name": "0.0",
+          "id": 4
+        },
+        {
+          "display_name": "0.5",
+          "id": 3
+        },
+        {
+          "display_name": "1.0",
+          "id": 2
+        },
+        {
+          "display_name": "1.5",
+          "id": 1
+        },
+        {
+          "display_name": "2.0",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "-2.0",
+        "id": 8
+      },
+      {
+        "display_name": "-1.5",
+        "id": 7
+      },
+      {
+        "display_name": "-1.0",
+        "id": 6
+      },
+      {
+        "display_name": "-0.5",
+        "id": 5
+      },
+      {
+        "display_name": "0.0",
+        "id": 4
+      },
+      {
+        "display_name": "0.5",
+        "id": 3
+      },
+      {
+        "display_name": "1.0",
+        "id": 2
+      },
+      {
+        "display_name": "1.5",
+        "id": 1
+      },
+      {
+        "display_name": "2.0",
+        "id": 0
+      }
+    ]
+  },
+  "119": {
+    "id": 119,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 119
+    }
+  },
+  "120": {
+    "id": 120,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 120
+    }
+  },
+  "121": {
+    "id": 121,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 121,
+      "supported_options": [
+        {
+          "display_name": "Max SuperView",
+          "id": 7
+        },
+        {
+          "display_name": "Superview",
+          "id": 3
+        },
+        {
+          "display_name": "Wide",
+          "id": 0
+        },
+        {
+          "display_name": "Linear",
+          "id": 4
+        },
+        {
+          "display_name": "Linear + Horizon Leveling",
+          "id": 8
+        },
+        {
+          "display_name": "Narrow",
+          "id": 2
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Max SuperView",
+        "id": 7
+      },
+      {
+        "display_name": "Superview",
+        "id": 3
+      },
+      {
+        "display_name": "Wide",
+        "id": 0
+      },
+      {
+        "display_name": "Linear",
+        "id": 4
+      },
+      {
+        "display_name": "Linear + Horizon Leveling",
+        "id": 8
+      },
+      {
+        "display_name": "Narrow",
+        "id": 2
+      }
+    ]
+  },
+  "122": {
+    "id": 122,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 122,
+      "supported_options": [
+        {
+          "display_name": "Max SuperView",
+          "id": 100
+        },
+        {
+          "display_name": "Wide",
+          "id": 101
+        },
+        {
+          "display_name": "Linear",
+          "id": 102
+        },
+        {
+          "display_name": "Narrow",
+          "id": 19
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Max SuperView",
+        "id": 100
+      },
+      {
+        "display_name": "Wide",
+        "id": 101
+      },
+      {
+        "display_name": "Linear",
+        "id": 102
+      },
+      {
+        "display_name": "Narrow",
+        "id": 19
+      }
+    ]
+  },
+  "123": {
+    "id": 123,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 123,
+      "supported_options": [
+        {
+          "display_name": "Max SuperView",
+          "id": 100
+        },
+        {
+          "display_name": "Wide",
+          "id": 101
+        },
+        {
+          "display_name": "Linear",
+          "id": 102
+        },
+        {
+          "display_name": "Narrow",
+          "id": 19
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Max SuperView",
+        "id": 100
+      },
+      {
+        "display_name": "Wide",
+        "id": 101
+      },
+      {
+        "display_name": "Linear",
+        "id": 102
+      },
+      {
+        "display_name": "Narrow",
+        "id": 19
+      }
+    ]
+  },
+  "124": {
+    "id": 124,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 124,
+      "supported_options": [
+        {
+          "display_name": "High",
+          "id": 1
+        },
+        {
+          "display_name": "Standard",
+          "id": 100
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "High",
+        "id": 1
+      },
+      {
+        "display_name": "Standard",
+        "id": 100
+      }
+    ]
+  },
+  "125": {
+    "id": 125,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 125,
+      "supported_options": [
+        {
+          "display_name": "SuperPhoto",
+          "id": 3
+        },
+        {
+          "display_name": "HDR",
+          "id": 2
+        },
+        {
+          "display_name": "Standard",
+          "id": 0
+        },
+        {
+          "display_name": "Raw",
+          "id": 1
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "SuperPhoto",
+        "id": 3
+      },
+      {
+        "display_name": "HDR",
+        "id": 2
+      },
+      {
+        "display_name": "Standard",
+        "id": 0
+      },
+      {
+        "display_name": "Raw",
+        "id": 1
+      }
+    ]
+  },
+  "126": {
+    "id": 126,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 126,
+      "supported_options": [
+        {
+          "display_name": "Standard",
+          "id": 0
+        },
+        {
+          "display_name": "Raw",
+          "id": 1
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Standard",
+        "id": 0
+      },
+      {
+        "display_name": "Raw",
+        "id": 1
+      }
+    ]
+  },
+  "127": {
+    "id": 127,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 127
+    }
+  },
+  "128": {
+    "id": 128,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 128,
+      "supported_options": [
+        {
+          "display_name": "Video",
+          "id": 13
+        },
+        {
+          "display_name": "Photo",
+          "id": 20
+        },
+        {
+          "display_name": "Photo",
+          "id": 21
+        },
+        {
+          "display_name": "Video",
+          "id": 26
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Video",
+        "id": 13
+      },
+      {
+        "display_name": "Photo",
+        "id": 20
+      },
+      {
+        "display_name": "Photo",
+        "id": 21
+      },
+      {
+        "display_name": "Video",
+        "id": 26
+      }
+    ]
+  },
+  "129": {
+    "id": 129,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 129,
+      "supported_options": [
+        {
+          "display_name": "Off",
+          "id": 0
+        },
+        {
+          "display_name": "Slo-Mo",
+          "id": 3
+        },
+        {
+          "display_name": "Lens",
+          "id": 2
+        },
+        {
+          "display_name": "Looping Interval",
+          "id": 109
+        },
+        {
+          "display_name": "Interval",
+          "id": 13
+        },
+        {
+          "display_name": "Burst Rate",
+          "id": 8
+        },
+        {
+          "display_name": "Shutter",
+          "id": 6
+        },
+        {
+          "display_name": "Output",
+          "id": 17
+        },
+        {
+          "display_name": "Speed",
+          "id": 21
+        },
+        {
+          "display_name": "Speed Ramp",
+          "id": 103
+        },
+        {
+          "display_name": "HyperSmooth",
+          "id": 12
+        },
+        {
+          "display_name": "Scheduled Capture",
+          "id": 104
+        },
+        {
+          "display_name": "Duration",
+          "id": 102
+        },
+        {
+          "display_name": "HindSight",
+          "id": 105
+        },
+        {
+          "display_name": "Timer",
+          "id": 20
+        },
+        {
+          "display_name": "Zoom",
+          "id": 1
+        },
+        {
+          "display_name": "Bit Rate",
+          "id": 7
+        },
+        {
+          "display_name": "EV Comp",
+          "id": 11
+        },
+        {
+          "display_name": "White Balance",
+          "id": 5
+        },
+        {
+          "display_name": "ISO Min",
+          "id": 14
+        },
+        {
+          "display_name": "ISO Max",
+          "id": 15
+        },
+        {
+          "display_name": "Sharpness",
+          "id": 19
+        },
+        {
+          "display_name": "Color",
+          "id": 10
+        },
+        {
+          "display_name": "Raw Audio",
+          "id": 18
+        },
+        {
+          "display_name": "Wind",
+          "id": 100
+        },
+        {
+          "display_name": "Media Mod",
+          "id": 106
+        },
+        {
+          "display_name": "Horizon Lock",
+          "id": 107
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Off",
+        "id": 0
+      },
+      {
+        "display_name": "Slo-Mo",
+        "id": 3
+      },
+      {
+        "display_name": "Lens",
+        "id": 2
+      },
+      {
+        "display_name": "Looping Interval",
+        "id": 109
+      },
+      {
+        "display_name": "Interval",
+        "id": 13
+      },
+      {
+        "display_name": "Burst Rate",
+        "id": 8
+      },
+      {
+        "display_name": "Shutter",
+        "id": 6
+      },
+      {
+        "display_name": "Output",
+        "id": 17
+      },
+      {
+        "display_name": "Speed",
+        "id": 21
+      },
+      {
+        "display_name": "Speed Ramp",
+        "id": 103
+      },
+      {
+        "display_name": "HyperSmooth",
+        "id": 12
+      },
+      {
+        "display_name": "Scheduled Capture",
+        "id": 104
+      },
+      {
+        "display_name": "Duration",
+        "id": 102
+      },
+      {
+        "display_name": "HindSight",
+        "id": 105
+      },
+      {
+        "display_name": "Timer",
+        "id": 20
+      },
+      {
+        "display_name": "Zoom",
+        "id": 1
+      },
+      {
+        "display_name": "Bit Rate",
+        "id": 7
+      },
+      {
+        "display_name": "EV Comp",
+        "id": 11
+      },
+      {
+        "display_name": "White Balance",
+        "id": 5
+      },
+      {
+        "display_name": "ISO Min",
+        "id": 14
+      },
+      {
+        "display_name": "ISO Max",
+        "id": 15
+      },
+      {
+        "display_name": "Sharpness",
+        "id": 19
+      },
+      {
+        "display_name": "Color",
+        "id": 10
+      },
+      {
+        "display_name": "Raw Audio",
+        "id": 18
+      },
+      {
+        "display_name": "Wind",
+        "id": 100
+      },
+      {
+        "display_name": "Media Mod",
+        "id": 106
+      },
+      {
+        "display_name": "Horizon Lock",
+        "id": 107
+      }
+    ]
+  },
+  "130": {
+    "id": 130,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 130,
+      "supported_options": [
+        {
+          "display_name": "Off",
+          "id": 0
+        },
+        {
+          "display_name": "Slo-Mo",
+          "id": 3
+        },
+        {
+          "display_name": "Lens",
+          "id": 2
+        },
+        {
+          "display_name": "Looping Interval",
+          "id": 109
+        },
+        {
+          "display_name": "Interval",
+          "id": 13
+        },
+        {
+          "display_name": "Burst Rate",
+          "id": 8
+        },
+        {
+          "display_name": "Shutter",
+          "id": 6
+        },
+        {
+          "display_name": "Output",
+          "id": 17
+        },
+        {
+          "display_name": "Speed",
+          "id": 21
+        },
+        {
+          "display_name": "Speed Ramp",
+          "id": 103
+        },
+        {
+          "display_name": "HyperSmooth",
+          "id": 12
+        },
+        {
+          "display_name": "Scheduled Capture",
+          "id": 104
+        },
+        {
+          "display_name": "Duration",
+          "id": 102
+        },
+        {
+          "display_name": "HindSight",
+          "id": 105
+        },
+        {
+          "display_name": "Timer",
+          "id": 20
+        },
+        {
+          "display_name": "Zoom",
+          "id": 1
+        },
+        {
+          "display_name": "Bit Rate",
+          "id": 7
+        },
+        {
+          "display_name": "EV Comp",
+          "id": 11
+        },
+        {
+          "display_name": "White Balance",
+          "id": 5
+        },
+        {
+          "display_name": "ISO Min",
+          "id": 14
+        },
+        {
+          "display_name": "ISO Max",
+          "id": 15
+        },
+        {
+          "display_name": "Sharpness",
+          "id": 19
+        },
+        {
+          "display_name": "Color",
+          "id": 10
+        },
+        {
+          "display_name": "Raw Audio",
+          "id": 18
+        },
+        {
+          "display_name": "Wind",
+          "id": 100
+        },
+        {
+          "display_name": "Media Mod",
+          "id": 106
+        },
+        {
+          "display_name": "Horizon Lock",
+          "id": 107
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Off",
+        "id": 0
+      },
+      {
+        "display_name": "Slo-Mo",
+        "id": 3
+      },
+      {
+        "display_name": "Lens",
+        "id": 2
+      },
+      {
+        "display_name": "Looping Interval",
+        "id": 109
+      },
+      {
+        "display_name": "Interval",
+        "id": 13
+      },
+      {
+        "display_name": "Burst Rate",
+        "id": 8
+      },
+      {
+        "display_name": "Shutter",
+        "id": 6
+      },
+      {
+        "display_name": "Output",
+        "id": 17
+      },
+      {
+        "display_name": "Speed",
+        "id": 21
+      },
+      {
+        "display_name": "Speed Ramp",
+        "id": 103
+      },
+      {
+        "display_name": "HyperSmooth",
+        "id": 12
+      },
+      {
+        "display_name": "Scheduled Capture",
+        "id": 104
+      },
+      {
+        "display_name": "Duration",
+        "id": 102
+      },
+      {
+        "display_name": "HindSight",
+        "id": 105
+      },
+      {
+        "display_name": "Timer",
+        "id": 20
+      },
+      {
+        "display_name": "Zoom",
+        "id": 1
+      },
+      {
+        "display_name": "Bit Rate",
+        "id": 7
+      },
+      {
+        "display_name": "EV Comp",
+        "id": 11
+      },
+      {
+        "display_name": "White Balance",
+        "id": 5
+      },
+      {
+        "display_name": "ISO Min",
+        "id": 14
+      },
+      {
+        "display_name": "ISO Max",
+        "id": 15
+      },
+      {
+        "display_name": "Sharpness",
+        "id": 19
+      },
+      {
+        "display_name": "Color",
+        "id": 10
+      },
+      {
+        "display_name": "Raw Audio",
+        "id": 18
+      },
+      {
+        "display_name": "Wind",
+        "id": 100
+      },
+      {
+        "display_name": "Media Mod",
+        "id": 106
+      },
+      {
+        "display_name": "Horizon Lock",
+        "id": 107
+      }
+    ]
+  },
+  "131": {
+    "id": 131,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 131,
+      "supported_options": [
+        {
+          "display_name": "Off",
+          "id": 0
+        },
+        {
+          "display_name": "Slo-Mo",
+          "id": 3
+        },
+        {
+          "display_name": "Lens",
+          "id": 2
+        },
+        {
+          "display_name": "Looping Interval",
+          "id": 109
+        },
+        {
+          "display_name": "Interval",
+          "id": 13
+        },
+        {
+          "display_name": "Burst Rate",
+          "id": 8
+        },
+        {
+          "display_name": "Shutter",
+          "id": 6
+        },
+        {
+          "display_name": "Output",
+          "id": 17
+        },
+        {
+          "display_name": "Speed",
+          "id": 21
+        },
+        {
+          "display_name": "Speed Ramp",
+          "id": 103
+        },
+        {
+          "display_name": "HyperSmooth",
+          "id": 12
+        },
+        {
+          "display_name": "Scheduled Capture",
+          "id": 104
+        },
+        {
+          "display_name": "Duration",
+          "id": 102
+        },
+        {
+          "display_name": "HindSight",
+          "id": 105
+        },
+        {
+          "display_name": "Timer",
+          "id": 20
+        },
+        {
+          "display_name": "Zoom",
+          "id": 1
+        },
+        {
+          "display_name": "Bit Rate",
+          "id": 7
+        },
+        {
+          "display_name": "EV Comp",
+          "id": 11
+        },
+        {
+          "display_name": "White Balance",
+          "id": 5
+        },
+        {
+          "display_name": "ISO Min",
+          "id": 14
+        },
+        {
+          "display_name": "ISO Max",
+          "id": 15
+        },
+        {
+          "display_name": "Sharpness",
+          "id": 19
+        },
+        {
+          "display_name": "Color",
+          "id": 10
+        },
+        {
+          "display_name": "Raw Audio",
+          "id": 18
+        },
+        {
+          "display_name": "Wind",
+          "id": 100
+        },
+        {
+          "display_name": "Media Mod",
+          "id": 106
+        },
+        {
+          "display_name": "Horizon Lock",
+          "id": 107
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Off",
+        "id": 0
+      },
+      {
+        "display_name": "Slo-Mo",
+        "id": 3
+      },
+      {
+        "display_name": "Lens",
+        "id": 2
+      },
+      {
+        "display_name": "Looping Interval",
+        "id": 109
+      },
+      {
+        "display_name": "Interval",
+        "id": 13
+      },
+      {
+        "display_name": "Burst Rate",
+        "id": 8
+      },
+      {
+        "display_name": "Shutter",
+        "id": 6
+      },
+      {
+        "display_name": "Output",
+        "id": 17
+      },
+      {
+        "display_name": "Speed",
+        "id": 21
+      },
+      {
+        "display_name": "Speed Ramp",
+        "id": 103
+      },
+      {
+        "display_name": "HyperSmooth",
+        "id": 12
+      },
+      {
+        "display_name": "Scheduled Capture",
+        "id": 104
+      },
+      {
+        "display_name": "Duration",
+        "id": 102
+      },
+      {
+        "display_name": "HindSight",
+        "id": 105
+      },
+      {
+        "display_name": "Timer",
+        "id": 20
+      },
+      {
+        "display_name": "Zoom",
+        "id": 1
+      },
+      {
+        "display_name": "Bit Rate",
+        "id": 7
+      },
+      {
+        "display_name": "EV Comp",
+        "id": 11
+      },
+      {
+        "display_name": "White Balance",
+        "id": 5
+      },
+      {
+        "display_name": "ISO Min",
+        "id": 14
+      },
+      {
+        "display_name": "ISO Max",
+        "id": 15
+      },
+      {
+        "display_name": "Sharpness",
+        "id": 19
+      },
+      {
+        "display_name": "Color",
+        "id": 10
+      },
+      {
+        "display_name": "Raw Audio",
+        "id": 18
+      },
+      {
+        "display_name": "Wind",
+        "id": 100
+      },
+      {
+        "display_name": "Media Mod",
+        "id": 106
+      },
+      {
+        "display_name": "Horizon Lock",
+        "id": 107
+      }
+    ]
+  },
+  "132": {
+    "id": 132,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 132,
+      "supported_options": [
+        {
+          "display_name": "Off",
+          "id": 0
+        },
+        {
+          "display_name": "Slo-Mo",
+          "id": 3
+        },
+        {
+          "display_name": "Lens",
+          "id": 2
+        },
+        {
+          "display_name": "Looping Interval",
+          "id": 109
+        },
+        {
+          "display_name": "Interval",
+          "id": 13
+        },
+        {
+          "display_name": "Burst Rate",
+          "id": 8
+        },
+        {
+          "display_name": "Shutter",
+          "id": 6
+        },
+        {
+          "display_name": "Output",
+          "id": 17
+        },
+        {
+          "display_name": "Speed",
+          "id": 21
+        },
+        {
+          "display_name": "Speed Ramp",
+          "id": 103
+        },
+        {
+          "display_name": "HyperSmooth",
+          "id": 12
+        },
+        {
+          "display_name": "Scheduled Capture",
+          "id": 104
+        },
+        {
+          "display_name": "Duration",
+          "id": 102
+        },
+        {
+          "display_name": "HindSight",
+          "id": 105
+        },
+        {
+          "display_name": "Timer",
+          "id": 20
+        },
+        {
+          "display_name": "Zoom",
+          "id": 1
+        },
+        {
+          "display_name": "Bit Rate",
+          "id": 7
+        },
+        {
+          "display_name": "EV Comp",
+          "id": 11
+        },
+        {
+          "display_name": "White Balance",
+          "id": 5
+        },
+        {
+          "display_name": "ISO Min",
+          "id": 14
+        },
+        {
+          "display_name": "ISO Max",
+          "id": 15
+        },
+        {
+          "display_name": "Sharpness",
+          "id": 19
+        },
+        {
+          "display_name": "Color",
+          "id": 10
+        },
+        {
+          "display_name": "Raw Audio",
+          "id": 18
+        },
+        {
+          "display_name": "Wind",
+          "id": 100
+        },
+        {
+          "display_name": "Media Mod",
+          "id": 106
+        },
+        {
+          "display_name": "Horizon Lock",
+          "id": 107
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Off",
+        "id": 0
+      },
+      {
+        "display_name": "Slo-Mo",
+        "id": 3
+      },
+      {
+        "display_name": "Lens",
+        "id": 2
+      },
+      {
+        "display_name": "Looping Interval",
+        "id": 109
+      },
+      {
+        "display_name": "Interval",
+        "id": 13
+      },
+      {
+        "display_name": "Burst Rate",
+        "id": 8
+      },
+      {
+        "display_name": "Shutter",
+        "id": 6
+      },
+      {
+        "display_name": "Output",
+        "id": 17
+      },
+      {
+        "display_name": "Speed",
+        "id": 21
+      },
+      {
+        "display_name": "Speed Ramp",
+        "id": 103
+      },
+      {
+        "display_name": "HyperSmooth",
+        "id": 12
+      },
+      {
+        "display_name": "Scheduled Capture",
+        "id": 104
+      },
+      {
+        "display_name": "Duration",
+        "id": 102
+      },
+      {
+        "display_name": "HindSight",
+        "id": 105
+      },
+      {
+        "display_name": "Timer",
+        "id": 20
+      },
+      {
+        "display_name": "Zoom",
+        "id": 1
+      },
+      {
+        "display_name": "Bit Rate",
+        "id": 7
+      },
+      {
+        "display_name": "EV Comp",
+        "id": 11
+      },
+      {
+        "display_name": "White Balance",
+        "id": 5
+      },
+      {
+        "display_name": "ISO Min",
+        "id": 14
+      },
+      {
+        "display_name": "ISO Max",
+        "id": 15
+      },
+      {
+        "display_name": "Sharpness",
+        "id": 19
+      },
+      {
+        "display_name": "Color",
+        "id": 10
+      },
+      {
+        "display_name": "Raw Audio",
+        "id": 18
+      },
+      {
+        "display_name": "Wind",
+        "id": 100
+      },
+      {
+        "display_name": "Media Mod",
+        "id": 106
+      },
+      {
+        "display_name": "Horizon Lock",
+        "id": 107
+      }
+    ]
+  },
+  "133": {
+    "id": 133,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 133
+    }
+  },
+  "134": {
+    "id": 134,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 134,
+      "supported_options": [
+        {
+          "display_name": "60Hz",
+          "id": 2
+        },
+        {
+          "display_name": "50Hz",
+          "id": 3
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "60Hz",
+        "id": 2
+      },
+      {
+        "display_name": "50Hz",
+        "id": 3
+      }
+    ]
+  },
+  "135": {
+    "id": 135,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 135,
+      "supported_options": [
+        {
+          "display_name": "Boost",
+          "id": 3
+        },
+        {
+          "display_name": "High",
+          "id": 2
+        },
+        {
+          "display_name": "Standard",
+          "id": 100
+        },
+        {
+          "display_name": "Off",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Boost",
+        "id": 3
+      },
+      {
+        "display_name": "High",
+        "id": 2
+      },
+      {
+        "display_name": "Standard",
+        "id": 100
+      },
+      {
+        "display_name": "Off",
+        "id": 0
+      }
+    ]
+  },
+  "136": {
+    "id": 136,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 136
+    }
+  },
+  "137": {
+    "id": 137,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 137
+    }
+  },
+  "138": {
+    "id": 138,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 138
+    }
+  },
+  "139": {
+    "id": 139,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 139,
+      "supported_options": [
+        {
+          "display_name": "High",
+          "id": 2
+        },
+        {
+          "display_name": "Medium",
+          "id": 1
+        },
+        {
+          "display_name": "Low",
+          "id": 0
+        },
+        {
+          "display_name": "Off",
+          "id": 3
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "High",
+        "id": 2
+      },
+      {
+        "display_name": "Medium",
+        "id": 1
+      },
+      {
+        "display_name": "Low",
+        "id": 0
+      },
+      {
+        "display_name": "Off",
+        "id": 3
+      }
+    ]
+  },
+  "140": {
+    "id": 140,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 140
+    }
+  },
+  "141": {
+    "id": 141,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 141
+    }
+  },
+  "142": {
+    "id": 142,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 142
+    }
+  },
+  "143": {
+    "id": 143,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 143
+    }
+  },
+  "144": {
+    "id": 144,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 144,
+      "supported_options": [
+        {
+          "display_name": "Video",
+          "id": 12
+        },
+        {
+          "display_name": "Looping",
+          "id": 15
+        },
+        {
+          "display_name": "Single Photo",
+          "id": 16
+        },
+        {
+          "display_name": "Night Photo",
+          "id": 18
+        },
+        {
+          "display_name": "Burst Photo",
+          "id": 19
+        },
+        {
+          "display_name": "Time Lapse Video",
+          "id": 13
+        },
+        {
+          "display_name": "Time Lapse Photo",
+          "id": 20
+        },
+        {
+          "display_name": "Night Lapse Photo",
+          "id": 21
+        },
+        {
+          "display_name": "Time Warp Video",
+          "id": 24
+        },
+        {
+          "display_name": "Live Burst",
+          "id": 25
+        },
+        {
+          "display_name": "Night Lapse Video",
+          "id": 26
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Video",
+        "id": 12
+      },
+      {
+        "display_name": "Looping",
+        "id": 15
+      },
+      {
+        "display_name": "Single Photo",
+        "id": 16
+      },
+      {
+        "display_name": "Night Photo",
+        "id": 18
+      },
+      {
+        "display_name": "Burst Photo",
+        "id": 19
+      },
+      {
+        "display_name": "Time Lapse Video",
+        "id": 13
+      },
+      {
+        "display_name": "Time Lapse Photo",
+        "id": 20
+      },
+      {
+        "display_name": "Night Lapse Photo",
+        "id": 21
+      },
+      {
+        "display_name": "Time Warp Video",
+        "id": 24
+      },
+      {
+        "display_name": "Live Burst",
+        "id": 25
+      },
+      {
+        "display_name": "Night Lapse Video",
+        "id": 26
+      }
+    ]
+  },
+  "145": {
+    "id": 145,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 145,
+      "supported_options": [
+        {
+          "display_name": "1/3840",
+          "id": 31
+        },
+        {
+          "display_name": "1/3200",
+          "id": 30
+        },
+        {
+          "display_name": "1/1920",
+          "id": 24
+        },
+        {
+          "display_name": "1/1600",
+          "id": 29
+        },
+        {
+          "display_name": "1/960",
+          "id": 23
+        },
+        {
+          "display_name": "1/800",
+          "id": 28
+        },
+        {
+          "display_name": "1/480",
+          "id": 22
+        },
+        {
+          "display_name": "1/400",
+          "id": 21
+        },
+        {
+          "display_name": "1/384",
+          "id": 25
+        },
+        {
+          "display_name": "1/240",
+          "id": 18
+        },
+        {
+          "display_name": "1/200",
+          "id": 17
+        },
+        {
+          "display_name": "1/192",
+          "id": 16
+        },
+        {
+          "display_name": "1/120",
+          "id": 13
+        },
+        {
+          "display_name": "1/100",
+          "id": 12
+        },
+        {
+          "display_name": "1/96",
+          "id": 11
+        },
+        {
+          "display_name": "1/60",
+          "id": 8
+        },
+        {
+          "display_name": "1/50",
+          "id": 7
+        },
+        {
+          "display_name": "1/48",
+          "id": 6
+        },
+        {
+          "display_name": "1/30",
+          "id": 5
+        },
+        {
+          "display_name": "1/25",
+          "id": 4
+        },
+        {
+          "display_name": "1/24",
+          "id": 3
+        },
+        {
+          "display_name": "Auto",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "1/3840",
+        "id": 31
+      },
+      {
+        "display_name": "1/3200",
+        "id": 30
+      },
+      {
+        "display_name": "1/1920",
+        "id": 24
+      },
+      {
+        "display_name": "1/1600",
+        "id": 29
+      },
+      {
+        "display_name": "1/960",
+        "id": 23
+      },
+      {
+        "display_name": "1/800",
+        "id": 28
+      },
+      {
+        "display_name": "1/480",
+        "id": 22
+      },
+      {
+        "display_name": "1/400",
+        "id": 21
+      },
+      {
+        "display_name": "1/384",
+        "id": 25
+      },
+      {
+        "display_name": "1/240",
+        "id": 18
+      },
+      {
+        "display_name": "1/200",
+        "id": 17
+      },
+      {
+        "display_name": "1/192",
+        "id": 16
+      },
+      {
+        "display_name": "1/120",
+        "id": 13
+      },
+      {
+        "display_name": "1/100",
+        "id": 12
+      },
+      {
+        "display_name": "1/96",
+        "id": 11
+      },
+      {
+        "display_name": "1/60",
+        "id": 8
+      },
+      {
+        "display_name": "1/50",
+        "id": 7
+      },
+      {
+        "display_name": "1/48",
+        "id": 6
+      },
+      {
+        "display_name": "1/30",
+        "id": 5
+      },
+      {
+        "display_name": "1/25",
+        "id": 4
+      },
+      {
+        "display_name": "1/24",
+        "id": 3
+      },
+      {
+        "display_name": "Auto",
+        "id": 0
+      }
+    ]
+  },
+  "146": {
+    "id": 146,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 146,
+      "supported_options": [
+        {
+          "display_name": "Auto",
+          "id": 0
+        },
+        {
+          "display_name": "1/125",
+          "id": 1
+        },
+        {
+          "display_name": "1/250",
+          "id": 2
+        },
+        {
+          "display_name": "1/500",
+          "id": 3
+        },
+        {
+          "display_name": "1/1000",
+          "id": 4
+        },
+        {
+          "display_name": "1/2000",
+          "id": 5
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Auto",
+        "id": 0
+      },
+      {
+        "display_name": "1/125",
+        "id": 1
+      },
+      {
+        "display_name": "1/250",
+        "id": 2
+      },
+      {
+        "display_name": "1/500",
+        "id": 3
+      },
+      {
+        "display_name": "1/1000",
+        "id": 4
+      },
+      {
+        "display_name": "1/2000",
+        "id": 5
+      }
+    ]
+  },
+  "147": {
+    "id": 147,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 147,
+      "supported_options": [
+        {
+          "display_name": "30 Photos / 10 Seconds",
+          "id": 100
+        },
+        {
+          "display_name": "30 Photos / 6 Seconds",
+          "id": 8
+        },
+        {
+          "display_name": "30 Photos / 3 Seconds",
+          "id": 7
+        },
+        {
+          "display_name": "10 Photos / 3 Seconds",
+          "id": 4
+        },
+        {
+          "display_name": "25 Photos / 1 Second",
+          "id": 14
+        },
+        {
+          "display_name": "10 Photos / 1 Second",
+          "id": 2
+        },
+        {
+          "display_name": "5 Photos / 1 Second",
+          "id": 1
+        },
+        {
+          "display_name": "3 Photos / 1 Second",
+          "id": 0
+        },
+        {
+          "display_name": "Auto",
+          "id": 9
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "30 Photos / 10 Seconds",
+        "id": 100
+      },
+      {
+        "display_name": "30 Photos / 6 Seconds",
+        "id": 8
+      },
+      {
+        "display_name": "30 Photos / 3 Seconds",
+        "id": 7
+      },
+      {
+        "display_name": "10 Photos / 3 Seconds",
+        "id": 4
+      },
+      {
+        "display_name": "25 Photos / 1 Second",
+        "id": 14
+      },
+      {
+        "display_name": "10 Photos / 1 Second",
+        "id": 2
+      },
+      {
+        "display_name": "5 Photos / 1 Second",
+        "id": 1
+      },
+      {
+        "display_name": "3 Photos / 1 Second",
+        "id": 0
+      },
+      {
+        "display_name": "Auto",
+        "id": 9
+      }
+    ]
+  },
+  "148": {
+    "id": 148,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 148,
+      "supported_options": [
+        {
+          "display_name": "Standard",
+          "id": 100
+        },
+        {
+          "display_name": "Off",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Standard",
+        "id": 100
+      },
+      {
+        "display_name": "Off",
+        "id": 0
+      }
+    ]
+  },
+  "149": {
+    "id": 149,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 149,
+      "supported_options": [
+        {
+          "display_name": "Auto",
+          "id": 2
+        },
+        {
+          "display_name": "On",
+          "id": 4
+        },
+        {
+          "display_name": "Off",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Auto",
+        "id": 2
+      },
+      {
+        "display_name": "On",
+        "id": 4
+      },
+      {
+        "display_name": "Off",
+        "id": 0
+      }
+    ]
+  },
+  "150": {
+    "id": 150,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 150
+    }
+  },
+  "151": {
+    "id": 151,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 151
+    }
+  },
+  "152": {
+    "id": 152,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 152
+    }
+  },
+  "153": {
+    "id": 153,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 153,
+      "supported_options": [
+        {
+          "display_name": "Speed Ramp",
+          "id": 100
+        },
+        {
+          "display_name": "HiLight",
+          "id": 1
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Speed Ramp",
+        "id": 100
+      },
+      {
+        "display_name": "HiLight",
+        "id": 1
+      }
+    ]
+  },
+  "154": {
+    "id": 154,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 154,
+      "supported_options": [
+        {
+          "display_name": "Screen Off",
+          "id": 0
+        },
+        {
+          "display_name": "Status Only",
+          "id": 1
+        },
+        {
+          "display_name": "Actual View",
+          "id": 2
+        },
+        {
+          "display_name": "Full Screen",
+          "id": 3
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Screen Off",
+        "id": 0
+      },
+      {
+        "display_name": "Status Only",
+        "id": 1
+      },
+      {
+        "display_name": "Actual View",
+        "id": 2
+      },
+      {
+        "display_name": "Full Screen",
+        "id": 3
+      }
+    ]
+  },
+  "155": {
+    "id": 155,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 155,
+      "supported_options": [
+        {
+          "display_name": "Real Speed",
+          "id": 100
+        },
+        {
+          "display_name": "Half Speed",
+          "id": 101
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Real Speed",
+        "id": 100
+      },
+      {
+        "display_name": "Half Speed",
+        "id": 101
+      }
+    ]
+  },
+  "156": {
+    "id": 156,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 156,
+      "supported_options": [
+        {
+          "display_name": "3 Hours",
+          "id": 9
+        },
+        {
+          "display_name": "2 Hours",
+          "id": 8
+        },
+        {
+          "display_name": "1 Hour",
+          "id": 7
+        },
+        {
+          "display_name": "30 Minutes",
+          "id": 6
+        },
+        {
+          "display_name": "15 Minutes",
+          "id": 5
+        },
+        {
+          "display_name": "5 Minutes",
+          "id": 4
+        },
+        {
+          "display_name": "1 Minute",
+          "id": 3
+        },
+        {
+          "display_name": "30 Seconds",
+          "id": 2
+        },
+        {
+          "display_name": "15 Seconds",
+          "id": 1
+        },
+        {
+          "display_name": "No Limit",
+          "id": 100
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "3 Hours",
+        "id": 9
+      },
+      {
+        "display_name": "2 Hours",
+        "id": 8
+      },
+      {
+        "display_name": "1 Hour",
+        "id": 7
+      },
+      {
+        "display_name": "30 Minutes",
+        "id": 6
+      },
+      {
+        "display_name": "15 Minutes",
+        "id": 5
+      },
+      {
+        "display_name": "5 Minutes",
+        "id": 4
+      },
+      {
+        "display_name": "1 Minute",
+        "id": 3
+      },
+      {
+        "display_name": "30 Seconds",
+        "id": 2
+      },
+      {
+        "display_name": "15 Seconds",
+        "id": 1
+      },
+      {
+        "display_name": "No Limit",
+        "id": 100
+      }
+    ]
+  },
+  "157": {
+    "id": 157,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 157,
+      "supported_options": [
+        {
+          "display_name": "3 Hours",
+          "id": 9
+        },
+        {
+          "display_name": "2 Hours",
+          "id": 8
+        },
+        {
+          "display_name": "1 Hour",
+          "id": 7
+        },
+        {
+          "display_name": "30 Minutes",
+          "id": 6
+        },
+        {
+          "display_name": "15 Minutes",
+          "id": 5
+        },
+        {
+          "display_name": "5 Minutes",
+          "id": 4
+        },
+        {
+          "display_name": "1 Minute",
+          "id": 3
+        },
+        {
+          "display_name": "30 Seconds",
+          "id": 2
+        },
+        {
+          "display_name": "15 Seconds",
+          "id": 1
+        },
+        {
+          "display_name": "No Limit",
+          "id": 100
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "3 Hours",
+        "id": 9
+      },
+      {
+        "display_name": "2 Hours",
+        "id": 8
+      },
+      {
+        "display_name": "1 Hour",
+        "id": 7
+      },
+      {
+        "display_name": "30 Minutes",
+        "id": 6
+      },
+      {
+        "display_name": "15 Minutes",
+        "id": 5
+      },
+      {
+        "display_name": "5 Minutes",
+        "id": 4
+      },
+      {
+        "display_name": "1 Minute",
+        "id": 3
+      },
+      {
+        "display_name": "30 Seconds",
+        "id": 2
+      },
+      {
+        "display_name": "15 Seconds",
+        "id": 1
+      },
+      {
+        "display_name": "No Limit",
+        "id": 100
+      }
+    ]
+  },
+  "158": {
+    "id": 158,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 158,
+      "supported_options": [
+        {
+          "display_name": "Never",
+          "id": 0
+        },
+        {
+          "display_name": "Match Rear Screen",
+          "id": 1
+        },
+        {
+          "display_name": "1 Min",
+          "id": 2
+        },
+        {
+          "display_name": "2 Min",
+          "id": 3
+        },
+        {
+          "display_name": "3 Min",
+          "id": 4
+        },
+        {
+          "display_name": "5 Min",
+          "id": 5
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Never",
+        "id": 0
+      },
+      {
+        "display_name": "Match Rear Screen",
+        "id": 1
+      },
+      {
+        "display_name": "1 Min",
+        "id": 2
+      },
+      {
+        "display_name": "2 Min",
+        "id": 3
+      },
+      {
+        "display_name": "3 Min",
+        "id": 4
+      },
+      {
+        "display_name": "5 Min",
+        "id": 5
+      }
+    ]
+  },
+  "159": {
+    "id": 159,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 159,
+      "supported_options": [
+        {
+          "display_name": "1 Min",
+          "id": 1
+        },
+        {
+          "display_name": "2 Min",
+          "id": 2
+        },
+        {
+          "display_name": "3 Min",
+          "id": 3
+        },
+        {
+          "display_name": "5 Min",
+          "id": 4
+        },
+        {
+          "display_name": "Never",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "1 Min",
+        "id": 1
+      },
+      {
+        "display_name": "2 Min",
+        "id": 2
+      },
+      {
+        "display_name": "3 Min",
+        "id": 3
+      },
+      {
+        "display_name": "5 Min",
+        "id": 4
+      },
+      {
+        "display_name": "Never",
+        "id": 0
+      }
+    ]
+  },
+  "160": {
+    "id": 160,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 160,
+      "supported_options": [
+        {
+          "display_name": "High",
+          "id": 1
+        },
+        {
+          "display_name": "Standard",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "High",
+        "id": 1
+      },
+      {
+        "display_name": "Standard",
+        "id": 0
+      }
+    ]
+  },
+  "161": {
+    "id": 161,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 161,
+      "supported_options": [
+        {
+          "display_name": "Last Used",
+          "id": 200
+        },
+        {
+          "display_name": "Last Used Video",
+          "id": 100
+        },
+        {
+          "display_name": "Last Used Photo",
+          "id": 101
+        },
+        {
+          "display_name": "Last Used Time Lapse",
+          "id": 102
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Last Used",
+        "id": 200
+      },
+      {
+        "display_name": "Last Used Video",
+        "id": 100
+      },
+      {
+        "display_name": "Last Used Photo",
+        "id": 101
+      },
+      {
+        "display_name": "Last Used Time Lapse",
+        "id": 102
+      }
+    ]
+  },
+  "162": {
+    "id": 162,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 162,
+      "supported_options": [
+        {
+          "display_name": "OFF",
+          "id": 0
+        },
+        {
+          "display_name": "ON",
+          "id": 1
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "OFF",
+        "id": 0
+      },
+      {
+        "display_name": "ON",
+        "id": 1
+      }
+    ]
+  },
+  "163": {
+    "id": 163,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 163,
+      "supported_options": [
+        {
+          "display_name": "OFF",
+          "id": 0
+        },
+        {
+          "display_name": "ON",
+          "id": 1
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "OFF",
+        "id": 0
+      },
+      {
+        "display_name": "ON",
+        "id": 1
+      }
+    ]
+  },
+  "164": {
+    "id": 164,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 164,
+      "supported_options": [
+        {
+          "display_name": "Camera Mics",
+          "id": 100
+        },
+        {
+          "display_name": "Back",
+          "id": 2
+        },
+        {
+          "display_name": "Front",
+          "id": 1
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Camera Mics",
+        "id": 100
+      },
+      {
+        "display_name": "Back",
+        "id": 2
+      },
+      {
+        "display_name": "Front",
+        "id": 1
+      }
+    ]
+  },
+  "165": {
+    "id": 165,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 165,
+      "supported_options": [
+        {
+          "display_name": "On",
+          "id": 1
+        },
+        {
+          "display_name": "Off",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "On",
+        "id": 1
+      },
+      {
+        "display_name": "Off",
+        "id": 0
+      }
+    ]
+  },
+  "166": {
+    "id": 166,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 166,
+      "supported_options": [
+        {
+          "display_name": "On",
+          "id": 1
+        },
+        {
+          "display_name": "Off",
+          "id": 0
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "On",
+        "id": 1
+      },
+      {
+        "display_name": "Off",
+        "id": 0
+      }
+    ]
+  },
+  "167": {
+    "id": 167,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 167,
+      "supported_options": [
+        {
+          "display_name": "15 Seconds",
+          "id": 2
+        },
+        {
+          "display_name": "30 Seconds",
+          "id": 3
+        },
+        {
+          "display_name": "Off",
+          "id": 4
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "15 Seconds",
+        "id": 2
+      },
+      {
+        "display_name": "30 Seconds",
+        "id": 3
+      },
+      {
+        "display_name": "Off",
+        "id": 4
+      }
+    ]
+  },
+  "168": {
+    "id": 168,
+    "status_code": 200,
+    "current_value": {}
+  },
+  "169": {
+    "id": 169,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 169,
+      "supported_options": [
+        {
+          "display_name": "Standard Mic",
+          "id": 1
+        },
+        {
+          "display_name": "Standard Mic+",
+          "id": 2
+        },
+        {
+          "display_name": "Powered Mic",
+          "id": 3
+        },
+        {
+          "display_name": "Powered Mic+",
+          "id": 4
+        },
+        {
+          "display_name": "Line In",
+          "id": 5
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Standard Mic",
+        "id": 1
+      },
+      {
+        "display_name": "Standard Mic+",
+        "id": 2
+      },
+      {
+        "display_name": "Powered Mic",
+        "id": 3
+      },
+      {
+        "display_name": "Powered Mic+",
+        "id": 4
+      },
+      {
+        "display_name": "Line In",
+        "id": 5
+      }
+    ]
+  },
+  "170": {
+    "id": 170,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 170
+    }
+  },
+  "171": {
+    "id": 171,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 171
+    }
+  },
+  "172": {
+    "id": 172,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 172
+    }
+  },
+  "173": {
+    "id": 173,
+    "status_code": 403,
+    "error_data": {
+      "error": 4,
+      "option_id": 999999,
+      "setting_id": 173,
+      "supported_options": [
+        {
+          "display_name": "Maximum Video Performance",
+          "id": 0
+        },
+        {
+          "display_name": "Extended Battery",
+          "id": 1
+        },
+        {
+          "display_name": "Tripod / Stationary Video",
+          "id": 2
+        }
+      ]
+    },
+    "supported_options": [
+      {
+        "display_name": "Maximum Video Performance",
+        "id": 0
+      },
+      {
+        "display_name": "Extended Battery",
+        "id": 1
+      },
+      {
+        "display_name": "Tripod / Stationary Video",
+        "id": 2
+      }
+    ]
+  },
+  "174": {
+    "id": 174,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 174
+    }
+  },
+  "175": {
+    "id": 175,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 175
+    }
+  },
+  "176": {
+    "id": 176,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 176
+    }
+  },
+  "177": {
+    "id": 177,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 177
+    }
+  },
+  "178": {
+    "id": 178,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 178
+    }
+  },
+  "179": {
+    "id": 179,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 179
+    }
+  },
+  "180": {
+    "id": 180,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 180
+    }
+  },
+  "181": {
+    "id": 181,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 181
+    }
+  },
+  "182": {
+    "id": 182,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 182
+    }
+  },
+  "183": {
+    "id": 183,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 183
+    }
+  },
+  "184": {
+    "id": 184,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 184
+    }
+  },
+  "185": {
+    "id": 185,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 185
+    }
+  },
+  "186": {
+    "id": 186,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 186
+    }
+  },
+  "187": {
+    "id": 187,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 187
+    }
+  },
+  "188": {
+    "id": 188,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 188
+    }
+  },
+  "189": {
+    "id": 189,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 189
+    }
+  },
+  "190": {
+    "id": 190,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 190
+    }
+  },
+  "191": {
+    "id": 191,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 191
+    }
+  },
+  "192": {
+    "id": 192,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 192
+    }
+  },
+  "193": {
+    "id": 193,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 193
+    }
+  },
+  "194": {
+    "id": 194,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 194
+    }
+  },
+  "195": {
+    "id": 195,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 195
+    }
+  },
+  "196": {
+    "id": 196,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 196
+    }
+  },
+  "197": {
+    "id": 197,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 197
+    }
+  },
+  "198": {
+    "id": 198,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 198
+    }
+  },
+  "199": {
+    "id": 199,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 199
+    }
+  },
+  "200": {
+    "id": 200,
+    "status_code": 403,
+    "error_data": {
+      "error": 2,
+      "setting_id": 200
+    }
+  }
+}

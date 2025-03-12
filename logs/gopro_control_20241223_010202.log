@@ -1,9 +1,0 @@
-2024-12-23 01:02:08,118 - __main__ - INFO - Saved last mode: photo
-2024-12-23 01:02:13,147 - photo_mode - ERROR - No GoPro devices found
-2024-12-23 01:02:13,151 - __main__ - ERROR - Error applying photo mode: object bool can't be used in 'await' expression
-2024-12-23 01:02:17,166 - __main__ - INFO - Saved last mode: video
-2024-12-23 01:02:22,175 - video_mode - ERROR - No GoPro devices found
-2024-12-23 01:02:22,176 - __main__ - ERROR - Error applying video mode: object bool can't be used in 'await' expression
-2024-12-23 01:02:28,595 - __main__ - INFO - Saved last mode: timelapse
-2024-12-23 01:02:33,604 - timelapse_mode - ERROR - No GoPro devices found
-2024-12-23 01:02:33,605 - __main__ - ERROR - Error applying timelapse mode: object bool can't be used in 'await' expression

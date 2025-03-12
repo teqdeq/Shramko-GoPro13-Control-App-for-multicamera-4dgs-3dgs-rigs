@@ -21,6 +21,8 @@ logger = setup_logging('gui')
 from copy_progress_widget import CopyProgressWidget
 from copy_manager import CopyManager
 from preset_manager_gui import PresetManagerDialog
+from single_photo_timelapse_gui import SinglePhotoTimelapseGUI
+from power_management import PowerManager
 
 
 class ScriptRunner(QThread):
@@ -95,14 +97,17 @@ class GoProControlApp(QMainWindow):
         # Control Tab Layout
         self.control_layout = QVBoxLayout(self.control_tab)
         self.connect_button = QPushButton("Connect to Cameras")
+        self.connect_button.setFixedHeight(50)  # Увеличиваем высоту в 2 раза
         self.connect_button.clicked.connect(self.connect_to_cameras)
         self.control_layout.addWidget(self.connect_button)
 
         self.copy_settings_button = QPushButton("Copy Settings from Prime Camera")
+        self.copy_settings_button.setFixedHeight(50)  # Увеличиваем высоту в 2 раза
         self.copy_settings_button.clicked.connect(self.copy_settings_from_prime)
         self.control_layout.addWidget(self.copy_settings_button)
 
         self.record_button = QPushButton("Record")
+        self.record_button.setFixedHeight(75)  # Увеличиваем высоту в 3 раза
         self.record_button.clicked.connect(self.toggle_record)
         self.control_layout.addWidget(self.record_button)
 
@@ -159,6 +164,13 @@ class GoProControlApp(QMainWindow):
         self.preset_manager_btn.clicked.connect(self.show_preset_manager)
         self.control_layout.addWidget(self.preset_manager_btn)
         
+        # Добавляем кнопку Single Photo Timelapse
+        self.timelapse_btn = QPushButton("Single Photo Timelapse")
+        self.timelapse_btn.clicked.connect(self.show_timelapse)
+        self.control_layout.addWidget(self.timelapse_btn)
+        
+        self.power_manager = PowerManager()
+        
     def init_copy_progress(self):
         """Инициализация виджета прогресса копирования"""
         self.copy_progress = CopyProgressWidget()
@@ -183,7 +195,7 @@ class GoProControlApp(QMainWindow):
         self.copy_progress.resume_signal.connect(self.copy_manager.resume)
         self.copy_progress.cancel_signal.connect(self.copy_manager.cancel)
         
-        # Устана��ливаем политику растяжения для виджета прогресса
+        # Устанавливаем политику растяжения для виджета прогресса
         self.download_layout.setStretchFactor(self.copy_progress, 1)
         
     def log_message(self, message):
@@ -200,8 +212,8 @@ class GoProControlApp(QMainWindow):
                     import goprolist_usb_activate_time_sync
                     goprolist_usb_activate_time_sync.main()
                 elif script_module == 'read_and_write_all_settings_from_prime_to_other':
-                    import read_and_write_all_settings_from_prime_to_other
-                    read_and_write_all_settings_from_prime_to_other.main()
+                    import read_and_write_all_settings_from_prime_to_other_v02
+                    read_and_write_all_settings_from_prime_to_other_v02.main()
                 elif script_module == 'goprolist_usb_activate_time_sync_record':
                     import goprolist_usb_activate_time_sync_record
                     goprolist_usb_activate_time_sync_record.main()
@@ -336,39 +348,16 @@ class GoProControlApp(QMainWindow):
     def copy_settings_from_prime(self):
         """Копирует настройки с основной камеры на остальные с отображением прогресса"""
         try:
-            # Создаем и показываем диалог прогресса
+            # Импортируем и создаем диалог прогресса
             from progress_dialog import SettingsProgressDialog
-            progress_dialog = SettingsProgressDialog("Копирование настроек с основной камеры", self)
-            progress_dialog.show()
+            from read_and_write_all_settings_from_prime_to_other_v02 import copy_camera_settings_sync
             
-            def progress_callback(action, data):
-                if action == "status":
-                    progress_dialog.update_status(data)
-                elif action == "progress":
-                    current, total = data
-                    progress_dialog.update_progress(current, total)
-                elif action == "log":
-                    progress_dialog.add_log(data)
-                elif action == "complete":
-                    progress_dialog.complete()
-            
-            # Импортируем и вызываем функцию копирования
-            import read_and_write_all_settings_from_prime_to_other
-            try:
-                read_and_write_all_settings_from_prime_to_other.copy_camera_settings(progress_callback)
-                QMessageBox.information(
-                    self,
-                    'Успех',
-                    'Настройки успешно скопированы'
-                )
-            except Exception as e:
-                QMessageBox.critical(
-                    self,
-                    'Ошибка',
-                    f'Ошибка при копировании настроек: {str(e)}'
-                )
-            finally:
-                progress_dialog.close()
+            dialog = SettingsProgressDialog(
+                "Копирование настроек с основной камеры",
+                copy_camera_settings_sync,
+                self
+            )
+            dialog.exec_()
             
         except Exception as e:
             logging.error(f"Error copying settings: {e}")
@@ -536,7 +525,9 @@ class GoProControlApp(QMainWindow):
             self.log_message(f"Error saving log: {e}")
 
     def select_download_folder(self):
-        folder = QFileDialog.getExistingDirectory(self, "Select Download Folder")
+        # Получаем последнюю использованную директорию из конфига
+        initial_dir = self.copy_manager.config.get("last_target_dir", str(Path.home()))
+        folder = QFileDialog.getExistingDirectory(self, "Select Download Folder", initial_dir)
         if folder:
             self.download_folder = folder
             self.download_label.setText(f"Selected folder: {self.download_folder}")
@@ -546,25 +537,28 @@ class GoProControlApp(QMainWindow):
     def download_files(self):
         """Обработчик нажатия кнопки скачивания"""
         try:
-            # Очищаем предыдущий прогресс
-            self.copy_progress.clear()
-            
-            # Если папка не выбрана, запрашиваем её
-            if not self.download_folder:
-                target_dir = QFileDialog.getExistingDirectory(
-                    self,
-                    "Select Directory for Download",
-                    str(Path.home())
-                )
-                if not target_dir:
-                    return
-                self.download_folder = target_dir
-                self.download_label.setText(f"Selected folder: {self.download_folder}")
-                self.download_label.setStyleSheet("color: green;")
-            
-            # Запускаем копирование
-            self.copy_manager.start_copy_session(Path(self.download_folder))
-            
+            with self.power_manager.prevent_system_sleep():
+                # Очищаем предыдущий прогресс
+                self.copy_progress.clear()
+                
+                # Если папка не выбрана, запрашиваем её
+                if not self.download_folder:
+                    # Получаем последнюю использованную директорию из конфига
+                    initial_dir = self.copy_manager.config.get("last_target_dir", str(Path.home()))
+                    target_dir = QFileDialog.getExistingDirectory(
+                        self,
+                        "Select Directory for Download",
+                        initial_dir
+                    )
+                    if not target_dir:
+                        return
+                    self.download_folder = target_dir
+                    self.download_label.setText(f"Selected folder: {self.download_folder}")
+                    self.download_label.setStyleSheet("color: green;")
+                
+                # Запускаем копирование
+                self.copy_manager.start_copy_session(Path(self.download_folder))
+                
         except Exception as e:
             logging.error(f"Error starting copy: {e}")
             self.log_message(f"Ошибка: {str(e)}")
@@ -583,7 +577,14 @@ class GoProControlApp(QMainWindow):
     def show_preset_manager(self):
         """Показывает диалог управления пресетами"""
         dialog = PresetManagerDialog(self)
-        dialog.exec_()
+        # Ensure mode detection happens before showing
+        dialog.detect_and_sync_prime_camera_mode()
+        dialog.show()
+
+    def show_timelapse(self):
+        """Показывает окно Single Photo Timelapse"""
+        self.timelapse_window = SinglePhotoTimelapseGUI()
+        self.timelapse_window.show()
 
 
 def main():

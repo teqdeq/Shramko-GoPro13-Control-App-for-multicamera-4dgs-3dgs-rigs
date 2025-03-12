@@ -1,8 +1,0 @@
-2024-12-22 15:06:18,491 - asyncio - DEBUG - Using proactor: IocpProactor
-2024-12-22 15:06:18,493 - root - INFO - Searching for GoPro cameras...
-2024-12-22 15:06:18,644 - root - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
-2024-12-22 15:06:18,680 - root - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
-2024-12-22 15:06:23,506 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.177.51:8080
-2024-12-22 15:06:23,574 - urllib3.connectionpool - DEBUG - http://172.29.177.51:8080 "GET /gopro/camera/info HTTP/11" 404 3
-2024-12-22 15:06:23,577 - root - ERROR - Failed to get camera model for 172.29.177.51: 404 Client Error: Not Found for url: http://172.29.177.51:8080/gopro/camera/info
-2024-12-22 15:06:23,579 - root - ERROR - Could not determine primary camera model

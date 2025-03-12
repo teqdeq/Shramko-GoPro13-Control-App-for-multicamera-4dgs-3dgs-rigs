@@ -1,0 +1,11 @@
+2024-12-24 02:35:10,971 - INFO - Starting settings copy
+2024-12-24 02:35:10,984 - DEBUG - Using proactor: IocpProactor
+2024-12-24 02:35:10,988 - INFO - Searching for GoPro cameras...
+2024-12-24 02:35:11,111 - INFO - Discovered GoPro: C3461325908060._gopro-web._tcp.local. at 172.20.160.51
+2024-12-24 02:35:11,167 - INFO - Discovered GoPro: C3461326043977._gopro-web._tcp.local. at 172.29.177.51
+2024-12-24 02:35:15,994 - DEBUG - Using proactor: IocpProactor
+2024-12-24 02:35:15,995 - INFO - Found 2 unique cameras
+2024-12-24 02:35:15,995 - INFO - Getting settings from primary camera 172.20.160.51
+2024-12-24 02:35:16,050 - ERROR - Error getting camera status 172.20.160.51: 404
+2024-12-24 02:35:16,051 - ERROR - Failed to get camera status 172.20.160.51
+2024-12-24 02:35:16,051 - ERROR - Failed to get settings from primary camera

@@ -1,3 +1,0 @@
-2024-12-23 00:16:08,658 - __main__ - INFO - GoPro camera initialized
-2024-12-23 00:16:23,672 - __main__ - INFO - Camera type: 
-2024-12-23 00:16:48,717 - __main__ - ERROR - Error taking RAW photo: 'URLError' object has no attribute 'code'

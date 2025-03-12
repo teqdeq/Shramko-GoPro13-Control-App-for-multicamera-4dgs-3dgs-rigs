@@ -1,11 +1,3 @@
 {
-    "scene_settings": {
-        "max_interval_seconds": 5,
-        "comment": "Максимальный интервал между файлами в секундах для объединения в одну сцену"
-    },
-    "copy_settings": {
-        "max_workers": 4,
-        "retry_count": 3,
-        "retry_delay": 5
-    }
-} 
+    "last_target_dir": "E:\\work\\Philarmony Scan 2025\\Gopro13 4pcs\\2"
+}

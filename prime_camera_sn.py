@@ -5,7 +5,7 @@
 # License: This code is free to use for non-commercial projects.
 # For commercial use, please contact Andrii Shramko at the above email or LinkedIn.
 
-serial_number = "C3461326043977"
+serial_number = "C3531324681989"
 
 if __name__ == "__main__":
     # Test function
