@@ -1,0 +1,35 @@
+2025-04-04 23:19:41,448 - root - INFO - Loaded cached camera devices:
+2025-04-04 23:19:41,448 - root - INFO - Name: C3531324750517, IP: 172.25.117.51
+2025-04-04 23:19:41,448 - root - INFO - Name: C3531325121539, IP: 172.25.139.51
+2025-04-04 23:19:41,448 - root - INFO - Name: C3531324681989, IP: 172.29.189.51
+2025-04-04 23:19:41,448 - root - INFO - Name: C3531350014146, IP: 172.21.146.51
+2025-04-04 23:19:41,448 - root - INFO - Name: C3531325002143._gopro-web._tcp.local., IP: 172.21.143.51
+2025-04-04 23:19:41,448 - root - INFO - Name: C3531324882703._gopro-web._tcp.local., IP: 172.27.103.51
+2025-04-04 23:19:41,457 - root - INFO - Name: C3531325036057._gopro-web._tcp.local., IP: 172.20.157.51
+2025-04-04 23:19:41,458 - root - INFO - Name: C3531324635898._gopro-web._tcp.local., IP: 172.28.198.51
+2025-04-04 23:19:41,458 - root - INFO - Name: C3531350039019._gopro-web._tcp.local., IP: 172.20.119.51
+2025-04-04 23:19:41,458 - root - INFO - Formatting SD cards on all cameras...
+2025-04-04 23:19:41,462 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.146.51:80
+2025-04-04 23:19:41,464 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.25.117.51:80
+2025-04-04 23:19:41,465 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:80
+2025-04-04 23:19:41,466 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.189.51:80
+2025-04-04 23:19:41,467 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.25.139.51:80
+2025-04-04 23:19:41,468 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.103.51:80
+2025-04-04 23:19:41,469 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.157.51:80
+2025-04-04 23:19:41,470 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.198.51:80
+2025-04-04 23:19:41,471 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.119.51:80
+2025-04-04 23:19:41,473 - urllib3.connectionpool - DEBUG - http://172.21.143.51:80 "GET /gp/gpControl/command/storage/delete/all HTTP/1.1" 200 3
+2025-04-04 23:19:41,474 - root - INFO - SD card formatted successfully for camera 172.21.143.51
+2025-04-04 23:19:41,480 - urllib3.connectionpool - DEBUG - http://172.20.157.51:80 "GET /gp/gpControl/command/storage/delete/all HTTP/1.1" 200 3
+2025-04-04 23:19:41,480 - root - INFO - SD card formatted successfully for camera 172.20.157.51
+2025-04-04 23:19:41,481 - urllib3.connectionpool - DEBUG - http://172.27.103.51:80 "GET /gp/gpControl/command/storage/delete/all HTTP/1.1" 200 3
+2025-04-04 23:19:41,481 - root - INFO - SD card formatted successfully for camera 172.27.103.51
+2025-04-04 23:19:41,482 - urllib3.connectionpool - DEBUG - http://172.28.198.51:80 "GET /gp/gpControl/command/storage/delete/all HTTP/1.1" 200 3
+2025-04-04 23:19:41,483 - root - INFO - SD card formatted successfully for camera 172.28.198.51
+2025-04-04 23:19:41,483 - urllib3.connectionpool - DEBUG - http://172.20.119.51:80 "GET /gp/gpControl/command/storage/delete/all HTTP/1.1" 200 3
+2025-04-04 23:19:41,484 - root - INFO - SD card formatted successfully for camera 172.20.119.51
+2025-04-04 23:20:02,508 - root - ERROR - Error formatting SD card for camera 172.25.117.51: HTTPConnectionPool(host='172.25.117.51', port=80): Max retries exceeded with url: /gp/gpControl/command/storage/delete/all (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x00000152DF073890>, 'Connection to 172.25.117.51 timed out. (connect timeout=None)'))
+2025-04-04 23:20:02,509 - root - ERROR - Error formatting SD card for camera 172.25.139.51: HTTPConnectionPool(host='172.25.139.51', port=80): Max retries exceeded with url: /gp/gpControl/command/storage/delete/all (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x00000152DF073D40>, 'Connection to 172.25.139.51 timed out. (connect timeout=None)'))
+2025-04-04 23:20:02,510 - root - ERROR - Error formatting SD card for camera 172.21.146.51: HTTPConnectionPool(host='172.21.146.51', port=80): Max retries exceeded with url: /gp/gpControl/command/storage/delete/all (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x00000152DF072F60>, 'Connection to 172.21.146.51 timed out. (connect timeout=None)'))
+2025-04-04 23:20:02,510 - root - ERROR - Error formatting SD card for camera 172.29.189.51: HTTPConnectionPool(host='172.29.189.51', port=80): Max retries exceeded with url: /gp/gpControl/command/storage/delete/all (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x00000152DF09C2F0>, 'Connection to 172.29.189.51 timed out. (connect timeout=None)'))
+2025-04-04 23:20:02,511 - root - ERROR - Some SD cards failed to format

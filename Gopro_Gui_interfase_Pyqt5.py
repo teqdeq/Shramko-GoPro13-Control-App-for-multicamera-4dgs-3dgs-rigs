@@ -67,6 +67,52 @@ class ScriptRunner(QThread):
             self.finished_signal.emit(False)
 
 
+class RecordThread(QThread):
+    progress_signal = pyqtSignal(str)
+    finished_signal = pyqtSignal(bool)
+
+    def __init__(self, is_recording, parent=None):
+        super().__init__(parent)
+        self.is_recording = is_recording
+
+    def run(self):
+        try:
+            # Define a log handler to capture logs
+            class LogHandler(logging.Handler):
+                def __init__(self, signal):
+                    super().__init__()
+                    self.signal = signal
+
+                def emit(self, record):
+                    msg = self.format(record)
+                    self.signal.emit(msg)
+
+            logger = logging.getLogger()
+            handler = LogHandler(self.progress_signal)
+            handler.setFormatter(logging.Formatter('%(message)s'))
+            logger.addHandler(handler)
+
+            try:
+                if self.is_recording:
+                    import stop_record
+                    stop_record.main()
+                else:
+                    import goprolist_usb_activate_time_sync_record
+                    goprolist_usb_activate_time_sync_record.main()
+
+                self.finished_signal.emit(True)
+            except Exception as e:
+                logging.error(f"Error during recording operation: {e}")
+                self.progress_signal.emit(f"Error: {str(e)}")
+                self.finished_signal.emit(False)
+            finally:
+                logger.removeHandler(handler)
+        except Exception as e:
+            logging.error(f"Thread error: {e}")
+            self.progress_signal.emit(f"Thread error: {str(e)}")
+            self.finished_signal.emit(False)
+
+
 class GoProControlApp(QMainWindow):
     log_signal = pyqtSignal(str)  # Add a signal for logging messages
 
