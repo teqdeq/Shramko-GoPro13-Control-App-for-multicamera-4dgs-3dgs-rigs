@@ -9,7 +9,7 @@ from read_and_write_all_settings_from_prime_to_other_v02 import (
 
 @dataclass
 class CameraResult:
-    """Результат применения настроек к камере"""
+    """Result of applying settings to a camera"""
     camera_ip: str
     success: bool
     settings_applied: Dict[str, bool]
@@ -21,18 +21,18 @@ class CameraSettingsManager:
         self.session: Optional[aiohttp.ClientSession] = None
         
     async def init_session(self):
-        """Инициализация HTTP сессии"""
+        """Initialize the HTTP session"""
         if not self.session:
             self.session = aiohttp.ClientSession(headers=USB_HEADERS)
 
     async def close_session(self):
-        """Закрытие HTTP сессии"""
+        """Close the HTTP session"""
         if self.session:
             await self.session.close()
             self.session = None
             
     async def verify_setting_async(self, camera_ip: str, setting_id: str, expected_value: Any) -> bool:
-        """Асинхронная проверка применения настройки"""
+        """Asynchronous verification of a setting"""
         try:
             url = f"http://{camera_ip}:8080/gp/gpControl/status"
             async with self.session.get(url) as response:
@@ -52,12 +52,12 @@ class CameraSettingsManager:
         value: Any,
         progress_callback: Callable
     ) -> bool:
-        """Асинхронное применение одной настройки"""
+        """Asynchronous application of a single setting"""
         try:
             url = f"http://{camera_ip}:8080/gp/gpControl/setting/{setting_id}/{value}"
             async with self.session.get(url) as response:
                 if response.status == 200:
-                    # Проверяем применение настройки
+                    # Verify the setting
                     if await self.verify_setting_async(camera_ip, setting_id, value):
                         progress_callback("log", f"✅ Camera {camera_ip}: Set {setting_id}={value}")
                         return True
@@ -77,7 +77,7 @@ class CameraSettingsManager:
         settings: Dict[str, Any],
         progress_callback: Callable
     ) -> CameraResult:
-        """Применение всех настроек к одной камере"""
+        """Apply all settings to a single camera"""
         async with self.semaphore:
             try:
                 result = CameraResult(
@@ -86,10 +86,10 @@ class CameraSettingsManager:
                     settings_applied={}
                 )
 
-                # Группируем настройки по приоритетам
+                # Group settings by priority
                 grouped_settings = group_settings_by_priority(settings)
                 
-                # Применяем настройки по группам
+                # Apply settings by groups
                 for priority_group in ['system', 'core', 'features', 'optional']:
                     if priority_group not in grouped_settings:
                         continue
@@ -103,7 +103,7 @@ class CameraSettingsManager:
                         if not success:
                             result.success = False
                         
-                        # Применяем задержки
+                        # Apply delays
                         if priority_group == 'system':
                             await asyncio.sleep(DELAYS['mode'])
                         else:
@@ -127,7 +127,7 @@ class CameraSettingsManager:
         settings: Dict[str, Any],
         progress_callback: Callable
     ) -> List[CameraResult]:
-        """Асинхронное применение настроек ко всем камерам"""
+        """Asynchronous application of settings to all cameras"""
         await self.init_session()
         try:
             tasks = []
@@ -151,9 +151,9 @@ class CameraSettingsManager:
         settings: Dict[str, Any],
         progress_callback: Callable
     ) -> List[CameraResult]:
-        """Синхронная обертка для асинхронного применения настроек"""
+        """Synchronous wrapper for asynchronous settings application"""
         async def _run():
             manager = cls()
             return await manager.apply_settings_to_all_cameras(cameras, settings, progress_callback)
             
-        return asyncio.run(_run()) 
+        return asyncio.run(_run())

@@ -17,19 +17,19 @@ import time
 from PyQt5.QtWidgets import QApplication
 from progress_dialog import SettingsProgressDialog
 
-# Инициализируем логирование
+# Initialize logging
 setup_logging()
 
-# Словарь поддерживаемых настроек для каждой модели
+# Dictionary of supported settings for each model
 CAMERA_SETTINGS = {
     'HERO13': {
         'anti_flicker': {'id': 134, 'values': [0, 1]},  # 0=60Hz, 1=50Hz
         'auto_power_down': {'id': 59, 'values': [0, 1, 2, 3, 4]},  # 0=Never, 1=1min, 2=5min, 3=15min, 4=30min
         'beep_volume': {'id': 87, 'values': [0, 40, 70, 100]},  # 0=Mute, 40=Low, 70=Medium, 100=High
         'video_format': {'id': 79, 'values': [9, 10, 11, 12]},  # 9=HEVC, 10=H264+HEVC, 11=H264, 12=Max Compatibility
-        'video_resolution': {'id': 2, 'values': [1, 4, 9, 12, 18, 27, 37, 38]},  # Различные разрешения
-        'fps': {'id': 3, 'values': [1, 2, 5, 6, 8, 9, 10, 13]},  # Различные значения FPS
-        'lens': {'id': 121, 'values': [0, 4, 7, 9]},  # Различные режимы объектива
+        'video_resolution': {'id': 2, 'values': [1, 4, 9, 12, 18, 27, 37, 38]},  # Various resolutions
+        'fps': {'id': 3, 'values': [1, 2, 5, 6, 8, 9, 10, 13]},  # Various FPS values
+        'lens': {'id': 121, 'values': [0, 4, 7, 9]},  # Various lens modes
         'hypersmooth': {'id': 135, 'values': [0, 1, 2, 3]},  # 0=Off, 1=On, 2=High, 3=Boost
         'bit_depth': {'id': 183, 'values': [0, 2]},  # 0=8bit, 2=10bit
         'white_balance': {'id': 11, 'values': [0, 1, 2, 3, 4, 8]},  # Auto, 3000K, 4000K, 5500K, 6500K, Native
@@ -37,7 +37,7 @@ CAMERA_SETTINGS = {
         'iso_min': {'id': 102, 'values': [0, 1, 2, 3, 4]},  # 100, 200, 400, 800, 1600
         'sharpness': {'id': 14, 'values': [0, 1, 2]},  # Low, Medium, High
         'ev_comp': {'id': 15, 'values': [0, 1, 2, 3, 4, 5, 6, 7, 8]},  # -2.0 to +2.0
-        'photo_resolution': {'id': 17, 'values': [12, 18, 27]},  # Различные разрешения фото
+        'photo_resolution': {'id': 17, 'values': [12, 18, 27]},  # Various photo resolutions
         'raw_photo': {'id': 82, 'values': [0, 1]},  # 0=Off, 1=On
         'media_format': {'id': 128, 'values': [1]},  # 1=Format SD Card
         'camera_orientation': {'id': 52, 'values': [0, 1]},  # 0=Up, 1=Down
@@ -63,9 +63,9 @@ CAMERA_SETTINGS = {
         'auto_power_down': {'id': 59, 'values': [0, 1, 2, 3, 4]},  # 0=Never, 1=1min, 2=5min, 3=15min, 4=30min
         'beep_volume': {'id': 87, 'values': [0, 40, 70, 100]},  # 0=Mute, 40=Low, 70=Medium, 100=High
         'video_format': {'id': 79, 'values': [9, 10, 11]},  # 9=HEVC, 10=H264+HEVC, 11=H264
-        'video_resolution': {'id': 2, 'values': [1, 4, 9, 12, 18, 27]},  # Различные разрешения
-        'fps': {'id': 3, 'values': [1, 2, 5, 6, 8, 9, 10]},  # Различные значения FPS
-        'lens': {'id': 121, 'values': [0, 4, 7]},  # Различные режимы объектива
+        'video_resolution': {'id': 2, 'values': [1, 4, 9, 12, 18, 27]},  # Various resolutions
+        'fps': {'id': 3, 'values': [1, 2, 5, 6, 8, 9, 10]},  # Various FPS values
+        'lens': {'id': 121, 'values': [0, 4, 7]},  # Various lens modes
         'hypersmooth': {'id': 135, 'values': [0, 1, 2, 3]},  # 0=Off, 1=On, 2=High, 3=Boost
         'bit_depth': {'id': 183, 'values': [0, 2]},  # 0=8bit, 2=10bit
         'white_balance': {'id': 11, 'values': [0, 1, 2, 3, 4, 8]},  # Auto, 3000K, 4000K, 5500K, 6500K, Native
@@ -73,7 +73,7 @@ CAMERA_SETTINGS = {
         'iso_min': {'id': 102, 'values': [0, 1, 2, 3, 4]},  # 100, 200, 400, 800, 1600
         'sharpness': {'id': 14, 'values': [0, 1, 2]},  # Low, Medium, High
         'ev_comp': {'id': 15, 'values': [0, 1, 2, 3, 4, 5, 6, 7, 8]},  # -2.0 to +2.0
-        'photo_resolution': {'id': 17, 'values': [12, 18, 27]},  # ��азличные разрешения фото
+        'photo_resolution': {'id': 17, 'values': [12, 18, 27]},  # Various photo resolutions
         'raw_photo': {'id': 82, 'values': [0, 1]},  # 0=Off, 1=On
         'media_format': {'id': 128, 'values': [1]},  # 1=Format SD Card
         'camera_orientation': {'id': 52, 'values': [0, 1]},  # 0=Up, 1=Down
@@ -90,16 +90,16 @@ CAMERA_SETTINGS = {
         'auto_power_down': {'id': 59, 'values': [0, 1, 2, 3, 4]},  # 0=Never, 1=1min, 2=5min, 3=15min, 4=30min
         'beep_volume': {'id': 87, 'values': [0, 40, 70, 100]},  # 0=Mute, 40=Low, 70=Medium, 100=High
         'video_format': {'id': 79, 'values': [9, 10, 11]},  # 9=HEVC, 10=H264+HEVC, 11=H264
-        'video_resolution': {'id': 2, 'values': [1, 4, 9, 12, 18, 27]},  # Различные разрешения
-        'fps': {'id': 3, 'values': [1, 2, 5, 6, 8, 9, 10]},  # Различные значения FPS
-        'lens': {'id': 121, 'values': [0, 4, 7]},  # Различные режимы объектива
+        'video_resolution': {'id': 2, 'values': [1, 4, 9, 12, 18, 27]},  # Various resolutions
+        'fps': {'id': 3, 'values': [1, 2, 5, 6, 8, 9, 10]},  # Various FPS values
+        'lens': {'id': 121, 'values': [0, 4, 7]},  # Various lens modes
         'hypersmooth': {'id': 135, 'values': [0, 1, 2, 3]},  # 0=Off, 1=On, 2=High, 3=Boost
         'white_balance': {'id': 11, 'values': [0, 1, 2, 3, 4, 8]},  # Auto, 3000K, 4000K, 5500K, 6500K, Native
         'iso_max': {'id': 13, 'values': [0, 1, 2, 3, 4, 5]},  # 100, 200, 400, 800, 1600, 3200
         'iso_min': {'id': 102, 'values': [0, 1, 2, 3, 4]},  # 100, 200, 400, 800, 1600
         'sharpness': {'id': 14, 'values': [0, 1, 2]},  # Low, Medium, High
         'ev_comp': {'id': 15, 'values': [0, 1, 2, 3, 4, 5, 6, 7, 8]},  # -2.0 to +2.0
-        'photo_resolution': {'id': 17, 'values': [12, 18, 27]},  # Различные разрешения фото
+        'photo_resolution': {'id': 17, 'values': [12, 18, 27]},  # Various photo resolutions
         'raw_photo': {'id': 82, 'values': [0, 1]},  # 0=Off, 1=On
         'media_format': {'id': 128, 'values': [1]},  # 1=Format SD Card
         'camera_orientation': {'id': 52, 'values': [0, 1]},  # 0=Up, 1=Down
@@ -116,16 +116,16 @@ CAMERA_SETTINGS = {
         'auto_power_down': {'id': 59, 'values': [0, 1, 2, 3, 4]},  # 0=Never, 1=1min, 2=5min, 3=15min, 4=30min
         'beep_volume': {'id': 87, 'values': [0, 40, 70, 100]},  # 0=Mute, 40=Low, 70=Medium, 100=High
         'video_format': {'id': 79, 'values': [9, 10, 11]},  # 9=HEVC, 10=H264+HEVC, 11=H264
-        'video_resolution': {'id': 2, 'values': [1, 4, 9, 12, 18]},  # Различные разрешения
-        'fps': {'id': 3, 'values': [1, 2, 5, 6, 8, 9, 10]},  # Различные значения FPS
-        'lens': {'id': 121, 'values': [0, 4, 7]},  # Различные режимы объектива
+        'video_resolution': {'id': 2, 'values': [1, 4, 9, 12, 18]},  # Various resolutions
+        'fps': {'id': 3, 'values': [1, 2, 5, 6, 8, 9, 10]},  # Various FPS values
+        'lens': {'id': 121, 'values': [0, 4, 7]},  # Various lens modes
         'hypersmooth': {'id': 135, 'values': [0, 1, 2]},  # 0=Off, 1=On, 2=High
         'white_balance': {'id': 11, 'values': [0, 1, 2, 3, 4]},  # Auto, 3000K, 4000K, 5500K, 6500K
         'iso_max': {'id': 13, 'values': [0, 1, 2, 3, 4]},  # 100, 200, 400, 800, 1600
         'iso_min': {'id': 102, 'values': [0, 1, 2, 3]},  # 100, 200, 400, 800
         'sharpness': {'id': 14, 'values': [0, 1, 2]},  # Low, Medium, High
         'ev_comp': {'id': 15, 'values': [0, 1, 2, 3, 4, 5, 6, 7, 8]},  # -2.0 to +2.0
-        'photo_resolution': {'id': 17, 'values': [12, 18, 27]},  # Различные разрешения фото
+        'photo_resolution': {'id': 17, 'values': [12, 18, 27]},  # Various photo resolutions
         'raw_photo': {'id': 82, 'values': [0, 1]},  # 0=Off, 1=On
         'media_format': {'id': 128, 'values': [1]},  # 1=Format SD Card
         'camera_orientation': {'id': 52, 'values': [0, 1]},  # 0=Up, 1=Down
@@ -140,9 +140,9 @@ CAMERA_SETTINGS = {
 }
 
 def get_camera_model(camera_ip):
-    """Определяет модель камеры по IP"""
+    """Determines the camera model by IP"""
     try:
-        # Используем правильный эндпоинт из документации
+        # Use the correct endpoint from the documentation
         url = f"http://{camera_ip}:8080/gp/gpControl/info"
         try:
             response = requests.get(url, timeout=5)
@@ -153,7 +153,7 @@ def get_camera_model(camera_ip):
             
             logging.info(f"Camera info: Model={model_name}, Firmware={firmware}")
             
-            # Определяем модель камеры
+            # Determine the camera model
             if "HERO13" in model_name:
                 return "HERO13"
             elif "HERO12" in model_name:
@@ -167,17 +167,17 @@ def get_camera_model(camera_ip):
         except requests.RequestException as e:
             logging.warning(f"Failed to get model via /gp/gpControl/info for {camera_ip}: {e}")
             
-        # Если не получилось, пробуем через status
+        # If it fails, try using the status endpoint
         url = f"http://{camera_ip}:8080/gp/gpControl/status"
         response = requests.get(url, timeout=5)
         response.raise_for_status()
         state = response.json()
         
-        # Получаем модель из системной информации
+        # Get the model from system information
         system_info = state.get("status", {})
-        model_number = system_info.get("30", "")  # Поле 30 содержит имя камеры
+        model_number = system_info.get("30", "")  # Field 30 contains the camera name
         
-        # Определяем модель по номеру модели
+        # Determine the model by model number
         model_map = {
             "HD13": "HERO13",
             "HD12": "HERO12",
@@ -198,17 +198,17 @@ def get_camera_model(camera_ip):
         return None
 
 def is_setting_supported(setting_id, value, camera_model):
-    """Проверяет поддержку настройки для данной модели камеры"""
+    """Checks if a setting is supported for the given camera model"""
     try:
         if camera_model not in CAMERA_SETTINGS:
             logging.warning(f"Camera model {camera_model} not found in supported settings")
             return False
         
-        # Преобразуем setting_id в int
+        # Convert setting_id to int
         setting_id = int(setting_id)
         value = int(value)
         
-        # Ищем настройку по ID
+        # Look for the setting by ID
         for setting_name, setting_info in CAMERA_SETTINGS[camera_model].items():
             if setting_info['id'] == setting_id:
                 if value in setting_info['values']:
@@ -229,27 +229,27 @@ def is_setting_supported(setting_id, value, camera_model):
         return False
 
 def check_camera_state(camera_ip):
-    """Проверяет состояние камеры перед применением настроек"""
+    """Checks the state of the camera before applying settings"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/status"
         response = requests.get(url, timeout=5)
         response.raise_for_status()
         state = response.json()
         
-        # Проверяем состояние камеры
+        # Check the camera state
         status = state.get("status", {})
         settings = state.get("settings", {})
         
-        # Логируем все важные состояния для отладки
+        # Log all important states for debugging
         logging.debug(f"Camera {camera_ip} full status: {json.dumps(status, indent=2)}")
         
-        # Проверяем различные состояния
+        # Check various states
         is_recording = status.get("43", 0) == 1  # 43 = Recording state
         is_busy = status.get("8", 0) == 1        # 8 = System busy
         is_encoding = status.get("10", 0) == 1   # 10 = Encoding
-        battery_level = status.get("2", 0)       # 2 = Battery level (только для информации)
+        battery_level = status.get("2", 0)       # 2 = Battery level (for information only)
         
-        # Логируем состояния
+        # Log states
         logging.info(f"""
 Camera {camera_ip} state:
 - Recording: {is_recording}
@@ -276,7 +276,7 @@ Camera {camera_ip} state:
         return False
 
 def check_copy_settings_dependencies():
-    """Проверка зависимостей для копирования настроек"""
+    """Checks dependencies for copying settings"""
     required_files = [
         'prime_camera_sn.py',
         'goprolist_and_start_usb.py',
@@ -545,16 +545,16 @@ def copy_camera_settings(progress_callback=None):
         return False
 
 def get_camera_list():
-    """Получает список всех подключенных камер"""
+    """Gets the list of all connected cameras"""
     try:
-        # Подключаем камеры по USB
+        # Connect cameras via USB
         import goprolist_and_start_usb
         goprolist_and_start_usb.main()
         
-        # Даем время на инициализацию USB
+        # Allow time for USB initialization
         time.sleep(2)
         
-        # Получаем список камер
+        # Retrieve the list of cameras
         devices = discover_gopro_devices()
         if not devices:
             logging.error("No GoPro devices found")
@@ -568,34 +568,34 @@ def get_camera_list():
         return None
 
 def is_prime_camera(camera):
-    """Проверяет, является ли камера основной"""
+    """Checks if the camera is the primary one"""
     try:
-        # Получаем серийный номер основной камеры
+        # Get the serial number of the primary camera
         prime_serial = get_primary_camera_serial()
         if not prime_serial:
             logging.error("Could not get primary camera serial number")
             return False
             
-        # Получаем серийный номер проверяемой камеры
+        # Get the serial number of the camera being checked
         url = f"http://{camera['ip']}:8080/gp/gpControl/info"
         response = requests.get(url, timeout=5)
         response.raise_for_status()
         info = response.json()
         camera_serial = info.get("info", {}).get("serial_number")
         
-        # Сравниваем серийные номера
+        # Compare serial numbers
         is_prime = prime_serial in str(camera_serial)
         if is_prime:
-            logging.info(f"Found prime camera: {camera}")
+            logging.info(f"Found primary camera: {camera}")
         
         return is_prime
         
     except Exception as e:
-        logging.error(f"Error checking if camera is prime: {e}")
+        logging.error(f"Error checking if camera is primary: {e}")
         return False
 
 def get_camera_settings(camera):
-    """Получает текущие настройки камеры"""
+    """Gets the current settings of the camera"""
     try:
         url = f"http://{camera['ip']}:8080/gp/gpControl/status"
         response = requests.get(url, timeout=5)

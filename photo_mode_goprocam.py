@@ -12,12 +12,12 @@ import time
 from utils import setup_logging
 from goprolist_and_start_usb import discover_gopro_devices
 
-# Инициализируем логирование с именем модуля
+# Initialize logging with the module name
 logger = setup_logging(__name__)
 
 def take_raw_photo():
     try:
-        # Получаем список камер
+        # Get the list of cameras
         devices = discover_gopro_devices()
         if not devices:
             logger.error("No GoPro devices found")
@@ -28,25 +28,25 @@ def take_raw_photo():
                 ip = device['ip']
                 logger.info(f"Connecting to GoPro at {ip}")
                 
-                # Инициализация камеры с конкретным IP
+                # Initialize the camera with the specific IP
                 gopro = GoProCamera.GoPro(ip_address=ip)
                 
-                # Проверяем тип камеры
+                # Check the type of camera
                 camera_type = gopro.whichCam()
                 logger.info(f"Camera type: {camera_type}")
                 
-                # Ждем стабилизации соединения
+                # Wait for the connection to stabilize
                 time.sleep(2)
                 
-                # Переключаем в режим фото
+                # Switch to photo mode
                 gopro.mode(constants.Mode.PhotoMode)
                 logger.info("Photo mode set")
                 
-                # Делаем фото с таймером 2 секунды
+                # Take a photo with a 2-second timer
                 photo_url = gopro.take_photo(timer=2)
                 logger.info(f"Photo taken, URL: {photo_url}")
                 
-                # Скачиваем фото
+                # Download the photo
                 if photo_url:
                     gopro.downloadLastMedia(custom_filename=f"RAW_photo_{device['name']}.jpg")
                     logger.info(f"Photo downloaded from {device['name']}")
@@ -66,4 +66,4 @@ if __name__ == "__main__":
         take_raw_photo()
     except Exception as e:
         logger.error(f"An error occurred: {e}")
-        raise 
+        raise

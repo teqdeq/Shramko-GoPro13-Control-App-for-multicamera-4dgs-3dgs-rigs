@@ -1,186 +1,186 @@
-# Инструкция по реализации системы копирования файлов с GoPro камер
+# Instructions for Implementing the File Copy System from GoPro Cameras
 
-## 1. Структура системы
+## 1. System Structure
 
-### 1.1 Основные компоненты
-- `CopyManager` - главный класс управления копированием
-- `FileStatistics` - класс для сбора статистики
-- `CopyProgressWidget` - виджет для отображения прогресса
-- Система логирования
+### 1.1 Main Components
+- `CopyManager` - the main class for managing copying
+- `FileStatistics` - class for collecting statistics
+- `CopyProgressWidget` - widget for displaying progress
+- Logging system
 
-### 1.2 Вспомогательные классы
-- `FileInfo` - информация о файле
-- `SceneInfo` - информация о сцене (группе файлов)
-- `CopyStatistics` - статистика копирования
+### 1.2 Auxiliary Classes
+- `FileInfo` - information about a file
+- `SceneInfo` - information about a scene (group of files)
+- `CopyStatistics` - copy statistics
 
-## 2. Процесс копирования
+## 2. Copy Process
 
-### 2.1 Подготовка к копированию
-1. Получить список камер из camera_cache.json
-2. Для каждой камеры:
-   - Запросить список файлов через API (/gopro/media/list)
-   - Создать объекты FileInfo для каждого файла
-   - Проверить доступность камеры
+### 2.1 Preparation for Copying
+1. Get the list of cameras from `camera_cache.json`
+2. For each camera:
+   - Request the list of files via the API (`/gopro/media/list`)
+   - Create `FileInfo` objects for each file
+   - Check the availability of the camera
 
-### 2.2 Группировка файлов по сценам
-1. Сортировать файлы по времени создания
-2. Группировать файлы в сцены:
-   - Интервал между файлами <= 5 минут = одна сцена
-   - Создавать новую сцену при превышении интервала
-3. Для каждой сцены:
-   - Создать уникальное имя на основе времени
-   - Подсчитать общий размер файлов
-   - Создать директорию для сцены
+### 2.2 Grouping Files into Scenes
+1. Sort files by creation time
+2. Group files into scenes:
+   - Interval between files <= 5 minutes = one scene
+   - Create a new scene if the interval is exceeded
+3. For each scene:
+   - Create a unique name based on the time
+   - Calculate the total size of the files
+   - Create a directory for the scene
 
-### 2.3 Процесс копирования
-1. Для каждой сцены:
-   - Создать директорию сцены
-   - Для каждого файла в сцене:
-     * Проверить существование файла
-     * Проверить размер если файл существует
-     * Копировать файл с отслеживанием прогресса
-     * Верифицировать скопированный файл
+### 2.3 Copying Process
+1. For each scene:
+   - Create a directory for the scene
+   - For each file in the scene:
+     * Check if the file exists
+     * Verify the size if the file exists
+     * Copy the file while tracking progress
+     * Verify the copied file
 
-### 2.4 Верификация копирования
-1. Проверять размер файла до и после копирования
-2. Проверять доступность файла на камере
-3. Проверять права доступа к директории назначения
-4. Проверять свободное место на диске
+### 2.4 Copy Verification
+1. Check the file size before and after copying
+2. Check the availability of the file on the camera
+3. Check write permissions for the destination directory
+4. Check available disk space
 
-## 3. Система логирования
+## 3. Logging System
 
-### 3.1 Уровни логирования
-- DEBUG: детальная информация для отладки
-- INFO: основные операции копирования
-- WARNING: некритичные проблемы
-- ERROR: критические ошибки
-- CRITICAL: фатальные ошибки
+### 3.1 Logging Levels
+- DEBUG: detailed information for debugging
+- INFO: main copy operations
+- WARNING: non-critical issues
+- ERROR: critical errors
+- CRITICAL: fatal errors
 
-### 3.2 Что логировать
-1. Начало/конец копирования
-2. Статус каждого файла:
-   - Начало копирования
-   - Прогресс копирования
-   - Завершение копирования
-   - Ошибки копирования
-3. Статистику:
-   - Общее количество файлов
-   - Размер файлов
-   - Время копирования
-   - Скорость копирования
-4. Ошибки:
-   - Недоступность камеры
-   - Ошибки чтения/записи
-   - Ошибки верификации
+### 3.2 What to Log
+1. Start/end of copying
+2. Status of each file:
+   - Start of copying
+   - Copy progress
+   - Completion of copying
+   - Copy errors
+3. Statistics:
+   - Total number of files
+   - File sizes
+   - Copying time
+   - Copying speed
+4. Errors:
+   - Camera unavailability
+   - Read/write errors
+   - Verification errors
 
-### 3.3 Формат лога
+### 3.3 Log Format
 ```
 [TIMESTAMP] [LEVEL] [MODULE] Message
-Дополнительная информация в нескольких строках
+Additional information in multiple lines
 ```
 
-## 4. Обработка ошибок
+## 4. Error Handling
 
-### 4.1 Типы ошибок
-1. Ошибки подключения:
-   - Камера недоступна
-   - Сетевые проблемы
-2. Ошибки файловой системы:
-   - Недостаточно места
-   - Нет прав доступа
-   - Файл занят
-3. Ошибки данных:
-   - Неверный размер файла
-   - Ошибка верификации
-4. Ошибки API камеры:
-   - Неверный ответ
-   - Таймаут
+### 4.1 Types of Errors
+1. Connection errors:
+   - Camera unavailable
+   - Network issues
+2. File system errors:
+   - Insufficient space
+   - No write permissions
+   - File is locked
+3. Data errors:
+   - Incorrect file size
+   - Verification error
+4. Camera API errors:
+   - Invalid response
+   - Timeout
 
-### 4.2 Обработка ошибок
-1. Для каждого типа ошибки:
-   - Логировать детали
-   - Обновлять статус файла
-   - Уведомлять пользователя
-2. Стратегии восстановления:
-   - Повторные попытки для сетевых ошибок
-   - Пропуск проблемных файлов
-   - Возможность продолжить с места сбоя
+### 4.2 Error Handling
+1. For each type of error:
+   - Log the details
+   - Update the file status
+   - Notify the user
+2. Recovery strategies:
+   - Retry for network errors
+   - Skip problematic files
+   - Allow resuming from the point of failure
 
-## 5. Отображение прогресса
+## 5. Progress Display
 
-### 5.1 Информация для отображения
-1. Общий прогресс:
-   - Процент выполнения
-   - Оставшееся время
-   - Скорость копирования
-2. Прогресс по сценам:
-   - Название сцены
-   - Количес��во файлов
-   - Статус копирования
-3. Прогресс по файлам:
-   - Имя файла
-   - Размер
-   - Статус
-   - Процент выполнения
-4. Статистика:
-   - Всего файлов
-   - Скопировано
-   - Пропущено
-   - Ошибки
+### 5.1 Information to Display
+1. Overall progress:
+   - Percentage completed
+   - Remaining time
+   - Copying speed
+2. Scene progress:
+   - Scene name
+   - Number of files
+   - Copying status
+3. File progress:
+   - File name
+   - Size
+   - Status
+   - Percentage completed
+4. Statistics:
+   - Total files
+   - Copied
+   - Skipped
+   - Errors
 
-### 5.2 Обновление GUI
-1. Использовать сигналы Qt:
-   - progress_updated
-   - status_updated
-   - error_occurred
-2. Частота обновления:
-   - Прогресс: каждые 100мс
-   - Статистика: каждую секунду
-   - Ошибки: немедленно
+### 5.2 GUI Updates
+1. Use Qt signals:
+   - `progress_updated`
+   - `status_updated`
+   - `error_occurred`
+2. Update frequency:
+   - Progress: every 100ms
+   - Statistics: every second
+   - Errors: immediately
 
-## 6. Оптимизация
+## 6. Optimization
 
-### 6.1 Производительность
-1. Многопоточное копирование:
-   - ThreadPoolExecutor для параллельного копирования
-   - Ограничение количества потоков
-2. Размер буфера:
-   - Оптимальный размер chunk_size
-   - Управление памятью
-3. Кэширование:
-   - Кэш списка файлов
-   - Кэш статистики
+### 6.1 Performance
+1. Multithreaded copying:
+   - Use `ThreadPoolExecutor` for parallel copying
+   - Limit the number of threads
+2. Buffer size:
+   - Optimal `chunk_size`
+   - Memory management
+3. Caching:
+   - Cache the file list
+   - Cache statistics
 
-### 6.2 Надежность
-1. Механизм восстановления:
-   - Сохранение состояния копирования
-   - Возможность продолжить ��рерванное копирование
-2. Проверка целостности:
-   - Проверка размера файлов
-   - Проверка доступности файлов
-3. Обработка исключений:
-   - Корректное закрытие потоков
-   - Освобождение ресурсов
+### 6.2 Reliability
+1. Recovery mechanism:
+   - Save the copy state
+   - Allow resuming interrupted copying
+2. Integrity checks:
+   - Verify file sizes
+   - Check file availability
+3. Exception handling:
+   - Properly close threads
+   - Release resources
 
-## 7. Тестирование
+## 7. Testing
 
-### 7.1 Модульные тесты
-1. Тестирование компонентов:
-   - CopyManager
-   - FileStatistics
-   - Логирование
-2. Тестирование сценариев:
-   - Успешное копирование
-   - Обработка ошибок
-   - Отмена копирования
+### 7.1 Unit Tests
+1. Test components:
+   - `CopyManager`
+   - `FileStatistics`
+   - Logging
+2. Test scenarios:
+   - Successful copying
+   - Error handling
+   - Copy cancellation
 
-### 7.2 Интеграционные тесты
-1. Взаимодействие с камерами
-2. Работа с файловой системой
-3. Обновление GUI
+### 7.2 Integration Tests
+1. Interaction with cameras
+2. File system operations
+3. GUI updates
 
-### 7.3 Тестовые сценарии
-1. Копирование больших файлов
-2. Прерывание копирования
-3. Потеря связи с камерой
-4. Нехватка места на диске 
+### 7.3 Test Scenarios
+1. Copying large files
+2. Interrupting copying
+3. Losing connection to the camera
+4. Running out of disk space

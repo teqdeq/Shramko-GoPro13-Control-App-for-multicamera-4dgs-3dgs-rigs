@@ -32,13 +32,13 @@ import aiohttp
 from utils import setup_logging, check_dependencies
 from goprolist_and_start_usb import discover_gopro_devices
 
-# Инициализируем логирование с именем модуля
+# Initialize logging with the module name
 logger = setup_logging(__name__)
 
 async def set_photo_mode_async(session, camera_ip, camera_name):
-    """Асинхронная установка режима фото для одной камеры"""
+    """Asynchronously set photo mode for a single camera"""
     try:
-        # Правильный URL для API GoPro
+        # Correct URL for GoPro API
         async with session.get(f"http://{camera_ip}:8080/gp/gpControl/command/mode?p=1", timeout=5) as response:
             if response.status == 200:
                 logger.info(f"Photo mode command sent successfully to camera {camera_name}")
@@ -55,17 +55,17 @@ async def set_photo_mode_async(session, camera_ip, camera_name):
         return False
 
 async def set_all_cameras_photo_mode_async(devices):
-    """Асинхронная установка режима фото для всех камер одновременно"""
+    """Asynchronously set photo mode for all cameras simultaneously"""
     async with aiohttp.ClientSession() as session:
         tasks = []
         for device in devices:
             task = set_photo_mode_async(session, device['ip'], device['name'])
             tasks.append(task)
         
-        # Запускаем все задачи одновременно
+        # Run all tasks simultaneously
         results = await asyncio.gather(*tasks, return_exceptions=True)
         
-        # Проверяем результаты
+        # Check results
         success = True
         for device, result in zip(devices, results):
             if isinstance(result, Exception):
@@ -74,10 +74,10 @@ async def set_all_cameras_photo_mode_async(devices):
             elif not result:
                 success = False
         
-        return True  # Возвращаем True, если команды были отправлены успешно
+        return success  # Return True if commands were sent successfully
 
 def main():
-    """Основная функция для запуска из GUI или командной строки"""
+    """Main function for running from GUI or command line"""
     try:
         check_dependencies()
         devices = discover_gopro_devices()
@@ -85,7 +85,7 @@ def main():
             logger.error("No GoPro devices found")
             return False
 
-        # Запускаем асинхронную установку режима
+        # Run asynchronous mode setting
         success = asyncio.run(set_all_cameras_photo_mode_async(devices))
         
         return success

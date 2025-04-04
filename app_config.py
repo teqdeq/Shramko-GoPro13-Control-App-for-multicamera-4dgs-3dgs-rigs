@@ -4,7 +4,7 @@ from typing import Dict, Any, Optional
 from utils import load_json, save_json, get_data_dir, logger
 
 class AppConfig:
-    """Класс для управления конфигурацией приложения"""
+    """Class for managing application configuration"""
     
     def __init__(self):
         self.data_dir = get_data_dir()
@@ -12,7 +12,7 @@ class AppConfig:
         self.config: Dict[str, Any] = self._load_config()
     
     def _load_config(self) -> Dict[str, Any]:
-        """Загрузка конфигурации из файла"""
+        """Load configuration from file"""
         default_config = {
             'camera_settings': {
                 'default_preset': 0,
@@ -52,7 +52,7 @@ class AppConfig:
             logger.warning("Failed to load config, using defaults")
             return default_config
         
-        # Обновляем конфиг новыми полями из дефолтного конфига
+        # Update the config with new fields from the default config
         updated = False
         for key, value in default_config.items():
             if key not in config:
@@ -70,7 +70,7 @@ class AppConfig:
         return config
     
     def get(self, key: str, default: Any = None) -> Any:
-        """Получить значение из конфига"""
+        """Get a value from the config"""
         keys = key.split('.')
         value = self.config
         try:
@@ -81,7 +81,7 @@ class AppConfig:
             return default
     
     def set(self, key: str, value: Any) -> bool:
-        """Установить значение в конфиге"""
+        """Set a value in the config"""
         keys = key.split('.')
         config = self.config
         for k in keys[:-1]:
@@ -93,8 +93,8 @@ class AppConfig:
         return save_json(self.config, self.config_file)
     
     def save(self) -> bool:
-        """Сохранить конфиг в файл"""
+        """Save the config to a file"""
         return save_json(self.config, self.config_file)
 
-# Создаем глобальный экземпляр конфигурации
-config = AppConfig() 
+# Create a global instance of the configuration
+config = AppConfig()

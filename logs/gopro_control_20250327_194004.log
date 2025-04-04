@@ -1,0 +1,38 @@
+2025-03-27 19:40:05,151 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 19:40:05,154 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-03-27 19:40:05,321 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-03-27 19:40:05,335 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:05,400 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1583
+2025-03-27 19:40:20,155 - root - INFO - Found 1 GoPro devices.
+2025-03-27 19:40:20,159 - root - INFO - Found the following GoPro devices:
+2025-03-27 19:40:20,159 - root - INFO - Name: C3531325002143._gopro-web._tcp.local., IP: 172.21.143.51
+2025-03-27 19:40:20,166 - root - INFO - Cache updated successfully with 5 devices.
+2025-03-27 19:40:20,168 - root - INFO - Resetting USB control on camera 172.21.143.51 (attempt 1/3)
+2025-03-27 19:40:20,170 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:20,275 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/1.1" 200 3
+2025-03-27 19:40:20,276 - root - INFO - USB control disabled on camera 172.21.143.51.
+2025-03-27 19:40:22,280 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:22,374 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/1.1" 200 3
+2025-03-27 19:40:22,375 - root - INFO - USB control enabled on camera 172.21.143.51.
+2025-03-27 19:40:22,378 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:22,415 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1583
+2025-03-27 19:40:22,416 - root - INFO - USB control successfully reset for camera 172.21.143.51
+2025-03-27 19:40:24,428 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 19:40:24,430 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-03-27 19:40:24,566 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-03-27 19:40:24,567 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:24,601 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1583
+2025-03-27 19:40:39,431 - root - INFO - Found 1 GoPro devices.
+2025-03-27 19:40:39,435 - root - INFO - Found 1 cameras
+2025-03-27 19:40:39,442 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:39,467 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/info HTTP/1.1" 200 306
+2025-03-27 19:40:39,468 - root - INFO - Found prime camera: {'name': 'C3531325002143._gopro-web._tcp.local.', 'ip': '172.21.143.51'}
+2025-03-27 19:40:39,473 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:39,509 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/status HTTP/1.1" 200 1583
+2025-03-27 19:40:39,514 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:39,521 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/info HTTP/1.1" 200 306
+2025-03-27 19:40:39,522 - root - INFO - Camera info: Model=HERO13 BLACK, Firmware=H24.01.01.30.72
+2025-03-27 19:40:39,526 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:40:39,532 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/info HTTP/1.1" 200 306
+2025-03-27 19:40:39,532 - root - INFO - Found prime camera: {'name': 'C3531325002143._gopro-web._tcp.local.', 'ip': '172.21.143.51'}
+2025-03-27 19:40:39,533 - root - ERROR - Error copying settings: max_workers must be greater than 0

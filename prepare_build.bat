@@ -4,12 +4,12 @@ echo Creating build environment...
 set BUILD_DIR=C:\!AndriiShramko\inventions\SDKGOPROShramko\build_env
 set SOURCE_DIR=C:\!AndriiShramko\inventions\SDKGOPROShramko\GoProControl\api\v2\v38
 
-:: Создаем директории
+:: Create directories
 mkdir "%BUILD_DIR%" 2>nul
 mkdir "%BUILD_DIR%\data" 2>nul
 mkdir "%BUILD_DIR%\logs" 2>nul
 
-:: Копируем все необходимые файлы
+:: Copy all necessary files
 echo Copying files...
 copy "%SOURCE_DIR%\status_of_cameras_GUI.py" "%BUILD_DIR%"
 copy "%SOURCE_DIR%\status_of_cameras_GUI.spec" "%BUILD_DIR%"
@@ -22,7 +22,7 @@ copy "%SOURCE_DIR%\camera_cache.json" "%BUILD_DIR%\data"
 copy "%SOURCE_DIR%\icon.ico" "%BUILD_DIR%"
 xcopy /E /I "%SOURCE_DIR%\ico" "%BUILD_DIR%\ico"
 
-:: Копируем остальные зависимые файлы
+:: Copy other dependent files
 copy "%SOURCE_DIR%\read_and_write_all_settings_from_prime_to_other.py" "%BUILD_DIR%"
 copy "%SOURCE_DIR%\copy_to_pc_and_scene_sorting.py" "%BUILD_DIR%"
 copy "%SOURCE_DIR%\copy_to_pc.py" "%BUILD_DIR%"
@@ -34,7 +34,7 @@ copy "%SOURCE_DIR%\camera_orientation_lock.py" "%BUILD_DIR%"
 copy "%SOURCE_DIR%\set_preset_0.py" "%BUILD_DIR%"
 copy "%SOURCE_DIR%\set_video_mode.py" "%BUILD_DIR%"
 
-:: Копируем requirements.txt
+:: Copy requirements.txt
 copy "%SOURCE_DIR%\requirements.txt" "%BUILD_DIR%"
 
-echo Build environment prepared 
+echo Build environment prepared

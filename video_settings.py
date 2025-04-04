@@ -11,7 +11,7 @@ import json
 from utils import setup_logging, check_dependencies, get_data_dir
 from goprolist_and_start_usb import discover_gopro_devices
 
-# Инициализируем логирование с именем модуля
+# Initialize logging with the module name
 logger = setup_logging(__name__)
 
 class VideoSettings:
@@ -24,7 +24,7 @@ class VideoSettings:
         }
         
     def apply_settings(self, camera_ip):
-        """Применение настроек видео"""
+        """Apply video settings"""
         try:
             for setting_name, setting_data in self.settings.items():
                 response = requests.get(
@@ -41,7 +41,7 @@ class VideoSettings:
             return False
 
     def save_settings(self, filename="video_settings.json"):
-        """Сохранение настроек в файл"""
+        """Save settings to a file"""
         try:
             settings_file = get_data_dir() / filename
             with open(settings_file, 'w') as f:
@@ -53,7 +53,7 @@ class VideoSettings:
             return False
 
     def load_settings(self, filename="video_settings.json"):
-        """Загрузка настроек из файла"""
+        """Load settings from a file"""
         try:
             settings_file = get_data_dir() / filename
             if settings_file.exists():
@@ -67,7 +67,7 @@ class VideoSettings:
             return False
 
 def main():
-    """Основная функция для запуска из GUI или командной строки"""
+    """Main function for running from GUI or command line"""
     try:
         check_dependencies()
         devices = discover_gopro_devices()
@@ -76,7 +76,7 @@ def main():
             return False
 
         video_settings = VideoSettings()
-        video_settings.load_settings()  # Загружаем сохраненные настройки, если есть
+        video_settings.load_settings()  # Load saved settings, if available
 
         success = True
         for device in devices:
@@ -93,4 +93,4 @@ def main():
         return False
 
 if __name__ == "__main__":
-    main() 
+    main()

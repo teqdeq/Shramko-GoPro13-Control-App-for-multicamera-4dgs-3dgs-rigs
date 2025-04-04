@@ -14,7 +14,7 @@ from concurrent.futures import ThreadPoolExecutor
 from utils import get_app_root, get_data_dir, setup_logging
 from date_time_sync import sync_time_on_cameras as sync_time
 
-# Заменяем базовую настройку логирования на нашу из utils
+# Replace the default logging configuration with our custom one from utils
 logger = setup_logging(__name__)
 
 class GoProListener:
@@ -82,7 +82,7 @@ def start_recording(camera_ip):
 
 # Synchronize time on all cameras
 def sync_time_on_cameras():
-    """Синхронизация времени на всех камерах"""
+    """Synchronize time on all cameras"""
     try:
         sync_time()
         logger.info("Time synchronization completed successfully")
@@ -98,7 +98,7 @@ def save_devices_to_cache(devices, cache_filename="camera_cache.json"):
             json.dump(devices, file)
         logger.info(f"Successfully saved {len(devices)} devices to cache")
         
-        # Создаем резервную копию в корневой директории
+        # Create a backup in the root directory
         backup_file = get_app_root() / cache_filename
         with open(backup_file, "w") as file:
             json.dump(devices, file)
@@ -106,7 +106,7 @@ def save_devices_to_cache(devices, cache_filename="camera_cache.json"):
     except Exception as e:
         logger.error(f"Failed to save cache: {e}")
 
-# Добавляем функцию для загрузки кэша
+# Add a function to load the cache
 def load_devices_from_cache(cache_filename="camera_cache.json"):
     cache_file = get_data_dir() / cache_filename
     try:
@@ -118,7 +118,7 @@ def load_devices_from_cache(cache_filename="camera_cache.json"):
     return None
 
 def check_dependencies():
-    """Проверка наличия всех необходимых файлов"""
+    """Check for the presence of all necessary files"""
     required_files = [
         'date_time_sync.py',
         'utils.py',
@@ -134,7 +134,7 @@ def check_dependencies():
         raise FileNotFoundError(f"Missing required files: {', '.join(missing_files)}")
 
 def check_record_dependencies():
-    """Проверка зависимостей для записи"""
+    """Check dependencies for recording"""
     required_files = [
         'date_time_sync.py',
         'data/camera_cache.json',

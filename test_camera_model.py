@@ -3,19 +3,19 @@ import logging
 from goprolist_and_start_usb import discover_gopro_devices, main as connect_usb
 import time
 
-# Настраиваем логирование
+# Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def get_camera_info(camera_ip):
-    """Получение информации о камере через официальные API эндпоинты"""
+    """Retrieve camera information using official API endpoints"""
     try:
-        # Получаем информацию о камере
+        # Get camera information
         info_url = f"http://{camera_ip}:8080/gp/gpControl/info"
         info_response = requests.get(info_url, timeout=5)
         info_response.raise_for_status()
         info = info_response.json()
         
-        # Получаем состояние камеры
+        # Get camera state
         state_url = f"http://{camera_ip}:8080/gp/gpControl/status"
         state_response = requests.get(state_url, timeout=5)
         state_response.raise_for_status()
@@ -37,11 +37,11 @@ def get_camera_info(camera_ip):
 
 def main():
     try:
-        # Подключаем камеры по USB
+        # Connect cameras via USB
         logging.info("Connecting cameras via USB...")
         connect_usb()
         
-        # Ищем камеры
+        # Discover cameras
         logging.info("\nDiscovering cameras...")
         devices = discover_gopro_devices()
         
@@ -49,7 +49,7 @@ def main():
             logging.error("No cameras found")
             return
             
-        # Получаем информацию о каждой камере
+        # Retrieve information for each camera
         for device in devices:
             logging.info(f"\nChecking camera: {device['name']}")
             model, state = get_camera_info(device['ip'])
@@ -62,4 +62,4 @@ def main():
         logging.error(f"Error in main: {e}")
 
 if __name__ == "__main__":
-    main() 
+    main()

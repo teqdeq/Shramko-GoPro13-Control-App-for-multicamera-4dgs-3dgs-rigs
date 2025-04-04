@@ -14,9 +14,9 @@ import logging
 from threading import Barrier, Thread
 
 def prepare_camera_for_sync(ip):
-    """Подготовка камеры к синхронизации"""
+    """Prepare the camera for synchronization"""
     try:
-        # Проверяем доступность камеры
+        # Check camera availability
         response = requests.get(f"http://{ip}:8080/gopro/camera/state", timeout=2)
         if response.status_code != 200:
             logging.error(f"Camera {ip} is not responding")
@@ -27,7 +27,7 @@ def prepare_camera_for_sync(ip):
         return False
 
 def sync_time_on_cameras():
-    """Синхронизация времени на всех камерах с максимальной точностью"""
+    """Synchronize time on all cameras with maximum precision"""
     devices = discover_gopro_devices()
     if not devices:
         logging.error("No GoPro devices found.")
@@ -38,14 +38,14 @@ def sync_time_on_cameras():
 
     def apply_time_sync(ip):
         try:
-            # Подготовка данных времени
+            # Prepare time data
             current_time = datetime.now()
             date = current_time.strftime("%Y_%m_%d")
             time_str = current_time.strftime("%H_%M_%S")
             timezone_offset = int(current_time.utcoffset().total_seconds() / 60) if current_time.utcoffset() else 0
             dst = 1 if current_time.dst() else 0
 
-            # Формируем URL и параметры
+            # Form the URL and parameters
             url = f"http://{ip}:8080/gopro/camera/set_date_time"
             params = {
                 "date": date,
@@ -55,9 +55,9 @@ def sync_time_on_cameras():
             }
 
             logging.info(f"Camera {ip} waiting at barrier for time sync")
-            barrier.wait()  # Синхронизация всех потоков
+            barrier.wait()  # Synchronize all threads
             
-            # Отправляем команду синхронизации времени
+            # Send the time synchronization command
             start_time = time.time()
             response = requests.get(url, params=params, timeout=1)
             end_time = time.time()
@@ -73,7 +73,7 @@ def sync_time_on_cameras():
             logging.error(f"Error setting time on camera {ip}: {e}")
             return False
 
-    # Запускаем синхронизацию в отдельных потоках
+    # Start synchronization in separate threads
     threads = []
     results = []
     for ip in camera_ips:
@@ -81,11 +81,11 @@ def sync_time_on_cameras():
         threads.append(thread)
         thread.start()
 
-    # Ждем завершения всех потоков
+    # Wait for all threads to complete
     for thread in threads:
         thread.join()
 
-    # Проверяем результаты
+    # Check results
     if all(success for _, success in results):
         logging.info("Time synchronization completed successfully on all cameras")
     else:

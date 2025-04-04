@@ -1,38 +1,38 @@
 import requests
 import time
 
-# Настройка параметров
-camera_ip = "172.29.143.51"  # Пример IP камеры (замените на реальный IP)
+# Configuration parameters
+camera_ip = "172.29.143.51"  # Example camera IP (replace with the actual IP)
 port = 8080
 
-# URL для команд
-power_down_url = f"http://{camera_ip}:{port}/gopro/camera/setting?setting=59&option=6"  # Установить спящий режим через 15 минут
+# URLs for commands
+power_down_url = f"http://{camera_ip}:{port}/gopro/camera/setting?setting=59&option=6"  # Set sleep mode in 15 minutes
 keep_alive_url = f"http://{camera_ip}:{port}/gopro/camera/keep_alive"
 start_recording_url = f"http://{camera_ip}:{port}/gopro/camera/shutter/start"
 
-# Переводим камеру в спящий режим
+# Put the camera into sleep mode
 response = requests.get(power_down_url)
 if response.status_code == 200:
-    print("Камера переведена в режим ожидания через 15 минут.")
+    print("The camera is set to sleep mode in 15 minutes.")
 else:
-    print("Ошибка при попытке установить режим ожидания.")
+    print("Error while trying to set sleep mode.")
 
-# Отправка keep-alive сигнала для предотвращения полного выключения
+# Send keep-alive signals to prevent the camera from fully shutting down
 for _ in range(4):
-    time.sleep(1)  # Отправляем keep-alive каждые секунды, чтобы камера оставалась активной
+    time.sleep(1)  # Send keep-alive every second to keep the camera active
     response = requests.get(keep_alive_url)
     if response.status_code == 200:
-        print("Keep-alive команда отправлена успешно.")
+        print("Keep-alive command sent successfully.")
     else:
-        print("Ошибка при отправке keep-alive команды.")
+        print("Error while sending keep-alive command.")
 
-# Задержка на 4 секунды перед началом записи
-print("Ожидание 4 секунды перед началом записи...")
+# Wait for 4 seconds before starting recording
+print("Waiting 4 seconds before starting recording...")
 time.sleep(4)
 
-# Включаем запись на камере
+# Start recording on the camera
 response = requests.get(start_recording_url)
 if response.status_code == 200:
-    print("Запись началась успешно.")
+    print("Recording started successfully.")
 else:
-    print("Ошибка при попытке начать запись.")
+    print("Error while trying to start recording.")

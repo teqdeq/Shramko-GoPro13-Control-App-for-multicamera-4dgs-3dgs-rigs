@@ -14,6 +14,7 @@ class GoProListener:
         self.devices = []
 
     def add_service(self, zeroconf, service_type, name):
+        """Add a discovered GoPro device"""
         info = zeroconf.get_service_info(service_type, name)
         if info:
             ip_address = ".".join(map(str, info.addresses[0]))
@@ -24,10 +25,12 @@ class GoProListener:
             })
 
     def remove_service(self, zeroconf, service_type, name):
+        """Handle removal of a GoPro device"""
         logging.info(f"GoPro {name} removed")
 
 # Discover GoPro devices
 def discover_gopro_devices():
+    """Discover GoPro devices on the network"""
     zeroconf = Zeroconf()
     listener = GoProListener()
     logging.info("Searching for GoPro cameras...")
@@ -42,12 +45,14 @@ def discover_gopro_devices():
 
 # Enable or reset USB control
 def reset_and_enable_usb_control(camera_ip):
+    """Reset and enable USB control on a camera"""
     logging.info(f"Resetting USB control on camera {camera_ip}.")
     toggle_usb_control(camera_ip, enable=False)
     time.sleep(2)
     toggle_usb_control(camera_ip, enable=True)
 
 def toggle_usb_control(camera_ip, enable):
+    """Toggle USB control on a camera"""
     action = 1 if enable else 0
     url = f"http://{camera_ip}:8080/gopro/camera/control/wired_usb?p={action}"
     try:
@@ -62,6 +67,7 @@ def toggle_usb_control(camera_ip, enable):
 
 # Start recording using barrier synchronization for simultaneous execution
 def start_recording(camera_ip, barrier):
+    """Start recording on a camera with barrier synchronization"""
     try:
         logging.info(f"Camera {camera_ip} waiting at the barrier.")
         barrier.wait()  # Wait for all threads to reach this point
@@ -76,11 +82,13 @@ def start_recording(camera_ip, barrier):
 
 # Synchronize time on all cameras
 def sync_time_on_cameras():
+    """Synchronize time on all cameras"""
     logging.info("Synchronizing time on all cameras...")
     # Placeholder for the function that syncs time on cameras
 
 # Save discovered devices to cache
 def save_devices_to_cache(devices, cache_file="camera_cache.json"):
+    """Save discovered devices to a cache file"""
     try:
         with open(cache_file, "w") as file:
             json.dump(devices, file, indent=4)

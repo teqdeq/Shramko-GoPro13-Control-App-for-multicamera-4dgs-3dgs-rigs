@@ -23,14 +23,14 @@ class ModeSwitcher(QWidget):
     
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.devices = []  # Кэшируем список камер
+        self.devices = []  # Cache the list of cameras
         self.discovery_thread = None
         self.initUI()
         self.loadLastMode()
         self.startDeviceDiscovery()
         
     def startDeviceDiscovery(self):
-        """Запускаем поиск камер в фоне"""
+        """Start searching for cameras in the background"""
         if self.discovery_thread and self.discovery_thread.is_alive():
             return
             
@@ -39,7 +39,7 @@ class ModeSwitcher(QWidget):
         self.discovery_thread.start()
         
     def _discover_devices_thread(self):
-        """Поиск камер в отдельном потоке"""
+        """Search for cameras in a separate thread"""
         try:
             self.devices = discover_gopro_devices()
             if not self.devices:
@@ -113,7 +113,7 @@ class ModeSwitcher(QWidget):
         
         if save:
             self.saveLastMode(mode)
-            if not self.devices:  # Если нет списка камер, запускаем поиск
+            if not self.devices:  # If there is no list of cameras, start searching
                 self.startDeviceDiscovery()
             thread = threading.Thread(target=self._apply_mode_thread, args=(mode,))
             thread.start()
@@ -121,7 +121,7 @@ class ModeSwitcher(QWidget):
         self.modeChanged.emit(mode)
 
     def _apply_mode_thread(self, mode):
-        """Поток для применения режима"""
+        """Thread for applying the mode"""
         if not self.devices:
             logger.error("No GoPro devices found")
             return
@@ -135,20 +135,20 @@ class ModeSwitcher(QWidget):
 
     async def _apply_mode_async(self, devices, mode):
         try:
-            # Сначала активируем USB на всех камерах и дожидаемся результата
+            # First, activate USB on all cameras and wait for the result
             with ThreadPoolExecutor() as executor:
-                # Создаем список future для отслеживания выполнения
+                # Create a list of futures to track execution
                 futures = list(map(
                     lambda d: executor.submit(reset_and_enable_usb_control, d['ip']), 
                     devices
                 ))
-                # Ждем завершения всех операций активации USB
+                # Wait for all USB activation operations to complete
                 for future in futures:
-                    future.result()  # Это заблокирует выполнение пока все камеры не будут активированы
+                    future.result()  # This will block execution until all cameras are activated
                     
             logger.info("USB control enabled on all cameras")
             
-            # Ждем стабилизации USB-соединения
+            # Wait for USB connection stabilization
             await asyncio.sleep(2)
             
             async with aiohttp.ClientSession() as session:
@@ -188,16 +188,16 @@ class ModeSwitcher(QWidget):
 
     async def set_mode_for_camera(self, session, url, device, mode):
         try:
-            async with session.get(url, timeout=5) as response:  # Увеличил timeout
-                if response.status != 200:  # Исправлено с status_code на status
+            async with session.get(url, timeout=5) as response:
+                if response.status != 200:
                     logger.error(f"Failed to set {mode} mode for camera {device['name']}. Status: {response.status}")
                     return False
                     
-            await asyncio.sleep(1)  # Увеличил задержку для стабильности
+            await asyncio.sleep(1)  # Increased delay for stability
             
             status_url = f"http://{device['ip']}:8080/gp/gpControl/status"
             async with session.get(status_url, timeout=5) as status_response:
-                if status_response.status == 200:  # Исправлено с status_code на status
+                if status_response.status == 200:
                     status_data = await status_response.json()
                     current_mode = status_data.get('status', {}).get('43')
                     expected_mode = {'video': 0, 'photo': 1, 'timelapse': 13}[mode]
@@ -272,4 +272,4 @@ def main():
     sys.exit(app.exec_())
 
 if __name__ == '__main__':
-    main() 
+    main()

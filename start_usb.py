@@ -4,13 +4,13 @@ import time
 import sys
 import os
 
-# Настройка корневого логгера
+# Configure the root logger
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
-# Создаем логгер для этого модуля
+# Create a logger for this module
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -23,7 +23,7 @@ def reset_usb_control(camera_ip):
         url = f"http://{camera_ip}:8080/gopro/camera/control/wired_usb?p=0"
         print(f"DEBUG: Sending disable USB request to {url}")
         
-        # Пробуем несколько раз с увеличивающимся таймаутом
+        # Try several times with increasing timeouts
         timeouts = [0.5, 1.0, 2.0]
         for timeout in timeouts:
             try:
@@ -31,9 +31,9 @@ def reset_usb_control(camera_ip):
                 response = requests.get(url, timeout=timeout)
                 print(f"DEBUG: Got response: {response.status_code}")
                 
-                if response.status_code == 200 or response.status_code == 500:  # 500 означает что USB уже отключен
+                if response.status_code == 200 or response.status_code == 500:  # 500 means USB is already disabled
                     print(f"DEBUG: USB disable successful (status: {response.status_code})")
-                    time.sleep(0.5)  # Небольшая пауза для стабилизации
+                    time.sleep(0.5)  # Small pause for stabilization
                     return True
                 else:
                     print(f"DEBUG: USB disable failed with unexpected status {response.status_code}")
@@ -69,7 +69,7 @@ def enable_usb_control(camera_ip):
         url = f"http://{camera_ip}:8080/gopro/camera/control/wired_usb?p=1"
         print(f"DEBUG: Sending enable USB request to {url}")
         
-        # Пробуем несколько раз с увеличивающимся таймаутом
+        # Try several times with increasing timeouts
         timeouts = [0.5, 1.0, 2.0]
         for timeout in timeouts:
             try:
@@ -77,9 +77,9 @@ def enable_usb_control(camera_ip):
                 response = requests.get(url, timeout=timeout)
                 print(f"DEBUG: Got response: {response.status_code}")
                 
-                if response.status_code == 200 or response.status_code == 500:  # 500 может означать что USB уже включен
+                if response.status_code == 200 or response.status_code == 500:  # 500 may mean USB is already enabled
                     print(f"DEBUG: USB enable successful (status: {response.status_code})")
-                    time.sleep(0.5)  # Пауза для стабилизации
+                    time.sleep(0.5)  # Pause for stabilization
                     return True
                 else:
                     print(f"DEBUG: USB enable failed with unexpected status {response.status_code}")
@@ -115,7 +115,7 @@ def verify_usb_control(camera_ip):
         url = f"http://{camera_ip}:8080/gopro/camera/state"
         print(f"DEBUG: Sending state request to {url}")
         
-        # Пробуем несколько раз
+        # Try several times
         for attempt in range(3):
             try:
                 response = requests.get(url, timeout=1.0)
@@ -129,7 +129,7 @@ def verify_usb_control(camera_ip):
                         logger.error(f"Camera {camera_ip} USB status: {usb_status}")
                         if usb_status == 1:
                             return True
-                        # Если статус 0 или None, продолжаем попытки
+                        # If status is 0 or None, continue attempts
                     except Exception as e:
                         print(f"DEBUG: Error parsing state: {str(e)}")
                         continue
@@ -163,7 +163,7 @@ def main(camera_ip):
             logger.error("Failed to reset USB control")
             return False
         
-        # Небольшая пауза между командами
+        # Small pause between commands
         print("DEBUG: Waiting 1s between disable and enable")
         time.sleep(1.0)
         
@@ -172,7 +172,7 @@ def main(camera_ip):
             logger.error("Failed to enable USB control")
             return False
         
-        # Пауза для стабилизации
+        # Pause for stabilization
         print("DEBUG: Waiting 0.5s for USB to stabilize")
         time.sleep(0.5)
         
@@ -181,58 +181,8 @@ def main(camera_ip):
         if not usb_ok:
             logger.error("USB control may not be verified but commands were successful")
         
-        # Проверяем текущий режим камеры
-        print("DEBUG: Checking current camera mode")
-        try:
-            response = requests.get(f"http://{camera_ip}:8080/gopro/camera/state", timeout=1.0)
-            if response.status_code == 200:
-                state = response.json()
-                current_mode = state.get('status', {}).get('43', None)
-                if current_mode == 1:  # 1 = Photo Mode
-                    print("DEBUG: Camera already in photo mode")
-                    logger.info("Camera already in photo mode")
-                    return True
-        except Exception as e:
-            print(f"DEBUG: Error checking camera mode: {str(e)}")
-            # Продолжаем попытку установить режим
-        
-        # Устанавливаем режим фото только если не смогли определить текущий режим
-        print("DEBUG: Setting photo mode")
-        import photo_mode
-        import asyncio
-        import aiohttp
-        
-        try:
-            # Даем камере время на инициализацию после USB
-            time.sleep(1.0)
+        return True
             
-            # Создаем фейковое устройство для одной камеры
-            device = {'ip': camera_ip, 'name': f"Camera_{camera_ip}"}
-            
-            # Пробуем установить фото режим несколько раз
-            for attempt in range(3):
-                print(f"DEBUG: Setting photo mode attempt {attempt + 1}")
-                
-                # Запускаем асинхронную установку режима
-                async def set_photo():
-                    async with aiohttp.ClientSession() as session:
-                        return await photo_mode.set_photo_mode_async(session, device['ip'], device['name'])
-                
-                if asyncio.run(set_photo()):
-                    logger.error("Photo mode set successfully")
-                    return True
-                    
-                print(f"DEBUG: Failed to set photo mode, waiting before retry")
-                time.sleep(1.0)
-                
-            logger.error("Failed to set photo mode after all attempts")
-            return False
-            
-        except Exception as e:
-            print(f"DEBUG: Error setting photo mode: {str(e)}")
-            logger.error(f"Error setting photo mode: {str(e)}")
-            return False
-        
     except Exception as e:
         print(f"DEBUG: Error in main: {str(e)}")
         logger.error(f"Error in USB control sequence for camera {camera_ip}: {str(e)}")
@@ -244,4 +194,4 @@ if __name__ == "__main__":
         sys.exit(1)
     
     success = main(sys.argv[1])
-    sys.exit(0 if success else 1) 
+    sys.exit(0 if success else 1)

@@ -5,26 +5,26 @@ from pathlib import Path
 from utils import setup_logging, get_app_root, check_dependencies
 
 def init_app() -> bool:
-    """Инициализация приложения
+    """Application initialization
     
     Returns:
-        bool: True если инициализация прошла успешно, False в противном случае
+        bool: True if initialization was successful, False otherwise
     """
     try:
-        # Устанавливаем кодировку по умолчанию
+        # Set the default encoding
         if sys.platform.startswith('win'):
-            # Для Windows устанавливаем UTF-8
+            # For Windows, set UTF-8
             import locale
             if locale.getpreferredencoding().upper() != 'UTF-8':
                 os.environ['PYTHONIOENCODING'] = 'utf-8'
                 
-        # Инициализируем логирование
+        # Initialize logging
         logger = setup_logging('app_init')
         
-        # Проверяем зависимости
+        # Check dependencies
         check_dependencies()
         
-        # Создаем необходимые директории
+        # Create necessary directories
         app_root = get_app_root()
         data_dir = app_root / 'data'
         presets_dir = data_dir / 'presets'
@@ -33,7 +33,7 @@ def init_app() -> bool:
         for directory in [data_dir, presets_dir, logs_dir]:
             directory.mkdir(parents=True, exist_ok=True)
             
-        # Проверяем наличие основных файлов
+        # Check for required files
         required_files = [
             'prime_camera_sn.py',
             'goprolist_and_start_usb.py',
@@ -60,4 +60,4 @@ def init_app() -> bool:
         return False
 
 if __name__ == "__main__":
-    init_app() 
+    init_app()

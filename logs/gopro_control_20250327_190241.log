@@ -1,0 +1,35 @@
+2025-03-27 19:02:41,562 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 19:02:41,564 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-03-27 19:02:56,570 - root - WARNING - No devices found on attempt 1, retrying...
+2025-03-27 19:02:58,583 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 19:02:58,608 - root - INFO - Searching for GoPro cameras (attempt 2/3)...
+2025-03-27 19:03:13,613 - root - WARNING - No devices found on attempt 2, retrying...
+2025-03-27 19:03:15,618 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 19:03:15,619 - root - INFO - Searching for GoPro cameras (attempt 3/3)...
+2025-03-27 19:03:15,774 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-03-27 19:03:15,777 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:03:15,812 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1579
+2025-03-27 19:03:30,620 - root - INFO - Found 1 GoPro devices.
+2025-03-27 19:03:30,623 - root - INFO - Found the following GoPro devices:
+2025-03-27 19:03:30,624 - root - INFO - Name: C3531325002143._gopro-web._tcp.local., IP: 172.21.143.51
+2025-03-27 19:03:30,628 - root - INFO - Cache updated successfully with 5 devices.
+2025-03-27 19:03:30,629 - root - INFO - Resetting USB control on camera 172.21.143.51 (attempt 1/3)
+2025-03-27 19:03:30,632 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:03:30,723 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/1.1" 200 3
+2025-03-27 19:03:30,723 - root - INFO - USB control disabled on camera 172.21.143.51.
+2025-03-27 19:03:32,726 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:03:32,810 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/1.1" 200 3
+2025-03-27 19:03:32,823 - root - INFO - USB control enabled on camera 172.21.143.51.
+2025-03-27 19:03:32,824 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:03:32,878 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1579
+2025-03-27 19:03:32,878 - root - INFO - USB control successfully reset for camera 172.21.143.51
+2025-03-27 19:03:34,884 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 19:03:34,885 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-03-27 19:03:34,944 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-03-27 19:03:34,945 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:03:34,983 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1579
+2025-03-27 19:03:45,605 - root - INFO - GoPro C3531325002143._gopro-web._tcp.local. removed
+2025-03-27 19:03:49,886 - root - INFO - Found 1 GoPro devices.
+2025-03-27 19:03:49,888 - root - INFO - Found 1 cameras
+2025-03-27 19:03:49,889 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:03:49,899 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/info HTTP/1.1" 200 306

@@ -1,0 +1,2 @@
+2025-03-27 18:56:53,433 - root - ERROR - Missing dependency: No module named 'PyQt5'
+2025-03-27 18:56:53,433 - root - ERROR - Error in preset operation: No module named 'PyQt5'

@@ -1,3 +1,10 @@
-Прежде чем давать ответ по правкам к какому либо файлу, всегда обновляй знаия о его полном коде. Начинай изучение кода с первой и до последней строчки в файле, раздели это для себя на серию по 200 строк. Когда изучил файл до конца, то тогда предлагай решение и изменения в коде.  
-Аккурано вноси правки, что бы не поломать рабочий функционал и не дублировать существующий.
-Нужно при первом обнаружении файлов в каждой камере приписать префикс с серийным номером, и на протяжении всей дальнейшей работы обязательно использовать этот префикс, и никогда больше нигде в коде не использовать оригинальное имя файла а только с данным ему префиксом. Изучай код файлов всех с этим связанный. Вноси точечные изменения, минимальные изменения для последовательных тестов изменений что бы копировать файлы с одинаковыми именами с разных камер. 
+Before providing suggestions for changes to any file, always update your knowledge of its full code.
+Start studying the code from the first line to the last line in the file, dividing it into sections of 200 lines for yourself.
+Once you have studied the file completely, then propose solutions and changes to the code.
+Make changes carefully so as not to break the working functionality and avoid duplicating existing functionality.
+When files are first detected on each camera:
+Assign a prefix with the serial number.
+Throughout all further operations, always use this prefix.
+Never use the original file name anywhere in the code again, only the name with the assigned prefix.
+Study the code of all related files.
+Make precise, minimal changes for sequential testing of modifications to ensure that files with the same names from different cameras can be copied.

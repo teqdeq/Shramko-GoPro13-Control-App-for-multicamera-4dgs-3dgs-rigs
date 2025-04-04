@@ -17,7 +17,7 @@ from utils import get_app_root, setup_logging, check_dependencies
 
 def create_folder_structure_and_copy_files(destination_root, scene_time_threshold=5):
     """
-    Копирование и сортировка файлов с камер
+    Copying and sorting files from cameras
     """
     try:
         setup_logging()
@@ -26,12 +26,12 @@ def create_folder_structure_and_copy_files(destination_root, scene_time_threshol
         
         destination_root = Path(destination_root)
         
-        # Проверяем права доступа
+        # Checking write permissions
         if not os.access(str(destination_root), os.W_OK):
             logger.error(f"No write access to destination directory: {destination_root}")
             return
             
-        # Шаг 1: Сбор информации о файлах на камерах
+        # Step 1: Collecting file information from cameras
         logger.info("Collecting files information from cameras...")
         devices = discover_gopro_devices()
         if not devices:
@@ -40,15 +40,15 @@ def create_folder_structure_and_copy_files(destination_root, scene_time_threshol
             
         files_info = collect_files_info(devices)
         
-        # Шаг 2: Проверка существующих файлов
+        # Step 2: Checking existing files
         logger.info("Checking existing files...")
         existing_files = check_existing_files(destination_root, files_info)
         
-        # Шаг 3: Группировка файлов по сценам
+        # Step 3: Grouping files into scenes
         logger.info("Calculating scene ranges...")
         scenes = calculate_scene_time_ranges(files_info, scene_time_threshold)
         
-        # Добавляем детальную статистику по каждой сцене
+        # Adding detailed statistics for each scene
         for scene_idx, scene in enumerate(scenes, 1):
             mp4_files = sum(1 for f in scene['files'] if f['name'].upper().endswith('.MP4'))
             jpg_files = sum(1 for f in scene['files'] if f['name'].upper().endswith('.JPG'))
@@ -57,11 +57,11 @@ def create_folder_structure_and_copy_files(destination_root, scene_time_threshol
             logger.info(f"MP4 files: {mp4_files}")
             logger.info(f"JPG files: {jpg_files}")
         
-        # Шаг 4: Создание структуры папок
+        # Step 4: Creating folder structure
         logger.info("Creating scene folders...")
         scene_folders = create_scene_folders(destination_root, scenes)
         
-        # Шаг 5: Копирование файлов
+        # Step 5: Copying files
         copied_files = []
         failed_files = []
         
@@ -69,25 +69,25 @@ def create_folder_structure_and_copy_files(destination_root, scene_time_threshol
             logger.info(f"Processing scene: {scene_folder['name']}")
             
             for file in scene_folder['files']:
-                # Используем prefixed_name
+                # Let's use prefixed_name
                 dest_filename = f"{file['camera']}_{file['name']}"
                 
-                # Определяем папку назначения в зависимости от типа файла
+                # Let's define the destination folder depending on the file type
                 if file['type'] == 'JPG' and scene_folder.get('jpg_folder'):
                     dest_folder = scene_folder['jpg_folder']
                 elif file['type'] == 'GPR' and scene_folder.get('gpr_folder'):
                     dest_folder = scene_folder['gpr_folder']
-                else:  # MP4 и другие файлы остаются в корне сцены
+                else:  # MP4 and other files remain in the scene root
                     dest_folder = scene_folder['folder']
                 
                 dest_path = dest_folder / dest_filename
                 
                 logger.info(f"Processing {file['type']} file: {dest_filename}")
                 
-                # Проверяем существующий файл с учетом префикса
+                # Check the existing file taking the prefix into account
                 if dest_path.exists():
                     actual_size = dest_path.stat().st_size
-                    # Проверяем, что это файл именно от этой камеры
+                    # Check that this file is indeed from this camera
                     if dest_path.name.startswith(f"{file['camera']}_"):
                         if actual_size == file['size']:
                             logger.info(f"File already exists with correct size: {dest_filename}")
@@ -97,16 +97,16 @@ def create_folder_structure_and_copy_files(destination_root, scene_time_threshol
                             logger.warning(f"Size mismatch for {dest_filename}, re-copying")
                             dest_path.unlink()
                     else:
-                        # Если файл существует, но от другой камеры - пропускаем удаление
+                        # If the file exists but is from another camera, skip deletion
                         logger.info(f"Found file with same name but different camera, keeping both: {dest_filename}")
                 
                 try:
                     logger.info(f"Copying {dest_filename}...")
                     
-                    # Формируем URL с учетом структуры папок камеры
+                    # Creating URL taking into account the camera's folder structure
                     source_url = f"http://{files_info[file['camera']]['ip']}:8080/videos/DCIM/{file['folder']}/{file['name']}"
                     
-                    # Проверяем доступность файла перед копированием
+                    # Checking file availability before copying
                     check_response = requests.head(source_url, timeout=5)
                     if check_response.status_code != 200:
                         raise Exception(f"File not accessible. Status code: {check_response.status_code}")
@@ -137,7 +137,7 @@ def create_folder_structure_and_copy_files(destination_root, scene_time_threshol
                         'reason': str(e)
                     })
         
-        # После копирования файлов добавляем статистику копирования
+        # After copying files, add copy statistics
         for scene_idx, scene_folder in enumerate(scene_folders, 1):
             scene_files = scene_folder['files']
             copied_in_scene = len([f for f in copied_files if any(sf['name'] == f['file'] for sf in scene_files)])
@@ -147,13 +147,13 @@ def create_folder_structure_and_copy_files(destination_root, scene_time_threshol
             logger.info(f"Failed to copy: {failed_in_scene}")
             logger.info(f"Already existed: {len(scene_files) - copied_in_scene - failed_in_scene}")
         
-        # Шаг 6: Проверка результатов
+        # Step 6: Checking results
         verification_results = verify_all_files_copied(files_info, copied_files, failed_files)
         
-        # Шаг 7: Сохранение лога операции
+        # Step 7: Saving the operation log
         log_copy_operation(destination_root, verification_results)
         
-        # Возвращаем результаты для GUI
+        # Returning results for GUI
         return {
             'status': 'success' if not failed_files else 'incomplete',
             'verification': verification_results,
@@ -178,14 +178,14 @@ def create_folder_structure_and_copy_files(destination_root, scene_time_threshol
             from PyQt5.QtWidgets import QMessageBox
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
-            msg.setText("Ошибка при копировании файлов")
+            msg.setText("Error during file copying")
             msg.setInformativeText(str(e))
-            msg.setWindowTitle("Ошибка")
+            msg.setWindowTitle("Error")
             msg.exec_()
         raise
 
 def verify_all_files_copied(files_info, copied_files, failed_files):
-    """Проверка что все файлы были скопированы"""
+    """Verify that all files were copied"""
     verification_results = {}
     
     for serial_number, info in files_info.items():
@@ -197,10 +197,10 @@ def verify_all_files_copied(files_info, copied_files, failed_files):
             }
             continue
         
-        # Проверяем каждый файл
+        # Checking each file
         missing_files = []
         for file_info in info['files']:
-            # Проверяем копирование с учетом camera_id
+            # Checking the copy taking into account camera_id
             file_copied = any(
                 cf['camera'] == serial_number and cf['file'] == file_info['name']
                 for cf in copied_files
@@ -211,7 +211,7 @@ def verify_all_files_copied(files_info, copied_files, failed_files):
             )
             
             if not file_copied and not file_failed:
-                missing_files.append(f"{serial_number}_{file_info['name']}")  # Добавляем префикс для ясности
+                missing_files.append(f"{serial_number}_{file_info['name']}")  # Adding prefix for clarity
         
         verification_results[serial_number] = {
             'status': 'OK' if not missing_files else 'INCOMPLETE',
@@ -221,7 +221,7 @@ def verify_all_files_copied(files_info, copied_files, failed_files):
             'missing_files': missing_files
         }
     
-    # Выводим результаты проверки
+    # Outputting verification results
     print("\nVerification Results:")
     print("=" * 50)
     for serial_number, result in verification_results.items():
@@ -241,7 +241,7 @@ def verify_all_files_copied(files_info, copied_files, failed_files):
     return verification_results
 
 def calculate_scene_time_ranges(files_info, scene_time_threshold=5):
-    """Расчет временных диапазонов для сцен"""
+    """Calculate time ranges for scenes"""
     all_files = []
     for serial_number, info in files_info.items():
         if 'error' not in info:
@@ -255,10 +255,10 @@ def calculate_scene_time_ranges(files_info, scene_time_threshold=5):
                     'type': file_info['type']
                 })
     
-    # Сортируем файлы по времени
+    # Sorting files by time
     all_files.sort(key=lambda x: x['time'])
     
-    # Группируем файлы по сценам
+    # Grouping files into scenes
     scenes = []
     current_scene = []
     
@@ -266,19 +266,19 @@ def calculate_scene_time_ranges(files_info, scene_time_threshold=5):
         if not current_scene:
             current_scene = [file]
         else:
-            # Проверяем временную разницу и принадлежность к одной сцене
+            # Checking the time difference and belonging to the same scene
             time_diff = abs((file['time'] - current_scene[0]['time']).total_seconds())
             
-            # Файлы принадлежат одной сцене если:
-            # 1. Разница во времени меньше порога
-            # 2. Файлы от разных камер
+            # Files belong to the same scene if:
+            # 1. The time difference is less than the threshold
+            # 2. Files are from different cameras
             if time_diff <= scene_time_threshold and not any(
                 cf['camera'] == file['camera'] for cf in current_scene
             ):
                 current_scene.append(file)
             else:
                 if len(current_scene) > 0:
-                    # Подсчитываем количество файлов каждого типа в сцене
+                    # Counting the number of files of each type in the scene
                     scene_stats = {
                         'files': current_scene,
                         'file_counts': {'MP4': 0, 'JPG': 0, 'GPR': 0},
@@ -299,7 +299,7 @@ def calculate_scene_time_ranges(files_info, scene_time_threshold=5):
                     scenes.append(scene_stats)
                 current_scene = [file]
     
-    # Добавляем последнюю сцену
+    # Adding the last scene
     if current_scene:
         scene_stats = {
             'files': current_scene,
@@ -323,12 +323,12 @@ def calculate_scene_time_ranges(files_info, scene_time_threshold=5):
     return scenes
 
 def create_scene_folders(destination_root, scenes):
-    """Создание структуры папок для сцен"""
+    """Creating folder structure for scenes"""
     scene_folders = []
-    used_timestamps = set()  # Для отслеживания уже использованных временных меток
+    used_timestamps = set()  # For tracking already used timestamps
     
     for scene_index, scene in enumerate(scenes, 1):
-        # Используем время съемки с основной камеры или первой доступной
+        # Using the shooting time from the main camera or the first available camera
         prime_file = next(
             (f for f in scene['files'] if f['camera'] == prime_camera_sn),
             scene['files'][0]
@@ -336,7 +336,7 @@ def create_scene_folders(destination_root, scenes):
         
         scene_timestamp = prime_file['time'].strftime("%Y_%m_%d_%H_%M_%S")
         
-        # Проверяем уникальность временной метки
+        # Checking the uniqueness of the timestamp
         if scene_timestamp in used_timestamps:
             continue
         
@@ -348,7 +348,7 @@ def create_scene_folders(destination_root, scenes):
             scene_folder.mkdir(exist_ok=True)
             logging.info(f"Created scene folder: {scene_folder}")
             
-            # Создаем подпапки если есть соответствующие файлы
+            # Creating subfolders if there are corresponding files
             jpg_folder = None
             gpr_folder = None
             
@@ -387,7 +387,7 @@ def create_scene_folders(destination_root, scenes):
     return scene_folders
 
 def log_copy_operation(destination_root, verification_results):
-    """Сохранение лога операции копирования"""
+    """Save the log of the copy operation"""
     log_file = destination_root / 'copy_log.txt'
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
@@ -406,7 +406,7 @@ def log_copy_operation(destination_root, verification_results):
             else:
                 f.write(f"Total files: {result.get('total_files', 0)}\n")
                 
-                # Записываем статистику по типам файлов
+                # Writing statistics by file types
                 for file_type in ['MP4', 'JPG', 'GPR']:
                     count = len([f for f in result.get('copied_files', []) if f['type'] == file_type])
                     if count > 0:
@@ -418,7 +418,7 @@ def log_copy_operation(destination_root, verification_results):
                     for file in result['failed_files']:
                         f.write(f"  - {file['name']} ({file['type']}): {file.get('reason', 'Unknown error')}\n")
         
-        # Записываем общую статистику
+        # Writing overall statistics
         f.write("\nTotal Statistics:\n")
         f.write("-" * 20 + "\n")
         for file_type, count in total_stats.items():
@@ -428,7 +428,7 @@ def log_copy_operation(destination_root, verification_results):
         f.write("\n" + "=" * 50 + "\n")
 
 def collect_files_info(devices):
-    """Сбор информации о файлах на всех камерах"""
+    """Collect information about files on all cameras"""
     files_info = {}
     
     for device in devices:
@@ -436,7 +436,7 @@ def collect_files_info(devices):
         serial_number = device["name"].split("._gopro-web._tcp.local.")[0]
         
         try:
-            # Используем документированный endpoint /gopro/media/list
+            # Using the documented endpoint /gopro/media/list
             media_url = f"http://{ip}:8080/gopro/media/list"
             response = requests.get(media_url, timeout=10)
             response.raise_for_status()
@@ -452,7 +452,7 @@ def collect_files_info(devices):
                 'file_counts': {'MP4': 0, 'JPG': 0, 'GPR': 0}
             }
             
-            # Сначала собираем все JPG файлы с RAW флагом
+            # First, collect all JPG files with the RAW flag
             raw_jpgs = set()
             for media in media_list:
                 for file in media.get("fs", []):
@@ -460,12 +460,12 @@ def collect_files_info(devices):
                     if file_name.endswith('.JPG') and bool(file.get("raw")):
                         raw_jpgs.add(file_name)
             
-            # Теперь обрабатываем все файлы
+            # Now processing all files
             for media in media_list:
                 for file in media.get("fs", []):
                     file_name = file.get("n", "").upper()
                     
-                    # Определяем тип файла
+                    # Determining the file type
                     if file_name.endswith('.MP4'):
                         file_type = 'MP4'
                     elif file_name.endswith('.JPG'):
@@ -475,32 +475,32 @@ def collect_files_info(devices):
                         file_type = 'GPR'
                         files_info[serial_number]['has_gpr'] = True
                     else:
-                        continue  # Пропускаем неизвестные типы файлов
+                        continue  # Skipping unknown file types
                     
-                    # Увеличиваем счетчик для данного типа файла
+                    # Incrementing the counter for this file type
                     files_info[serial_number]['file_counts'][file_type] += 1
                     
-                    # Добавляем информацию о файле
+                    # Adding file information
                     file_info = {
-                        'name': file.get("n"),  # Храним оригинальное имя
+                        'name': file.get("n"),  # Keeping the original name
                         'folder': media.get("d"),
                         'size': int(file.get("s", "0")),
                         'time': datetime.fromtimestamp(int(file.get("cre"))),
                         'type': file_type,
-                        'camera_id': serial_number,  # Добавляем camera_id
+                        'camera_id': serial_number,  # Adding camera_id
                         'has_gpr': file_name in raw_jpgs if file_type == 'JPG' else False
                     }
                     files_info[serial_number]['files'].append(file_info)
                     files_info[serial_number]['total_files'] += 1
                     files_info[serial_number]['size'] += file_info['size']
                     
-                    # Если это JPG с RAW флагом, добавляем соответствующий GPR файл
+                    # If this is a JPG with the RAW flag, add the corresponding GPR file
                     if file_type == 'JPG' and file_name in raw_jpgs:
                         gpr_name = file_name.replace('.JPG', '.GPR')
                         gpr_info = {
                             'name': gpr_name,
                             'folder': media.get("d"),
-                            'size': int(file.get("s", "0")),  # Используем тот же размер
+                            'size': int(file.get("s", "0")),  # Using the same size
                             'time': datetime.fromtimestamp(int(file.get("cre"))),
                             'type': 'GPR'
                         }
@@ -513,7 +513,7 @@ def collect_files_info(devices):
             logging.info(f"Camera {serial_number}: found {files_info[serial_number]['total_files']} files")
             logging.info(f"Total size: {files_info[serial_number]['size'] / (1024*1024):.2f} MB")
             
-            # Логируем информацию о типах файлов
+            # Logging information about file types
             for file_type, count in files_info[serial_number]['file_counts'].items():
                 if count > 0:
                     logging.info(f"Camera {serial_number}: {count} {file_type} files")
@@ -525,7 +525,7 @@ def collect_files_info(devices):
     return files_info
 
 def check_existing_files(destination_root, files_info):
-    """Проверка существующих файлов в целевых директориях"""
+    """Checking existing files in the target directories"""
     existing_files = {}
     
     for serial_number, info in files_info.items():
@@ -534,16 +534,16 @@ def check_existing_files(destination_root, files_info):
             
         existing_files[serial_number] = []
         
-        # Ищем файлы во всех поддиректориях
+        # Searching for files in all subdirectories
         for root, _, files in os.walk(destination_root):
             for file_info in info['files']:
-                # Формируем имя файла с префиксом serial_number
+                # Creating a file name with the serial_number prefix
                 file_name = f"{serial_number}_{file_info['name']}"
                 if file_name in files:
                     file_path = os.path.join(root, file_name)
                     actual_size = os.path.getsize(file_path)
                     
-                    # Проверяем соответствие размера
+                    # Checking size consistency
                     if actual_size == file_info['size']:
                         existing_files[serial_number].append({
                             'name': file_name,
@@ -555,7 +555,7 @@ def check_existing_files(destination_root, files_info):
                     else:
                         logging.warning(f"Found file {file_name} but size mismatch: expected {file_info['size']}, got {actual_size}")
                         try:
-                            # Удаляем файл с неправильным размером
+                            # Removing the file with the wrong size
                             os.remove(file_path)
                             logging.info(f"Removed file with incorrect size: {file_name}")
                         except Exception as e:
@@ -564,9 +564,9 @@ def check_existing_files(destination_root, files_info):
     return existing_files
 
 def copy_file_with_verification(source_url, dest_path, expected_size):
-    """Копирование файла с проверкой размера"""
+    """Copying file with size verification"""
     try:
-        # Проверяем доступность файла и получаем реальный размер
+        # Checking file availability and getting the actual size
         head_response = requests.head(source_url, timeout=5)
         if head_response.status_code != 200:
             raise Exception(f"File not accessible. Status code: {head_response.status_code}")
@@ -576,10 +576,10 @@ def copy_file_with_verification(source_url, dest_path, expected_size):
         if total_size == 0:
             raise Exception("Content-Length header is missing or zero")
         
-        # Создаем родительские директории
+        # Getting the actual file size from the camera
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # Копируем файл
+        # Copying file
         downloaded_size = 0
         with requests.get(source_url, stream=True, timeout=30) as response:
             response.raise_for_status()
@@ -593,7 +593,7 @@ def copy_file_with_verification(source_url, dest_path, expected_size):
                             if progress % 5 < 1:
                                 logging.info(f"Download progress for {dest_path.name}: {progress:.1f}%")
         
-        # Проверяем размер скопированного файла
+        # Checking the size of the copied file
         actual_size = os.path.getsize(dest_path)
         if actual_size != total_size:
             logging.error(f"Size mismatch after download for {dest_path.name}: expected from camera {total_size}, got {actual_size}")

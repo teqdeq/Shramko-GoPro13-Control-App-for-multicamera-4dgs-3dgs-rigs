@@ -21,7 +21,7 @@ class CopySettingsThread(QThread):
         try:
             def progress_callback(action, data):
                 if not self.is_running:
-                    return True  # Сигнализируем об отмене
+                    return True  # Signal cancellation
                     
                 if action == "status":
                     self.status_signal.emit(data)
@@ -34,9 +34,9 @@ class CopySettingsThread(QThread):
                     self.complete_signal.emit()
                     
                 QApplication.processEvents()
-                return False  # Продолжаем выполнение
+                return False  # Continue execution
                 
-            # Добавляем метод проверки отмены в callback
+            # Add a method to check for cancellation in the callback
             progress_callback.was_cancelled = lambda: not self.is_running
             
             result = self.copy_function(progress_callback)
@@ -114,7 +114,7 @@ class SettingsProgressDialog(QDialog):
         QApplication.processEvents()
         
     def update_progress(self, current, total):
-        """Обновление прогресс-бара"""
+        """Update the progress bar"""
         try:
             if total > 0:
                 progress = int((current / total) * 100)
@@ -136,10 +136,10 @@ class SettingsProgressDialog(QDialog):
         self.close_button.show()
         self.cancel_button.hide()
         self.status_label.setText("Operation completed successfully")
-        # Устанавливаем 100% только при успешном завершении
+        # Set progress to 100% only on successful completion
         self.progress_bar.setValue(100)
         QApplication.processEvents()
-        # Автоматически закрываем диалог
+        # Automatically close the dialog
         self.close()
         
     def handle_error(self, error_message):
@@ -148,17 +148,17 @@ class SettingsProgressDialog(QDialog):
         self.close_button.show()
         self.cancel_button.hide()
         self.status_label.setText("Operation failed")
-        # Сбрасываем прогресс при ошибке
+        # Reset progress on error
         self.progress_bar.setValue(0)
         QApplication.processEvents()
         
     def cancel_operation(self):
-        """Отмена операции"""
+        """Cancel the operation"""
         self.setWindowTitle("Operation cancelled by user")
         self.status_label.setText("Operation cancelled by user")
         self.add_log("\nOperation cancelled by user")
         self.cancel_button.setEnabled(False)
-        # Сбрасываем прогресс при отмене
+        # Reset progress on cancellation
         self.progress_bar.setValue(0)
         self.thread.stop()
         QApplication.processEvents()
@@ -175,8 +175,8 @@ class SettingsProgressDialog(QDialog):
         QApplication.processEvents()
         
     def closeEvent(self, event):
-        """Обработка закрытия окна"""
+        """Handle window close event"""
         if self.thread.isRunning():
             self.cancel_operation()
-            self.thread.wait(1000)  # Ждем завершения потока максимум 1 секунду
+            self.thread.wait(1000)  # Wait for the thread to finish, max 1 second
         super().closeEvent(event)

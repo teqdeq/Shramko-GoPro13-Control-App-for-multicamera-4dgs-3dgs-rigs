@@ -136,17 +136,17 @@ class CameraStatusGUI(QWidget):
         self.setWindowTitle('ShramkoGoPro - Scanning Rig Control v3.46 © 2024 Andrii Shramko')
         self.setGeometry(100, 100, 1200, 800)
         
-        # Создаем основной вертикальный layout
+        # Create the main vertical layout
         main_layout = QVBoxLayout()
         main_layout.setSpacing(10)
         
-        # Верхняя панель с режимами и информацией
+        # Top panel with modes and information
         top_panel = QVBoxLayout()
         
-        # Панель режимов
+        # Mode panel
         mode_panel = QHBoxLayout()
         
-        # Создаем переключатель режимов
+        # Create mode switcher
         self.mode_tabs = QTabBar()
         self.mode_tabs.setExpanding(True)
         self.mode_tabs.setDrawBase(False)
@@ -182,16 +182,16 @@ class CameraStatusGUI(QWidget):
         mode_panel.addWidget(self.mode_tabs)
         top_panel.addLayout(mode_panel)
         
-        # Информационная панель
+        # Information panel
         info_panel = QHBoxLayout()
         
-        # Панель слева (количество камер)
+        # Left panel (number of cameras)
         left_panel = QVBoxLayout()
         self.total_connected_label = QLabel("Total cameras connected: 0")
         self.total_connected_label.setStyleSheet("font-size: 14px; font-weight: bold;")
         left_panel.addWidget(self.total_connected_label)
         
-        # Статус текущей операции
+        # Status of the current operation
         self.operation_status = QLabel("")
         self.operation_status.setStyleSheet("""
             QLabel {
@@ -211,15 +211,15 @@ class CameraStatusGUI(QWidget):
         top_panel.addLayout(info_panel)
         main_layout.addLayout(top_panel)
 
-        # Создаем QGridLayout для камер
+        # Create QGridLayout for cameras
         self.grid_layout = QGridLayout()
-        self.grid_layout.setSpacing(5)  # Уменьшаем отступы между элементами
+        self.grid_layout.setSpacing(5)  # Reduce spacing between elements
         
-        # Создаем QWidget для сетки камер и добавляем в него QGridLayout
+        # Create QWidget for the camera grid and add QGridLayout to it
         self.grid_widget = QWidget()
         self.grid_widget.setLayout(self.grid_layout)
         
-        # Добавляем grid_widget в QScrollArea (на всякий случай, если окно сильно уменьшат)
+        # Add grid_widget to QScrollArea (in case the window is resized too small)
         scroll_area = QScrollArea()
         scroll_area.setWidget(self.grid_widget)
         scroll_area.setWidgetResizable(True)
@@ -227,12 +227,12 @@ class CameraStatusGUI(QWidget):
         scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         main_layout.addWidget(scroll_area)
 
-        # Нижняя панель с кнопками
+        # Bottom panel with buttons
         bottom_panel = QVBoxLayout()
         
         # Copy Settings button
         self.copy_settings_button = QPushButton('Copy Settings from Prime Camera')
-        self.copy_settings_button.setFixedHeight(80)  # Такая же высота как у кнопки выключения
+        self.copy_settings_button.setFixedHeight(80)  # Same height as the Turn Off button
         self.copy_settings_button.setStyleSheet("""
             QPushButton {
                 font-size: 20px;
@@ -248,9 +248,9 @@ class CameraStatusGUI(QWidget):
         self.copy_settings_button.clicked.connect(self.copy_settings_from_prime)
         bottom_panel.addWidget(self.copy_settings_button)
         
-        # Record All button с увеличенной высотой
+        # Record All button with increased height
         self.record_all_button = QPushButton('Record All')
-        self.record_all_button.setFixedHeight(120)  # Увеличиваем высоту в 3 раза
+        self.record_all_button.setFixedHeight(120)  # Increase height by 3x
         self.record_all_button.setStyleSheet("""
             QPushButton {
                 font-size: 24px;
@@ -266,9 +266,9 @@ class CameraStatusGUI(QWidget):
         self.record_all_button.clicked.connect(self.record_all_cameras)
         bottom_panel.addWidget(self.record_all_button)
 
-        # Stop All button с увеличенной высотой
+        # Stop All button with increased height
         self.stop_all_button = QPushButton('Stop All')
-        self.stop_all_button.setFixedHeight(120)  # Увеличиваем высоту в 3 раза
+        self.stop_all_button.setFixedHeight(120)  # Increase height by 3x
         self.stop_all_button.setStyleSheet("""
             QPushButton {
                 font-size: 24px;
@@ -286,7 +286,7 @@ class CameraStatusGUI(QWidget):
 
         # Turn Off All Cameras button
         self.turn_off_button = QPushButton('Turn Off All Cameras')
-        self.turn_off_button.setFixedHeight(80)  # Немного меньше высота, чем у кнопок записи
+        self.turn_off_button.setFixedHeight(80)  # Slightly smaller height than the recording buttons
         self.turn_off_button.setStyleSheet("""
             QPushButton {
                 font-size: 20px;
@@ -328,7 +328,7 @@ class CameraStatusGUI(QWidget):
         self.status_update_timer.timeout.connect(self.update_status)
         self.status_update_timer.start(2500)
 
-        # Инициализация режимов
+        # Initialize modes
         self.tabToMode = {
             0: 'video',
             1: 'photo',
@@ -336,20 +336,20 @@ class CameraStatusGUI(QWidget):
         }
         self.modeToTab = {v: k for k, v in self.tabToMode.items()}
         
-        # Подключаем обработчик смены режима
+        # Connect the mode change handler
         self.mode_tabs.currentChanged.connect(self._handleTabChange)
         
-        # Загружаем последний использованный режим
+        # Load the last used mode
         self.loadLastMode()
 
     def update_camera_grid(self):
-        # Очищаем текущую сетку
+        # Clear the current grid
         for i in reversed(range(self.grid_layout.count())): 
             widget = self.grid_layout.itemAt(i).widget()
             if widget:
                 widget.setParent(None)
         
-        # Рассчитываем оптимальное количество столбцов
+        # Calculate the optimal number of columns
         num_cameras = len(self.active_devices)
         if num_cameras == 0:
             return
@@ -357,27 +357,27 @@ class CameraStatusGUI(QWidget):
         screen = QApplication.primaryScreen().geometry()
         screen_height = screen.height()
         
-        # Адаптивная высота кнопки в зависимости от количества камер
-        available_height = screen_height * 0.7  # 70% высоты экрана для статусов камер
-        min_button_height = 30  # Минимальная высота
-        max_button_height = 60  # Максимальная высота
+        # Adaptive button height depending on the number of cameras
+        available_height = screen_height * 0.7  # 70% of the screen height for camera statuses
+        min_button_height = 30  # Minimum height
+        max_button_height = 60  # Maximum height
         
-        # Рассчитываем оптимальную высоту кнопки
+        # Calculate the optimal button height
         button_height = min(max_button_height, max(min_button_height, available_height / (num_cameras + 1)))
         
-        # Адаптивный размер шрифта
-        font_size = min(16, max(10, int(button_height * 0.4)))  # От 10 до 16px
+        # Adaptive font size
+        font_size = min(16, max(10, int(button_height * 0.4)))  # From 10 to 16px
         
-        # Минимальная ширина кнопки
-        button_min_width = screen.width() * 0.4  # 40% ширины экрана
+        # Minimum button width
+        button_min_width = screen.width() * 0.4  # 40% of the screen width
         
-        # Создаем и размещаем кнопки для камер
+        # Create and place buttons for cameras
         for idx, (ip, device) in enumerate(self.active_devices.items()):
             button = QPushButton()
             button.setFixedHeight(int(button_height))
             button.setMinimumWidth(int(button_min_width))
             
-            # Адаптивный стиль с динамическим размером шрифта
+            # Adaptive style with dynamic font size
             button.setStyleSheet(f"""
                 QPushButton {{
                     font-size: {font_size}px;
@@ -398,15 +398,15 @@ class CameraStatusGUI(QWidget):
             self.status_buttons[ip] = button
             self.grid_layout.addWidget(button, idx, 0)
 
-        # Устанавливаем растяжение по горизонтали
+        # Set horizontal stretch
         self.grid_layout.setColumnStretch(0, 1)
         
-        # Добавляем растягивающийся пустой виджет снизу для выравнивания по верху
+        # Add a stretchable empty widget at the bottom for top alignment
         spacer = QWidget()
         spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.grid_layout.addWidget(spacer, num_cameras, 0)
         
-        # Обновляем стили для кнопок Record All и Stop All
+        # Update styles for the Record All and Stop All buttons
         control_font_size = min(24, max(18, int(button_height * 0.8)))
         
         self.record_all_button.setStyleSheet(f"""
@@ -479,6 +479,7 @@ class CameraStatusGUI(QWidget):
         self.status_update_thread.start()
 
     def refresh_status(self, statuses):
+        """Refresh the status of all cameras"""
         self._logger.debug("Refreshing status of all cameras...")
         for ip, status in statuses.items():
             if ip not in self.status_buttons:
@@ -489,7 +490,7 @@ class CameraStatusGUI(QWidget):
                 serial_number = self.active_devices[ip]['name'].replace("._gopro-web._tcp.local.", "")
                 self.status_buttons[ip].setText(f"[{serial_number}] | {ip} | ERROR: {status['error']}")
                 
-                # Сохраняем текущий размер кнопки для расчета шрифта
+                # Save the current button size for font size calculation
                 button_height = self.status_buttons[ip].height()
                 font_size = min(16, max(10, int(button_height * 0.4)))
                 
@@ -504,7 +505,7 @@ class CameraStatusGUI(QWidget):
                     }}
                 """)
 
-                # Попытка восстановить соединение
+                # Attempt to reconnect the camera
                 self._try_reconnect_camera(ip)
             else:
                 recording_status = "BUSY" if status.get("status") == "Busy" else ("REC" if status.get("recording", False) else "IDLE")
@@ -513,22 +514,22 @@ class CameraStatusGUI(QWidget):
                 storage_remaining_gb = status.get("storage_remaining_gb", 0)
                 storage_total_gb = status.get("storage_total_gb", 0)
                 
-                # Компактный формат отображения в одну строку
+                # Compact format for displaying in one line
                 serial_number = self.active_devices[ip]['name'].replace("._gopro-web._tcp.local.", "")
                 self.status_buttons[ip].setText(
                     f"[{serial_number}] | {ip} | {recording_status} {recording_duration}s | "
                     f"BAT:{battery_level}% | {storage_remaining_gb:.1f}/{storage_total_gb:.1f}GB"
                 )
                 
-                # Цветовая индикация состояния
+                # Color indication of the status
                 if status.get("recording", False):
-                    bg_color = "#ffcccc"  # Светло-красный для записи
+                    bg_color = "#ffcccc"  # Light red for recording
                 elif battery_level < 20 or storage_remaining_gb < 1:
-                    bg_color = "#ffd700"  # Желтый для предупреждений
+                    bg_color = "#ffd700"  # Yellow for warnings
                 else:
-                    bg_color = "#90EE90"  # Светло-зеленый для нормального состояния
+                    bg_color = "#90EE90"  # Light green for normal status
                 
-                # Получаем текущий размер кнопки для расчета шрифта
+                # Get the current button size for font size calculation
                 button_height = self.status_buttons[ip].height()
                 font_size = min(16, max(10, int(button_height * 0.4)))
                 
@@ -550,9 +551,9 @@ class CameraStatusGUI(QWidget):
         """Attempt to reconnect to a camera that's showing errors"""
         try:
             self._logger.info(f"Attempting to reconnect camera at {ip}")
-            # Сброс USB-контроля
+            # Reset USB control
             reset_and_enable_usb_control(ip)
-            # Обновляем статус через 2 секунды
+            # Update the status after 2 seconds
             QTimer.singleShot(2000, lambda: self.update_status())
         except Exception as e:
             self._logger.error(f"Failed to reconnect camera at {ip}: {e}")
@@ -569,8 +570,9 @@ class CameraStatusGUI(QWidget):
         """)
 
     def run_script(self, script_name):
+        """Run a script and handle errors"""
         try:
-            # Обновляем статус перед запуском
+            # Update status before running the script
             if script_name == "goprolist_usb_activate_time_sync_record.py":
                 self.operation_status.setText("⏳ Preparing cameras for recording...")
                 self.operation_status.setStyleSheet("""
@@ -596,10 +598,10 @@ class CameraStatusGUI(QWidget):
                     }
                 """)
             
-            QApplication.processEvents()  # Обновляем UI немедленно
+            QApplication.processEvents()  # Immediately update the UI
             
             if getattr(sys, 'frozen', False):
-                # В скомпилированной версии импортируем модуль напрямую
+                # In the compiled version, import the module directly
                 script_module = script_name.replace('.py', '')
                 if script_module == 'goprolist_usb_activate_time_sync_record':
                     import goprolist_usb_activate_time_sync_record
@@ -608,22 +610,22 @@ class CameraStatusGUI(QWidget):
                     import stop_record
                     stop_record.main()
             else:
-                # В режиме разработки запускаем как отдельный процесс
+                # In development mode, run as a separate process
                 script_path = self.app_root / script_name
                 subprocess.run([sys.executable, str(script_path)], check=True)
             
-            # Обновляем статус после успешного выполнения
+            # Update status after successful execution
             if script_name == "goprolist_usb_activate_time_sync_record.py":
                 self.operation_status.setText("✅ Recording started successfully")
             else:
                 self.operation_status.setText("✅ Recording stopped successfully")
             
-            # Через 5 секунд очищаем статус
+            # Clear the status after 5 seconds
             QTimer.singleShot(5000, lambda: self.operation_status.setText(""))
                 
         except Exception as e:
             logging.error(f"Error running script {script_name}: {e}")
-            # Обновляем статус при ошибке
+            # Update status in case of an error
             self.operation_status.setText(f"❌ Error: {str(e)}")
             self.operation_status.setStyleSheet("""
                 QLabel {
@@ -638,33 +640,34 @@ class CameraStatusGUI(QWidget):
             
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
-            msg.setText(f"Ошибка при запуске {script_name}")
+            msg.setText(f"Error running {script_name}")
             msg.setInformativeText(str(e))
-            msg.setWindowTitle("Ошибка")
+            msg.setWindowTitle("Error")
             msg.exec_()
 
     def record_all_cameras(self):
+        """Start recording on all cameras"""
         logging.debug("Recording on all cameras...")
         self.run_script("goprolist_usb_activate_time_sync_record.py")
 
     def stop_all_cameras(self):
-        """Останавливает запись на всех камерах"""
+        """Stop recording on all cameras"""
         try:
             self.stop_all_button.setEnabled(False)
             self.stop_all_button.setText('Stopping...')
             
-            # Создаем и запускаем поток для остановки записи
+            # Create and start a thread to stop recording
             class StopRecordThread(QThread):
                 finished = pyqtSignal(bool)
                 progress = pyqtSignal(str)
                 
                 def run(self):
                     try:
-                        # Создаем отдельный логгер для этого потока
+                        # Create a separate logger for this thread
                         thread_logger = logging.getLogger('stop_record_thread')
                         thread_logger.setLevel(logging.INFO)
                         
-                        # Добавляем handler для перехвата логов
+                        # Add a handler to capture logs
                         class ThreadLogHandler(logging.Handler):
                             def __init__(self, signal):
                                 super().__init__()
@@ -709,7 +712,7 @@ class CameraStatusGUI(QWidget):
             
             self.stop_thread = StopRecordThread()
             self.stop_thread.finished.connect(on_stop_finished)
-            # Используем простой print для логов прогресса вместо logging
+            # Use a simple print for progress logs instead of logging
             self.stop_thread.progress.connect(print)
             self.stop_thread.start()
             
@@ -724,15 +727,15 @@ class CameraStatusGUI(QWidget):
             )
 
     def turn_off_cameras(self):
-        """Выключает все камеры"""
+        """Turns off all cameras"""
         logging.debug("Turning off all cameras...")
         self.run_script("Turn_Off_Cameras.py")
 
     def copy_settings_from_prime(self):
-        """Копирует настройки с основной камеры на остальные с отображением прогресса"""
+        """Copies settings from the primary camera to others with progress display"""
         try:
             dialog = SettingsProgressDialog(
-                "Копирование настроек с основной камеры",
+                "Copying settings from the primary camera",
                 copy_camera_settings_sync,
                 self
             )
@@ -742,17 +745,17 @@ class CameraStatusGUI(QWidget):
             logging.error(f"Error copying settings: {e}")
             QMessageBox.critical(
                 self,
-                'Ошибка',
-                f'Ошибка при копировании настроек: {str(e)}'
+                'Error',
+                f'Error copying settings: {str(e)}'
             )
 
     def _handleTabChange(self, index):
-        """Обработчик смены режима"""
+        """Handler for mode change"""
         mode = self.tabToMode[index]
         self.setMode(mode, save=True)
         
     def setMode(self, mode, save=True):
-        """Установка режима для всех камер"""
+        """Sets the mode for all cameras"""
         if mode not in self.modeToTab:
             return
             
@@ -766,7 +769,7 @@ class CameraStatusGUI(QWidget):
             thread.start()
 
     def _apply_mode_thread(self, mode):
-        """Поток для применения режима"""
+        """Thread for applying the mode"""
         if not self.active_devices:
             logging.error("No GoPro devices found")
             return
@@ -779,9 +782,9 @@ class CameraStatusGUI(QWidget):
             loop.close()
 
     async def _apply_mode_async(self, devices, mode):
-        """Асинхронное применение режима ко всем камерам"""
+        """Asynchronous application of the mode to all cameras"""
         try:
-            # Сначала активируем USB на всех камерах
+            # First, activate USB on all cameras
             with ThreadPoolExecutor() as executor:
                 futures = list(map(
                     lambda d: executor.submit(reset_and_enable_usb_control, d['ip']), 
@@ -825,7 +828,7 @@ class CameraStatusGUI(QWidget):
             logging.error(f"Error applying {mode} mode: {e}")
 
     async def set_mode_for_camera(self, session, url, device, mode):
-        """Установка режима для одной камеры"""
+        """Sets the mode for a single camera"""
         try:
             async with session.get(url, timeout=5) as response:
                 if response.status != 200:
@@ -857,7 +860,7 @@ class CameraStatusGUI(QWidget):
             return False
 
     def saveLastMode(self, mode):
-        """Сохранение последнего использованного режима"""
+        """Save the last used mode"""
         try:
             config_dir = get_data_dir()
             config_file = config_dir / 'last_mode.json'
@@ -870,7 +873,7 @@ class CameraStatusGUI(QWidget):
             logging.error(f"Error saving last mode: {e}")
             
     def loadLastMode(self):
-        """Загрузка последнего использованного режима"""
+        """Load the last used mode"""
         try:
             config_dir = get_data_dir()
             config_file = config_dir / 'last_mode.json'
@@ -889,7 +892,7 @@ class CameraStatusGUI(QWidget):
 if __name__ == '__main__':
     try:
         logging.debug("Starting Camera Status Application")
-        # Добавляем проверку зависимостей
+        # Add dependency check
         check_dependencies()
         
         app = QApplication(sys.argv)
@@ -898,11 +901,14 @@ if __name__ == '__main__':
         sys.exit(app.exec_())
     except Exception as e:
         logging.error(f"Failed to start application: {e}")
-        # Показываем сообщение об ошибке пользователю
+        # Show an error message to the user
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Critical)
-        msg.setText("Ошибка запуска приложения")
+        msg.setText("Application startup error")
         msg.setInformativeText(str(e))
-        msg.setWindowTitle("Ошибка")
+        msg.setWindowTitle("Error")
         msg.exec_()
         sys.exit(1)
+    except KeyboardInterrupt:
+        logging.info("Application interrupted by user")
+        sys.exit(0)

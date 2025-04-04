@@ -1,0 +1,12 @@
+2025-03-27 19:45:41,830 - __main__ - INFO - Loaded cached camera devices:
+2025-03-27 19:45:41,831 - __main__ - INFO - Name: C3531324750517, IP: 172.25.117.51
+2025-03-27 19:45:41,831 - __main__ - INFO - Name: C3531325121539, IP: 172.25.139.51
+2025-03-27 19:45:41,831 - __main__ - INFO - Name: C3531324681989, IP: 172.29.189.51
+2025-03-27 19:45:41,837 - __main__ - INFO - Name: C3531350014146, IP: 172.21.146.51
+2025-03-27 19:45:41,837 - __main__ - INFO - Name: C3531325002143._gopro-web._tcp.local., IP: 172.21.143.51
+2025-03-27 19:45:41,837 - __main__ - INFO - Turning off all cameras...
+2025-03-27 19:46:02,887 - __main__ - ERROR - An error occurred while turning off camera 172.25.117.51: HTTPConnectionPool(host='172.25.117.51', port=80): Max retries exceeded with url: /gp/gpControl/command/system/sleep (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001DBC8EB42F0>, 'Connection to 172.25.117.51 timed out. (connect timeout=None)'))
+2025-03-27 19:46:02,888 - __main__ - ERROR - An error occurred while turning off camera 172.21.146.51: HTTPConnectionPool(host='172.21.146.51', port=80): Max retries exceeded with url: /gp/gpControl/command/system/sleep (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001DBC8E9CB90>, 'Connection to 172.21.146.51 timed out. (connect timeout=None)'))
+2025-03-27 19:46:02,889 - __main__ - ERROR - An error occurred while turning off camera 172.25.139.51: HTTPConnectionPool(host='172.25.139.51', port=80): Max retries exceeded with url: /gp/gpControl/command/system/sleep (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001DBC8EA5480>, 'Connection to 172.25.139.51 timed out. (connect timeout=None)'))
+2025-03-27 19:46:02,889 - __main__ - ERROR - An error occurred while turning off camera 172.29.189.51: HTTPConnectionPool(host='172.29.189.51', port=80): Max retries exceeded with url: /gp/gpControl/command/system/sleep (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001DBC8EA5220>, 'Connection to 172.29.189.51 timed out. (connect timeout=None)'))
+2025-03-27 19:46:02,889 - __main__ - ERROR - An error occurred while turning off camera 172.21.143.51: HTTPConnectionPool(host='172.21.143.51', port=80): Max retries exceeded with url: /gp/gpControl/command/system/sleep (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001DBC8E9D090>, 'Connection to 172.21.143.51 timed out. (connect timeout=None)'))

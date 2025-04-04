@@ -14,7 +14,7 @@ class FileInfo:
     folder: str
     timestamp: datetime
     status: str  # 'pending', 'copying', 'copied', 'failed', 'skipped'
-    progress: float = 0.0  # Прогресс копирования в процентах
+    progress: float = 0.0  # Copy progress in percentage
     error_message: Optional[str] = None
 
 @dataclass
@@ -25,13 +25,14 @@ class SceneInfo:
     total_size: int = 0
     
     def calculate_stats(self) -> Dict:
+        """Calculate statistics for the scene"""
         copied = len([f for f in self.files if f.status == 'copied'])
         failed = len([f for f in self.files if f.status == 'failed'])
         skipped = len([f for f in self.files if f.status == 'skipped'])
         copying = len([f for f in self.files if f.status == 'copying'])
         pending = len([f for f in self.files if f.status == 'pending'])
         
-        # Вычисляем общий прогресс сцены
+        # Calculate overall progress for the scene
         total_progress = 0
         if self.files:
             total_progress = sum(f.progress for f in self.files) / len(self.files)
@@ -56,16 +57,19 @@ class CopyStatistics:
         self.current_file: Optional[FileInfo] = None
         
     def start_session(self):
+        """Start the copy session"""
         self.start_time = datetime.now()
         
     def end_session(self):
+        """End the copy session"""
         self.end_time = datetime.now()
         
     def add_scene(self, scene: SceneInfo):
+        """Add a scene to the statistics"""
         self.scenes.append(scene)
         
     def update_file_progress(self, file_name: str, progress: float):
-        """Обновление прогресса копирования файла"""
+        """Update the copy progress of a file"""
         if self.current_scene:
             for file in self.current_scene.files:
                 if file.name == file_name:
@@ -77,6 +81,7 @@ class CopyStatistics:
                     break
         
     def get_summary(self) -> Dict:
+        """Get a summary of the copy statistics"""
         total_files = sum(len(scene.files) for scene in self.scenes)
         total_copied = sum(
             len([f for f in scene.files if f.status == 'copied'])
@@ -88,7 +93,7 @@ class CopyStatistics:
         )
         total_size = sum(scene.total_size for scene in self.scenes)
         
-        # Вычисляем общий прогресс
+        # Calculate overall progress
         total_progress = 0
         if self.scenes:
             scene_progresses = [
@@ -110,6 +115,7 @@ class CopyStatistics:
         }
     
     def save_report(self, destination: Path):
+        """Save a detailed copy report to a file"""
         report_file = destination / f'copy_report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt'
         
         with open(report_file, 'w', encoding='utf-8') as f:
@@ -143,4 +149,4 @@ class CopyStatistics:
                     f.write("\nFailed Files:\n")
                     for file in scene.files:
                         if file.status == 'failed':
-                            f.write(f"- {file.name}: {file.error_message}\n") 
+                            f.write(f"- {file.name}: {file.error_message}\n")

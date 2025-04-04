@@ -1,0 +1,29 @@
+2025-04-04 21:18:49,466 - root - DEBUG - Starting Camera Status Application
+2025-04-04 21:18:49,482 - root - DEBUG - Initializing Camera Status GUI
+2025-04-04 21:18:49,482 - root - DEBUG - Discovering GoPro devices...
+2025-04-04 21:18:49,497 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-04-04 21:18:49,497 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-04-04 21:18:49,573 - root - INFO - Discovered GoPro: C3531324882703._gopro-web._tcp.local. at 172.27.103.51
+2025-04-04 21:18:49,573 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.103.51:8080
+2025-04-04 21:18:54,600 - root - WARNING - USB connection check failed for camera C3531324882703._gopro-web._tcp.local. at 172.27.103.51
+2025-04-04 21:18:54,600 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-04-04 21:18:54,600 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-04-04 21:18:59,622 - root - WARNING - USB connection check failed for camera C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-04-04 21:19:04,505 - root - WARNING - No devices found on attempt 1, retrying...
+2025-04-04 21:19:06,512 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-04-04 21:19:06,512 - root - INFO - Searching for GoPro cameras (attempt 2/3)...
+2025-04-04 21:19:06,611 - root - INFO - Discovered GoPro: C3531324882703._gopro-web._tcp.local. at 172.27.103.51
+2025-04-04 21:19:06,613 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.103.51:8080
+2025-04-04 21:19:11,635 - root - WARNING - USB connection check failed for camera C3531324882703._gopro-web._tcp.local. at 172.27.103.51
+2025-04-04 21:19:11,635 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-04-04 21:19:11,635 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-04-04 21:19:16,638 - root - WARNING - USB connection check failed for camera C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-04-04 21:19:21,524 - root - WARNING - No devices found on attempt 2, retrying...
+2025-04-04 21:19:23,534 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-04-04 21:19:23,534 - root - INFO - Searching for GoPro cameras (attempt 3/3)...
+2025-04-04 21:19:23,635 - root - INFO - Discovered GoPro: C3531324882703._gopro-web._tcp.local. at 172.27.103.51
+2025-04-04 21:19:23,635 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.27.103.51:8080
+2025-04-04 21:19:28,665 - root - WARNING - USB connection check failed for camera C3531324882703._gopro-web._tcp.local. at 172.27.103.51
+2025-04-04 21:19:28,667 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-04-04 21:19:28,669 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-04-04 21:19:31,398 - root - INFO - Application interrupted by user

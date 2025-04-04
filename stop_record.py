@@ -14,11 +14,11 @@ from threading import Barrier, Thread
 from utils import get_app_root, get_data_dir, setup_logging, check_dependencies
 import sys
 
-# Инициализируем логирование
+# Initialize logging
 setup_logging()
 
 def check_stop_record_dependencies():
-    """Проверка специфических зависимостей для stop_record"""
+    """Check specific dependencies for stop_record"""
     required_files = [
         'data/camera_cache.json',
         'utils.py'
@@ -35,7 +35,7 @@ def check_stop_record_dependencies():
         raise FileNotFoundError(f"Missing required files: {', '.join(missing_files)}")
 
 def check_camera_connection(camera_ip, timeout=2):
-    """Проверка доступности камеры перед остановкой записи"""
+    """Check camera availability before stopping recording"""
     try:
         response = requests.get(f"http://{camera_ip}:8080/gopro/camera/state", timeout=timeout)
         return response.status_code == 200
@@ -43,8 +43,8 @@ def check_camera_connection(camera_ip, timeout=2):
         return False
 
 def stop_recording_synchronized(devices):
-    """Синхронная остановка записи на всех камерах"""
-    # Сначала проверяем доступность камер
+    """Synchronized stop recording on all cameras"""
+    # First, check camera availability
     available_devices = []
     unavailable_devices = []
     
@@ -59,10 +59,10 @@ def stop_recording_synchronized(devices):
         logging.error("No cameras are accessible")
         return False
         
-    # Создаем барьер только для доступных камер
+    # Create a barrier only for available cameras
     barrier = None
     try:
-        barrier = Barrier(len(available_devices), timeout=10)  # Увеличиваем таймаут барьера до 10 секунд
+        barrier = Barrier(len(available_devices), timeout=10)  # Increase barrier timeout to 10 seconds
     except Exception as e:
         logging.error(f"Failed to create barrier: {e}")
         return False
@@ -78,7 +78,7 @@ def stop_recording_synchronized(devices):
                 logging.error(f"Barrier wait failed for camera {camera_ip}: {e}")
                 return False
 
-            for attempt in range(3):  # Добавляем 3 попытки для остановки
+            for attempt in range(3):  # Add 3 attempts to stop
                 try:
                     response = requests.get(
                         f"http://{camera_ip}:8080/gopro/camera/shutter/stop",
@@ -90,35 +90,35 @@ def stop_recording_synchronized(devices):
                         return True
                     elif response.status_code == 503:
                         logging.warning(f"Camera {camera_ip} returned 503, attempt {attempt + 1}/3")
-                        time.sleep(1)  # Ждем секунду перед повторной попыткой
+                        time.sleep(1)  # Wait one second before retrying
                     else:
                         logging.error(f"Failed to stop camera {camera_ip}. Status: {response.status_code}")
                         return False
                 except requests.RequestException as e:
-                    if attempt < 2:  # Если это не последняя попытка
+                    if attempt < 2:  # If this is not the last attempt
                         logging.warning(f"Request failed for camera {camera_ip}, attempt {attempt + 1}/3: {e}")
                         time.sleep(1)
                     else:
                         logging.error(f"Failed to stop camera {camera_ip} after 3 attempts: {e}")
                         return False
             
-            return False  # Если все попытки не удались
+            return False  # If all attempts failed
         except Exception as e:
             logging.error(f"Error stopping camera {camera_ip}: {e}")
             return False
 
-    # Запускаем потоки только для доступных камер
+    # Start threads only for available cameras
     threads = []
     for device in available_devices:
         thread = Thread(target=lambda d=device: results.append((d['ip'], stop_camera(d['ip']))))
         threads.append(thread)
         thread.start()
 
-    # Ждем завершения всех потоков с таймаутом
+    # Wait for all threads to finish with a timeout
     for thread in threads:
-        thread.join(timeout=15)  # Увеличиваем таймаут до 15 секунд
+        thread.join(timeout=15)  # Increase timeout to 15 seconds
 
-    # Проверяем результаты
+    # Check results
     success = True
     failed_cameras = []
     
@@ -138,11 +138,11 @@ def stop_recording_synchronized(devices):
     return success
 
 def load_devices_from_cache(cache_filename="camera_cache.json"):
-    """Загрузка списка камер из кэша с поддержкой портативности"""
+    """Load the list of cameras from cache with portability support"""
     cache_paths = [
-        get_data_dir() / cache_filename,  # Основной путь
-        get_app_root() / 'data' / cache_filename,  # Альтернативный путь
-        get_app_root() / cache_filename  # Запасной путь
+        get_data_dir() / cache_filename,  # Primary path
+        get_app_root() / 'data' / cache_filename,  # Alternative path
+        get_app_root() / cache_filename  # Backup path
     ]
     
     for cache_file in cache_paths:
@@ -161,7 +161,7 @@ def load_devices_from_cache(cache_filename="camera_cache.json"):
 
 def main():
     try:
-        # Проверяем зависимости перед запуском
+        # Check dependencies before starting
         check_dependencies()
         check_stop_record_dependencies()
         
@@ -183,9 +183,9 @@ def main():
             from PyQt5.QtWidgets import QMessageBox
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
-            msg.setText("Ошибка при остановке записи")
+            msg.setText("Error stopping recording")
             msg.setInformativeText(str(e))
-            msg.setWindowTitle("Ошибка")
+            msg.setWindowTitle("Error")
             msg.exec_()
         raise
 

@@ -5,63 +5,63 @@ from pathlib import Path
 from datetime import datetime
 
 def get_app_root() -> Path:
-    """Получение корневой директории приложения"""
+    """Get the root directory of the application"""
     if getattr(sys, 'frozen', False):
-        # Для скомпилированного приложения
+        # For compiled applications
         return Path(sys.executable).parent
     else:
-        # Для разработки
+        # For development
         return Path(__file__).parent
 
 def get_data_dir() -> Path:
-    """Получение директории для данных"""
+    """Get the directory for data"""
     data_dir = get_app_root() / 'data'
     data_dir.mkdir(parents=True, exist_ok=True)
     return data_dir
 
 def get_logs_dir() -> Path:
-    """Получение директории для логов"""
+    """Get the directory for logs"""
     logs_dir = get_app_root() / 'logs'
     logs_dir.mkdir(parents=True, exist_ok=True)
     return logs_dir
 
 def setup_logging(name: str = None) -> logging.Logger:
-    """Настройка логирования
+    """Set up logging
     
     Args:
-        name: Имя логгера (опционально)
+        name: Logger name (optional)
     
     Returns:
-        logging.Logger: Настроенный логгер
+        logging.Logger: Configured logger
     """
-    # Создаем директорию для логов
+    # Create the directory for logs
     logs_dir = get_logs_dir()
     
-    # Формируем имя файла лога
+    # Generate the log file name
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file = logs_dir / f"gopro_control_{timestamp}.log"
     
-    # Получаем или создаем логгер
+    # Get or create the logger
     logger = logging.getLogger(name) if name else logging.getLogger()
     
-    # Если логгер уже настроен, возвращаем его
+    # If the logger is already configured, return it
     if logger.handlers:
         return logger
         
     logger.setLevel(logging.DEBUG)
     
-    # Форматтер для логов
+    # Formatter for logs
     formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     )
     
-    # Хендлер для файла
+    # File handler
     file_handler = logging.FileHandler(log_file, encoding='utf-8')
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
     
-    # Хендлер для консоли
+    # Console handler
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(formatter)
@@ -70,7 +70,7 @@ def setup_logging(name: str = None) -> logging.Logger:
     return logger
 
 def check_dependencies():
-    """Проверка наличия необходимых зависимостей"""
+    """Check for required dependencies"""
     try:
         import PyQt5
         import requests
@@ -81,5 +81,5 @@ def check_dependencies():
         raise
 
 def ensure_dir(path: Path):
-    """Создание директории если не существует"""
+    """Create a directory if it does not exist"""
     path.mkdir(parents=True, exist_ok=True)

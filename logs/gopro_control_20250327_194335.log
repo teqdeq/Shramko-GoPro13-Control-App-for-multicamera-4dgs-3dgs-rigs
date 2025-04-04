@@ -1,0 +1,39 @@
+2025-03-27 19:43:35,813 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 19:43:35,815 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-03-27 19:43:35,923 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-03-27 19:43:35,926 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:43:35,963 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1583
+2025-03-27 19:43:50,817 - root - INFO - Found 1 GoPro devices.
+2025-03-27 19:43:50,819 - root - INFO - Found the following GoPro devices:
+2025-03-27 19:43:50,819 - root - INFO - Name: C3531325002143._gopro-web._tcp.local., IP: 172.21.143.51
+2025-03-27 19:43:50,822 - root - INFO - Cache updated successfully with 5 devices.
+2025-03-27 19:43:50,823 - root - INFO - Resetting USB control on camera 172.21.143.51 (attempt 1/3)
+2025-03-27 19:43:50,825 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:43:50,905 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/1.1" 200 3
+2025-03-27 19:43:50,905 - root - INFO - USB control disabled on camera 172.21.143.51.
+2025-03-27 19:43:52,908 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:43:52,992 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/1.1" 200 3
+2025-03-27 19:43:52,993 - root - INFO - USB control enabled on camera 172.21.143.51.
+2025-03-27 19:43:52,994 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:43:53,038 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1583
+2025-03-27 19:43:53,040 - root - INFO - USB control successfully reset for camera 172.21.143.51
+2025-03-27 19:43:55,050 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 19:43:55,052 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-03-27 19:43:55,213 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-03-27 19:43:55,216 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:43:55,253 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1583
+2025-03-27 19:44:06,409 - root - INFO - GoPro C3531325002143._gopro-web._tcp.local. removed
+2025-03-27 19:44:10,053 - root - INFO - Found 1 GoPro devices.
+2025-03-27 19:44:10,058 - root - INFO - Found 1 cameras
+2025-03-27 19:44:10,063 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:44:10,071 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/info HTTP/1.1" 200 306
+2025-03-27 19:44:10,072 - root - INFO - Found prime camera: {'name': 'C3531325002143._gopro-web._tcp.local.', 'ip': '172.21.143.51'}
+2025-03-27 19:44:10,076 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:44:10,127 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/status HTTP/1.1" 200 1583
+2025-03-27 19:44:10,132 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:44:10,139 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/info HTTP/1.1" 200 306
+2025-03-27 19:44:10,140 - root - INFO - Camera info: Model=HERO13 BLACK, Firmware=H24.01.01.30.72
+2025-03-27 19:44:10,144 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:44:10,168 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/info HTTP/1.1" 200 306
+2025-03-27 19:44:10,168 - root - INFO - Found prime camera: {'name': 'C3531325002143._gopro-web._tcp.local.', 'ip': '172.21.143.51'}
+2025-03-27 19:44:10,169 - root - ERROR - Error copying settings: max_workers must be greater than 0

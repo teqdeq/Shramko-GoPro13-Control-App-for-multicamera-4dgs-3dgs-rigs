@@ -1,0 +1,24 @@
+2025-03-27 19:52:40,776 - root - INFO - Loaded camera cache from C:\Users\jan\Documents\creative\gaussian\camera-control\GoPro13-Control-App\data\camera_cache.json
+2025-03-27 19:52:40,776 - root - INFO - Loaded cached camera devices:
+2025-03-27 19:52:40,776 - root - INFO - Name: C3531324750517, IP: 172.25.117.51
+2025-03-27 19:52:40,782 - root - INFO - Name: C3531325121539, IP: 172.25.139.51
+2025-03-27 19:52:40,782 - root - INFO - Name: C3531324681989, IP: 172.29.189.51
+2025-03-27 19:52:40,782 - root - INFO - Name: C3531350014146, IP: 172.21.146.51
+2025-03-27 19:52:40,782 - root - INFO - Name: C3531325002143._gopro-web._tcp.local., IP: 172.21.143.51
+2025-03-27 19:52:40,782 - root - INFO - Stopping recording on all cameras...
+2025-03-27 19:52:40,783 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.25.117.51:8080
+2025-03-27 19:52:42,792 - root - ERROR - Camera 172.25.117.51 is not accessible
+2025-03-27 19:52:42,795 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.25.139.51:8080
+2025-03-27 19:52:44,808 - root - ERROR - Camera 172.25.139.51 is not accessible
+2025-03-27 19:52:44,810 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.29.189.51:8080
+2025-03-27 19:52:46,817 - root - ERROR - Camera 172.29.189.51 is not accessible
+2025-03-27 19:52:46,818 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.146.51:8080
+2025-03-27 19:52:48,828 - root - ERROR - Camera 172.21.146.51 is not accessible
+2025-03-27 19:52:48,830 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:52:48,879 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1579
+2025-03-27 19:52:48,880 - root - INFO - Camera 172.21.143.51 waiting for synchronized stop
+2025-03-27 19:52:48,881 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 19:52:48,935 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/shutter/stop HTTP/1.1" 200 3
+2025-03-27 19:52:48,936 - root - INFO - Camera 172.21.143.51 stopped successfully
+2025-03-27 19:52:48,937 - root - INFO - All accessible cameras stopped successfully
+2025-03-27 19:52:48,937 - root - WARNING - The following cameras were not accessible: ['172.25.117.51', '172.25.139.51', '172.29.189.51', '172.21.146.51']

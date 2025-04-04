@@ -10,14 +10,14 @@ from PyQt5.QtCore import Qt, QThread, pyqtSignal
 from datetime import datetime
 from pathlib import Path
 
-# Инициализируем логирование
+# Initializing logging
 from utils import setup_logging, get_app_root, get_data_dir, check_dependencies
 from app_init import init_app
 
-# Создаем логгер для этого модуля
+# Creating a logger for this module
 logger = setup_logging('gui')
 
-# Импортируем остальные модули
+# Importing the remaining modules
 from copy_progress_widget import CopyProgressWidget
 from copy_manager import CopyManager
 from preset_manager_gui import PresetManagerDialog
@@ -68,6 +68,8 @@ class ScriptRunner(QThread):
 
 
 class GoProControlApp(QMainWindow):
+    log_signal = pyqtSignal(str)  # Add a signal for logging messages
+
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Shramko Andrii GoPro Control Interface")
@@ -75,7 +77,7 @@ class GoProControlApp(QMainWindow):
         self.log_content = []
         self.download_folder = None
         
-        # Получаем пути к директориям
+        # Getting paths to directories
         self.app_root = get_app_root()
         self.data_dir = get_data_dir()
         
@@ -97,17 +99,17 @@ class GoProControlApp(QMainWindow):
         # Control Tab Layout
         self.control_layout = QVBoxLayout(self.control_tab)
         self.connect_button = QPushButton("Connect to Cameras")
-        self.connect_button.setFixedHeight(50)  # Увеличиваем высоту в 2 раза
+        self.connect_button.setFixedHeight(50)  # Increasing the height by 2 times
         self.connect_button.clicked.connect(self.connect_to_cameras)
         self.control_layout.addWidget(self.connect_button)
 
         self.copy_settings_button = QPushButton("Copy Settings from Prime Camera")
-        self.copy_settings_button.setFixedHeight(50)  # Увеличиваем высоту в 2 раза
+        self.copy_settings_button.setFixedHeight(50)  # Increasing the height by 2 times
         self.copy_settings_button.clicked.connect(self.copy_settings_from_prime)
         self.control_layout.addWidget(self.copy_settings_button)
 
         self.record_button = QPushButton("Record")
-        self.record_button.setFixedHeight(75)  # Увеличиваем высоту в 3 раза
+        self.record_button.setFixedHeight(75)  # Increasing the height by 3 times
         self.record_button.clicked.connect(self.toggle_record)
         self.control_layout.addWidget(self.record_button)
 
@@ -118,6 +120,18 @@ class GoProControlApp(QMainWindow):
         self.turn_off_button = QPushButton("Turn Off Cameras")
         self.turn_off_button.clicked.connect(self.turn_off_cameras)
         self.control_layout.addWidget(self.turn_off_button)
+
+        # Add Photo Mode button
+        self.photo_mode_button = QPushButton("Photo Mode")
+        self.photo_mode_button.setFixedHeight(50)  # Set button height
+        self.photo_mode_button.clicked.connect(lambda: self.run_script("photo_mode.py", self.photo_mode_button))
+        self.control_layout.addWidget(self.photo_mode_button)
+
+        # Add Video Mode button
+        self.video_mode_button = QPushButton("Video Mode")
+        self.video_mode_button.setFixedHeight(50)  # Set button height
+        self.video_mode_button.clicked.connect(lambda: self.run_script("video_mode.py", self.video_mode_button))
+        self.control_layout.addWidget(self.video_mode_button)
 
         # Log Window (Control Tab)
         self.log_text = QTextEdit()
@@ -151,35 +165,38 @@ class GoProControlApp(QMainWindow):
         # Log Window (Download Tab)
         self.download_log_text = QTextEdit()
         self.download_log_text.setReadOnly(True)
-        self.download_log_text.setMaximumHeight(100)  # Ограничиваем высоту примерно 5 строк
+        self.download_log_text.setMaximumHeight(100)  # Limiting the height to approximately 5 lines
         self.download_layout.addWidget(self.download_log_text)
 
         self.base_dir = os.path.dirname(os.path.abspath(__file__))
 
-        # Инициализируем виджет прогресса копирования
+        # Initializing the copy progress widget
         self.init_copy_progress()
         
-        # Добавляем кнопку управления шаблонами в control_layout
-        self.preset_manager_btn = QPushButton("Управление шаблонами")
+        # Adding a preset management button to control_layout
+        self.preset_manager_btn = QPushButton("Preset Manager")
+    
         self.preset_manager_btn.clicked.connect(self.show_preset_manager)
         self.control_layout.addWidget(self.preset_manager_btn)
         
-        # Добавляем кнопку Single Photo Timelapse
+        # Adding a Single Photo Timelapse button to control_layout
         self.timelapse_btn = QPushButton("Single Photo Timelapse")
         self.timelapse_btn.clicked.connect(self.show_timelapse)
         self.control_layout.addWidget(self.timelapse_btn)
         
         self.power_manager = PowerManager()
         
+        self.log_signal.connect(self.append_log_message)  # Connect the signal to a slot
+
     def init_copy_progress(self):
-        """Инициализация виджета прогресса копирования"""
+        """Initializing the copy progress widget"""
         self.copy_progress = CopyProgressWidget()
         self.download_layout.addWidget(self.copy_progress)
         
-        # Создаем менеджер копирования
+        # Creating a copy manager
         self.copy_manager = CopyManager()
         
-        # Подключаем сигналы обновления прогресса
+        # Connecting progress update signals
         self.copy_manager.progress_signal.connect(
             self.copy_progress.update_signal.emit
         )
@@ -190,87 +207,64 @@ class GoProControlApp(QMainWindow):
             self.copy_progress.update_signal.emit
         )
         
-        # Подключаем сигналы управления
+        # Connecting management signals
         self.copy_progress.pause_signal.connect(self.copy_manager.pause)
         self.copy_progress.resume_signal.connect(self.copy_manager.resume)
         self.copy_progress.cancel_signal.connect(self.copy_manager.cancel)
         
-        # Устанавливаем политику растяжения для виджета прогресса
+        # Setting the stretch policy for the progress widget
         self.download_layout.setStretchFactor(self.copy_progress, 1)
         
     def log_message(self, message):
+        self.log_signal.emit(message)  # Emit the signal instead of directly updating the GUI
+
+    def append_log_message(self, message):
+        """Slot to append log messages to the GUI"""
         self.log_content.append(message)
         self.log_text.append(message)
         self.download_log_text.append(message)
 
     def run_script(self, script_name, button_to_enable, additional_args=None):
         try:
-            if getattr(sys, 'frozen', False):
-                # В скомпилированной версии импортируем модуль напрямую
-                script_module = script_name.replace('.py', '')
-                if script_module == 'goprolist_usb_activate_time_sync':
-                    import goprolist_usb_activate_time_sync
-                    goprolist_usb_activate_time_sync.main()
-                elif script_module == 'read_and_write_all_settings_from_prime_to_other':
-                    import read_and_write_all_settings_from_prime_to_other_v02
-                    read_and_write_all_settings_from_prime_to_other_v02.main()
-                elif script_module == 'goprolist_usb_activate_time_sync_record':
-                    import goprolist_usb_activate_time_sync_record
-                    goprolist_usb_activate_time_sync_record.main()
-                elif script_module == 'stop_record':
-                    import stop_record
-                    stop_record.main()
-                elif script_module == 'set_preset_0':
-                    import set_preset_0
-                    set_preset_0.main()
-                elif script_module == 'Turn_Off_Cameras':
-                    import Turn_Off_Cameras
-                    Turn_Off_Cameras.main()
-                elif script_module == 'format_sd':
-                    import format_sd
-                    format_sd.main()
-                elif script_module == 'copy_to_pc_and_scene_sorting':
-                    import copy_to_pc_and_scene_sorting
-                    copy_to_pc_and_scene_sorting.create_folder_structure_and_copy_files(
-                        self.download_folder if additional_args else None
-                    )
-            else:
-                # В режиме разработки запускаем как отдельный процесс
-                script_path = self.app_root / script_name
-                command = [sys.executable, str(script_path)]
-                if additional_args:
-                    command.extend(additional_args)
-                    
-                process = subprocess.Popen(
-                    command,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    text=True,
-                    bufsize=1
-                )
-                
-                with process.stdout as stdout, process.stderr as stderr:
-                    for line in iter(stdout.readline, ""):
-                        if line:
-                            self.log_message(line.strip())
-                    for line in iter(stderr.readline, ""):
-                        if line:
-                            self.log_message(f"[ERROR] {line.strip()}")
+            script_path = self.app_root / script_name
+            if not script_path.exists():
+                raise FileNotFoundError(f"Script {script_name} not found at {script_path}")
 
-                process.wait()
-                if process.returncode != 0:
-                    raise subprocess.CalledProcessError(
-                        process.returncode, script_name
-                    )
-                    
+            command = [sys.executable, str(script_path)]
+            if additional_args:
+                command.extend(additional_args)
+
+            process = subprocess.Popen(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                bufsize=1
+            )
+
+            with process.stdout as stdout, process.stderr as stderr:
+                for line in iter(stdout.readline, ""):
+                    if line:
+                        self.log_message(line.strip())
+                for line in iter(stderr.readline, ""):
+                    if line:
+                        self.log_message(f"[ERROR] {line.strip()}")
+
+            process.wait()
+            if process.returncode != 0:
+                raise subprocess.CalledProcessError(process.returncode, command)
+
+        except FileNotFoundError as e:
+            logging.error(f"File not found: {e}")
+            self.log_message(f"Error: {str(e)}")
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Script {script_name} failed with exit code {e.returncode}")
+            self.log_message(f"Error: Script {script_name} failed with exit code {e.returncode}. Command: {e.cmd}")
         except Exception as e:
             logging.error(f"Error running script {script_name}: {e}")
             self.log_message(f"Error: {str(e)}")
+        finally:
             button_to_enable.setEnabled(True)
-            return False
-            
-        button_to_enable.setEnabled(True)
-        return True
 
     def on_script_finished(self, success, button_to_enable):
         button_to_enable.setEnabled(True)
@@ -291,7 +285,7 @@ class GoProControlApp(QMainWindow):
             
             def run(self):
                 try:
-                    # Перехватываем логи для отображения в GUI
+                    # Capturing logs for display in GUI
                     class LogHandler(logging.Handler):
                         def __init__(self, signal):
                             super().__init__()
@@ -301,14 +295,14 @@ class GoProControlApp(QMainWindow):
                             msg = self.format(record)
                             self.signal.emit(msg)
                     
-                    # Добавляем handler для перехвата логов
+                    # Adding a handler to capture logs
                     logger = logging.getLogger()
                     handler = LogHandler(self.progress_signal)
                     handler.setFormatter(logging.Formatter('%(message)s'))
                     logger.addHandler(handler)
                     
                     try:
-                        # одключаемся к камерам
+                        # Connect to the cameras
                         import goprolist_and_start_usb
                         goprolist_and_start_usb.main()
                         self.finished_signal.emit(True)
@@ -324,7 +318,7 @@ class GoProControlApp(QMainWindow):
                     self.progress_signal.emit(f"Thread error: {str(e)}")
                     self.finished_signal.emit(False)
         
-        # Создаем и запускаем поток
+        # Create and launch the stream
         self.connect_thread = ConnectThread()
         self.connect_thread.progress_signal.connect(self.log_message)
         self.connect_thread.finished_signal.connect(
@@ -333,7 +327,7 @@ class GoProControlApp(QMainWindow):
         self.connect_thread.start()
     
     def on_connect_finished(self, success):
-        """Обработчик завершения подключения к камерам"""
+        """Handler for ending the connection to the cameras"""
         self.connect_button.setEnabled(True)
         if success:
             self.log_message("Successfully connected to cameras")
@@ -346,14 +340,14 @@ class GoProControlApp(QMainWindow):
             )
 
     def copy_settings_from_prime(self):
-        """Копирует настройки с основной камеры на остальные с отображением прогресса"""
+        """Copies settings from the main camera to the others while displaying progress"""
         try:
-            # Импортируем и создаем диалог прогресса
+            # Import and create progress dialog
             from progress_dialog import SettingsProgressDialog
             from read_and_write_all_settings_from_prime_to_other_v02 import copy_camera_settings_sync
             
             dialog = SettingsProgressDialog(
-                "Копирование настроек с основной камеры",
+                "Copying settings from the main camera",
                 copy_camera_settings_sync,
                 self
             )
@@ -363,63 +357,14 @@ class GoProControlApp(QMainWindow):
             logging.error(f"Error copying settings: {e}")
             QMessageBox.critical(
                 self,
-                'Ошибка',
-                f'Ошибка при копировании настроек: {str(e)}'
+                'Error',
+                f'Error while copying settings: {str(e)}'
             )
 
     def toggle_record(self):
         self.record_button.setEnabled(False)
-        
-        class RecordThread(QThread):
-            progress_signal = pyqtSignal(str)
-            finished_signal = pyqtSignal(bool)
-            
-            def __init__(self, is_recording, parent=None):
-                super().__init__(parent)
-                self.is_recording = is_recording
-                
-            def run(self):
-                try:
-                    # Перехватываем логи для отображения в GUI
-                    class LogHandler(logging.Handler):
-                        def __init__(self, signal):
-                            super().__init__()
-                            self.signal = signal
-                            
-                        def emit(self, record):
-                            msg = self.format(record)
-                            self.signal.emit(msg)
-                    
-                    # Добавляем handler для перехвата логов
-                    logger = logging.getLogger()
-                    handler = LogHandler(self.progress_signal)
-                    handler.setFormatter(logging.Formatter('%(message)s'))
-                    logger.addHandler(handler)
-                    
-                    try:
-                        if self.is_recording:
-                            # Останавливаем запись
-                            import stop_record
-                            stop_record.main()
-                        else:
-                            # Начинаем запись
-                            import goprolist_usb_activate_time_sync_record
-                            goprolist_usb_activate_time_sync_record.main()
-                        
-                        self.finished_signal.emit(True)
-                    except Exception as e:
-                        logging.error(f"Error during recording operation: {e}")
-                        self.progress_signal.emit(f"Error: {str(e)}")
-                        self.finished_signal.emit(False)
-                    finally:
-                        logger.removeHandler(handler)
-                        
-                except Exception as e:
-                    logging.error(f"Thread error: {e}")
-                    self.progress_signal.emit(f"Thread error: {str(e)}")
-                    self.finished_signal.emit(False)
-        
-        # Создаем и запускаем поток
+
+        # Create and start the RecordThread
         self.record_thread = RecordThread(self.is_recording)
         self.record_thread.progress_signal.connect(self.log_message)
         self.record_thread.finished_signal.connect(
@@ -428,7 +373,8 @@ class GoProControlApp(QMainWindow):
         self.record_thread.start()
     
     def on_record_finished(self, success):
-        """Обработчик завершения операции записи"""
+        """Handler for ending the recording operation"""
+        self.record_button.setEnabled(True)  # Ensure the button is re-enabled
         if success:
             self.is_recording = not self.is_recording
             self.record_button.setText("Stop Recording" if self.is_recording else "Record")
@@ -440,7 +386,6 @@ class GoProControlApp(QMainWindow):
                 "Error",
                 "Failed to complete recording operation"
             )
-        self.record_button.setEnabled(True)
 
     def set_first_camera_preset(self):
         self.set_preset_button.setEnabled(False)
@@ -451,7 +396,7 @@ class GoProControlApp(QMainWindow):
             
             def run(self):
                 try:
-                    # Перехватываем логи для отображения в GUI
+                    # Intercept logs for display in the GUI
                     class LogHandler(logging.Handler):
                         def __init__(self, signal):
                             super().__init__()
@@ -461,14 +406,14 @@ class GoProControlApp(QMainWindow):
                             msg = self.format(record)
                             self.signal.emit(msg)
                     
-                    # Добавляем handler для перехвата логов
+                    # Add a handler for intercepting logs
                     logger = logging.getLogger()
                     handler = LogHandler(self.progress_signal)
                     handler.setFormatter(logging.Formatter('%(message)s'))
                     logger.addHandler(handler)
                     
                     try:
-                        # Устанавливаем пресет
+                        # Set the preset
                         import set_preset_0
                         set_preset_0.main()
                         self.finished_signal.emit(True)
@@ -484,7 +429,7 @@ class GoProControlApp(QMainWindow):
                     self.progress_signal.emit(f"Thread error: {str(e)}")
                     self.finished_signal.emit(False)
         
-        # Создаем и запускаем поток
+        # Create and start the stream
         self.preset_thread = PresetThread()
         self.preset_thread.progress_signal.connect(self.log_message)
         self.preset_thread.finished_signal.connect(
@@ -493,7 +438,7 @@ class GoProControlApp(QMainWindow):
         self.preset_thread.start()
     
     def on_preset_finished(self, success):
-        """Обработчик завершения установки пресета"""
+        """Handler for ending the preset installation"""
         self.set_preset_button.setEnabled(True)
         if success:
             self.log_message("Preset set successfully")
@@ -525,7 +470,7 @@ class GoProControlApp(QMainWindow):
             self.log_message(f"Error saving log: {e}")
 
     def select_download_folder(self):
-        # Получаем последнюю использованную директорию из конфига
+        # Get the last used directory from the config
         initial_dir = self.copy_manager.config.get("last_target_dir", str(Path.home()))
         folder = QFileDialog.getExistingDirectory(self, "Select Download Folder", initial_dir)
         if folder:
@@ -535,15 +480,15 @@ class GoProControlApp(QMainWindow):
             self.log_message(f"Selected download folder: {self.download_folder}")
 
     def download_files(self):
-        """Обработчик нажатия кнопки скачивания"""
+        """Handler for the download button click"""
         try:
             with self.power_manager.prevent_system_sleep():
-                # Очищаем предыдущий прогресс
+                # Clear previous progress
                 self.copy_progress.clear()
                 
-                # Если папка не выбрана, запрашиваем её
+                # If no folder is selected, prompt for it
                 if not self.download_folder:
-                    # Получаем последнюю использованную директорию из конфига
+                    # Get the last used directory from the config
                     initial_dir = self.copy_manager.config.get("last_target_dir", str(Path.home()))
                     target_dir = QFileDialog.getExistingDirectory(
                         self,
@@ -556,7 +501,7 @@ class GoProControlApp(QMainWindow):
                     self.download_label.setText(f"Selected folder: {self.download_folder}")
                     self.download_label.setStyleSheet("color: green;")
                 
-                # Запускаем копирование
+                # Start copying
                 self.copy_manager.start_copy_session(Path(self.download_folder))
                 
         except Exception as e:
@@ -575,30 +520,30 @@ class GoProControlApp(QMainWindow):
         self.run_script("Turn_Off_Cameras.py", self.turn_off_button)
 
     def show_preset_manager(self):
-        """Показывает диалог управления пресетами"""
+        """Shows a dialog for managing presets"""
         dialog = PresetManagerDialog(self)
         # Ensure mode detection happens before showing
         dialog.detect_and_sync_prime_camera_mode()
         dialog.show()
 
     def show_timelapse(self):
-        """Показывает окно Single Photo Timelapse"""
+        """Displays the Single Photo Timelapse window"""
         self.timelapse_window = SinglePhotoTimelapseGUI()
         self.timelapse_window.show()
 
 
 def main():
     try:
-        # Инициализируем приложение
+        # Initialize the application
         if not init_app():
             raise RuntimeError("Failed to initialize application")
-            
-        # Создаем и показываем главное окно
+             
+        # Create and display the main window
         app = QApplication(sys.argv)
         window = GoProControlApp()
         window.show()
         
-        # Запускаем главный цикл
+        # Start the main loop
         sys.exit(app.exec_())
         
     except Exception as e:

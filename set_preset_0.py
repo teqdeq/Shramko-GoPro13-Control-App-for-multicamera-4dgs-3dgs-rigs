@@ -11,11 +11,11 @@ from concurrent.futures import ThreadPoolExecutor
 from goprolist_and_start_usb import discover_gopro_devices
 from utils import get_app_root, setup_logging, check_dependencies
 
-# Инициализируем логирование
+# Initialize logging
 setup_logging()
 
 def check_preset_dependencies():
-    """Проверка зависимостей для установки пресета"""
+    """Check dependencies for setting the preset"""
     required_files = [
         'data/camera_cache.json',
         'utils.py',
@@ -33,9 +33,9 @@ def check_preset_dependencies():
         raise FileNotFoundError(f"Missing required files: {', '.join(missing_files)}")
 
 def set_preset(camera_ip):
-    """Установка пресета на камеру"""
+    """Set the preset on the camera"""
     try:
-        # Возвращаем правильный URL для загрузки пресета
+        # Construct the correct URL for loading the preset
         url = f"http://{camera_ip}:8080/gopro/camera/presets/load?id=0"
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
@@ -46,19 +46,19 @@ def set_preset(camera_ip):
         logging.error(f"Error loading preset on camera {camera_ip}: {e}")
 
 def main():
-    """Основная функция для установки пресета на все камеры"""
+    """Main function for setting the preset on all cameras"""
     try:
-        # Проверяем зависимости
+        # Check dependencies
         check_dependencies()
         check_preset_dependencies()
         
-        # Получаем список камер
+        # Get the list of cameras
         devices = discover_gopro_devices()
         if not devices:
             logging.error("No GoPro devices found")
             return False
 
-        # Устанавливаем пресет на все камеры параллельно
+        # Set the preset on all cameras in parallel
         logging.info("Loading preset on all cameras...")
         with ThreadPoolExecutor() as executor:
             executor.map(lambda d: set_preset(d['ip']), devices)

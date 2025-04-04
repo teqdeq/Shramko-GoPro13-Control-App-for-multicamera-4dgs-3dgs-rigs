@@ -1,0 +1,11 @@
+2025-03-27 18:57:45,111 - root - ERROR - Missing dependency: No module named 'humanize'
+2025-03-27 18:57:45,111 - root - ERROR - Error in main execution: No module named 'humanize'
+2025-03-27 18:57:47,127 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-03-27 18:57:47,128 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-03-27 18:57:47,316 - root - INFO - Discovered GoPro: C3531325002143._gopro-web._tcp.local. at 172.21.143.51
+2025-03-27 18:57:47,319 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 18:57:47,354 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1579
+2025-03-27 18:58:02,162 - root - INFO - Found 1 GoPro devices.
+2025-03-27 18:58:02,164 - root - INFO - Found 1 cameras
+2025-03-27 18:58:02,165 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.21.143.51:8080
+2025-03-27 18:58:02,172 - urllib3.connectionpool - DEBUG - http://172.21.143.51:8080 "GET /gp/gpControl/info HTTP/1.1" 200 306

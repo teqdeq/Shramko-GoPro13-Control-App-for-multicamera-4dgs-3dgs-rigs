@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class SceneInfo:
-    """Информация о сцене (группе файлов)"""
+    """Information about the scene (group of files)"""
     id: str
     name: str
     created_at: datetime
@@ -39,7 +39,7 @@ class SceneInfo:
     
     def __post_init__(self):
         self.total_size = sum(f.size for f in self.files)
-        # Подсчитываем количество файлов каждого типа
+        # Counting the number of files of each type
         for file in self.files:
             file_type = file.name.split('.')[-1].upper()
             if file_type in self.file_counts:
@@ -50,17 +50,17 @@ class SceneInfo:
                     self.has_gpr = True
         
     def get_progress(self) -> float:
-        """Получить общий прогресс копирования сцены"""
+        """Get the overall progress of copying the scene"""
         if not self.files:
             return 0.0
         return sum(f.progress for f in self.files) / len(self.files)
         
     def create_folder_structure(self, base_path: Path):
-        """Создает структуру папок для сцены"""
+        """Generates directory structure for the scene"""
         scene_path = base_path / self.name
         scene_path.mkdir(parents=True, exist_ok=True)
         
-        # Создаем подпапки если есть соответствующие файлы
+        # Creates a folder structure for the scene
         if self.has_jpg and self.file_counts['JPG'] > 0:
             jpg_path = scene_path / 'JPG'
             jpg_path.mkdir(exist_ok=True)
@@ -72,13 +72,13 @@ class SceneInfo:
         return scene_path
 
 class CopyThread(QThread):
-    """Поток для копирования файлов"""
+    """Thread for copying files"""
     
-    # Сигналы для обновления GUI
-    progress_signal = pyqtSignal(dict)  # Прогресс копирования
-    error_signal = pyqtSignal(str)      # Ошибки
-    status_signal = pyqtSignal(dict)    # Статус операций
-    finished_signal = pyqtSignal()      # Сигнал завершения
+    # Signals for updating the GUI
+    progress_signal = pyqtSignal(dict)  # Copying progress
+    error_signal = pyqtSignal(str)      # Errors
+    status_signal = pyqtSignal(dict)    # Operation status
+    finished_signal = pyqtSignal()      # Completion signal
     
     def __init__(self, manager, target_dir):
         super().__init__()
@@ -87,7 +87,7 @@ class CopyThread(QThread):
         self.is_running = False
         
     def run(self):
-        """Запуск копирования в отдельном потоке"""
+        """Start copying in a separate thread"""
         try:
             self.is_running = True
             if self.manager.is_cancelled:
@@ -109,26 +109,26 @@ class CopyThread(QThread):
             self.finished_signal.emit()
             
     def _copy_files(self, target_dir: Path):
-        """Внутренний метод для копирования файлов"""
+        """Internal method for copying files"""
         try:
             self.manager.statistics.start()
             
-            # Проверяем паузу перед началом копирования
+            # Checking for pause before starting copying
             while self.manager.is_paused and not self.manager.is_cancelled:
-                time.sleep(0.1)  # Уменьшаем интервал для более быстрой реакции
+                time.sleep(0.1)  # Reduce the interval for faster response
                 
             if self.manager.is_cancelled:
                 logger.info("Copy session cancelled during initial pause")
                 return
                     
-            # Создаем сцены в GUI и проверяем существующие файлы
+            # Creating scenes in the GUI and checking existing files
             for scene in self.manager.scenes:
-                # Проверяем отмену операции
+                # Checking for operation cancellation
                 if self.manager.is_cancelled:
                     logger.info("Copy session cancelled during scene preparation")
                     return
                     
-                # Проверяем паузу
+                # Checking for pause
                 while self.manager.is_paused and not self.manager.is_cancelled:
                     time.sleep(0.1)
                     
@@ -139,9 +139,9 @@ class CopyThread(QThread):
                 scene_dir = target_dir / scene.name
                 scene_dir.mkdir(parents=True, exist_ok=True)
                 
-                # Сначала проверяем все файлы
+                # First, check all files
                 for file in scene.files:
-                    # Определяем подпапку в зависимости от типа файла
+                    # Determining the subfolder depending on the file type
                     file_type = file.name.split('.')[-1].upper()
                     file_name_with_sn = f"{file.camera_id}_{file.name}"
                     
@@ -152,7 +152,7 @@ class CopyThread(QThread):
                     else:
                         target_path = scene_dir / file_name_with_sn
                         
-                    # Создаем директорию если её нет
+                    # Creating the directory if it does not exist
                     target_path.parent.mkdir(parents=True, exist_ok=True)
                     
                     if target_path.exists():
@@ -167,7 +167,7 @@ class CopyThread(QThread):
                     
                     scene_files.append((file, file.camera_id))
                 
-                # Теперь отправляем информацию о сцене в GUI с актуальными статусами
+                # Now sending scene information to the GUI with current statuses
                 self.progress_signal.emit({
                     "add_scene": {
                         "id": scene.id,
@@ -177,11 +177,11 @@ class CopyThread(QThread):
                     }
                 })
                 
-                # Проверяем паузу после добавления сцены
+                # Checking for pause after adding the scene
                 while self.manager.is_paused and not self.manager.is_cancelled:
                     time.sleep(0.1)
                 
-                # И сразу отправляем статусы для завершенных файлов
+                # And immediately send statuses for completed files
                 for file in scene.files:
                     if file.status == "completed":
                         self.progress_signal.emit({
@@ -192,12 +192,12 @@ class CopyThread(QThread):
                             "camera_id": file.camera_id
                         })
             
-            # Создаем список файлов для копирования
+            # Creating a list of files for copying
             all_files = []
             for scene in self.manager.scenes:
                 scene_dir = target_dir / scene.name
                 for file in scene.files:
-                    if file.status != "completed":  # Пропускаем уже завершенные файлы
+                    if file.status != "completed":  # Skipping already completed files
                         file.scene_id = scene.id
                         all_files.append((file, scene_dir, scene))
 
@@ -205,11 +205,11 @@ class CopyThread(QThread):
             completed = 0
             failed = 0
 
-            # Разделяем файлы на видео и фото
+            # Separating files into videos and photos.
             video_files = [(f, d, s) for f, d, s in all_files if f.name.endswith('.MP4')]
             photo_files = [(f, d, s) for f, d, s in all_files if f.name.endswith('.JPG')]
 
-            # Сначала копируем фото (параллельно)
+            # Separating files into videos and photos
             if photo_files:
                 with ThreadPoolExecutor(max_workers=min(10, len(photo_files))) as executor:
                     futures = []
@@ -219,7 +219,7 @@ class CopyThread(QThread):
                         future = executor.submit(self.copy_file, file, scene_dir, scene)
                         futures.append(future)
                     
-                    # Ждем завершения всех операций
+                    # Waiting for all operations to complete
                     for future in futures:
                         try:
                             success = future.result()
@@ -230,7 +230,7 @@ class CopyThread(QThread):
                                 failed += 1
                                 self.manager.statistics.failed_files += 1
                             
-                            # Обновляем общий прогресс
+                            # Updating overall progress
                             self.status_signal.emit({
                                 "total_files": total_files,
                                 "copied_files": completed,
@@ -242,7 +242,7 @@ class CopyThread(QThread):
                         except Exception as e:
                             logger.error(f"Error in photo copy thread: {e}")
             
-            # Затем копируем видео (последовательно)
+            # Then copy videos (sequentially)
             for file, scene_dir, scene in video_files:
                 if self.manager.is_cancelled:
                     break
@@ -255,7 +255,7 @@ class CopyThread(QThread):
                         failed += 1
                         self.manager.statistics.failed_files += 1
                     
-                    # Обновляем общий прогресс
+                    # Updating overall progress
                     self.status_signal.emit({
                         "total_files": total_files,
                         "copied_files": completed,
@@ -271,7 +271,7 @@ class CopyThread(QThread):
 
             self.manager.statistics.finish()
             
-            # Отправляем финальный статус
+            # Sending the final status
             if self.manager.is_cancelled:
                 self.status_signal.emit({
                     "status": "cancelled",
@@ -293,14 +293,14 @@ class CopyThread(QThread):
                     "speed": self.manager.statistics.get_speed()
                 })
             
-            # После основного цикла копирования добавляем:
+            # After the main copy loop, add:
             if hasattr(self, 'retry_manager') and self.retry_manager.failed_files:
                 logger.info(f"Retrying failed files: {len(self.retry_manager.failed_files)}")
                 for file_id, data in list(self.retry_manager.failed_files.items()):
                     if self.manager.is_cancelled:
                         break
                     if data['attempts'] < self.retry_manager.max_retries:
-                        # Находим соответствующий файл и сцену
+                        # Finding the corresponding file and scene
                         for scene in self.manager.scenes:
                             for file in scene.files:
                                 if f"{file.camera_id}_{file.name}" == file_id:
@@ -316,9 +316,9 @@ class CopyThread(QThread):
             })
 
     def get_file_size_from_camera(self, camera_ip: str, file_info: FileInfo) -> int:
-        """Получить размер файла с камеры"""
-        # Для запроса к камере используем оригинальный путь, т.к. камера не знает о префиксах
-        camera_path = file_info.path.split('DCIM/')[1]  # Путь относительно DCIM для запроса к камере
+        """Obtain the file size from the camera."""
+        # For the request to the camera, we use the original path, as the camera does not know about prefixes
+        camera_path = file_info.path.split('DCIM/')[1]  # Path relative to DCIM for the request to the camera
         url = f"http://{camera_ip}:8080/videos/DCIM/{camera_path}"
         try:
             response = requests.head(url, timeout=5)
@@ -332,10 +332,10 @@ class CopyThread(QThread):
             return 0
 
     def check_file_exists(self, file: FileInfo, target_dir: Path) -> bool:
-        """Проверка существования файла"""
+        """Checking file existence"""
         file_path = target_dir / file.prefixed_name
         if file_path.exists():
-            # Проверяем camera_id в имени файла
+            # Checking camera_id in the file name
             file_camera_id = file_path.name.split('_')[0]
             if file_camera_id != file.camera_id:
                 logger.warning(f"Camera ID mismatch for {file.prefixed_name}: expected {file.camera_id}, got {file_camera_id}")
@@ -346,7 +346,7 @@ class CopyThread(QThread):
                     logger.error(f"Failed to remove file {file.prefixed_name}: {e}")
                 return False
             
-            # Проверяем размер файла
+            # Checking file size
             actual_size = file_path.stat().st_size
             if actual_size != file.size:
                 logger.warning(f"Size mismatch for {file.prefixed_name}: expected {file.size}, got {actual_size}")
@@ -357,13 +357,13 @@ class CopyThread(QThread):
                     logger.error(f"Failed to remove file {file.prefixed_name}: {e}")
                 return False
 
-            # Получаем IP камеры
+            # Getting the camera's IP address
             camera_ip = self.manager.get_camera_ip(file.camera_id)
             if not camera_ip:
                 logger.warning(f"Could not get camera IP for {file.camera_id}")
                 return False
 
-            # Проверяем хеш файла
+            # Checking the file hash
             camera_hash = self.get_file_hash_from_camera(camera_ip, file)
             local_hash = self.get_local_file_hash(file_path)
             
@@ -381,20 +381,20 @@ class CopyThread(QThread):
         return False
 
     def copy_file(self, file: FileInfo, target_dir: Path, scene: SceneInfo) -> bool:
-        """Копирование одного файла"""
+        """Copying a single file with progress tracking"""
         if not hasattr(self, 'retry_manager'):
             self.retry_manager = RetryManager()
 
         temp_path = None
         camera_ip = self.manager.get_camera_ip(file.camera_id)
         
-        # Проверяем возможность повторной попытки
+        # Checking the possibility of a retry
         file_id = f"{file.camera_id}_{file.name}"
         if file_id in self.retry_manager.failed_files:
             if self.retry_manager.failed_files[file_id]['attempts'] >= self.retry_manager.max_retries:
                 logger.warning(f"Max retries exceeded for {file.prefixed_name}")
                 return False
-            # Ждем необходимое время перед следующей попыткой
+            # Waiting for the required time before the next retry
             time_since_last = time.time() - self.retry_manager.failed_files[file_id]['last_try']
             required_delay = self.retry_manager.retry_delay * (2 ** (self.retry_manager.failed_files[file_id]['attempts'] - 1))
             if time_since_last < required_delay:
@@ -426,7 +426,7 @@ class CopyThread(QThread):
             
             target_path.parent.mkdir(parents=True, exist_ok=True)
             
-            # Проверка существующего файла по размеру
+            # Checking the existing file by size and hash
             if target_path.exists():
                 actual_size = target_path.stat().st_size
                 real_size = self.get_file_size_from_camera(camera_ip, file)
@@ -445,7 +445,7 @@ class CopyThread(QThread):
                 else:
                     target_path.unlink()
 
-            # Копирование файла
+            # Copying the file
             temp_path = target_path.with_suffix('.tmp')
             timeout = 30 if file.original_name.endswith('.MP4') else 10
             
@@ -475,7 +475,7 @@ class CopyThread(QThread):
                                 "retry_count": self.retry_manager.failed_files.get(file_id, {}).get('attempts', 0)
                             })
                         
-            # Проверка размера и перемещение файла
+            # Checking the file size and moving the file"
             actual_size = temp_path.stat().st_size
             if actual_size != total_size:
                 raise Exception(f"Size mismatch after copy: expected {total_size}, got {actual_size}")
@@ -484,7 +484,7 @@ class CopyThread(QThread):
             file.status = "completed"
             file.progress = 100
             
-            # Успешное копирование - удаляем из failed_files
+            # Successful copy - removing from failed_files
             if file_id in self.retry_manager.failed_files:
                 del self.retry_manager.failed_files[file_id]
             
@@ -493,7 +493,7 @@ class CopyThread(QThread):
 
         except Exception as e:
             logger.error(f"Error copying {file.prefixed_name}: {e}")
-            # Регистрируем неудачную попытку
+            # Registering a failed attempt
             if file_id not in self.retry_manager.failed_files:
                 self.retry_manager.failed_files[file_id] = {'attempts': 0, 'last_try': 0}
             self.retry_manager.failed_files[file_id]['attempts'] += 1
@@ -507,13 +507,13 @@ class CopyThread(QThread):
             return False
 
     def _copy_file(self, source: Path, target: Path, file_info):
-        """Копирование отдельного файла с отслеживанием прогресса"""
+        """Copying a single file with progress tracking"""
         try:
             if self.manager.is_cancelled:
                 logger.info(f"Copy of {source.name} cancelled before start")
                 return False
                 
-            # Проверяем паузу перед началом копирования файла
+            # Checking for pause before starting file copy
             while self.manager.is_paused and not self.manager.is_cancelled:
                 time.sleep(0.1)
                 
@@ -521,22 +521,22 @@ class CopyThread(QThread):
                 logger.info(f"Copy of {source.name} cancelled during pause")
                 return False
                 
-            # Создаем родительские директории
+            # Creating parent directories
             target.parent.mkdir(parents=True, exist_ok=True)
             
-            # Открываем файлы для копирования
+            # Opening files for copying
             with open(source, 'rb') as src, open(target, 'wb') as dst:
-                # Копируем данные блоками с отслеживанием прогресса
+                # Copying data in chunks with progress tracking
                 copied = 0
                 file_size = source.stat().st_size
                 
                 while copied < file_size:
-                    # Проверяем отмену
+                    # Checking for cancellation
                     if self.manager.is_cancelled:
                         logger.info(f"Copy of {source.name} cancelled during copy")
                         return False
                         
-                    # Проверяем паузу
+                    # Checking for pause
                     while self.manager.is_paused and not self.manager.is_cancelled:
                         time.sleep(0.1)
                         
@@ -544,7 +544,7 @@ class CopyThread(QThread):
                         logger.info(f"Copy of {source.name} cancelled during pause")
                         return False
                         
-                    # Копируем блок данных
+                    # Copying a block of data
                     chunk = src.read(8192)
                     if not chunk:
                         break
@@ -552,11 +552,11 @@ class CopyThread(QThread):
                     dst.write(chunk)
                     copied += len(chunk)
                     
-                    # Обновляем прогресс
+                    # Updating progress
                     progress = int((copied / file_size) * 100)
                     file_info.progress = progress
                     
-                    # Отправляем обновление в GUI
+                    # Sending an update to the GUI
                     self.progress_signal.emit({
                         "update_file": {
                             "scene_id": file_info.scene_id,
@@ -572,12 +572,12 @@ class CopyThread(QThread):
             return False
 
 class CopyManager(QObject):
-    """Менеджер копирования файлов с камер"""
+    """File copy manager for cameras"""
     
-    # Сигналы для обновления GUI
-    progress_signal = pyqtSignal(dict)  # Прогресс копирования
-    error_signal = pyqtSignal(str)      # Ошибки
-    status_signal = pyqtSignal(dict)    # Статус операций
+    # Signals for updating the GUI
+    progress_signal = pyqtSignal(dict)  # Copying progress
+    error_signal = pyqtSignal(str)      # Errors
+    status_signal = pyqtSignal(dict)    # Operation status
     
     def __init__(self, max_workers: int = 4):
         super().__init__()
@@ -588,23 +588,23 @@ class CopyManager(QObject):
         self.current_session: Optional[Path] = None
         self.is_paused = False
         self.is_cancelled = False
-        self.failed_files = []  # Список неудачных копирований для повторных попыток
-        self.temp_files = []    # Список временных файлов для очистки
+        self.failed_files = []  # List of failed copies for retry attempts
+        self.temp_files = []    # List of temporary files for cleanup
         self.progress_file = Path("copy_progress.json")
-        self.camera_ips = {}    # Словарь для хранения IP адресов камер
+        self.camera_ips = {}    # Dictionary for storing camera IP addresses
         
-        # Инциализация потока и таймера
+        # Initialization of the thread and timer
         self.copy_thread = None
         
     def load_config(self) -> dict:
-        """Загрузка конфигурации"""
+        """Loading configuration"""
         try:
             config_path = Path("config.json")
             if config_path.exists():
                 with open(config_path, "r") as f:
                     return json.load(f)
             else:
-                # Значения по умолчанию
+                # Default values
                 default_config = {
                     "scene_settings": {
                         "max_interval_seconds": 300
@@ -614,9 +614,9 @@ class CopyManager(QObject):
                         "retry_count": 3,
                         "retry_delay": 5
                     },
-                    "last_target_dir": str(Path.home() / "Downloads")  # Путь по умолчанию
+                    "last_target_dir": str(Path.home() / "Downloads")  # Default path
                 }
-                # Сохраняем конфиг по умолчанию
+                # Saving the default configuration
                 with open(config_path, "w") as f:
                     json.dump(default_config, f, indent=4)
                 return default_config
@@ -625,7 +625,7 @@ class CopyManager(QObject):
             return {}
         
     def save_target_dir(self, target_dir: Path):
-        """Сохранение последней выбранной директории"""
+        """Saving the last selected directory"""
         try:
             config_path = Path("config.json")
             config = self.config
@@ -639,12 +639,12 @@ class CopyManager(QObject):
             logger.error(f"Error saving target directory: {e}")
 
     def start_copy_session(self, target_dir: Path):
-        """Запуск процесса копирования"""
+        """Starting the copy process"""
         try:
-            # Сохраняем выбранную директорию
+            # Saving the selected directory
             self.save_target_dir(target_dir)
             
-            # Сбрасываем флаги состояния
+            # Resetting state flags
             self.is_paused = False
             self.is_cancelled = False
             self.failed_files.clear()
@@ -653,16 +653,16 @@ class CopyManager(QObject):
             if not self.prepare_copy_session(target_dir):
                 return
                 
-            # Создаем и запускаем поток копирования
+            # Creating and starting the copy thread
             self.copy_thread = CopyThread(self, target_dir)
             
-            # Подключаем сигналы
+            # Connecting signals
             self.copy_thread.progress_signal.connect(self.progress_signal)
             self.copy_thread.error_signal.connect(self.error_signal)
             self.copy_thread.status_signal.connect(self.status_signal)
             self.copy_thread.finished_signal.connect(self._on_copy_finished)
             
-            # Запускаем копирование
+            # Starting the copy process
             self.copy_thread.start()
             
         except Exception as e:
@@ -674,7 +674,7 @@ class CopyManager(QObject):
             })
             
     def pause(self):
-        """Приостановка копирования"""
+        """Pausing copying"""
         if not self.is_paused:
             self.is_paused = True
             logger.info("Copy session paused")
@@ -684,7 +684,7 @@ class CopyManager(QObject):
             })
         
     def resume(self):
-        """Возобновление копирования"""
+        """Resuming copying"""
         if self.is_paused:
             self.is_paused = False
             logger.info("Copy session resumed")
@@ -694,7 +694,7 @@ class CopyManager(QObject):
             })
         
     def cancel(self):
-        """Отмена копирования"""
+        """Canceling copying"""
         if not self.is_cancelled:
             self.is_cancelled = True
             logger.info("Copy session cancelled")
@@ -703,21 +703,21 @@ class CopyManager(QObject):
                 "message": "Copy session cancelled"
             })
             
-            # Если поток копирования существует, ждем его завершения
+            # If the copy thread exists, wait for it to finish
             if self.copy_thread and self.copy_thread.isRunning():
                 self.copy_thread.wait()
         
     def _on_copy_finished(self):
-        """Обработчик завершения копирования"""
+        """Copy completion handler"""
         self.copy_thread = None
         logger.info("Copy session finished")
         
     def __del__(self):
-        """Деструктор для очистки веменных файлов"""
+        """Destructor for cleaning up temporary files"""
         self.cleanup_temp_files() 
         
     def get_camera_media_list(self, camera_ip: str) -> List[Dict]:
-        """Получение списка медиафайлов с камеры ерез API"""
+        """Getting the list of media files from the camera via API"""
         try:
             logger.info(f"Getting media list from camera {camera_ip}")
             url = f"http://{camera_ip}:8080/gopro/media/list"
@@ -731,14 +731,14 @@ class CopyManager(QObject):
             logger.debug(f"Response data: {data}")
             media_list = []
             
-            # Обрабатываем структуру ответа от камеры
+            # Processing the response structure from the camera
             for media in data.get('media', []):
-                directory = media.get('d', '')  # Папка с файлами
-                files = media.get('fs', [])     # Список файлов в папке
+                directory = media.get('d', '')  # Folder with files
+                files = media.get('fs', [])     # List of files in the folder
                 logger.debug(f"Processing directory: {directory}, files count: {len(files)}")
                 
                 for file in files:
-                    file['d'] = directory  # Добавляем информацию о директории к каждому файлу
+                    file['d'] = directory  # Adding directory information to each file
                     media_list.append(file)
             
             logger.info(f"Found {len(media_list)} media files on camera {camera_ip}")
@@ -751,7 +751,7 @@ class CopyManager(QObject):
             return []
             
     def load_camera_cache(self) -> List[Dict]:
-        """Загрузка кэша камер и получение списка файлов"""
+        """Loading camera cache and retrieving the list of files"""
         try:
             cache_path = Path("camera_cache.json")
             logger.debug(f"Looking for camera cache at: {cache_path.absolute()}")
@@ -772,7 +772,7 @@ class CopyManager(QObject):
                     logger.warning("Camera cache is empty")
                     return []
                     
-                # Получаем список файлов для каждой камеры
+                # Getting the list of files for each camera
                 cameras_with_media = []
                 for camera in cameras:
                     camera_ip = camera.get('ip')
@@ -794,11 +794,11 @@ class CopyManager(QObject):
         return []
             
     def group_files_into_scenes(self, files: List[FileInfo], scene_interval: int = 5) -> List[SceneInfo]:
-        """Группировка файлов по сценам"""
+        """Grouping files into scenes"""
         if not files:
             return []
         
-        # Сначала группируем файлы по group_id
+        # First, group files by group_id
         files_by_group = {}
         for file in files:
             if file.group_id:
@@ -806,20 +806,20 @@ class CopyManager(QObject):
                     files_by_group[file.group_id] = []
                 files_by_group[file.group_id].append(file)
         
-        # Сортируем файлы по времени создания, но сохраняем группы вместе
+        # Sorting files by creation time, but keeping groups together
         sorted_files = []
         ungrouped_files = [f for f in files if not f.group_id]
         
-        # Сортируем неcгруппированные файлы
+        # Sorting ungrouped files
         sorted_ungrouped = sorted(ungrouped_files, key=lambda x: (x.created_at, x.camera_id))
         
-        # Сортируем группы по времени первого файла в группе
+        # Sorting groups by the time of the first file in the group
         sorted_groups = sorted(
             files_by_group.items(),
             key=lambda x: min(f.created_at for f in x[1])
         )
         
-        # Объединяем файлы, сохраняя группы вместе
+        # Combining files while keeping groups together
         current_ungrouped_idx = 0
         current_group_idx = 0
         
@@ -834,7 +834,7 @@ class CopyManager(QObject):
                 sorted_files.extend(sorted(sorted_groups[current_group_idx][1], key=lambda x: (x.created_at, x.camera_id)))
                 current_group_idx += 1
         
-        # Добавляем оставшиеся файлы
+        # Adding the remaining files
         while current_ungrouped_idx < len(sorted_ungrouped):
             sorted_files.append(sorted_ungrouped[current_ungrouped_idx])
             current_ungrouped_idx += 1
@@ -848,27 +848,27 @@ class CopyManager(QObject):
         current_group_id = None
         
         for file in sorted_files:
-            # Если это первый файл
+            # If this is the first file
             if not current_scene_files:
                 current_scene_files = [file]
                 current_group_id = file.group_id
                 continue
             
-            # Если файл принадлежит к той же группе, что и предыдущие файлы
+            # If the file belongs to the same group as the previous files
             if file.group_id and file.group_id == current_group_id:
                 current_scene_files.append(file)
                 continue
             
-            # Проверяем разницу во времени с предыдущим файлом
+            # Checking the time difference with the previous file
             prev_file = current_scene_files[-1]
             time_diff = (file.created_at - prev_file.created_at).total_seconds()
             
-            # Создаем новую сцену если:
-            # 1. Разница во времени больше интервала И файлы не из одной группы
-            # 2. ИЛИ предыдущая группа закончилась и начинается новая
+            # Create a new scene if:
+            # 1. The time difference is greater than the interval AND the files are not from the same group
+            # 2. OR the previous group has ended and a new one begins
             if (time_diff > scene_interval and not (file.group_id and file.group_id == current_group_id)) or \
                (current_group_id and file.group_id != current_group_id):
-                # Создаем новую сцену из накопленных файлов
+                # Creating a new scene from the accumulated files
                 scene_id = f"scene_{len(scenes) + 1}"
                 scene_name = f"scene{len(scenes) + 1:02d}_{current_scene_files[0].created_at.strftime('%Y_%m_%d_%H_%M_%S')}"
                 
@@ -880,16 +880,16 @@ class CopyManager(QObject):
                 )
                 scenes.append(scene)
                 
-                # Начинаем новую сцену с текущего файла
+                # Starting a new scene with the current file
                 current_scene_files = [file]
                 current_group_id = file.group_id
             else:
-                # Добавляем файл к текущей сцене
+                # Adding the file to the current scene
                 current_scene_files.append(file)
                 if file.group_id:
                     current_group_id = file.group_id
         
-        # Добавляем последнюю сцену
+        # Adding the last scene
         if current_scene_files:
             scene_id = f"scene_{len(scenes) + 1}"
             scene_name = f"scene{len(scenes) + 1:02d}_{current_scene_files[0].created_at.strftime('%Y_%m_%d_%H_%M_%S')}"
@@ -902,7 +902,7 @@ class CopyManager(QObject):
             )
             scenes.append(scene)
         
-        # Логируем информацию о сценах
+        # Logging information about scenes
         logger.info(f"Grouped {len(files)} files into {len(scenes)} scenes")
         for scene in scenes:
             logger.info(f"Scene {scene.name}:")
@@ -910,7 +910,7 @@ class CopyManager(QObject):
             logger.info(f"  Time range: {scene.files[0].created_at} - {scene.files[-1].created_at}")
             logger.info(f"  Groups in scene: {set(f.group_id for f in scene.files if f.group_id)}")
             
-            # Подсчитываем файлы по типам
+            # Counting files by type
             file_types = {}
             for file in scene.files:
                 file_type = file.name.split('.')[-1].upper()
@@ -918,11 +918,11 @@ class CopyManager(QObject):
                     file_types[file_type] = 0
                 file_types[file_type] += 1
             
-            # Логируем количество файлов каждого типа
+            # Logging the number of files of each type
             for file_type, count in file_types.items():
                 logger.info(f"  {file_type} files: {count}")
             
-            # Дополнительное логирование интервалов между файлами
+            # Additional logging of intervals between files
             for i in range(1, len(scene.files)):
                 time_diff = (scene.files[i].created_at - scene.files[i-1].created_at).total_seconds()
                 logger.info(f"  Time diff between files {scene.files[i-1].name} and {scene.files[i].name}: {time_diff}s")
@@ -932,15 +932,15 @@ class CopyManager(QObject):
         return scenes
         
     def prepare_copy_session(self, target_dir: Path) -> bool:
-        """Подготовка сессии копирования"""
+        """Preparing the copy session"""
         try:
             logger.info(f"Preparing copy session to: {target_dir}")
             
-            # Создаем директорию если не существует
+            # Creating the directory if it does not exist
             target_dir.mkdir(parents=True, exist_ok=True)
             self.current_session = target_dir
             
-            # Загружаем информацию о камерах
+            # Loading information about cameras
             cameras = self.load_camera_cache()
             if not cameras:
                 logger.error("No cameras found in cache")
@@ -949,34 +949,34 @@ class CopyManager(QObject):
             
             logger.info(f"Found {len(cameras)} cameras in cache")
             
-            # Собираем информацию о файлах
+            # Collecting information about files
             files = []
             file_names = {}  # Dict[str, List[FileInfo]]
             
             for camera in cameras:
                 camera_id = camera.get('name', '')
                 camera_ip = camera.get('ip', '')
-                # Сохраняем IP адрес камеры
+                # Saving the camera's IP address
                 self.camera_ips[camera_id] = camera_ip
                 
                 try:
-                    # Используем правильный эндпоинт для получения списка файлов
+                    # Using the correct endpoint to get the list of files
                     media_url = f"http://{camera_ip}:8080/gopro/media/list"
                     response = requests.get(media_url, timeout=10)
                     response.raise_for_status()
                     
                     media_list = response.json().get('media', [])
                     
-                    # Обрабатываем каждую директорию
+                    # Processing each directory
                     for directory in media_list:
-                        # Проверяем отмену операции
+                        # Checking for operation cancellation
                         if self.is_cancelled:
                             logger.info("Copy session cancelled during file list preparation")
                             return False
                             
                         dir_name = directory.get('d', '')
                         
-                        # Обрабатываем каждый файл
+                        # Processing each file in the directory
                         for file in directory.get('fs', []):
                             file_name = file.get('n', '').upper()
                             created_time = datetime.fromtimestamp(int(file.get('cre', 0)))
@@ -984,16 +984,16 @@ class CopyManager(QObject):
                             group_id = file.get('g')
                             file_type = file.get('t', '')
                             
-                            # Проверяем, является ли файл частью последовательности
-                            if 'b' in file and 'l' in file:  # Если есть начало и конец последовательности
+                            # Checking if the file is part of a sequence
+                            if 'b' in file and 'l' in file:  # If there is a start and end of the sequence
                                 start_num = int(file['b'])
                                 end_num = int(file['l'])
                                 missing_numbers = file.get('m', [])
                                 
-                                # Получаем буквенный код группы из имени файла
+                                # Getting the letter code of the group from the file name
                                 group_letters = file_name[2:4] if not file_name.startswith('GX') else None
                                 
-                                # Генерируем все файлы последовательности
+                                # Generating all files in the sequence
                                 for i in range(start_num, end_num + 1):
                                     if i not in missing_numbers:
                                         if group_letters:
@@ -1001,7 +1001,7 @@ class CopyManager(QObject):
                                         else:
                                             original_name = f"GX{i:06d}.MP4"
                                             
-                                        # Создаем имя файла с префиксом camera_id
+                                        # Creating a file name with the camera_id prefix
                                         prefixed_name = f"{camera_id}_{original_name}"
                                         file_url = f"http://{camera_ip}:8080/videos/DCIM/{dir_name}/{original_name}"
                                         
@@ -1019,9 +1019,9 @@ class CopyManager(QObject):
                                         )
                                         files.append(file_info)
                             else:
-                                # Обработка обычных файлов (оставляем как было)
+                                # Processing regular files (leaving as is)
                                 file_info = FileInfo(
-                                    name=f"{camera_id}_{file_name}",  # Префиксированное имя
+                                    name=f"{camera_id}_{file_name}",  # Prefixed name
                                     path=f"http://{camera_ip}:8080/videos/DCIM/{dir_name}/{file_name}",
                                     size=size,
                                     created_at=created_time,
@@ -1032,7 +1032,7 @@ class CopyManager(QObject):
                                 )
                                 files.append(file_info)
                             
-                            # Проверяем на дубликаты
+                            # Checking for duplicates
                             if file_name not in file_names:
                                 file_names[file_name] = []
                             file_names[file_name].append(file_info)
@@ -1042,13 +1042,13 @@ class CopyManager(QObject):
                     self.error_signal.emit(f"Error getting files from camera {camera_id}: {e}")
                     continue
                 
-            # Проверяем дубликаты
+            # Checking for duplicates
             for original_name, file_list in file_names.items():
                 if len(file_list) > 1:
                     camera_ids = [f.camera_id for f in file_list]
                     logger.warning(f"File {original_name} exists in cameras: {', '.join(camera_ids)}")
                 
-            # Группируем файлы по сценам
+            # Grouping files into scenes
             scenes = self.group_files_into_scenes(files)
             if not scenes:
                 logger.error("No scenes found")
@@ -1057,10 +1057,10 @@ class CopyManager(QObject):
             
             logger.info(f"Grouped {len(files)} files into {len(scenes)} scenes")
             
-            # Сохраняем информацию о сценах
+            # Saving information about scenes
             self.scenes = scenes
             
-            # Обновляем статистику
+            # Updating statistics
             self.statistics.total_files = len(files)
             self.statistics.total_size = sum(f.size for f in files)
             
@@ -1072,12 +1072,12 @@ class CopyManager(QObject):
             return False
             
     def update_scene_progress(self, scene: SceneInfo):
-        """Обновление прогресса сцены"""
+        """Updating scene progress"""
         completed = 0
         failed = 0
         total_size = 0
         
-        # Собираем статистику по файлам
+        # Collecting statistics about files
         for file in scene.files:
             if file.status == "completed":
                 completed += 1
@@ -1085,7 +1085,7 @@ class CopyManager(QObject):
                 failed += 1
             total_size += file.size
             
-            # Отправляем обновленный статус каждого файла
+            # Sending the updated status of each file
             self.progress_signal.emit({
                 "file": file.name,
                 "progress": file.progress,
@@ -1094,7 +1094,7 @@ class CopyManager(QObject):
                 "camera_id": file.camera_id
             })
         
-        # Отправляем общий прогресс сцены
+        # Sending the overall progress of the scene
         self.progress_signal.emit({
             "scene_progress": {
                 "id": scene.id,
@@ -1106,7 +1106,7 @@ class CopyManager(QObject):
         })
         
     def cleanup_temp_files(self):
-        """Очистка временных файлов"""
+        """Cleaning up temporary files"""
         for file_path in self.temp_files:
             try:
                 if isinstance(file_path, (str, Path)):
@@ -1119,7 +1119,7 @@ class CopyManager(QObject):
         self.temp_files.clear()
         
     def retry_failed(self):
-        """Повторная попытка копирования неудачных файлов"""
+        """Retrying the copy of failed files"""
         if not self.failed_files:
             logger.info("No failed files to retry")
             self.status_signal.emit({
@@ -1134,11 +1134,11 @@ class CopyManager(QObject):
             "message": f"Retrying {len(self.failed_files)} failed files"
         })
         
-        # Создаем список файлов для повторной попытки
+        # Creating a list of files for retry attempts
         retry_files = self.failed_files.copy()
         self.failed_files.clear()
         
-        # Запускаем копирование в том же потоке
+        # Starting the copy in the same thread
         if self.copy_thread and self.copy_thread.is_running:
             logger.warning("Copy session is already running")
             return
@@ -1146,7 +1146,7 @@ class CopyManager(QObject):
         self.is_paused = False
         self.is_cancelled = False
         
-        # Создаем новые сцены только из неудачных файлов
+        # Creating new scenes only from failed files
         scenes = {}  # scene_id -> SceneInfo
         for file, target_dir, scene in retry_files:
             if scene.id not in scenes:
@@ -1163,20 +1163,20 @@ class CopyManager(QObject):
         self.statistics.total_files = len(retry_files)
         self.statistics.total_size = sum(f[0].size for f in retry_files)
         
-        # Создаем и запускаем поток копирования
+        # Creating and starting the copy thread
         self.copy_thread = CopyThread(self, self.current_session)
         
-        # Подключаем сигналы
+        # Connecting signals
         self.copy_thread.progress_signal.connect(self.progress_signal)
         self.copy_thread.error_signal.connect(self.error_signal)
         self.copy_thread.status_signal.connect(self.status_signal)
         self.copy_thread.finished_signal.connect(self._on_copy_finished)
         
-        # Запускаем копирование
+        # Starting the copy process
         self.copy_thread.start()
         
     def collect_files_info(self, devices):
-        """Сбор информации о файлах на всех камерах"""
+        """Collecting information about files on all cameras"""
         files_info = {}
         
         for device in devices:
@@ -1184,7 +1184,7 @@ class CopyManager(QObject):
             serial_number = device["name"].split("._gopro-web._tcp.local.")[0]
             
             try:
-                # Используем документированный endpoint /gopro/media/list
+                # Using the documented endpoint /gopro/media/list
                 media_url = f"http://{ip}:8080/gopro/media/list"
                 response = requests.get(media_url, timeout=10)
                 response.raise_for_status()
@@ -1200,46 +1200,46 @@ class CopyManager(QObject):
                     'file_counts': {'MP4': 0, 'JPG': 0, 'GPR': 0}
                 }
                 
-                # Обрабатываем каждую директорию и файлы
+                # Processing each directory and files
                 for media in media_list:
                     directory = media.get('d', '')
                     
                     for file in media.get('fs', []):
                         file_name = file.get('n', '').upper()
-                        # Добавляем префикс серийного номера к имени файла
+                        # Adding the serial number prefix to the file name
                         prefixed_name = f"{serial_number}_{file_name}"
                         created_time = datetime.fromtimestamp(int(file.get('cre', 0)))
                         size = int(file.get('s', 0))
                         group_id = file.get('g')
-                        file_type = file.get('t', '')  # Получаем тип файла
+                        file_type = file.get('t', '')  # Getting the file type
                         
-                        # Проверяем, является ли файл частью последовательности
+                        # Checking if the file is part of a sequence
                         if file_type == 'b' and 'b' in file and 'l' in file:
-                            # Это последовательность фотографий
+                            # This is a sequence of photos or videos
                             start_num = int(file['b'])
                             end_num = int(file['l'])
                             missing_numbers = file.get('m', [])
                             
-                            # Получаем буквенный код группы из имени файла
+                            # Getting the letter code of the group from the file name
                             group_letters = file_name[2:4] if not file_name.startswith('GX') else None
                             
-                            # Генерируем список всех файлов в группе
+                            # Generating a list of all files in the group
                             for i in range(start_num, end_num + 1):
                                 if i not in missing_numbers:
                                     if group_letters:
                                         original_name = f"GP{group_letters}{i:04d}.JPG"
-                                        seq_file_name = f"{serial_number}_{original_name}"  # Добавляем префикс
+                                        seq_file_name = f"{serial_number}_{original_name}"  # Adding prefix
                                     else:
                                         original_name = f"GX{i:06d}.MP4"
-                                        seq_file_name = f"{serial_number}_{original_name}"  # Добавляем префикс
+                                        seq_file_name = f"{serial_number}_{original_name}"  # Adding prefix
                                         
-                                    file_url = f"http://{camera_ip}:8080/videos/DCIM/{directory}/{original_name}"  # Используем оригинальное имя для URL
+                                    file_url = f"http://{camera_ip}:8080/videos/DCIM/{directory}/{original_name}"  # Use the original name for the URL
                                     
                                     logger.info(f"Adding sequence file: {seq_file_name}")
                                     
                                     file_info = {
-                                        'name': seq_file_name,  # Используем имя с префиксом
-                                        'original_name': original_name,  # Сохраняем оригинальное имя
+                                        'name': seq_file_name,  # Using a name with a prefix
+                                        'original_name': original_name,  # Keeping the original name.
                                         'folder': directory,
                                         'size': size,
                                         'time': created_time,
@@ -1254,7 +1254,7 @@ class CopyManager(QObject):
                                     files_info[serial_number]['file_counts']['JPG' if group_letters else 'MP4'] += 1
                                     
                         else:
-                            # Обычный файл (MP4 или одиночное фото)
+                            # Standard file (MP4 or single photo)
                             if file_name.endswith('.MP4'):
                                 file_type = 'MP4'
                             elif file_name.endswith('.JPG'):
@@ -1264,7 +1264,7 @@ class CopyManager(QObject):
                                 continue
                             
                             file_info = {
-                                'name': prefixed_name,  # Используем имя с префиксом
+                                'name': prefixed_name,  # Using a name with a prefix.
                                 'folder': directory,
                                 'size': size,
                                 'time': created_time,
@@ -1287,15 +1287,15 @@ class CopyManager(QObject):
         return files_info
         
     def get_camera_ip(self, camera_id: str) -> str:
-        """Получить IP адрес камеры по её ID"""
+        """Obtain the camera's IP address from its ID."""
         return self.camera_ips.get(camera_id, '')
         
 class RetryManager:
     def __init__(self):
         self.max_retries = 3
-        self.retry_delay = 5  # начальная задержка в секундах
+        self.retry_delay = 5  # Initial delay in seconds.
         self.failed_files = {}  # {file_id: {attempts: int, last_try: timestamp}}
-        self.max_concurrent = 5  # максимум одновременных подключений к одной камере
+        self.max_concurrent = 5  # Maximum concurrent connections to a single camera
         self.active_connections = {}  # {camera_ip: current_connections}
         
     def can_retry(self, file_info):
@@ -1307,7 +1307,7 @@ class RetryManager:
         if file_data['attempts'] >= self.max_retries:
             return False
             
-        # Проверяем время последней попытки
+        # Checking the time of the last attempt.
         time_since_last = time.time() - file_data['last_try']
         required_delay = self.retry_delay * (2 ** (file_data['attempts'] - 1))
         return time_since_last >= required_delay

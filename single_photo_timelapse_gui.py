@@ -31,10 +31,10 @@ class TimelapseThread(QThread):
         self.total_photos = total_photos
         self.is_running = False
         self.photo_count = 0
-        self.disabled_cameras = {}  # IP -> Thread для камер на переподключении
+        self.disabled_cameras = {}  # IP -> Thread for cameras being reconnected
         
     def reconnect_camera(self, camera_ip, camera_name):
-        """Поток для переподключения камеры"""
+        """Thread for reconnecting a camera"""
         logger.info(f"Starting reconnection thread for camera {camera_name} ({camera_ip})")
         while self.is_running:
             try:
@@ -85,7 +85,7 @@ class TimelapseThread(QThread):
                     raise Exception("Failed to set cameras to photo mode")
                 self.progress_signal.emit("All cameras set to photo mode successfully")
                 
-                next_photo_time = time.time()  # Время следующего фото
+                next_photo_time = time.time()  # Time for the next photo
                 
                 while self.is_running:
                     try:
@@ -95,7 +95,7 @@ class TimelapseThread(QThread):
                             import take_single_photo
                             start_time = time.time()
 
-                            # Получаем список активных камер (исключая те, что на переподключении)
+                            # Get the list of active cameras (excluding those being reconnected)
                             active_devices = [dev for dev in take_single_photo.get_cached_devices() 
                                              if dev['ip'] not in self.disabled_cameras]
 
@@ -105,13 +105,13 @@ class TimelapseThread(QThread):
                                 success = False
                                 failed_cameras = []
 
-                            # Проверяем таймауты и запускаем переподключение
+                            # Check timeouts and start reconnection
                             for cam in failed_cameras:
                                 if "Timeout" in cam['error'] or "Failed to take photo" in cam['error']:
                                     camera_ip = next(device['ip'] for device in take_single_photo.get_cached_devices() 
                                                     if device['name'] == cam['name'])
                                     
-                                    # Если камера еще не на переподключении
+                                    # If the camera is not already being reconnected
                                     if camera_ip not in self.disabled_cameras:
                                         logger.info(f"Starting USB reconnection for camera {cam['name']}")
                                         thread = Thread(target=self.reconnect_camera, 
@@ -120,10 +120,10 @@ class TimelapseThread(QThread):
                                         thread.start()
                                         self.disabled_cameras[camera_ip] = thread
                             
-                            # Отправляем статус камер в GUI
+                            # Send camera status to GUI
                             self.camera_status_signal.emit(failed_cameras)
                             
-                            # Увеличиваем счетчик только если хотя бы одна камера работает
+                            # Increment the counter only if at least one camera worked
                             if active_devices:
                                 self.photo_count += 1
                                 self.photo_taken_signal.emit(self.photo_count)
@@ -135,25 +135,25 @@ class TimelapseThread(QThread):
                             else:
                                 self.progress_signal.emit(f"Photo {self.photo_count} captured successfully on all cameras")
                             
-                            # Check if we've reached total photos
+                            # Check if we've reached the total number of photos
                             if self.total_photos and self.photo_count >= self.total_photos:
                                 self.progress_signal.emit("Completed all photos")
                                 break
                             
-                            # Вычисляем время следующего фото с учетом времени выполнения
+                            # Calculate the time for the next photo, considering execution time
                             next_photo_time = start_time + (self.interval_ms / 1000.0)
                             
-                            # Если следующее время фото уже прошло из-за долгого выполнения,
-                            # сразу делаем следующее фото
+                            # If the next photo time has already passed due to long execution,
+                            # take the next photo immediately
                             if next_photo_time <= time.time():
                                 continue
                             
-                        # Вычисляем оставшееся время до следующего фото
+                        # Calculate the remaining time until the next photo
                         remaining_ms = int((next_photo_time - time.time()) * 1000)
                         if remaining_ms > 0:
                             self.time_update_signal.emit(remaining_ms)
-                            # Спим короткими интервалами для возможности остановки
-                            time.sleep(min(0.01, remaining_ms / 1000.0))  # Уменьшаем до 10мс
+                            # Sleep in short intervals to allow stopping
+                            time.sleep(min(0.01, remaining_ms / 1000.0))  # Reduce to 10ms
                             
                     except Exception as e:
                         logging.error(f"Error capturing photo: {e}")
@@ -162,7 +162,7 @@ class TimelapseThread(QThread):
                         
             finally:
                 logger.removeHandler(handler)
-                # Останавливаем все потоки переподключения
+                # Stop all reconnection threads
                 self.is_running = False
                 for thread in self.disabled_cameras.values():
                     thread.join(timeout=1)
@@ -391,4 +391,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()

@@ -11,10 +11,11 @@ import logging
 from concurrent.futures import ThreadPoolExecutor
 from utils import setup_logging, get_data_dir
 
-# Инициализируем логирование
+# Initialize logging
 logger = setup_logging(__name__)
 
 def turn_off_camera(camera_ip):
+    """Turn off a single camera"""
     try:
         response = requests.get(f"http://{camera_ip}/gp/gpControl/command/system/sleep")
         if response.status_code == 200:
@@ -29,7 +30,7 @@ def turn_off_camera(camera_ip):
         return False
 
 def main():
-    """Основная функция для выключения всех камер"""
+    """Main function to turn off all cameras"""
     try:
         # Load devices from cache
         cache_file = get_data_dir() / "camera_cache.json"
@@ -48,7 +49,7 @@ def main():
         with ThreadPoolExecutor() as executor:
             results = list(executor.map(lambda d: turn_off_camera(d["ip"]), devices))
         
-        return all(results)  # Возвращаем True только если все камеры выключились успешно
+        return all(results)  # Return True only if all cameras were turned off successfully
 
     except Exception as e:
         logger.error(f"Error in turn off operation: {e}")

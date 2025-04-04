@@ -14,17 +14,17 @@ from threading import Barrier, Thread
 from goprolist_and_start_usb import discover_gopro_devices
 from utils import get_app_root, get_data_dir, setup_logging, check_dependencies
 
-# Инициализируем логирование с именем модуля
+# Initialize logging with the module name
 logger = setup_logging(__name__)
 
 def start_recording_synchronized(devices):
-    """Синхронный старт записи на всех камерах с использованием барьера"""
+    """Synchronized start of recording on all cameras using a barrier"""
     barrier = Barrier(len(devices))
     
     def record_camera(camera_ip):
         try:
             logger.info(f"Camera {camera_ip} waiting for synchronized start")
-            barrier.wait()  # Ждем, пока все камеры будут готовы
+            barrier.wait()  # Wait until all cameras are ready
             
             start_time = time.time()
             response = requests.get(f"http://{camera_ip}:8080/gopro/camera/shutter/start", timeout=5)
@@ -40,19 +40,19 @@ def start_recording_synchronized(devices):
             logger.error(f"Error starting camera {camera_ip}: {e}")
             return False
 
-    # Запускаем потоки для каждой камеры
+    # Start threads for each camera
     threads = []
     for device in devices:
         thread = Thread(target=record_camera, args=(device['ip'],))
         threads.append(thread)
         thread.start()
 
-    # Ждем завершения всех потоков
+    # Wait for all threads to finish
     for thread in threads:
         thread.join()
 
 def save_devices_to_cache(devices, cache_filename="camera_cache.json"):
-    """Сохранение списка камер в кэш"""
+    """Save the list of cameras to a cache"""
     try:
         cache_file = get_data_dir() / cache_filename
         with open(cache_file, "w") as file:
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
             save_devices_to_cache(devices)
 
-            # Запускаем запись синхронно на всех камерах
+            # Start synchronized recording on all cameras
             logger.info("Starting synchronized recording on all cameras...")
             start_recording_synchronized(devices)
         else:
@@ -84,8 +84,8 @@ if __name__ == "__main__":
             from PyQt5.QtWidgets import QMessageBox
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
-            msg.setText("Ошибка при записи")
+            msg.setText("Error during recording")
             msg.setInformativeText(str(e))
-            msg.setWindowTitle("Ошибка")
+            msg.setWindowTitle("Error")
             msg.exec_()
         raise

@@ -18,13 +18,13 @@ from typing import Dict, List, Optional, Any, Callable
 from dataclasses import dataclass
 from concurrent.futures import ThreadPoolExecutor
 
-# Настройка логирования
+# Logging setup
 setup_logging()
 logger = logging.getLogger(__name__)
 
-# Основные функции, используемые другими модулями
+# Main functions used by other modules
 def get_primary_camera_serial():
-    """Получает серийный номер основной камеры"""
+    """Get the serial number of the primary camera"""
     try:
         prime_sn_path = get_app_root() / "prime_camera_sn.py"
         with open(prime_sn_path, "r") as file:
@@ -36,7 +36,7 @@ def get_primary_camera_serial():
         return None
 
 def get_camera_settings(camera_ip):
-    """Получение настроек камеры"""
+    """Retrieve camera settings"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/info"
         logger.debug(f"Getting settings from URL: {url}")
@@ -44,7 +44,7 @@ def get_camera_settings(camera_ip):
         
         response = requests.get(url, headers=USB_HEADERS, timeout=5)
         logger.debug(f"Response status code: {response.status_code}")
-        logger.debug(f"Response content: {response.text[:200]}...")  # Логируем первые 200 символов ответа
+        logger.debug(f"Response content: {response.text[:200]}...")  # Log the first 200 characters of the response
         
         response.raise_for_status()
         info = response.json()
@@ -57,7 +57,7 @@ def get_camera_settings(camera_ip):
         return None
 
 def is_prime_camera(camera):
-    """Проверяет, является ли камера основной"""
+    """Check if the camera is the primary one"""
     try:
         prime_serial = get_primary_camera_serial()
         if not prime_serial:
@@ -72,27 +72,27 @@ def is_prime_camera(camera):
         
         is_prime = prime_serial in str(camera_serial)
         if is_prime:
-            logger.info(f"Found prime camera: {camera}")
+            logger.info(f"Found primary camera: {camera}")
         
         return is_prime
         
     except Exception as e:
-        logger.error(f"Error checking if camera is prime: {e}")
+        logger.error(f"Error checking if camera is primary: {e}")
         return False
 
-# Константы и настройки
+# Constants and settings
 DELAYS = {
-    'standard': 0.1,    # 100ms между обычными настройками
-    'mode': 0.25,       # 250ms после изменения режима
-    'performance': 0.5  # 500ms после изменения Performance Mode
+    'standard': 0.1,    # 100ms between regular settings
+    'mode': 0.25,       # 250ms after changing mode
+    'performance': 0.5  # 500ms after changing Performance Mode
 }
 
-# Приоритеты настроек для GoPro 13
+# Priority settings for GoPro 13
 SETTING_PRIORITIES = {
     'system': [
-        '173',  # Performance Mode - должен быть первым
-        '126',  # System Mode - вторым
-        '128'   # Media Format - третьим
+        '173',  # Performance Mode - must be first
+        '126',  # System Mode - second
+        '128'   # Media Format - third
     ],
     'core': [
         '2',    # Resolution
@@ -104,17 +104,17 @@ SETTING_PRIORITIES = {
         '64',   # Bitrate
         '115'   # Color
     ],
-    'optional': []  # Добавляем группу для опциональных настроек
+    'optional': []  # Add group for optional settings
 }
 
-# Карта зависимостей настроек
+# Settings dependency map
 SETTING_DEPENDENCIES = {
     '2': ['126', '173'],     # Resolution depends on System Mode and Performance Mode
     '3': ['2', '173'],       # FPS depends on Resolution and Performance Mode
     '135': ['2', '3', '173'] # HyperSmooth depends on Resolution, FPS, and Performance Mode
 }
 
-# HTTP заголовки для USB соединения
+# HTTP headers for USB connection
 USB_HEADERS = {
     'Connection': 'Keep-Alive',
     'Accept': 'application/json',
@@ -124,7 +124,7 @@ USB_HEADERS = {
 }
 
 def create_setting_checkpoint(camera_ip):
-    """Создание точки восстановления настроек"""
+    """Create a settings checkpoint"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/setting/checkpoint"
         response = requests.post(url, headers=USB_HEADERS, timeout=5)
@@ -138,7 +138,7 @@ def create_setting_checkpoint(camera_ip):
         return None
 
 def restore_setting_checkpoint(camera_ip, checkpoint_id):
-    """Восстановление настроек из точки восстановления"""
+    """Restore settings from a checkpoint"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/setting/restore/{checkpoint_id}"
         response = requests.get(url, headers=USB_HEADERS, timeout=5)
@@ -151,7 +151,7 @@ def restore_setting_checkpoint(camera_ip, checkpoint_id):
         return False
 
 def check_camera_health(camera_ip):
-    """Проверка здоровья настроек камеры"""
+    """Check camera settings health"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/setting/health"
         response = requests.get(url, headers=USB_HEADERS, timeout=5)
@@ -159,7 +159,7 @@ def check_camera_health(camera_ip):
             health_data = response.json()
             settings_status = health_data.get('settings_status', {})
             
-            # Проверяем статус каждой настройки
+            # Check the status of each setting
             mismatched_settings = []
             for setting_id, status in settings_status.items():
                 if status['status'] != 'ok':
@@ -183,9 +183,9 @@ def check_camera_health(camera_ip):
         return False, []
 
 def validate_settings_batch(camera_ip, settings):
-    """Валидация пакета настроек перед применением"""
+    """Validate a batch of settings before applying"""
     try:
-        # Применяем настройки напрямую без валидации
+        # Apply settings directly without validation
         success = True
         for setting_id, value in settings.items():
             url = f"http://{camera_ip}:8080/gp/gpControl/setting/{setting_id}/{value}"
@@ -197,12 +197,12 @@ def validate_settings_batch(camera_ip, settings):
                 success = False
                 break
                 
-            # Проверяем применение настройки
+            # Verify the setting application
             if not verify_setting(camera_ip, setting_id, value):
                 success = False
                 break
                 
-            # Даем камере время на применение
+            # Give the camera time to apply
             time.sleep(DELAYS['standard'])
             
         return (success, [])
@@ -212,7 +212,7 @@ def validate_settings_batch(camera_ip, settings):
         return None
 
 def validate_settings(camera_ip, settings):
-    """Валидация настроек перед применением"""
+    """Validate settings before applying"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/setting/validate"
         payload = {
@@ -238,7 +238,7 @@ def validate_settings(camera_ip, settings):
         return False, None
 
 def handle_response_code(response, setting_id, value):
-    """Обработка кодов ответа от камеры"""
+    """Handle response codes from the camera"""
     if response.status_code == 200:
         logger.debug(f"Successfully applied setting {setting_id}={value}")
         return True
@@ -257,9 +257,9 @@ def handle_response_code(response, setting_id, value):
         return False
 
 def apply_setting(camera_ip, setting_id, value):
-    """Применение одной настройки"""
+    """Apply a single setting"""
     try:
-        # Сначала проверяем текущее значение
+        # First check the current value
         status_url = f"http://{camera_ip}:8080/gp/gpControl/status"
         status_response = requests.get(status_url, headers=USB_HEADERS, timeout=5)
         if status_response.status_code == 200:
@@ -268,7 +268,7 @@ def apply_setting(camera_ip, setting_id, value):
                 logger.debug(f"Setting {setting_id} already has value {value}")
                 return True
 
-        # Применяем настройку
+        # Apply the setting
         url = f"http://{camera_ip}:8080/gp/gpControl/setting/{setting_id}/{value}"
         logger.debug(f"Applying setting {setting_id}={value} to camera {camera_ip}")
         
@@ -276,17 +276,17 @@ def apply_setting(camera_ip, setting_id, value):
         if not handle_response_code(response, setting_id, value):
             return False
             
-        # Выбираем правильную задержку в зависимости от типа настройки
+        # Choose the correct delay depending on the type of setting
         if setting_id == '173':  # Performance Mode
             delay = DELAYS['performance']
-        elif setting_id in ['126', '128']:  # System Mode и Media Format
+        elif setting_id in ['126', '128']:  # System Mode and Media Format
             delay = DELAYS['mode']
         else:
             delay = DELAYS['standard']
             
         time.sleep(delay)
         
-        # Проверяем применение
+        # Verify the application
         verify_response = requests.get(status_url, headers=USB_HEADERS, timeout=5)
         if verify_response.status_code == 200:
             new_value = verify_response.json().get('settings', {}).get(str(setting_id))
@@ -301,7 +301,7 @@ def apply_setting(camera_ip, setting_id, value):
         return False
 
 def get_settings_conflicts(camera_ip):
-    """Получение матрицы конфликтов настроек"""
+    """Get the settings conflict matrix"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/setting/conflicts"
         response = requests.get(url, headers=USB_HEADERS, timeout=5)
@@ -314,22 +314,22 @@ def get_settings_conflicts(camera_ip):
         return None
 
 def check_settings_conflicts(camera_ip, settings_batch):
-    """Проверка конфликтов в пакете настроек"""
+    """Check conflicts in a batch of settings"""
     try:
         conflicts_matrix = get_settings_conflicts(camera_ip)
         if not conflicts_matrix:
             logger.warning("Could not get conflicts matrix, skipping conflict check")
             return True, None
             
-        # Проверяем конфликты между настройками в пакете
+        # Check conflicts between settings in the batch
         found_conflicts = []
         for setting_id, value in settings_batch.items():
-            # Проверяем конфликты с другими настройками
+            # Check conflicts with other settings
             if setting_id in conflicts_matrix:
                 conflicting_settings = conflicts_matrix[setting_id]
                 for conflict_id, conflict_rules in conflicting_settings.items():
                     if conflict_id in settings_batch:
-                        # Проверяем, конфликтуют ли значения
+                        # Check if the values conflict
                         if not is_valid_combination(
                             value, 
                             settings_batch[conflict_id],
@@ -356,28 +356,28 @@ def check_settings_conflicts(camera_ip, settings_batch):
         return False, None
 
 def is_valid_combination(value1, value2, rules):
-    """Проверка валидности комбинации значений настроек"""
+    """Check the validity of a combination of setting values"""
     try:
-        # Правила могут быть в разных форматах, обрабатываем основные случаи
+        # Rules can be in different formats, handle the main cases
         if isinstance(rules, dict):
             if 'invalid_combinations' in rules:
-                # Проверяем, нет ли такой комбинации в списке недопустимых
+                # Check if the combination is in the list of invalid combinations
                 return (value1, value2) not in rules['invalid_combinations']
             elif 'valid_combinations' in rules:
-                # Проверяем, есть ли такая комбинация в списке допустимых
+                # Check if the combination is in the list of valid combinations
                 return (value1, value2) in rules['valid_combinations']
-        return True  # Если формат правил неизвестен, считаем комбинацию допустимой
+        return True  # If the format of the rules is unknown, consider the combination valid
     except Exception as e:
         logger.error(f"Error checking value combination: {e}")
         return True
 
 def apply_settings_batch(camera_ip, settings_batch):
-    """Применение пакета настроек в строгом порядке приоритетов"""
+    """Apply a batch of settings in strict priority order"""
     try:
-        # Группируем настройки по приоритетам
+        # Group settings by priority
         grouped = group_settings_by_priority(settings_batch)
         
-        # Применяем настройки строго по порядку
+        # Apply settings strictly in order
         priority_groups = ['system', 'core', 'features', 'optional']
         
         for group in priority_groups:
@@ -386,7 +386,7 @@ def apply_settings_batch(camera_ip, settings_batch):
                 
             logger.info(f"Applying {group} settings...")
             
-            # Для системных настроек применяем в строгом порядке
+            # For system settings, apply in strict order
             if group == 'system':
                 for setting_id in SETTING_PRIORITIES['system']:
                     if setting_id in grouped['system']:
@@ -394,15 +394,15 @@ def apply_settings_batch(camera_ip, settings_batch):
                         if not apply_setting(camera_ip, setting_id, value):
                             logger.error(f"Failed to apply system setting {setting_id}")
                             return False
-                        # Увеличенная задержка после системных настроек
+                        # Increased delay after system settings
                         time.sleep(DELAYS['mode'])
             else:
-                # Для остальных групп применяем пакетами
+                # For other groups, apply in batches
                 current_batch = grouped[group]
                 if not apply_settings_group(camera_ip, current_batch):
                     return False
                     
-            # Проверяем статус после каждой группы
+            # Check status after each group
             if not wait_for_camera_ready(camera_ip):
                 logger.error(f"Camera not ready after applying {group} settings")
                 return False
@@ -414,7 +414,7 @@ def apply_settings_batch(camera_ip, settings_batch):
         return False
 
 def apply_settings_group(camera_ip, settings_group, max_batch_size=10):
-    """Применение группы настроек пакетами"""
+    """Apply a group of settings in batches"""
     try:
         batch = {}
         count = 0
@@ -429,7 +429,7 @@ def apply_settings_group(camera_ip, settings_group, max_batch_size=10):
                 batch = {}
                 count = 0
                 
-        # Применяем оставшиеся настройки
+        # Apply remaining settings
         if batch:
             if not apply_batch(camera_ip, batch):
                 return False
@@ -441,15 +441,15 @@ def apply_settings_group(camera_ip, settings_group, max_batch_size=10):
         return False
 
 def apply_batch(camera_ip, batch):
-    """Применение одного пакета настроек"""
+    """Apply a single batch of settings"""
     try:
         for setting_id, value in batch.items():
             if not apply_setting(camera_ip, setting_id, value):
                 return False
                 
-        # Проверяем статус после пакета
+        # Check status after the batch
         if not wait_for_camera_ready(camera_ip):
-            time.sleep(0.5)  # Дополнительная задержка если камера занята
+            time.sleep(0.5)  # Additional delay if the camera is busy
             
         return True
         
@@ -458,7 +458,7 @@ def apply_batch(camera_ip, batch):
         return False
 
 def get_camera_status(camera_ip):
-    """Получение полного статуса камеры"""
+    """Get the full status of the camera"""
     try:
         url = f"http://{camera_ip}:8080/gopro/camera/state"
         response = requests.get(url, timeout=5)
@@ -471,12 +471,12 @@ def get_camera_status(camera_ip):
         return None
 
 def group_settings_by_priority(settings):
-    """Группировка настроек по приоритетам"""
+    """Group settings by priority"""
     grouped = {
         'system': {},
         'core': {},
         'features': {},
-        'optional': {}  # Добавляем группу optional
+        'optional': {}  # Add optional group
     }
     
     for setting_id, value in settings.items():
@@ -487,12 +487,12 @@ def group_settings_by_priority(settings):
         elif setting_id in SETTING_PRIORITIES['features']:
             grouped['features'][setting_id] = value
         else:
-            grouped['optional'][setting_id] = value  # Все остальные настройки идут в optional
+            grouped['optional'][setting_id] = value  # All other settings go to optional
             
     return grouped
 
 def check_setting_dependencies(setting_id, settings):
-    """Проверка зависимостей настройки"""
+    """Check setting dependencies"""
     if setting_id in SETTING_DEPENDENCIES:
         for dep_id in SETTING_DEPENDENCIES[setting_id]:
             if dep_id not in settings:
@@ -501,10 +501,10 @@ def check_setting_dependencies(setting_id, settings):
     return True
 
 def create_settings_batches(settings, batch_size=1):
-    """Создание пакетов настроек с учетом зависимостей"""
+    """Create batches of settings considering dependencies"""
     batches = []
     
-    # Сначала системные настройки
+    # First system settings
     system_settings = {k: v for k, v in settings.items() 
                       if k in SETTING_PRIORITIES['system']}
     if system_settings:
@@ -512,7 +512,7 @@ def create_settings_batches(settings, batch_size=1):
             if check_setting_dependencies(k, settings):
                 batches.append({k: v})
     
-    # Затем основные настройки
+    # Then core settings
     core_settings = {k: v for k, v in settings.items() 
                     if k in SETTING_PRIORITIES['core']}
     if core_settings:
@@ -520,7 +520,7 @@ def create_settings_batches(settings, batch_size=1):
             if check_setting_dependencies(k, settings):
                 batches.append({k: v})
     
-    # Остальные настройки
+    # Other settings
     other_settings = {k: v for k, v in settings.items() 
                      if k not in SETTING_PRIORITIES['system'] 
                      and k not in SETTING_PRIORITIES['core']}
@@ -532,7 +532,7 @@ def create_settings_batches(settings, batch_size=1):
     return batches
 
 def wait_for_camera_ready(camera_ip, timeout=5):
-    """Ожидание готовности камеры"""
+    """Wait for the camera to be ready"""
     try:
         start_time = time.time()
         while time.time() - start_time < timeout:
@@ -541,7 +541,7 @@ def wait_for_camera_ready(camera_ip, timeout=5):
             
             if response.status_code == 200:
                 status = response.json()
-                # Проверяем основные флаги занятости
+                # Check main busy flags
                 system_busy = status.get('status', {}).get('8', 0) == 1  # system busy
                 encoding = status.get('status', {}).get('10', 0) == 1    # encoding
                 
@@ -559,9 +559,9 @@ def wait_for_camera_ready(camera_ip, timeout=5):
         return False
 
 def copy_camera_settings_sync(progress_callback=None):
-    """Копирование настроек с основной камеры на остальные"""
+    """Copy settings from the primary camera to others"""
     try:
-        # Получаем список камер
+        # Get the list of cameras
         cameras = discover_gopro_devices()
         if not cameras:
             error_msg = "No cameras found"
@@ -570,7 +570,7 @@ def copy_camera_settings_sync(progress_callback=None):
                 progress_callback("log", f"❌ {error_msg}")
             return False
 
-        # Находим основную камеру
+        # Find the primary camera
         primary_camera = None
         for camera in cameras:
             if is_prime_camera(camera):
@@ -584,7 +584,7 @@ def copy_camera_settings_sync(progress_callback=None):
                 progress_callback("log", f"❌ {error_msg}")
             return False
 
-        # Получаем настройки с основной камеры
+        # Get settings from the primary camera
         primary_status = get_camera_status(primary_camera['ip'])
         if not primary_status:
             error_msg = "Failed to get primary camera status"
@@ -601,10 +601,10 @@ def copy_camera_settings_sync(progress_callback=None):
                 progress_callback("log", f"❌ {error_msg}")
             return False
 
-        # Группируем настройки по приоритетам
+        # Group settings by priority
         grouped_settings = group_settings_by_priority(current_settings)
         
-        # Копируем настройки на остальные камеры
+        # Copy settings to other cameras
         for camera in cameras:
             if is_prime_camera(camera):
                 continue
@@ -612,20 +612,20 @@ def copy_camera_settings_sync(progress_callback=None):
             if progress_callback:
                 progress_callback("log", f"\nProcessing camera {camera['ip']}")
                 
-            # Проверяем готовность камеры
+            # Check camera readiness
             if not wait_for_camera_ready(camera['ip']):
                 logger.error(f"Camera {camera['ip']} not ready")
                 continue
                 
             try:
-                # Применяем настройки строго по порядку
+                # Apply settings strictly in order
                 for priority_group in SETTING_PRIORITIES:
                     settings_ids = SETTING_PRIORITIES[priority_group]
                     
                     if progress_callback:
                         progress_callback("log", f"\nApplying {priority_group} settings...")
                         
-                    # Применяем настройки в заданном порядке
+                    # Apply settings in the specified order
                     for setting_id in settings_ids:
                         if setting_id not in current_settings:
                             continue
@@ -649,10 +649,10 @@ def copy_camera_settings_sync(progress_callback=None):
                             if progress_callback:
                                 progress_callback("log", f"❌ Failed to set {setting_id}")
                                 
-                    # Даем камере время на применение группы настроек
+                    # Give the camera time to apply the group of settings
                     time.sleep(DELAYS['mode'])
                     
-                # Применяем остальные настройки
+                # Apply other settings
                 for setting_id, value in current_settings.items():
                     if any(setting_id in group for group in SETTING_PRIORITIES.values()):
                         continue
@@ -672,7 +672,7 @@ def copy_camera_settings_sync(progress_callback=None):
         return False
 
 def verify_setting(camera_ip, setting_id, expected_value):
-    """Проверка применения настройки"""
+    """Verify the application of a setting"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/status"
         response = requests.get(url, headers=USB_HEADERS, timeout=5)
@@ -692,7 +692,7 @@ def verify_setting(camera_ip, setting_id, expected_value):
         return False
 
 def get_usb_connection_status(camera_ip):
-    """Проверка состояния USB соединения"""
+    """Check the USB connection status"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/usb/status"
         response = requests.get(url, headers=USB_HEADERS, timeout=5)
@@ -711,7 +711,7 @@ def get_usb_connection_status(camera_ip):
 
 @dataclass
 class CameraResult:
-    """Результат применения настроек к камере"""
+    """Result of applying settings to a camera"""
     camera_ip: str
     success: bool
     settings_applied: Dict[str, bool]
@@ -724,18 +724,18 @@ class CameraSettingsManager:
         self._executor = ThreadPoolExecutor(max_workers=max_concurrent_cameras)
         
     async def init_session(self):
-        """Инициализация HTTP сессии"""
+        """Initialize HTTP session"""
         if not self.session:
             self.session = aiohttp.ClientSession(headers=USB_HEADERS)
 
     async def close_session(self):
-        """Закрытие HTTP сессии"""
+        """Close HTTP session"""
         if self.session:
             await self.session.close()
             self.session = None
             
     async def verify_setting_async(self, camera_ip: str, setting_id: str, expected_value: Any) -> bool:
-        """Асинхронная проверка применения настройки"""
+        """Asynchronous verification of a setting application"""
         try:
             url = f"http://{camera_ip}:8080/gp/gpControl/status"
             async with self.session.get(url) as response:
@@ -755,12 +755,12 @@ class CameraSettingsManager:
         value: Any,
         progress_callback: Callable
     ) -> bool:
-        """Асинхронное применение одной настройки"""
+        """Asynchronous application of a single setting"""
         try:
             url = f"http://{camera_ip}:8080/gp/gpControl/setting/{setting_id}/{value}"
             async with self.session.get(url) as response:
                 if response.status == 200:
-                    # Проверяем применение настройки
+                    # Verify the setting application
                     if await self.verify_setting_async(camera_ip, setting_id, value):
                         progress_callback("log", f"✅ Camera {camera_ip}: Set {setting_id}={value}")
                         return True
@@ -780,7 +780,7 @@ class CameraSettingsManager:
         settings: Dict[str, Any],
         progress_callback: Callable
     ) -> CameraResult:
-        """Применение всех настроек к одной камере"""
+        """Apply all settings to a single camera"""
         async with self.semaphore:
             try:
                 result = CameraResult(
@@ -789,10 +789,10 @@ class CameraSettingsManager:
                     settings_applied={}
                 )
 
-                # Группируем настройки по приоритетам
+                # Group settings by priority
                 grouped_settings = group_settings_by_priority(settings)
                 
-                # Применяем настройки по группам
+                # Apply settings by groups
                 for priority_group in ['system', 'core', 'features', 'optional']:
                     if priority_group not in grouped_settings:
                         continue
@@ -806,7 +806,7 @@ class CameraSettingsManager:
                         if not success:
                             result.success = False
                         
-                        # Применяем задержки
+                        # Apply delays
                         if priority_group == 'system':
                             await asyncio.sleep(DELAYS['mode'])
                         else:
@@ -830,7 +830,7 @@ class CameraSettingsManager:
         settings: Dict[str, Any],
         progress_callback: Callable
     ) -> List[CameraResult]:
-        """Асинхронное применение настроек ко всем камерам"""
+        """Asynchronous application of settings to all cameras"""
         await self.init_session()
         try:
             tasks = []
@@ -854,7 +854,7 @@ class CameraSettingsManager:
         settings: Dict[str, Any],
         progress_callback: Callable
     ) -> List[CameraResult]:
-        """Синхронная обертка для асинхронного применения настроек"""
+        """Synchronous wrapper for asynchronous settings application"""
         async def _run():
             manager = cls()
             return await manager.apply_settings_to_all_cameras(cameras, settings, progress_callback)
@@ -872,4 +872,4 @@ if __name__ == "__main__":
         dialog.exec_()
         sys.exit(app.exec_())
     except Exception as e:
-        logger.error(f"Error in main: {str(e)}", exc_info=True) 
+        logger.error(f"Error in main: {str(e)}", exc_info=True)

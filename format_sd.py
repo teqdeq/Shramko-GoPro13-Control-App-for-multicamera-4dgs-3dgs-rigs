@@ -11,11 +11,11 @@ import logging
 from concurrent.futures import ThreadPoolExecutor
 from utils import setup_logging, get_data_dir
 
-# Инициализируем логирование
+# Initialize logging
 setup_logging()
 
 def format_camera_sd(camera_ip):
-    """Форматирование SD карты для одной камеры"""
+    """Format the SD card for a single camera"""
     try:
         response = requests.get(f"http://{camera_ip}/gp/gpControl/command/storage/delete/all")
         if response.status_code == 200:
@@ -30,9 +30,9 @@ def format_camera_sd(camera_ip):
         return False
 
 def main():
-    """Основная функция для форматирования SD карт всех камер"""
+    """Main function for formatting SD cards on all cameras"""
     try:
-        # Загружаем список камер из кэша
+        # Load the list of cameras from the cache
         cache_file = get_data_dir() / "camera_cache.json"
         try:
             with open(cache_file, "r") as f:
@@ -44,7 +44,7 @@ def main():
             logging.error("Camera cache not found. Cannot format SD cards.")
             return False
 
-        # Форматируем SD карты всех камер параллельно
+        # Format SD cards on all cameras in parallel
         logging.info("Formatting SD cards on all cameras...")
         with ThreadPoolExecutor() as executor:
             results = list(executor.map(lambda d: format_camera_sd(d["ip"]), devices))

@@ -17,11 +17,11 @@ from goprolist_and_start_usb import (
 )
 import sys
 
-# Инициализируем логирование
+# Initialize logging
 setup_logging()
 
 def check_sync_dependencies():
-    """Проверка зависимостей для синхронизации"""
+    """Check dependencies for synchronization"""
     required_files = [
         'date_time_sync.py',
         'data/camera_cache.json',
@@ -39,7 +39,7 @@ def check_sync_dependencies():
         raise FileNotFoundError(f"Missing required files: {', '.join(missing_files)}")
 
 def sync_time_on_cameras():
-    """Синхронизация времени на камерах"""
+    """Synchronize time on the cameras"""
     try:
         from date_time_sync import sync_time
         sync_time()
@@ -49,7 +49,7 @@ def sync_time_on_cameras():
 
 if __name__ == "__main__":
     try:
-        # Проверяем зависимости
+        # Check dependencies
         check_dependencies()
         check_gopro_dependencies()
         check_sync_dependencies()
@@ -83,8 +83,8 @@ if __name__ == "__main__":
             from PyQt5.QtWidgets import QMessageBox
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
-            msg.setText("Ошибка при синхронизации")
+            msg.setText("Error during synchronization")
             msg.setInformativeText(str(e))
-            msg.setWindowTitle("Ошибка")
+            msg.setWindowTitle("Error")
             msg.exec_()
         raise

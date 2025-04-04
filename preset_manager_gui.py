@@ -186,15 +186,15 @@ class PresetManagerDialog(QMainWindow):
         return self.list_widgets.get(mode), self.settings_displays.get(mode)
 
     def detect_and_sync_prime_camera_mode(self):
-        """Определяет и синхронизирует режим основной камеры"""
+        """Detects and synchronizes the mode of the primary camera"""
         try:
-            # Получаем список камер
+            # Get the list of cameras
             cameras = discover_gopro_devices()
             if not cameras:
-                logger.warning("Камеры не найдены")
+                logger.warning("No cameras found")
                 return
 
-            # Находим основную камеру
+            # Find the primary camera
             prime_camera = None
             for camera in cameras:
                 if is_prime_camera(camera):
@@ -202,69 +202,69 @@ class PresetManagerDialog(QMainWindow):
                     break
 
             if not prime_camera:
-                logger.warning("Основная камера не найдена")
+                logger.warning("Primary camera not found")
                 return
 
-            logger.info(f"Найдена основная камера: {prime_camera['ip']}")
+            logger.info(f"Primary camera found: {prime_camera['ip']}")
 
-            # Получаем статус камеры
+            # Get the camera status
             url = f"http://{prime_camera['ip']}:8080/gopro/camera/state"
             response = requests.get(url, headers=USB_HEADERS, timeout=5)
             
             if response.status_code != 200:
-                logger.error(f"Ошибка получения статуса камеры. Код: {response.status_code}")
+                logger.error(f"Error retrieving camera status. Code: {response.status_code}")
                 return
 
-            # Получаем данные
+            # Get the data
             status_data = response.json()
             
-            # Проверяем структуру ответа
+            # Check the response structure
             if not isinstance(status_data, dict):
-                logger.error(f"Неверный формат ответа: {status_data}")
+                logger.error(f"Invalid response format: {status_data}")
                 return
 
-            # Получаем режим из settings.144
+            # Get the mode from settings.144
             settings = status_data.get('settings', {})
             if not isinstance(settings, dict):
-                logger.error(f"Поле settings не найдено или неверного формата")
+                logger.error(f"The 'settings' field is missing or has an invalid format")
                 return
 
-            # Получаем текущий режим из settings.144
+            # Get the current mode from settings.144
             current_mode = settings.get('144')
-            logger.info(f"Значение settings.144: {current_mode}")
+            logger.info(f"Value of settings.144: {current_mode}")
 
-            # Определяем режим по значению settings.144
+            # Determine the mode based on the value of settings.144
             mode_map = {
-                12: 'video',      # Режим видео
-                16: 'photo',      # Режим фото
-                13: 'timelapse'   # Режим таймлапс
+                12: 'video',      # Video mode
+                16: 'photo',      # Photo mode
+                13: 'timelapse'   # Timelapse mode
             }
 
             if current_mode in mode_map:
                 mode = mode_map[current_mode]
-                logger.info(f"Определен режим камеры: {current_mode} -> {mode}")
+                logger.info(f"Camera mode determined: {current_mode} -> {mode}")
                 
-                # Устанавливаем режим в переключателе
+                # Set the mode in the switcher
                 self.mode_switcher.setMode(mode, save=False)
                 
-                # Устанавливаем соответствующую вкладку
+                # Set the corresponding tab
                 tab_index = {
                     'video': 0,
                     'photo': 1,
                     'timelapse': 2
                 }[mode]
                 
-                # Обновляем интерфейс
+                # Update the interface
                 self.tab_widget.setCurrentIndex(tab_index)
                 self.tab_widget.repaint()
                 QApplication.processEvents()
                 
-                logger.info(f"Установлен режим и вкладка: {mode} (индекс вкладки: {tab_index})")
+                logger.info(f"Mode and tab set: {mode} (tab index: {tab_index})")
             else:
-                logger.warning(f"Неизвестное значение режима: {current_mode}")
+                logger.warning(f"Unknown mode value: {current_mode}")
             
         except Exception as e:
-            logger.error(f"Ошибка при определении режима камеры: {e}")
+            logger.error(f"Error detecting camera mode: {e}")
 
     def on_mode_changed(self, mode):
         """Handle mode change"""
@@ -323,13 +323,13 @@ class PresetManagerDialog(QMainWindow):
     def create_preset(self, mode):
         """Create new template for specific mode"""
         try:
-            mode = mode.lower()  # для работы с файлами используем нижний регистр
+            mode = mode.lower()  # Use lowercase for file operations
             logger.info(f"\nStarting create_preset for {mode}")
             
             # Get template name
             name, ok = QInputDialog.getText(
                 self, f'New {mode} template',
-                'Enter template name (use only English letters, numbers and underscore):'
+                'Enter template name (use only English letters, numbers, and underscores):'
             )
             
             if not ok or not name:
@@ -343,7 +343,7 @@ class PresetManagerDialog(QMainWindow):
                 logger.warning(f"Invalid template name: {name}")
                 QMessageBox.warning(
                     self, 'Invalid Name',
-                    'Please use only English letters, numbers and underscore'
+                    'Please use only English letters, numbers, and underscores'
                 )
                 return
             
@@ -448,7 +448,7 @@ class PresetManagerDialog(QMainWindow):
             self.refresh_preset_lists()
             
             # Get list widget for this mode and select new template
-            list_widget = self.list_widgets.get(mode.upper())  # Используем ВЕРХНИЙ регистр для поиска виджета
+            list_widget = self.list_widgets.get(mode.upper())  # Use UPPERCASE for widget lookup
             if list_widget:
                 # Find and select the new template
                 for i in range(list_widget.count()):
@@ -483,26 +483,26 @@ class PresetManagerDialog(QMainWindow):
             
             selected = list_widget.currentItem()
             if not selected:
-                QMessageBox.warning(self, 'Warning', 'Пожалуйста, выберите шаблон')
+                QMessageBox.warning(self, 'Warning', 'Please select a template')
                 return
             
             template_name = selected.text()
             template_path = self.templates_dir / f"{MODE_PREFIXES[mode.lower()]}{template_name}.json"
             
             if not template_path.exists():
-                raise FileNotFoundError(f"Файл шаблона не найден: {template_path}")
+                raise FileNotFoundError(f"Template file not found: {template_path}")
             
-            # Загружаем настройки из шаблона
+            # Load settings from the template
             with open(template_path, 'r') as f:
                 template_data = json.load(f)
             
-            # Получаем настройки из шаблона
+            # Get settings from the template
             settings = template_data.get('settings', {})
             if not settings:
-                QMessageBox.warning(self, 'Error', 'В шаблоне не найдены настройки')
+                QMessageBox.warning(self, 'Error', 'No settings found in the template')
                 return
 
-            # Преобразуем настройки в правильный формат
+            # Format settings correctly
             formatted_settings = {}
             for setting_id, setting_data in settings.items():
                 if isinstance(setting_data, dict) and 'current_value' in setting_data:
@@ -510,49 +510,49 @@ class PresetManagerDialog(QMainWindow):
 
             def apply_template_settings(progress_callback):
                 try:
-                    # Получаем список камер
+                    # Get the list of cameras
                     cameras = discover_gopro_devices()
                     if not cameras:
-                        progress_callback("log", "❌ Камеры не найдены")
+                        progress_callback("log", "❌ No cameras found")
                         return False
 
-                    # Применяем настройки ко всем камерам параллельно
+                    # Apply settings to all cameras in parallel
                     results = CameraSettingsManager.apply_settings_sync(
                         cameras=cameras,
                         settings=formatted_settings,
                         progress_callback=progress_callback
                     )
 
-                    # Анализируем результаты
+                    # Analyze results
                     total_cameras = len(results)
                     successful_cameras = sum(1 for r in results if r.success)
                     
-                    progress_callback("log", f"\nРезультаты применения настроек:")
-                    progress_callback("log", f"✅ Успешно: {successful_cameras} из {total_cameras} камер")
+                    progress_callback("log", f"\nSettings application results:")
+                    progress_callback("log", f"✅ Successful: {successful_cameras} out of {total_cameras} cameras")
                     
                     if successful_cameras < total_cameras:
                         failed_cameras = [r.camera_ip for r in results if not r.success]
-                        progress_callback("log", f"❌ Не удалось применить ко всем настройки на камерах: {', '.join(failed_cameras)}")
+                        progress_callback("log", f"❌ Failed to apply settings to the following cameras: {', '.join(failed_cameras)}")
                         
-                        # Показываем детальную информацию об ошибках
+                        # Show detailed error information
                         for result in results:
                             if not result.success:
-                                progress_callback("log", f"\nОшибки для камеры {result.camera_ip}:")
+                                progress_callback("log", f"\nErrors for camera {result.camera_ip}:")
                                 if result.error_message:
                                     progress_callback("log", f"  {result.error_message}")
                                 for setting_id, success in result.settings_applied.items():
                                     if not success:
-                                        progress_callback("log", f"  ❌ Настройка {setting_id} не применена")
+                                        progress_callback("log", f"  ❌ Setting {setting_id} not applied")
 
                     return successful_cameras == total_cameras
 
                 except Exception as e:
-                    progress_callback("log", f"❌ Ошибка: {str(e)}")
+                    progress_callback("log", f"❌ Error: {str(e)}")
                     return False
 
-            # Создаем и показываем прогресс-диалог
+            # Create and show progress dialog
             progress = SettingsProgressDialog(
-                "Применение шаблона",
+                "Applying Template",
                 apply_template_settings,
                 self
             )
@@ -560,7 +560,7 @@ class PresetManagerDialog(QMainWindow):
             
         except Exception as e:
             logger.error(f"Error applying preset: {e}", exc_info=True)
-            QMessageBox.critical(self, 'Error', f'Ошибка применения шаблона: {str(e)}')
+            QMessageBox.critical(self, 'Error', f'Error applying template: {str(e)}')
 
     def delete_preset(self, mode):
         """Delete selected template"""
@@ -669,4 +669,4 @@ class PresetManagerDialog(QMainWindow):
             
         except Exception as e:
             logger.error(f"Error displaying template settings: {e}", exc_info=True)
-            settings_display.setText(f"Error loading template: {str(e)}") 
+            settings_display.setText(f"Error loading template: {str(e)}")

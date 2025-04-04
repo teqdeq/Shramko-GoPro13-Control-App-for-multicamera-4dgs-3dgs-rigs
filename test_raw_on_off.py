@@ -3,11 +3,11 @@ import logging
 import time
 from goprolist_and_start_usb import discover_gopro_devices
 
-# Настраиваем логирование
+# Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def test_setting(camera_ip, setting_id, value):
-    """Тестирование настройки"""
+    """Test a specific camera setting"""
     try:
         url = f"http://{camera_ip}:8080/gp/gpControl/setting/{setting_id}/{value}"
         response = requests.get(url, timeout=5)
@@ -23,7 +23,7 @@ def test_setting(camera_ip, setting_id, value):
 
 def main():
     try:
-        # Ищем камеры
+        # Discover cameras
         logging.info("Discovering cameras...")
         devices = discover_gopro_devices()
         
@@ -31,24 +31,24 @@ def main():
             logging.error("No cameras found")
             return
             
-        # Берем первую камеру
+        # Use the first camera
         camera = devices[0]
         camera_ip = camera['ip']
         logging.info(f"\nTesting settings on camera: {camera['name']}")
         
-        # Тестируем Photo Output (125)
+        # Test Photo Output (125)
         setting_id = 125
         logging.info(f"\nTesting Photo Output (ID: {setting_id})")
         
-        # Пробуем значение 0 (Standard)
+        # Test value 0 (Standard)
         logging.info(f"Testing value 0 (Standard)...")
         test_setting(camera_ip, setting_id, 0)
-        time.sleep(3)  # Ждем 3 секунды
+        time.sleep(3)  # Wait for 3 seconds
         
-        # Пробуем значение 1 (RAW)
+        # Test value 1 (RAW)
         logging.info(f"Testing value 1 (RAW)...")
         test_setting(camera_ip, setting_id, 1)
-        time.sleep(3)  # Ждем 3 секунды
+        time.sleep(3)  # Wait for 3 seconds
         
         logging.info("\nTesting completed!")
         
@@ -56,4 +56,4 @@ def main():
         logging.error(f"Error in main: {e}")
 
 if __name__ == "__main__":
-    main() 
+    main()

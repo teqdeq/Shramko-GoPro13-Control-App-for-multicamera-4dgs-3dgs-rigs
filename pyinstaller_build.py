@@ -6,36 +6,36 @@ import subprocess
 import pkg_resources
 
 def get_project_root() -> Path:
-    """Получить корневой каталог проекта"""
+    """Get the root directory of the project"""
     return Path(__file__).parent
 
 def get_build_dir() -> Path:
-    """Получить каталог для сборки"""
+    """Get the build directory"""
     return get_project_root().parent / 'build_env'
 
 def clean_build_dir() -> None:
-    """Очистка каталога сборки"""
+    """Clean the build directory"""
     build_dir = get_build_dir()
     if build_dir.exists():
         shutil.rmtree(build_dir)
     build_dir.mkdir(parents=True)
 
 def copy_project_files() -> None:
-    """Копирование файлов проекта в каталог сборки"""
+    """Copy project files to the build directory"""
     src_dir = get_project_root()
     build_dir = get_build_dir()
     
-    # Копируем все .py файлы
+    # Copy all .py files
     for py_file in src_dir.glob('*.py'):
         shutil.copy2(py_file, build_dir)
     
-    # Копируем каталог с иконками
+    # Copy the icons directory
     ico_dir = src_dir / 'ico'
     if ico_dir.exists():
         shutil.copytree(ico_dir, build_dir / 'ico')
 
 def create_spec_file() -> None:
-    """Создание spec файла для PyInstaller"""
+    """Create a spec file for PyInstaller"""
     build_dir = get_build_dir()
     spec_content = f'''# -*- mode: python ; coding: utf-8 -*-
 
@@ -111,11 +111,11 @@ exe = EXE(
     spec_file.write_text(spec_content, encoding='utf-8')
 
 def build_exe() -> None:
-    """Сборка exe файла"""
+    """Build the exe file"""
     build_dir = get_build_dir()
     spec_file = build_dir / 'GoPro_Control.spec'
     
-    # Запуск PyInstaller
+    # Run PyInstaller
     subprocess.run([
         'pyinstaller',
         '--clean',
@@ -125,32 +125,32 @@ def build_exe() -> None:
     ], check=True)
 
 def main() -> int:
-    """Основная функция сборки"""
+    """Main build function"""
     try:
-        print("Начало сборки приложения...")
+        print("Starting application build...")
         
-        # Очистка каталога сборки
-        print("Очистка каталога сборки...")
+        # Clean the build directory
+        print("Cleaning the build directory...")
         clean_build_dir()
         
-        # Копирование файлов
-        print("Копирование файлов проекта...")
+        # Copy project files
+        print("Copying project files...")
         copy_project_files()
         
-        # Создание spec файла
-        print("Создание spec файла...")
+        # Create the spec file
+        print("Creating the spec file...")
         create_spec_file()
         
-        # Сборка exe
-        print("Сборка exe файла...")
+        # Build the exe
+        print("Building the exe file...")
         build_exe()
         
-        print("Сборка успешно завершена!")
+        print("Build completed successfully!")
         return 0
         
     except Exception as e:
-        print(f"Ошибка при сборке: {e}")
+        print(f"Error during build: {e}")
         return 1
 
 if __name__ == "__main__":
-    sys.exit(main()) 
+    sys.exit(main())

@@ -62,7 +62,7 @@ async def take_photos_async(devices):
         # Run all tasks simultaneously
         results = await asyncio.gather(*tasks, return_exceptions=False)
         
-        # Анализируем результаты
+        # Analyze results
         failed_cameras = []
         for device, (success, error) in zip(devices, results):
             if not success:
@@ -71,13 +71,13 @@ async def take_photos_async(devices):
                     'error': error
                 })
         
-        # Если есть проблемные камеры, выводим их список
+        # If there are problematic cameras, log their details
         if failed_cameras:
             logger.warning("Problems detected with cameras:")
             for cam in failed_cameras:
                 logger.warning(f"  - {cam['name']}: {cam['error']}")
         
-        # Возвращаем True и список проблемных камер
+        # Return True and the list of problematic cameras
         return True, failed_cameras
 
 def main(devices=None):
@@ -100,4 +100,4 @@ def main(devices=None):
         return False, []
 
 if __name__ == "__main__":
-    main() 
+    main()

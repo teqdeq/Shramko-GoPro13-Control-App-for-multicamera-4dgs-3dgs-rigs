@@ -5,7 +5,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
-# Windows константы
+# Windows constants
 ES_CONTINUOUS = 0x80000000
 ES_SYSTEM_REQUIRED = 0x00000001
 ES_DISPLAY_REQUIRED = 0x00000002
@@ -16,18 +16,18 @@ class PowerManager:
         self.previous_state = None
         
     def prevent_sleep(self):
-        """Предотвращает переход компьютера в спящий режим"""
+        """Prevents the computer from entering sleep mode"""
         try:
-            # Для Windows
+            # For Windows
             if hasattr(ctypes, 'windll'):
                 mode = ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED
                 ctypes.windll.kernel32.SetThreadExecutionState(mode)
                 logger.info("Sleep prevention enabled (Windows)")
-            # Для Linux
+            # For Linux
             elif os.path.exists('/usr/bin/xdg-screensaver'):
                 os.system('xdg-screensaver suspend $$')
                 logger.info("Sleep prevention enabled (Linux)")
-            # Для macOS
+            # For macOS
             elif os.path.exists('/usr/bin/caffeinate'):
                 os.system('caffeinate -d -i &')
                 logger.info("Sleep prevention enabled (macOS)")
@@ -36,17 +36,17 @@ class PowerManager:
             logger.error(f"Failed to prevent sleep mode: {e}")
             
     def allow_sleep(self):
-        """Возвращает систему к нормальному режиму энергосбережения"""
+        """Restores the system to normal power-saving mode"""
         try:
-            # Для Windows
+            # For Windows
             if hasattr(ctypes, 'windll'):
                 ctypes.windll.kernel32.SetThreadExecutionState(ES_CONTINUOUS)
                 logger.info("Sleep prevention disabled (Windows)")
-            # Для Linux
+            # For Linux
             elif os.path.exists('/usr/bin/xdg-screensaver'):
                 os.system('xdg-screensaver resume $$')
                 logger.info("Sleep prevention disabled (Linux)")
-            # Для macOS
+            # For macOS
             elif os.path.exists('/usr/bin/caffeinate'):
                 os.system('pkill caffeinate')
                 logger.info("Sleep prevention disabled (macOS)")
@@ -56,9 +56,9 @@ class PowerManager:
 
     @contextmanager
     def prevent_system_sleep(self):
-        """Контекстный менеджер для временного предотвращения сна"""
+        """Context manager for temporarily preventing sleep"""
         try:
             self.prevent_sleep()
             yield
         finally:
-            self.allow_sleep() 
+            self.allow_sleep()

@@ -4,12 +4,12 @@ import shutil
 from pathlib import Path
 
 def prepare_build_env():
-    """Подготовка окружения для сборки"""
-    # Получаем абсолютные пути
+    """Prepare the environment for building"""
+    # Get absolute paths
     current_dir = Path.cwd()
     build_env = current_dir / 'build_env'
     
-    # Создаем структуру каталогов с абсолютными путями
+    # Create directory structure with absolute paths
     build_dirs = [
         build_env,
         build_env / 'build',
@@ -21,7 +21,7 @@ def prepare_build_env():
         dir_path.mkdir(exist_ok=True)
         print(f"Created directory: {dir_path}")
     
-    # Копируем необходимые файлы с проверкой путей
+    # Copy necessary files with path checks
     data_src = current_dir / 'data'
     data_dst = build_env / 'data'
     
@@ -34,22 +34,22 @@ def prepare_build_env():
         print(f"Warning: Source data directory not found at {data_src}")
 
 def clean_dist():
-    """Очистка папок dist и build"""
+    """Clean the dist and build folders"""
     for dir_name in ['build_env/dist', 'build_env/build']:
         if os.path.exists(dir_name):
             shutil.rmtree(dir_name)
 
 def create_portable_exe():
-    """Создание портативного exe-файла"""
-    # Подготавливаем окружение
+    """Create a portable exe file"""
+    # Prepare the environment
     prepare_build_env()
     
-    # Получаем абсолютные пути
+    # Get absolute paths
     current_dir = Path.cwd()
     build_env = current_dir / 'build_env'
     data_dir = build_env / 'data'
     
-    # Проверяем и копируем иконку
+    # Check and copy the icon
     icon_path = current_dir / 'icon.ico'
     if not icon_path.exists():
         icon_path = current_dir / 'ico' / 'icon.ico'
@@ -59,7 +59,7 @@ def create_portable_exe():
     else:
         icon_arg = [f'--icon={str(icon_path)}']
     
-    # Формируем список файлов для добавления
+    # Form the list of files to add
     files_to_add = [
         'utils.py',
         'goprolist_and_start_usb.py',
@@ -82,7 +82,7 @@ def create_portable_exe():
         'copy_to_pc.py',
     ]
     
-    # Формируем параметры для PyInstaller
+    # Form the parameters for PyInstaller
     pyinstaller_args = [
         'Gopro_Gui_interfase_Pyqt5.py',
         '--name=GoPro_Control',
@@ -92,7 +92,7 @@ def create_portable_exe():
         '--collect-all=zeroconf',
     ]
     
-    # Добавляем data директорию
+    # Add the data directory
     if data_dir.exists():
         pyinstaller_args.append(f'--add-data={str(data_dir)};data')
     else:
@@ -100,10 +100,10 @@ def create_portable_exe():
         data_dir.mkdir(exist_ok=True)
         pyinstaller_args.append(f'--add-data={str(data_dir)};data')
     
-    # Добавляем иконку если она есть
+    # Add the icon if it exists
     pyinstaller_args.extend(icon_arg)
     
-    # Добавляем файлы с абсолютными путями
+    # Add files with absolute paths
     for file in files_to_add:
         file_path = current_dir / file
         if file_path.exists():
@@ -111,12 +111,12 @@ def create_portable_exe():
         else:
             print(f"Warning: File not found: {file_path}")
     
-    # Добавляем каталог с иконками
+    # Add the icon directory
     ico_dir = current_dir / 'ico'
     if ico_dir.exists():
         pyinstaller_args.append(f'--add-binary={str(ico_dir)};ico')
     
-    # Добавляем остальные параметры
+    # Add other parameters
     pyinstaller_args.extend([
         '--clean',
         '--noconfirm',
@@ -126,7 +126,7 @@ def create_portable_exe():
         f'--specpath={str(build_env)}'
     ])
     
-    # Запускаем PyInstaller
+    # Run PyInstaller
     PyInstaller.__main__.run(pyinstaller_args)
 
 def main():
@@ -146,4 +146,4 @@ def main():
     return 0
 
 if __name__ == "__main__":
-    exit(main()) 
+    exit(main())

@@ -7,15 +7,15 @@ import sys
 import time
 import json
 
-# Инициализируем логирование с именем модуля
+# Initialize logging with the module name
 logger = setup_logging(__name__)
 
 MAX_DISCOVERY_ATTEMPTS = 3
-DISCOVERY_TIMEOUT = 15  # Увеличено с 10 до 15 секунд
+DISCOVERY_TIMEOUT = 15  # Increased from 10 to 15 seconds
 USB_CHECK_TIMEOUT = 5
 
 def check_gopro_dependencies():
-    """Проверка зависимостей для работы с GoPro"""
+    """Check dependencies for working with GoPro cameras"""
     required_files = [
         'data/camera_cache.json',
         'utils.py'
@@ -32,7 +32,7 @@ def check_gopro_dependencies():
         raise FileNotFoundError(f"Missing required files: {', '.join(missing_files)}")
 
 def check_usb_connection(camera_ip):
-    """Проверка USB-соединения с камерой"""
+    """Check USB connection with the camera"""
     try:
         url = f"http://{camera_ip}:8080/gopro/camera/state"
         response = requests.get(url, timeout=USB_CHECK_TIMEOUT)
@@ -43,15 +43,15 @@ def check_usb_connection(camera_ip):
 class GoProListener:
     def __init__(self):
         self.devices = []
-        self.discovered_ips = set()  # Для отслеживания уникальных IP-адресов
+        self.discovered_ips = set()  # For tracking unique IP addresses
 
     def add_service(self, zeroconf, service_type, name):
         info = zeroconf.get_service_info(service_type, name)
         if info and info.addresses:
             ip_address = ".".join(map(str, info.addresses[0]))
-            if ip_address not in self.discovered_ips:  # Проверка на дубликаты
+            if ip_address not in self.discovered_ips:  # Check for duplicates
                 logging.info(f"Discovered GoPro: {name} at {ip_address}")
-                if check_usb_connection(ip_address):  # Проверка USB-соединения
+                if check_usb_connection(ip_address):  # Check USB connection
                     self.devices.append({
                         "name": name,
                         "ip": ip_address
@@ -64,11 +64,11 @@ class GoProListener:
         logging.info(f"GoPro {name} removed")
         
     def update_service(self, zeroconf, service_type, name):
-        """Обработка обновления сервиса"""
+        """Process service update events"""
         pass
 
 def discover_gopro_devices():
-    """Обнаружение GoPro устройств с повторными попытками"""
+    """Detecting GoPro devices with repeated attempts"""
     for attempt in range(MAX_DISCOVERY_ATTEMPTS):
         zeroconf = Zeroconf()
         listener = GoProListener()
@@ -85,17 +85,17 @@ def discover_gopro_devices():
 
         if not listener.devices and attempt < MAX_DISCOVERY_ATTEMPTS - 1:
             logging.warning(f"No devices found on attempt {attempt + 1}, retrying...")
-            time.sleep(2)  # Пауза между попытками
+            time.sleep(2)  # Pause between attempts
 
     logging.warning("No devices found after all attempts.")
     return []
 
 def save_devices_to_cache(devices, cache_filename="camera_cache.json"):
-    """Сохранение списка камер в кэш с проверкой уникальности"""
+    """Saving the list of cameras to the cache with a uniqueness check"""
     try:
         cache_file = get_data_dir() / cache_filename
         
-        # Загрузка существующего кэша
+        # Loading existing cache
         existing_devices = []
         if cache_file.exists():
             try:
@@ -104,7 +104,7 @@ def save_devices_to_cache(devices, cache_filename="camera_cache.json"):
             except json.JSONDecodeError:
                 logging.warning("Invalid cache file format, creating new cache")
 
-        # Объединение списков с проверкой уникальности
+        # Combine lists with a uniqueness check
         unique_devices = {device["ip"]: device for device in existing_devices + devices}
         updated_devices = list(unique_devices.values())
 
@@ -115,7 +115,7 @@ def save_devices_to_cache(devices, cache_filename="camera_cache.json"):
         logging.error(f"Failed to save camera cache: {e}")
 
 def reset_and_enable_usb_control(camera_ip):
-    """Сброс и включение USB-контроля с повторными попытками"""
+    """Reset and enable USB control with repeated attempts"""
     max_attempts = 3
     for attempt in range(max_attempts):
         try:
@@ -136,7 +136,7 @@ def reset_and_enable_usb_control(camera_ip):
     return False
 
 def toggle_usb_control(camera_ip, enable):
-    """Включение/выключение USB-контроля с таймаутом"""
+    """Enabling/disabling USB control with a timeout"""
     action = 1 if enable else 0
     url = f"http://{camera_ip}:8080/gopro/camera/control/wired_usb?p={action}"
     try:
@@ -153,9 +153,9 @@ def toggle_usb_control(camera_ip, enable):
         return False
 
 def main():
-    """Основная функция для подключения к камерам"""
+    """Main function for connecting to cameras"""
     try:
-        # Проверяем зависимости
+        # Check dependencies
         check_dependencies()
         check_gopro_dependencies()
         

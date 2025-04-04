@@ -32,27 +32,27 @@ import aiohttp
 from utils import setup_logging, check_dependencies
 from goprolist_and_start_usb import discover_gopro_devices
 
-# Инициализируем логирование с именем модуля
+# Initialize logging with the module name
 logger = setup_logging(__name__)
 
 async def set_video_mode_async(session, camera_ip, camera_name):
-    """Асинхронная установка режима видео для одной камеры"""
+    """Asynchronously set video mode for a single camera"""
     try:
-        # Правильный URL для API GoPro
+        # Correct URL for GoPro API
         async with session.get(f"http://{camera_ip}:8080/gp/gpControl/command/mode?p=0", timeout=5) as response:
             if response.status != 200:
                 logger.error(f"Failed to set video mode for camera {camera_ip}. Status: {response.status}")
                 return False
             
-        # Ждем стабилизации режима
+        # Wait for the mode to stabilize
         await asyncio.sleep(2)
         
-        # Проверяем текущий режим
+        # Check the current mode
         async with session.get(f"http://{camera_ip}:8080/gp/gpControl/status", timeout=5) as status_response:
             if status_response.status == 200:
                 status_data = await status_response.json()
                 current_mode = status_data.get('status', {}).get('43')
-                if current_mode == 0:  # 0 - это режим видео
+                if current_mode == 0:  # 0 is the video mode
                     logger.info(f"Video mode set successfully for camera {camera_name}")
                     return True
                 else:
@@ -65,17 +65,17 @@ async def set_video_mode_async(session, camera_ip, camera_name):
         return False
 
 async def set_all_cameras_video_mode_async(devices):
-    """Асинхронная установка режима видео для всех камер одновременно"""
+    """Asynchronously set video mode for all cameras simultaneously"""
     async with aiohttp.ClientSession() as session:
         tasks = []
         for device in devices:
             task = set_video_mode_async(session, device['ip'], device['name'])
             tasks.append(task)
         
-        # Запускаем все задачи одновременно
+        # Run all tasks simultaneously
         results = await asyncio.gather(*tasks, return_exceptions=True)
         
-        # Проверяем результаты
+        # Check results
         success = True
         for device, result in zip(devices, results):
             if isinstance(result, Exception):
@@ -87,7 +87,7 @@ async def set_all_cameras_video_mode_async(devices):
         return success
 
 def main():
-    """Основная функция для запуска из GUI или командной строки"""
+    """Main function for running from GUI or command line"""
     try:
         check_dependencies()
         devices = discover_gopro_devices()
@@ -95,7 +95,7 @@ def main():
             logger.error("No GoPro devices found")
             return False
 
-        # Запускаем асинхронную установку режима
+        # Run asynchronous mode setting
         success = asyncio.run(set_all_cameras_video_mode_async(devices))
         
         return success
@@ -105,4 +105,4 @@ def main():
         return False
 
 if __name__ == "__main__":
-    main() 
+    main()
