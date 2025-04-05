@@ -1,0 +1,38 @@
+2025-04-06 00:48:09,734 - app_init - INFO - Application initialized successfully
+2025-04-06 00:48:09,734 - app_init - INFO - Application initialized successfully
+2025-04-06 00:48:15,046 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-04-06 00:48:15,047 - root - INFO - Searching for GoPro cameras (attempt 1/3)...
+2025-04-06 00:48:15,211 - root - INFO - Discovered GoPro: C3531350039019._gopro-web._tcp.local. at 172.20.119.51
+2025-04-06 00:48:15,215 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.119.51:8080
+2025-04-06 00:48:15,261 - urllib3.connectionpool - DEBUG - http://172.20.119.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1577
+2025-04-06 00:48:15,264 - root - INFO - Discovered GoPro: C3531324635898._gopro-web._tcp.local. at 172.28.198.51
+2025-04-06 00:48:15,266 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.198.51:8080
+2025-04-06 00:48:15,301 - urllib3.connectionpool - DEBUG - http://172.28.198.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1576
+2025-04-06 00:48:30,049 - root - INFO - Found 2 GoPro devices.
+2025-04-06 00:48:30,051 - root - INFO - Found the following GoPro devices:
+2025-04-06 00:48:30,051 - root - INFO - Name: C3531350039019._gopro-web._tcp.local., IP: 172.20.119.51
+2025-04-06 00:48:30,051 - root - INFO - Name: C3531324635898._gopro-web._tcp.local., IP: 172.28.198.51
+2025-04-06 00:48:30,052 - root - INFO - Cache updated successfully with 5 devices.
+2025-04-06 00:48:30,052 - root - INFO - Resetting USB control on camera 172.20.119.51 (attempt 1/3)
+2025-04-06 00:48:30,053 - root - INFO - Resetting USB control on camera 172.28.198.51 (attempt 1/3)
+2025-04-06 00:48:30,054 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.119.51:8080
+2025-04-06 00:48:30,054 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.198.51:8080
+2025-04-06 00:48:30,134 - urllib3.connectionpool - DEBUG - http://172.20.119.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/1.1" 200 3
+2025-04-06 00:48:30,134 - urllib3.connectionpool - DEBUG - http://172.28.198.51:8080 "GET /gopro/camera/control/wired_usb?p=0 HTTP/1.1" 200 3
+2025-04-06 00:48:30,135 - root - INFO - USB control disabled on camera 172.20.119.51.
+2025-04-06 00:48:30,136 - root - INFO - USB control disabled on camera 172.28.198.51.
+2025-04-06 00:48:32,140 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.119.51:8080
+2025-04-06 00:48:32,143 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.198.51:8080
+2025-04-06 00:48:32,234 - urllib3.connectionpool - DEBUG - http://172.20.119.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/1.1" 200 3
+2025-04-06 00:48:32,234 - urllib3.connectionpool - DEBUG - http://172.28.198.51:8080 "GET /gopro/camera/control/wired_usb?p=1 HTTP/1.1" 200 3
+2025-04-06 00:48:32,234 - root - INFO - USB control enabled on camera 172.20.119.51.
+2025-04-06 00:48:32,234 - root - INFO - USB control enabled on camera 172.28.198.51.
+2025-04-06 00:48:32,236 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.20.119.51:8080
+2025-04-06 00:48:32,236 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 172.28.198.51:8080
+2025-04-06 00:48:32,283 - urllib3.connectionpool - DEBUG - http://172.20.119.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1577
+2025-04-06 00:48:32,284 - root - INFO - USB control successfully reset for camera 172.20.119.51
+2025-04-06 00:48:32,287 - urllib3.connectionpool - DEBUG - http://172.28.198.51:8080 "GET /gopro/camera/state HTTP/1.1" 200 1576
+2025-04-06 00:48:32,288 - root - INFO - USB control successfully reset for camera 172.28.198.51
+2025-04-06 00:48:32,289 - root - ERROR - Error retrieving camera count: module 'goprolist_and_start_usb' has no attribute 'get_camera_count'
+2025-04-06 00:48:32,289 - gui - INFO - Connected cameras count: 0
+2025-04-06 00:48:32,289 - gui - INFO - Connected cameras count: 0

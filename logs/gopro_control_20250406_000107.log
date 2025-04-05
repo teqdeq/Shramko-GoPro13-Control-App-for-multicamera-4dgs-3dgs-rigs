@@ -1,0 +1,12 @@
+2025-04-06 00:01:07,138 - __main__ - INFO - Loaded cached camera devices:
+2025-04-06 00:01:07,138 - __main__ - INFO - Name: C3531325036057._gopro-web._tcp.local., IP: 172.20.157.51
+2025-04-06 00:01:07,138 - __main__ - INFO - Name: C3531324635898._gopro-web._tcp.local., IP: 172.28.198.51
+2025-04-06 00:01:07,138 - __main__ - INFO - Name: C3531325002143, IP: 172.21.143.51
+2025-04-06 00:01:07,138 - __main__ - INFO - Name: C3531324882703, IP: 172.27.103.51
+2025-04-06 00:01:07,138 - __main__ - INFO - Name: C3531350039019, IP: 172.20.119.51
+2025-04-06 00:01:07,138 - __main__ - INFO - Turning off all cameras...
+2025-04-06 00:01:07,195 - __main__ - INFO - Camera 172.20.157.51 turned off successfully.
+2025-04-06 00:01:07,196 - __main__ - INFO - Camera 172.28.198.51 turned off successfully.
+2025-04-06 00:01:25,987 - __main__ - ERROR - An error occurred while turning off camera 172.20.119.51: ('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None))
+2025-04-06 00:01:30,571 - __main__ - ERROR - An error occurred while turning off camera 172.27.103.51: ('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None))
+2025-04-06 00:01:34,928 - __main__ - ERROR - An error occurred while turning off camera 172.21.143.51: ('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None))

@@ -1,0 +1,12 @@
+2025-04-06 00:42:14,688 - __main__ - INFO - Loaded cached camera devices:
+2025-04-06 00:42:14,688 - __main__ - INFO - Name: C3531325036057._gopro-web._tcp.local., IP: 172.20.157.51
+2025-04-06 00:42:14,688 - __main__ - INFO - Name: C3531324635898._gopro-web._tcp.local., IP: 172.28.198.51
+2025-04-06 00:42:14,688 - __main__ - INFO - Name: C3531325002143._gopro-web._tcp.local., IP: 172.21.143.51
+2025-04-06 00:42:14,688 - __main__ - INFO - Name: C3531324882703._gopro-web._tcp.local., IP: 172.27.103.51
+2025-04-06 00:42:14,688 - __main__ - INFO - Name: C3531350039019._gopro-web._tcp.local., IP: 172.20.119.51
+2025-04-06 00:42:14,688 - __main__ - INFO - Turning off all cameras...
+2025-04-06 00:42:14,742 - __main__ - INFO - Camera 172.20.119.51 turned off successfully.
+2025-04-06 00:42:14,743 - __main__ - INFO - Camera 172.21.143.51 turned off successfully.
+2025-04-06 00:42:14,744 - __main__ - INFO - Camera 172.20.157.51 turned off successfully.
+2025-04-06 00:42:14,745 - __main__ - INFO - Camera 172.28.198.51 turned off successfully.
+2025-04-06 00:42:14,747 - __main__ - INFO - Camera 172.27.103.51 turned off successfully.

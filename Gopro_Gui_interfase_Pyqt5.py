@@ -122,11 +122,12 @@ class GoProControlApp(QMainWindow):
         self.is_recording = False
         self.log_content = []
         self.download_folder = None
-        
+        self.connected_cameras_count = 0  # Initialize the camera count
+
         # Getting paths to directories
         self.app_root = get_app_root()
         self.data_dir = get_data_dir()
-        
+
         # Main Widget and Layout
         self.main_widget = QWidget()
         self.setCentralWidget(self.main_widget)
@@ -144,6 +145,12 @@ class GoProControlApp(QMainWindow):
 
         # Control Tab Layout
         self.control_layout = QVBoxLayout(self.control_tab)
+
+        # Add a label to display the number of connected cameras
+        self.camera_count_label = QLabel("Connected Cameras: 0")
+        self.camera_count_label.setStyleSheet("font-weight: bold; color: green;")
+        self.control_layout.addWidget(self.camera_count_label)
+
         self.connect_button = QPushButton("Connect to Cameras")
         self.connect_button.setFixedHeight(50)  # Increasing the height by 2 times
         self.connect_button.clicked.connect(self.connect_to_cameras)
@@ -376,6 +383,11 @@ class GoProControlApp(QMainWindow):
         """Handler for ending the connection to the cameras"""
         self.connect_button.setEnabled(True)
         if success:
+            # Update the connected cameras count
+            self.connected_cameras_count = self.get_connected_cameras_count()
+            logger.info(f"Connected cameras count: {self.connected_cameras_count}")
+            self.camera_count_label.setText(f"Connected Cameras: {self.connected_cameras_count}")
+            self.camera_count_label.repaint()  # Force UI update
             self.log_message("Successfully connected to cameras")
         else:
             self.log_message("Failed to connect to cameras")
@@ -384,6 +396,18 @@ class GoProControlApp(QMainWindow):
                 "Error",
                 "Failed to connect to cameras"
             )
+
+    def get_connected_cameras_count(self):
+        """Retrieve the number of connected cameras"""
+        try:
+            # Replace this with the actual logic to count connected cameras
+            import goprolist_and_start_usb
+            count = goprolist_and_start_usb.get_camera_count()
+            logger.info(f"Retrieved camera count: {count}")
+            return count
+        except Exception as e:
+            logging.error(f"Error retrieving camera count: {e}")
+            return 0
 
     def copy_settings_from_prime(self):
         """Copies settings from the main camera to the others while displaying progress"""

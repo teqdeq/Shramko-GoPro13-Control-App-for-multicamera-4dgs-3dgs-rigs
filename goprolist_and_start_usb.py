@@ -152,6 +152,16 @@ def toggle_usb_control(camera_ip, enable):
         logging.error(f"Error toggling USB control on camera {camera_ip}: {e}")
         return False
 
+def get_camera_count():
+    """
+    Returns the number of connected cameras by using the discover_gopro_devices function.
+    """
+    try:
+        devices = discover_gopro_devices()  # Use the existing discovery logic
+        return len(devices)  # Return the count of discovered devices
+    except Exception as e:
+        raise RuntimeError(f"Error detecting cameras: {e}")
+
 def main():
     """Main function for connecting to cameras"""
     try:
