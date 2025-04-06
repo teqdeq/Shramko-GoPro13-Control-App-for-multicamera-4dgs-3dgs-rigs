@@ -29,3 +29,10 @@ var/
 # OS
 .DS_Store
 Thumbs.db
+
+
+/logs
+/data
+*.log
+*.csv
+*.json
