@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -16,9 +15,17 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Virtual Environment
+.env
+.venv
+env/
+venv/
+ENV/
 
 # IDE
 .idea/
@@ -30,9 +37,9 @@ var/
 .DS_Store
 Thumbs.db
 
-
-/logs
-/data
+# Project specific
+build_env/
 *.log
-*.csv
-*.json
+logs/
+data/
+camera_cache.json
