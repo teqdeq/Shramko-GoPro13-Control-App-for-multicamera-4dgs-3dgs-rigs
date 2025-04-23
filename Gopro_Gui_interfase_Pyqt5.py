@@ -229,11 +229,11 @@ class KeepAliveThread(QThread):
 class RecordThread(QThread):
     progress_signal = pyqtSignal(str)
     finished_signal = pyqtSignal(bool)
+    error_signal = pyqtSignal(str)
 
     def __init__(self, is_recording, parent=None):
         super().__init__(parent)
         self.is_recording = is_recording
-        self.keep_alive_thread = None
 
     def run(self):
         try:
@@ -253,34 +253,28 @@ class RecordThread(QThread):
             logger.addHandler(handler)
 
             try:
-                if self.is_recording:
-                    # Start keep-alive thread before starting recording
-                    self.keep_alive_thread = KeepAliveThread()
-                    self.keep_alive_thread.log_signal.connect(self.progress_signal.emit)
-                    self.keep_alive_thread.start()
-                    self.progress_signal.emit("Keep-alive thread started to prevent camera screen timeouts")
-                    
-                    import stop_record
-                    stop_record.main()
-                else:
+                if not self.is_recording:  # Starting recording
                     import goprolist_usb_activate_time_sync_record
                     goprolist_usb_activate_time_sync_record.main()
+                    self.progress_signal.emit("Recording started successfully")
+                else:  # Stopping recording
+                    import stop_record
+                    stop_record.main()
+                    self.progress_signal.emit("Recording stopped successfully")
 
                 self.finished_signal.emit(True)
             except Exception as e:
-                logging.error(f"Error during recording operation: {e}")
-                self.progress_signal.emit(f"Error: {str(e)}")
+                error_msg = f"Error during recording operation: {str(e)}"
+                logging.error(error_msg)
+                self.error_signal.emit(error_msg)
                 self.finished_signal.emit(False)
             finally:
-                # Stop keep-alive thread if it's running
-                if self.keep_alive_thread and self.keep_alive_thread.isRunning():
-                    self.keep_alive_thread.stop()
-                    self.keep_alive_thread.wait()  # Wait for thread to finish
-                    self.progress_signal.emit("Keep-alive thread stopped")
                 logger.removeHandler(handler)
+
         except Exception as e:
-            logging.error(f"Thread error: {e}")
-            self.progress_signal.emit(f"Thread error: {str(e)}")
+            error_msg = f"Thread error: {str(e)}"
+            logging.error(error_msg)
+            self.error_signal.emit(error_msg)
             self.finished_signal.emit(False)
 
 
@@ -752,26 +746,50 @@ class GoProControlApp(QMainWindow):
             )
 
     def toggle_record(self):
-        self.record_button.setEnabled(False)
-        if self.is_recording:
-            self.record_button.setStyleSheet(BUTTON_STYLES['danger'])
-            self.record_button.setText("Stop Recording")
-        else:
+        """Modified toggle_record method in GoProControlApp class"""
+        try:
+            # Disable the button immediately
+            self.record_button.setEnabled(False)
+            
+            # Create and start the RecordThread with current recording state
+            self.record_thread = RecordThread(self.is_recording, self)
+            self.record_thread.progress_signal.connect(self.log_message)
+            self.record_thread.error_signal.connect(self.handle_record_error)
+            self.record_thread.finished_signal.connect(self.on_record_finished)
+            self.record_thread.start()
+
+            # Update button appearance based on current state
+            if self.is_recording:  # Currently recording, about to stop
+                self.record_button.setStyleSheet(BUTTON_STYLES['success'])
+                self.record_button.setText("Record")
+            else:  # Not recording, about to start
+                self.record_button.setStyleSheet(BUTTON_STYLES['danger'])
+                self.record_button.setText("Stop Recording")
+
+        except Exception as e:
+            self.log_message(f"Error in toggle_record: {str(e)}")
+            self.record_button.setEnabled(True)
             self.record_button.setStyleSheet(BUTTON_STYLES['success'])
             self.record_button.setText("Record")
 
-        # Create and start the RecordThread
-        self.record_thread = RecordThread(self.is_recording)
-        self.record_thread.progress_signal.connect(self.log_message)
-        self.record_thread.finished_signal.connect(
-            lambda success: self.on_record_finished(success)
+    def handle_record_error(self, error_msg):
+        """Handler for recording errors"""
+        self.log_message(f"Recording error: {error_msg}")
+        QMessageBox.critical(
+            self,
+            "Recording Error",
+            f"An error occurred during recording:\n{error_msg}"
         )
-        self.record_thread.start()
-    
+        # Reset button state
+        self.record_button.setEnabled(True)
+        self.record_button.setStyleSheet(BUTTON_STYLES['success'])
+        self.record_button.setText("Record")
+        self.is_recording = False
+
     def on_record_finished(self, success):
         """Handler for ending the recording operation"""
-        self.record_button.setEnabled(True)
         if success:
+            # Only toggle recording state if operation was successful
             self.is_recording = not self.is_recording
             if self.is_recording:
                 self.record_button.setStyleSheet(BUTTON_STYLES['danger'])
@@ -781,12 +799,19 @@ class GoProControlApp(QMainWindow):
                 self.record_button.setText("Record")
             self.log_message("Recording operation completed successfully")
         else:
+            # Reset to non-recording state on failure
+            self.is_recording = False
+            self.record_button.setStyleSheet(BUTTON_STYLES['success'])
+            self.record_button.setText("Record")
             self.log_message("Recording operation failed")
             QMessageBox.critical(
                 self,
                 "Error",
                 "Failed to complete recording operation"
             )
+        
+        # Always re-enable the button
+        self.record_button.setEnabled(True)
 
     def set_first_camera_preset(self):
         self.set_preset_button.setEnabled(False)
