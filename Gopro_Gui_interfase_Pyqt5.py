@@ -5,8 +5,9 @@ import subprocess
 import logging
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QTabWidget, QWidget,
                              QVBoxLayout, QPushButton, QLabel, QTextEdit, QFileDialog,
-                             QMessageBox)
-from PyQt5.QtCore import Qt, QThread, pyqtSignal
+                             QMessageBox, QFrame, QGridLayout)
+from PyQt5.QtCore import Qt, QThread, pyqtSignal, QTimer
+from PyQt5.QtGui import QFont, QPalette, QColor
 from datetime import datetime
 from pathlib import Path
 
@@ -24,6 +25,127 @@ from preset_manager_gui import PresetManagerDialog
 from single_photo_timelapse_gui import SinglePhotoTimelapseGUI
 from power_management import PowerManager
 
+# Modern color scheme
+COLORS = {
+    'primary': '#2196F3',      # Blue
+    'success': '#4CAF50',      # Green
+    'warning': '#FFC107',      # Yellow
+    'danger': '#F44336',       # Red
+    'info': '#00BCD4',         # Cyan
+    'dark': '#212121',         # Dark gray
+    'light': '#F5F5F5',        # Light gray
+    'white': '#FFFFFF',
+    'black': '#000000'
+}
+
+# Button styles
+BUTTON_STYLES = {
+    'primary': f"""
+        QPushButton {{
+            background-color: {COLORS['primary']};
+            color: {COLORS['white']};
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }}
+        QPushButton:hover {{
+            background-color: #1976D2;
+        }}
+        QPushButton:pressed {{
+            background-color: #0D47A1;
+        }}
+        QPushButton:disabled {{
+            background-color: #BDBDBD;
+            color: #757575;
+        }}
+    """,
+    'success': f"""
+        QPushButton {{
+            background-color: {COLORS['success']};
+            color: {COLORS['white']};
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }}
+        QPushButton:hover {{
+            background-color: #388E3C;
+        }}
+        QPushButton:pressed {{
+            background-color: #1B5E20;
+        }}
+        QPushButton:disabled {{
+            background-color: #BDBDBD;
+            color: #757575;
+        }}
+    """,
+    'warning': f"""
+        QPushButton {{
+            background-color: {COLORS['warning']};
+            color: {COLORS['black']};
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }}
+        QPushButton:hover {{
+            background-color: #FFA000;
+        }}
+        QPushButton:pressed {{
+            background-color: #FF6F00;
+        }}
+        QPushButton:disabled {{
+            background-color: #BDBDBD;
+            color: #757575;
+        }}
+    """,
+    'danger': f"""
+        QPushButton {{
+            background-color: {COLORS['danger']};
+            color: {COLORS['white']};
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }}
+        QPushButton:hover {{
+            background-color: #D32F2F;
+        }}
+        QPushButton:pressed {{
+            background-color: #B71C1C;
+        }}
+        QPushButton:disabled {{
+            background-color: #BDBDBD;
+            color: #757575;
+        }}
+    """,
+    'info': f"""
+        QPushButton {{
+            background-color: {COLORS['info']};
+            color: {COLORS['white']};
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }}
+        QPushButton:hover {{
+            background-color: #0097A7;
+        }}
+        QPushButton:pressed {{
+            background-color: #006064;
+        }}
+        QPushButton:disabled {{
+            background-color: #BDBDBD;
+            color: #757575;
+        }}
+    """
+}
 
 class ScriptRunner(QThread):
     output_signal = pyqtSignal(str)
@@ -124,6 +246,42 @@ class GoProControlApp(QMainWindow):
         self.download_folder = None
         self.connected_cameras_count = 0  # Initialize the camera count
 
+        # Set window size for 7-inch touch screen
+        self.setMinimumSize(800, 800)  # Increased height from 480 to 600
+        self.resize(800, 800)  # Set initial size
+        
+        # Apply modern style
+        self.setStyleSheet(f"""
+            QMainWindow {{
+                background-color: {COLORS['light']};
+            }}
+            QTabWidget::pane {{
+                border: 1px solid {COLORS['dark']};
+                background: {COLORS['white']};
+            }}
+            QTabBar::tab {{
+                background: {COLORS['light']};
+                color: {COLORS['dark']};
+                padding: 8px 16px;
+                border: 1px solid {COLORS['dark']};
+            }}
+            QTabBar::tab:selected {{
+                background: {COLORS['primary']};
+                color: {COLORS['white']};
+            }}
+            QLabel {{
+                font-size: 14px;
+                color: {COLORS['dark']};
+            }}
+            QTextEdit {{
+                background-color: {COLORS['white']};
+                border: 1px solid {COLORS['dark']};
+                border-radius: 4px;
+                padding: 8px;
+                font-size: 14px;
+            }}
+        """)
+
         # Getting paths to directories
         self.app_root = get_app_root()
         self.data_dir = get_data_dir()
@@ -132,6 +290,8 @@ class GoProControlApp(QMainWindow):
         self.main_widget = QWidget()
         self.setCentralWidget(self.main_widget)
         self.layout = QVBoxLayout(self.main_widget)
+        self.layout.setSpacing(16)  # Increased spacing between elements
+        self.layout.setContentsMargins(16, 16, 16, 16)  # Add margins
 
         # Tabs
         self.tab_control = QTabWidget()
@@ -145,101 +305,187 @@ class GoProControlApp(QMainWindow):
 
         # Control Tab Layout
         self.control_layout = QVBoxLayout(self.control_tab)
+        self.control_layout.setSpacing(16)
+        self.control_layout.setContentsMargins(16, 16, 16, 16)
+        self.control_layout.setStretch(0, 0)  # Don't stretch the camera count label
+        self.control_layout.setStretch(1, 0)  # Don't stretch the button container
+        self.control_layout.setStretch(2, 1)  # Stretch the log window
+        self.control_layout.setStretch(3, 0)  # Don't stretch the save log button
+        self.control_layout.setStretch(4, 0)  # Don't stretch the secondary controls
 
-        # Add a label to display the number of connected cameras
+        # Camera count label with modern styling
         self.camera_count_label = QLabel("Connected Cameras: 0")
-        self.camera_count_label.setStyleSheet("font-weight: bold; color: green;")
+        self.camera_count_label.setStyleSheet(f"""
+            font-size: 18px;
+            font-weight: bold;
+            color: {COLORS['primary']};
+            padding: 8px;
+            background-color: {COLORS['white']};
+            border-radius: 8px;
+        """)
         self.control_layout.addWidget(self.camera_count_label)
 
+        # Create button container for better organization
+        self.button_container = QFrame()
+        self.button_container.setStyleSheet(f"""
+            QFrame {{
+                background-color: {COLORS['white']};
+                border-radius: 8px;
+                padding: 8px;
+            }}
+        """)
+        self.button_layout = QGridLayout(self.button_container)
+        self.button_layout.setSpacing(12)
+        self.button_layout.setContentsMargins(8, 8, 8, 8)
+        self.control_layout.addWidget(self.button_container)
+
+        # Connect button with primary style
         self.connect_button = QPushButton("Connect to Cameras")
-        self.connect_button.setFixedHeight(50)  # Increasing the height by 2 times
+        self.connect_button.setFixedHeight(60)  # Increased height for touch
+        self.connect_button.setStyleSheet(BUTTON_STYLES['primary'])
         self.connect_button.clicked.connect(self.connect_to_cameras)
-        self.control_layout.addWidget(self.connect_button)
+        self.button_layout.addWidget(self.connect_button, 0, 0)  # Row 0, Column 0
 
+        # Copy settings button with info style
         self.copy_settings_button = QPushButton("Copy Settings from Prime Camera")
-        self.copy_settings_button.setFixedHeight(50)  # Increasing the height by 2 times
+        self.copy_settings_button.setFixedHeight(60)
+        self.copy_settings_button.setStyleSheet(BUTTON_STYLES['info'])
         self.copy_settings_button.clicked.connect(self.copy_settings_from_prime)
-        self.control_layout.addWidget(self.copy_settings_button)
+        self.button_layout.addWidget(self.copy_settings_button, 0, 1)  # Row 0, Column 1
 
+        # Record button with success/danger style
         self.record_button = QPushButton("Record")
-        self.record_button.setFixedHeight(75)  # Increasing the height by 3 times
+        self.record_button.setFixedHeight(80)  # Extra large for main action
+        self.record_button.setStyleSheet(BUTTON_STYLES['success'])
         self.record_button.clicked.connect(self.toggle_record)
-        self.control_layout.addWidget(self.record_button)
+        self.button_layout.addWidget(self.record_button, 1, 0, 1, 2)  # Row 1, spans both columns
 
-        self.set_preset_button = QPushButton("Set First Camera Preset on All Cameras")
-        self.set_preset_button.clicked.connect(self.set_first_camera_preset)
-        self.control_layout.addWidget(self.set_preset_button)
-
-        self.turn_off_button = QPushButton("Turn Off Cameras")
-        self.turn_off_button.clicked.connect(self.turn_off_cameras)
-        self.control_layout.addWidget(self.turn_off_button)
-
-        # Add Photo Mode button
+        # Photo/Video mode buttons with primary style
         self.photo_mode_button = QPushButton("Photo Mode")
-        self.photo_mode_button.setFixedHeight(50)  # Set button height
+        self.photo_mode_button.setFixedHeight(60)
+        self.photo_mode_button.setStyleSheet(BUTTON_STYLES['primary'])
         self.photo_mode_button.clicked.connect(lambda: self.run_script("photo_mode.py", self.photo_mode_button))
-        self.control_layout.addWidget(self.photo_mode_button)
+        self.button_layout.addWidget(self.photo_mode_button, 3, 0)  # Row 3, Column 0
 
-        # Add Video Mode button
         self.video_mode_button = QPushButton("Video Mode")
-        self.video_mode_button.setFixedHeight(50)  # Set button height
+        self.video_mode_button.setFixedHeight(60)
+        self.video_mode_button.setStyleSheet(BUTTON_STYLES['primary'])
         self.video_mode_button.clicked.connect(lambda: self.run_script("video_mode.py", self.video_mode_button))
-        self.control_layout.addWidget(self.video_mode_button)
+        self.button_layout.addWidget(self.video_mode_button, 3, 1)  # Row 3, Column 1
 
-        # Log Window (Control Tab)
+        # Log Window with modern styling
         self.log_text = QTextEdit()
         self.log_text.setReadOnly(True)
+        self.log_text.setMinimumHeight(150)  # Increased height for better visibility
         self.control_layout.addWidget(self.log_text)
 
-        # Save Log Button
+        # Save Log button with info style
         self.save_log_button = QPushButton("Save Log")
+        self.save_log_button.setFixedHeight(50)
+        self.save_log_button.setStyleSheet(BUTTON_STYLES['info'])
         self.save_log_button.clicked.connect(self.save_log)
         self.control_layout.addWidget(self.save_log_button)
 
+        # Secondary controls container
+        self.secondary_controls_container = QFrame()
+        self.secondary_controls_container.setStyleSheet(f"""
+            QFrame {{
+                background-color: {COLORS['white']};
+                border-radius: 8px;
+                padding: 8px;
+            }}
+        """)
+        self.secondary_controls_layout = QGridLayout(self.secondary_controls_container)
+        self.secondary_controls_layout.setSpacing(12)
+        self.secondary_controls_layout.setContentsMargins(8, 8, 8, 8)
+        self.control_layout.addWidget(self.secondary_controls_container)
+
+        # Move these buttons to the secondary controls container
+        self.set_preset_button = QPushButton("Set First Camera Preset on All Cameras")
+        self.set_preset_button.setFixedHeight(60)
+        self.set_preset_button.setStyleSheet(BUTTON_STYLES['info'])
+        self.set_preset_button.clicked.connect(self.set_first_camera_preset)
+        self.secondary_controls_layout.addWidget(self.set_preset_button, 0, 0)  # Row 0, Column 0
+
+        self.turn_off_button = QPushButton("Turn Off Cameras")
+        self.turn_off_button.setFixedHeight(60)
+        self.turn_off_button.setStyleSheet(BUTTON_STYLES['warning'])
+        self.turn_off_button.clicked.connect(self.turn_off_cameras)
+        self.secondary_controls_layout.addWidget(self.turn_off_button, 0, 1)  # Row 0, Column 1
+
+        self.preset_manager_btn = QPushButton("Preset Manager")
+        self.preset_manager_btn.setFixedHeight(60)
+        self.preset_manager_btn.setStyleSheet(BUTTON_STYLES['info'])
+        self.preset_manager_btn.clicked.connect(self.show_preset_manager)
+        self.secondary_controls_layout.addWidget(self.preset_manager_btn, 1, 0)  # Row 1, Column 0
+        
+        self.timelapse_btn = QPushButton("Single Photo Timelapse")
+        self.timelapse_btn.setFixedHeight(60)
+        self.timelapse_btn.setStyleSheet(BUTTON_STYLES['primary'])
+        self.timelapse_btn.clicked.connect(self.show_timelapse)
+        self.secondary_controls_layout.addWidget(self.timelapse_btn, 1, 1)  # Row 1, Column 1
+
         # Download Tab Layout
         self.download_layout = QVBoxLayout(self.download_tab)
+        self.download_layout.setSpacing(16)
+        self.download_layout.setContentsMargins(16, 16, 16, 16)
 
+        # Download folder label with modern styling
         self.download_label = QLabel("No folder selected")
-        self.download_label.setStyleSheet("color: blue;")
+        self.download_label.setStyleSheet(f"""
+            font-size: 16px;
+            color: {COLORS['primary']};
+            padding: 8px;
+            background-color: {COLORS['white']};
+            border-radius: 8px;
+        """)
         self.download_layout.addWidget(self.download_label)
 
+        # Download buttons container
+        self.download_button_container = QFrame()
+        self.download_button_container.setStyleSheet(f"""
+            QFrame {{
+                background-color: {COLORS['white']};
+                border-radius: 8px;
+                padding: 8px;
+            }}
+        """)
+        self.download_button_layout = QGridLayout(self.download_button_container)
+        self.download_button_layout.setSpacing(12)
+        self.download_button_layout.setContentsMargins(8, 8, 8, 8)
+        self.download_layout.addWidget(self.download_button_container)
+
+        # Download buttons with modern styling
         self.select_folder_button = QPushButton("Select Download Folder")
+        self.select_folder_button.setFixedHeight(60)
+        self.select_folder_button.setStyleSheet(BUTTON_STYLES['primary'])
         self.select_folder_button.clicked.connect(self.select_download_folder)
-        self.download_layout.addWidget(self.select_folder_button)
+        self.download_button_layout.addWidget(self.select_folder_button, 0, 0, 1, 2)  # Spans both columns
 
         self.download_button = QPushButton("Download all files from all Cameras")
+        self.download_button.setFixedHeight(60)
+        self.download_button.setStyleSheet(BUTTON_STYLES['success'])
         self.download_button.clicked.connect(self.download_files)
-        self.download_layout.addWidget(self.download_button)
+        self.download_button_layout.addWidget(self.download_button, 1, 0)  # Row 1, Column 0
 
         self.format_button = QPushButton("Format All Cameras")
+        self.format_button.setFixedHeight(60)
+        self.format_button.setStyleSheet(BUTTON_STYLES['danger'])
         self.format_button.clicked.connect(self.format_all_cameras)
-        self.download_layout.addWidget(self.format_button)
+        self.download_button_layout.addWidget(self.format_button, 1, 1)  # Row 1, Column 1
 
-        # Log Window (Download Tab)
+        # Download log with modern styling
         self.download_log_text = QTextEdit()
         self.download_log_text.setReadOnly(True)
-        self.download_log_text.setMaximumHeight(100)  # Limiting the height to approximately 5 lines
+        self.download_log_text.setMinimumHeight(100)
         self.download_layout.addWidget(self.download_log_text)
 
-        self.base_dir = os.path.dirname(os.path.abspath(__file__))
-
-        # Initializing the copy progress widget
+        # Initialize the copy progress widget
         self.init_copy_progress()
-        
-        # Adding a preset management button to control_layout
-        self.preset_manager_btn = QPushButton("Preset Manager")
-    
-        self.preset_manager_btn.clicked.connect(self.show_preset_manager)
-        self.control_layout.addWidget(self.preset_manager_btn)
-        
-        # Adding a Single Photo Timelapse button to control_layout
-        self.timelapse_btn = QPushButton("Single Photo Timelapse")
-        self.timelapse_btn.clicked.connect(self.show_timelapse)
-        self.control_layout.addWidget(self.timelapse_btn)
         
         self.power_manager = PowerManager()
         
-        self.log_signal.connect(self.append_log_message)  # Connect the signal to a slot
+        self.log_signal.connect(self.append_log_message)
 
     def init_copy_progress(self):
         """Initializing the copy progress widget"""
@@ -278,6 +524,14 @@ class GoProControlApp(QMainWindow):
         self.download_log_text.append(message)
 
     def run_script(self, script_name, button_to_enable, additional_args=None):
+        # Disable the button and update its text immediately
+        button_to_enable.setEnabled(False)
+        if button_to_enable == self.photo_mode_button or button_to_enable == self.video_mode_button:
+            button_to_enable.setText(f"{button_to_enable.text()} (Processing...)")
+            self.log_message(f"Starting {button_to_enable.text()} operation...")
+            # Force the UI to update immediately
+            QApplication.processEvents()
+
         try:
             script_path = self.app_root / script_name
             if not script_path.exists():
@@ -298,6 +552,8 @@ class GoProControlApp(QMainWindow):
             with process.stdout as stdout, process.stderr as stderr:
                 for line in iter(stdout.readline, ""):
                     if line:
+                        # Remove [ERROR] prefix if it's not actually an error
+                        line = line.replace("[ERROR] ", "") if "successfully" in line else line
                         self.log_message(line.strip())
                 for line in iter(stderr.readline, ""):
                     if line:
@@ -307,27 +563,42 @@ class GoProControlApp(QMainWindow):
             if process.returncode != 0:
                 raise subprocess.CalledProcessError(process.returncode, command)
 
+            # Only re-enable the button if the operation was successful
+            if button_to_enable == self.photo_mode_button or button_to_enable == self.video_mode_button:
+                self.log_message(f"{button_to_enable.text()} operation completed successfully")
+                # Keep the button disabled for a moment to show completion
+                QTimer.singleShot(1000, lambda: self.enable_button(button_to_enable))
+
         except FileNotFoundError as e:
             logging.error(f"File not found: {e}")
             self.log_message(f"Error: {str(e)}")
+            self.enable_button(button_to_enable)
         except subprocess.CalledProcessError as e:
             logging.error(f"Script {script_name} failed with exit code {e.returncode}")
             self.log_message(f"Error: Script {script_name} failed with exit code {e.returncode}. Command: {e.cmd}")
+            self.enable_button(button_to_enable)
         except Exception as e:
             logging.error(f"Error running script {script_name}: {e}")
             self.log_message(f"Error: {str(e)}")
-        finally:
-            button_to_enable.setEnabled(True)
+            self.enable_button(button_to_enable)
+
+    def enable_button(self, button):
+        """Helper method to safely enable a button and restore its text"""
+        button.setEnabled(True)
+        if button == self.photo_mode_button:
+            button.setText("Photo Mode")
+        elif button == self.video_mode_button:
+            button.setText("Video Mode")
+        elif button == self.record_button:
+            if self.is_recording:
+                button.setText("Stop")
+            else:
+                button.setText("Record")
 
     def on_script_finished(self, success, button_to_enable):
-        button_to_enable.setEnabled(True)
-        if button_to_enable == self.record_button:
-            if self.is_recording:
-                self.record_button.setText("Stop")
-            else:
-                self.record_button.setText("Record")
         if not success:
             QMessageBox.critical(self, "Script Error", "The script did not complete successfully.")
+            self.enable_button(button_to_enable)
 
     def connect_to_cameras(self):
         self.connect_button.setEnabled(False)
@@ -433,6 +704,12 @@ class GoProControlApp(QMainWindow):
 
     def toggle_record(self):
         self.record_button.setEnabled(False)
+        if self.is_recording:
+            self.record_button.setStyleSheet(BUTTON_STYLES['danger'])
+            self.record_button.setText("Stop Recording")
+        else:
+            self.record_button.setStyleSheet(BUTTON_STYLES['success'])
+            self.record_button.setText("Record")
 
         # Create and start the RecordThread
         self.record_thread = RecordThread(self.is_recording)
@@ -444,10 +721,15 @@ class GoProControlApp(QMainWindow):
     
     def on_record_finished(self, success):
         """Handler for ending the recording operation"""
-        self.record_button.setEnabled(True)  # Ensure the button is re-enabled
+        self.record_button.setEnabled(True)
         if success:
             self.is_recording = not self.is_recording
-            self.record_button.setText("Stop Recording" if self.is_recording else "Record")
+            if self.is_recording:
+                self.record_button.setStyleSheet(BUTTON_STYLES['danger'])
+                self.record_button.setText("Stop Recording")
+            else:
+                self.record_button.setStyleSheet(BUTTON_STYLES['success'])
+                self.record_button.setText("Record")
             self.log_message("Recording operation completed successfully")
         else:
             self.log_message("Recording operation failed")
