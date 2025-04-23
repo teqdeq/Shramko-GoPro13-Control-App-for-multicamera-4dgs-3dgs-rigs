@@ -189,6 +189,43 @@ class ScriptRunner(QThread):
             self.finished_signal.emit(False)
 
 
+class KeepAliveThread(QThread):
+    """Thread to send periodic keep-alive commands to cameras"""
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.is_running = True
+        self.keep_alive_interval = 30  # Send keep-alive every 30 seconds
+        self.log_signal = pyqtSignal(str)  # Signal for logging keep-alive status
+
+    def run(self):
+        while self.is_running:
+            try:
+                # Import the camera list module
+                import goprolist_and_start_usb
+                cameras = goprolist_and_start_usb.get_camera_list()
+                
+                # Send keep-alive to each camera
+                for camera in cameras:
+                    try:
+                        # Send a simple status check command to keep the connection alive
+                        camera.get_status()
+                        self.log_signal.emit(f"Keep-alive sent to camera {camera.serial_number}")
+                    except Exception as e:
+                        self.log_signal.emit(f"Warning: Failed to send keep-alive to camera {camera.serial_number}: {str(e)}")
+                
+                # Sleep until next keep-alive
+                for _ in range(self.keep_alive_interval):
+                    if not self.is_running:
+                        break
+                    self.msleep(1000)  # Sleep in 1-second intervals to allow for quick stopping
+                    
+            except Exception as e:
+                self.log_signal.emit(f"Error in keep-alive thread: {str(e)}")
+                self.msleep(1000)  # Sleep briefly before retrying
+
+    def stop(self):
+        self.is_running = False
+
 class RecordThread(QThread):
     progress_signal = pyqtSignal(str)
     finished_signal = pyqtSignal(bool)
@@ -196,6 +233,7 @@ class RecordThread(QThread):
     def __init__(self, is_recording, parent=None):
         super().__init__(parent)
         self.is_recording = is_recording
+        self.keep_alive_thread = None
 
     def run(self):
         try:
@@ -216,6 +254,12 @@ class RecordThread(QThread):
 
             try:
                 if self.is_recording:
+                    # Start keep-alive thread before starting recording
+                    self.keep_alive_thread = KeepAliveThread()
+                    self.keep_alive_thread.log_signal.connect(self.progress_signal.emit)
+                    self.keep_alive_thread.start()
+                    self.progress_signal.emit("Keep-alive thread started to prevent camera screen timeouts")
+                    
                     import stop_record
                     stop_record.main()
                 else:
@@ -228,6 +272,11 @@ class RecordThread(QThread):
                 self.progress_signal.emit(f"Error: {str(e)}")
                 self.finished_signal.emit(False)
             finally:
+                # Stop keep-alive thread if it's running
+                if self.keep_alive_thread and self.keep_alive_thread.isRunning():
+                    self.keep_alive_thread.stop()
+                    self.keep_alive_thread.wait()  # Wait for thread to finish
+                    self.progress_signal.emit("Keep-alive thread stopped")
                 logger.removeHandler(handler)
         except Exception as e:
             logging.error(f"Thread error: {e}")
