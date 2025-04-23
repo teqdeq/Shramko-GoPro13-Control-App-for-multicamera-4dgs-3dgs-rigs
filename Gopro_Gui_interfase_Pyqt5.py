@@ -191,11 +191,13 @@ class ScriptRunner(QThread):
 
 class KeepAliveThread(QThread):
     """Thread to send periodic keep-alive commands to cameras"""
+    log_signal = pyqtSignal(str)  # Define the signal at class level
+    
     def __init__(self, parent=None):
         super().__init__(parent)
         self.is_running = True
-        self.keep_alive_interval = 30  # Send keep-alive every 30 seconds
-        self.log_signal = pyqtSignal(str)  # Signal for logging keep-alive status
+        self.keep_alive_interval = 3  # Send keep-alive every 3 seconds as per OpenAPI spec
+        self.camera_keep_alives = {}  # Dictionary to store CameraKeepAlive instances
 
     def run(self):
         while self.is_running:
@@ -207,11 +209,21 @@ class KeepAliveThread(QThread):
                 # Send keep-alive to each camera
                 for camera in cameras:
                     try:
-                        # Send a simple status check command to keep the connection alive
-                        camera.get_status()
-                        self.log_signal.emit(f"Keep-alive sent to camera {camera.serial_number}")
+                        camera_ip = camera['ip']
+                        
+                        # Create or get CameraKeepAlive instance for this camera
+                        if camera_ip not in self.camera_keep_alives:
+                            from camera_keep_alive import CameraKeepAlive
+                            self.camera_keep_alives[camera_ip] = CameraKeepAlive(camera_ip)
+                        
+                        # Send keep-alive commands
+                        if self.camera_keep_alives[camera_ip].keep_alive():
+                            self.log_signal.emit(f"Keep-alive sent to camera {camera['name']}")
+                        else:
+                            self.log_signal.emit(f"Warning: Failed to send keep-alive to camera {camera['name']}")
+                            
                     except Exception as e:
-                        self.log_signal.emit(f"Warning: Failed to send keep-alive to camera {camera.serial_number}: {str(e)}")
+                        self.log_signal.emit(f"Warning: Failed to send keep-alive to camera {camera['name']}: {str(e)}")
                 
                 # Sleep until next keep-alive
                 for _ in range(self.keep_alive_interval):
@@ -225,6 +237,7 @@ class KeepAliveThread(QThread):
 
     def stop(self):
         self.is_running = False
+        self.camera_keep_alives.clear()  # Clean up CameraKeepAlive instances
 
 class RecordThread(QThread):
     progress_signal = pyqtSignal(str)
@@ -234,6 +247,7 @@ class RecordThread(QThread):
     def __init__(self, is_recording, parent=None):
         super().__init__(parent)
         self.is_recording = is_recording
+        self.keep_alive_thread = None
 
     def run(self):
         try:
@@ -256,8 +270,20 @@ class RecordThread(QThread):
                 if not self.is_recording:  # Starting recording
                     import goprolist_usb_activate_time_sync_record
                     goprolist_usb_activate_time_sync_record.main()
+                    
+                    # Start keep-alive thread when recording starts
+                    self.keep_alive_thread = KeepAliveThread()
+                    self.keep_alive_thread.log_signal.connect(self.progress_signal.emit)
+                    self.keep_alive_thread.start()
+                    
                     self.progress_signal.emit("Recording started successfully")
                 else:  # Stopping recording
+                    # Stop keep-alive thread when recording stops
+                    if self.keep_alive_thread:
+                        self.keep_alive_thread.stop()
+                        self.keep_alive_thread.wait()
+                        self.keep_alive_thread = None
+                    
                     import stop_record
                     stop_record.main()
                     self.progress_signal.emit("Recording stopped successfully")
